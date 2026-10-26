@@ -24,3 +24,14 @@
 - 初回commitでGit author未設定のエラーが出たため、接続済みアカウントのnoreply identityをrepo-localに設定してcommit/pushを完了した。global設定は変更していない。
 - 未確認: 実Igor 9.05での実行、利用者.pxpの保存/再起動/同定一致、Skillsの実機デバッグでの有効性。構文・検出・指示本文を確認したことと実機機能保証を区別する。
 - 次: GitHubからの新規checkout復元検証、改変検出試験、最終記録とDraft PR。
+
+## 2026-10-26 / checkpoint 3: verified resumption and draft review
+
+- checkpoint 2の保存SHA: `4da023ee4bbfeec5159c371754f6746ba2d75d8b`。
+- 復元試験: GitHubから新規cloneしたtmp/igor2_resume_check_v1で同じSHA、git status clean、管理基盤検査905項目エラー0を確認。元IPFの改行・encodingを含む270ファイルを保持したまま再開可能。
+- 失敗検出試験: 別clone tmp/igor2_negative_check_v1のxrd_main.ipfにだけ検証用コメントを追加し、検査がBaseline changed/size changedと終了コード1を返すことを確認。意図した失敗のため、この試験cloneは継続開発に使わない。
+- 変更: STATUSを次回の実.pxp検証待ちへ更新。VALIDATION_RESULTSを追加し、READMEからリンク。
+- 最終静的検査: 906項目、エラー0。3 Skillsの構文/検出はcheckpoint 2で合格、原本とアプリコードは以後変更なし。git diff --check合格。
+- GitHub: Draft PR #1 https://github.com/tomomatsu0127-dot/igor2/pull/1 を作成してチャットに添付。作業区切りごとにbranchへ保存。mainの開始SHAは保持。
+- 判断: 開発基盤の整備は完了。正本化候補のmain採用と実.pxp互換性保証は別の未完了事項。ユーザーの「GitHubの中身を全部消してよい」は許可として受け取ったが、作業に不要な削除は行わず、別XRDの既存実装も保持した。
+- 次: AGENTS/STATUS/LOGを読んで継続branchを取得し、Igor 9.05で利用者の複製.pxpの基準採取と更新・保存・再起動比較を実施する。現在のチェックポイントSHAはgit log -1またはPR最新commitから取得する。
