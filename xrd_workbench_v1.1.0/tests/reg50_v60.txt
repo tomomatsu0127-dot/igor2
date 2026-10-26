@@ -1,0 +1,68 @@
+XRD参照TXTを拒否: invalid_missing.csv - 必要な列がありません: l (行 1)
+XRD参照TXTを拒否: measurement_fe3o4_demo.csv - 必要な列がありません: l (行 1)
+XRD参照TXTを拒否: reference_invalid.txt - 必要な列がありません: h (行 4)
+XRD参照TXTを拒否: two_peaks.csv - 必要な列がありません: l (行 1)
+XRD参照データ: 2件読込 / 4件エラー
+読込できなかったファイル: invalid_missing.csv;measurement_fe3o4_demo.csv;reference_invalid.txt;two_peaks.csv;
+PASS: registered center remains measurement-grid point
+PASS: opening workbench leaves no runtime error
+PROFILE RESULT=0
+PASS: Igor CurveFit Gaussian succeeds with linear background
+PASS: fit recovers sub-grid synthetic center
+PASS: Gaussian FWHM uses Igor width convention
+PASS: preview does not adopt fitted angle
+PASS: explicit adoption updates center and preserves stable ID
+PASS: adopting center restores info panel without error
+PASS: adopted angle source is recorded
+PASS: replacement preview retains previously adopted center
+元に戻しました：ピークCurveFit
+元に戻しました：フィット中心角度を採用
+PASS: undo restores registered angle and profile adoption state
+PASS: undo restores info panel without error
+PASS: undo does not leave a stale adopted profile
+やり直しました：フィット中心角度を採用
+PASS: redo reapplies fitted center
+PASS: redo restores info panel without error
+PASS: fit adoption and undo redo preserve zoom and Ctrl I cursor
+元に戻しました：フィット中心角度を採用
+PASS: new mutation clears redo branch
+PASS: CurveFit never changes original measurement
+PASS: new branch retains valid window state
+PASS: insufficient fit points are rejected
+PASS: unsupported model is rejected
+PASS: wavelength belongs to each measurement
+PASS: second measurement leaves no stale error
+LORENTZ RESULT=0
+W_coef[0]= {-0.0407905,0.160465,30.017,0.0016}
+PASS: Lorentz fit recovers center
+PASS: Lorentz FWHM is validated
+PASS: reference alignment uses multiple-peak median
+PASS: all matched reference peaks count including another-phase assignment
+PASS: overlapped strongest line is not counted missing
+PASS: adopted-phase mode uses this measurement only
+PASS: new-phase mode excludes adopted references
+PASS: unmatched strong reference is separately reported
+PASS: audit contains unreviewed peaks and missing strong reference
+PASS: review exposes strong missing peak without rejecting phase
+PASS: new review metadata and reference panels open
+PASS: reference draft does not edit cached reference until applied
+PASS: reference editor applies metadata without changing card identity
+PASS: metadata draft applies validated wavelength
+元に戻しました：測定条件・ゼロ補正
+PASS: calibration edits can be undone
+PASS: filter explains ordinary forbidden-element phase
+PASS: filter explains type-family exemption
+PASS: display override leaves reference card identity separate
+PASS: project comparison table includes assigned measurement
+PASS: analysis report exports provenance and assignments
+PASS: report exists and is nonempty
+PASS: local CurveFit panel opens
+PASS: Ctrl Shift Z graph hook schedules redo
+PASS: Ctrl I is left to native cursor handling
+PASS: derived graphs visibly require regeneration after changes
+PASS: derived graph and annotation updates leave no stale error
+PASS: completed temporary recovery copy replaces rotation slot
+PASS: successful recovery leaves no pending copy
+PASS: save settings include recovery browser
+XRD v0.5.0 tests: failures=0
+XRD_RunV50Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:xrd_workbench_v0.6.0:samples:","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v60:reg50:")

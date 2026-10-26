@@ -1,0 +1,8 @@
+# card_number: TEST-FIVE
+# formula: CuFeO2
+# name: Copper Iron Oxide
+# phase_class:
+# source: original-pdf/PDF#01-070-6670-CuFeO2.pdf
+tt int h k l
+35.4 8e1 1 2 3
+15.479 2.0e1 2 0 -1

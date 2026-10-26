@@ -1,0 +1,1 @@
+Synthetic peaks: 30, 33, 40, 40.22, 50 deg. Sigma-like Gaussian widths: .045,.04,.05,.05,.18 deg. Seed 16318, independent uniform and uneven noise draws; normal noise sigma .35; uniform single-point spike at 47 deg.

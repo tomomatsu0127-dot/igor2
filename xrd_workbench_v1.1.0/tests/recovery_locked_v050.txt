@@ -1,0 +1,1 @@
+自動保存失敗（エラー 30016）：保存先を確認してくださいPASS: locked rotation target reports failure after temporary copy completesPASS: locked replacement retains generation and releases saving flagXRD_V50LockedRecovery("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v50:locked:",1)

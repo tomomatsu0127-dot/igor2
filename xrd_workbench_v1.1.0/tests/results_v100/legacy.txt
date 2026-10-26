@@ -1,0 +1,22 @@
+PASS: v080 real v072 saved data migrates to schema 800
+PASS: v080 migration retains untouched legacy recovery tree
+PASS: v080 real old raw data remains byte-identical after migration
+PASS: v080 legacy assignments translate through the owner-specific reference map
+PASS: v080 legacy Undo action count is preserved
+PASS: v080 repeated migration neither changes IDs nor duplicates references
+PASS: v080 migrated data opens a normal editable measurement graph
+元に戻しました：同定の採用・置換
+PASS: v080 retained legacy Undo entry can actually be applied
+やり直しました：同定の採用・置換
+PASS: v080 retained legacy Undo can be redone
+PASS: v080 project and sample navigator opens after migration
+PASS: v080 shared library detail and checkbox panel renders without runtime error
+v080 migration failures=0
+PASS: v100 real legacy folder can migrate and rename
+PASS: v100 migrated old sample retains immutable ID under Management
+PASS: v100 migration retains Raw mapped assignments and Undo count
+元に戻しました：同定の採用・置換
+やり直しました：同定の採用・置換
+PASS: v100 real legacy Undo and Redo run after physical move
+v100 legacy failures=0
+XRD_RunV100Legacy("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v72:features:side_project.pxp","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v100:legacy:")

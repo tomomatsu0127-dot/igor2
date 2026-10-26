@@ -1,0 +1,6 @@
+PASS: cubic CurveFit uses measurement-specific zero correction
+PASS: phase-specific lattice archive and residual quality table saved
+PASS: two selected phases retain separate lattice results
+PASS: analysis change invalidates stored phase-specific lattice results
+XRD v0.5.0 lattice failures=0
+XRD_V50LatticeTests()

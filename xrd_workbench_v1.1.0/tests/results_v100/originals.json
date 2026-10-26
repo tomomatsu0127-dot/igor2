@@ -1,0 +1,32 @@
+[
+  {
+    "file": "00-001-0562.txt",
+    "sha256": "a0c1a759d4fb3fca3b3be40483143a0cd189e6191ae98eb6792358d5d1012888",
+    "rows": 14,
+    "missing": 2
+  },
+  {
+    "file": "00-003-0380.txt",
+    "sha256": "ade7aed45f949992a2ea39751f11e99eaa2435849b51d7f11cfd49a76e931931",
+    "rows": 14,
+    "missing": 1
+  },
+  {
+    "file": "00-017-0106.txt",
+    "sha256": "7e20c338dca02073440a269569a37d25e63604978a686546ed99e93e9bee8c5e",
+    "rows": 16,
+    "missing": 16
+  },
+  {
+    "file": "00-019-0098.txt",
+    "sha256": "3c52b02110a63488fa96aa9841a8ec65294eeaa3d51c17f7feaa4168c789e66e",
+    "rows": 45,
+    "missing": 3
+  },
+  {
+    "file": "00-039-0183.txt",
+    "sha256": "ee55e0c3c27a2666e13a436dcec5af79c024a8fd6ada04e0ca26741a07c69869",
+    "rows": 33,
+    "missing": 1
+  }
+]

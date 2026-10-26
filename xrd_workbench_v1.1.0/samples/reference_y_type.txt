@@ -1,0 +1,12 @@
+# card_number: TEST-Y-001
+# formula: Ba2 Me2 Fe12 O22
+# name: Y-type ferrite example
+# phase_class: Y-type
+# source: test reference
+
+l k h I 2theta d
+0 0 3 18 23.000 3.86500
+0 0 6 45 30.100 2.96650
+0 1 1 100 35.450 2.53020
+0 1 4 32 43.100 2.09710
+0 1 7 20 57.000 1.61440

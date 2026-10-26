@@ -1,0 +1,1 @@
+元に戻しました：Unknown設定PASS: undo history usable after reopening saved dataPASS: save settings restore without stuck saving stateXRD v0.4.5 persistence tests: failures=0LoadData/O/Q/R/L=7 "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v45:runtime_final2:undo_roundtrip.pxp"; XRD_VerifyV45Restored()

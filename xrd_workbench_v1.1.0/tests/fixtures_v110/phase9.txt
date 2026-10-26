@@ -1,0 +1,7 @@
+# card_number: T110-9
+# name: phase 9
+# formula: CaCO3
+# phase_class: 
+h k l I 2theta d
+1 0 0 100 41 2.0
+1 1 0 30 63 1.0

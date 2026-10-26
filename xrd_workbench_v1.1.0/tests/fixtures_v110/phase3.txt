@@ -1,0 +1,7 @@
+# card_number: T110-3
+# name: phase 3
+# formula: Ba2 Mg2 Fe12 O22
+# phase_class: W-type
+h k l I 2theta d
+1 0 0 100 29 2.0
+1 1 0 30 57 1.0

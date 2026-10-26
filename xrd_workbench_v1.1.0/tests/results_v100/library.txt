@@ -1,0 +1,20 @@
+PASS: shared library imports named-column reference
+PASS: reference storage belongs to Experiment library
+同一内容の参照を保持: QS-A (表示名・使用設定は変更しません)
+PASS: identical content import is idempotent
+PASS: reference revision and reflection identities are persisted
+PASS: prefixed tt alias matches canonical angle wave
+PASS: prefixed aliases follow canonical wave changes without a second numeric master
+PASS: enabled choice is Experiment-wide after changing project
+PASS: project count mirror reflects common library
+PASS: scientific edit appends a revision of the same reference identity
+PASS: historical scientific wave and revision identity remain unchanged
+PASS: new candidates use current enabled revision while old revision remains stored
+PASS: display-name change does not rename the wave stem
+PASS: legacy owner and local index map to exact shared revision
+PASS: legacy migration can be repeated without duplicates
+PASS: migration preserves legacy folders for old native graph bindings
+PASS: new-file scan finds additions without offering cached filenames again
+PASS: missing original folder does not prevent use of cached references
+v080 library failures=0
+String/G root:XRDLiveTestFile="C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v100:library:live.txt"; XRD_RunV80LibrarySuite("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:xrd_workbench_v1.0.0:tests:fixtures_v053:")

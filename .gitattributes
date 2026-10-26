@@ -1,0 +1,7 @@
+# Preserve the imported release bytes, including its original encoding/line endings.
+xrd_workbench_v1.1.0/** -text
+*.md text eol=lf
+*.py text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+xrd_workbench_v1.1.0/** -text

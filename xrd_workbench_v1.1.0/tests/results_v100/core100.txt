@@ -1,0 +1,21 @@
+PASS: zero peaks are not automatically complete
+PASS: unreviewed detected peaks remain in progress
+PASS: one Unknown leaves a second unreviewed peak incomplete
+PASS: all Unknown peaks automatically complete the sample
+PASS: automatic completion maintains the legacy status adapter
+PASS: correction keeps completed assignments and marks lattice for recalculation
+PASS: clearing a review returns only that sample to in-progress
+PASS: legacy completion command validates automatic state
+PASS: project/sample renaming preserves immutable identities
+PASS: project name and physical storage change together
+PASS: prefix waves are formula-linked to canonical measured data
+PASS: prefix waves retain dependencies rather than an independently editable duplicate
+PASS: project progress counts independently completed samples
+PASS: Data1 in another project receives a different experiment-wide sample ID
+PASS: registry resolves another project's sample without changing its identity
+PASS: another project's incomplete sample does not affect the completed sample
+PASS: identity/state/correction/rename preserve Raw waves
+PASS: legacy reference map preserves Unknown and translates positive indices
+PASS: core operations leave no runtime error
+v1.0.0 core failures=0
+XRD_RunV100CoreTests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v100:core100:")

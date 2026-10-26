@@ -1,0 +1,11 @@
+*.pxp
+*.uxp
+*.pxt
+*.uxt
+*.ibw
+*.h5xp
+*.autosave
+__pycache__/
+.venv/
+scratch/
+private_data/

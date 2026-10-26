@@ -1,0 +1,35 @@
+XRD imported 5001 points; header lines skipped: 1
+PASS: B release defaults to improved detector
+PASS: preview computes candidates without changing registered peaks
+PASS: preview does not consume Undo history
+PASS: improved detector recovers synthetic true peak 30
+PASS: improved detector recovers synthetic true peak 33
+PASS: improved detector recovers synthetic true peak 40
+PASS: improved detector recovers synthetic true peak 40.22
+PASS: improved detector recovers synthetic true peak 50
+DETECTION METRICS legacy=5/5 true, 200 extra; robust=5/5 true, 1 extra
+PASS: improved detector removes most spurious peaks on deterministic noisy fixture
+PASS: minimum width rejects single-sample intensity spike
+PASS: displayed normalized measurement remains bit-identical
+PASS: raw intensity and angle waves remain bit-identical
+PASS: method and actual parameters are retained for saving
+元に戻しました：背景・ノイズを考慮してピーク検出
+PASS: Undo restores prior peak set and prior detection method
+やり直しました：背景・ノイズを考慮してピーク検出
+PASS: Redo restores improved peak set and method
+PASS: detection and history retain zoom and Ctrl I cursor
+PASS: rerun retains manual and reviewed peaks with stable IDs
+PASS: repeat detection does not accumulate duplicate peaks
+PASS: zero-smoothing option still evaluates prominence and noise
+PASS: very dense grids cap native smoothing window at supported size
+PASS: invalid parameters leave peaks and Undo unchanged
+PASS: detection controls and preview panel open
+XRD imported 4997 points; header lines skipped: 1
+UNEVEN METRICS 5/5 true
+PASS: working grid handles nonuniform angle sampling
+PASS: flat signal does not produce peaks
+PASS: too-short signal refuses improved detection without mutation
+PASS: legacy method remains selectable for very short data
+PASS: improved detector and UI leave no runtime error
+v0.6.0 tests failures=0
+XRD_RunV60Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:xrd_workbench_v0.6.0:tests:fixtures_v060:","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v60:new:")

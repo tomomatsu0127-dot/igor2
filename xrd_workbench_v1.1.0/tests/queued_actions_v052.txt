@@ -1,0 +1,13 @@
+XRD参照TXTを拒否: invalid_missing.csv - 必要な列がありません: l (行 1)
+XRD参照TXTを拒否: measurement_fe3o4_demo.csv - 必要な列がありません: l (行 1)
+XRD参照TXTを拒否: reference_invalid.txt - 必要な列がありません: h (行 4)
+XRD参照TXTを拒否: two_peaks.csv - 必要な列がありません: l (行 1)
+XRD参照データ: 2件読込 / 4件エラー
+読込できなかったファイル: invalid_missing.csv;measurement_fe3o4_demo.csv;reference_invalid.txt;two_peaks.csv;
+XRD_V52QueueStart("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:xrd_workbench_v0.5.2:samples:","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v52:queue:")
+String/G root:testLog=CaptureHistory(root:testCapture,1); Variable refNum; Open refNum as "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v52:queue_start.txt"; fprintf refNum,"%s",root:testLog; Close refNum
+PASS: real deferred double click runs from Igor queue and advances once
+PASS: queued callback retains current zoom
+PASS: native resize queue reaches idle after twelve changes
+PASS: native double click pending flag is released
+PASS: real deferred callbacks leave no runtime error

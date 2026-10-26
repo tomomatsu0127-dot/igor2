@@ -1,0 +1,128 @@
+XRD参照TXTを拒否: invalid_missing.csv - 必要な列がありません: l (行 1)
+XRD参照TXTを拒否: measurement_fe3o4_demo.csv - 必要な列がありません: l (行 1)
+XRD参照TXTを拒否: reference_invalid.txt - 必要な列がありません: h (行 4)
+XRD参照TXTを拒否: two_peaks.csv - 必要な列がありません: l (行 1)
+XRD参照データ: 2件読込 / 4件エラー
+読込できなかったファイル: invalid_missing.csv;measurement_fe3o4_demo.csv;reference_invalid.txt;two_peaks.csv;
+PASS: 参照フォルダ: 有効2件、無効TXT1件と測定CSV3件を診断
+PASS: 元素フィルター: Fe/Oを許可
+PASS: 元素フィルター: Y-type例外を保持
+PASS: ピーク検出を実行
+PASS: 主要ピークを検出
+PASS: 重なり得る候補を複数提示
+Candidate order: ref=1 score=93.563, ref=2 score=87.798
+PASS: Fe3O4候補を上位表示
+PASS: 選択候補の全域参照棒を生成
+PASS: 候補で置換同定
+PASS: 置換同定は1件
+PASS: 重なり候補を追加
+PASS: 同一ピークへ2相を保持
+PASS: Unknownへ後から変更
+PASS: 全ピーク確認後に同定完了
+PASS: 測定ごとに同定状態を分離
+PASS: 2件目も個別に同定完了
+PASS: 完了測定数を集計
+PASS: 比較図の試料順序を変更
+PASS: 標準Igor編集グラフを作成
+PASS: 2測定の縦積みグラフを作成
+PASS: 日本語メインパネルを作成
+XRD baseline runtime tests: failures=0
+PASS: import normalization 0..100
+PASS: raw intensity remains unchanged
+PASS: peak table angle-first ascending
+PASS: element filter setting survives refresh
+XRD参照TXTを拒否: invalid_missing.csv - 必要な列がありません: l (行 1)
+XRD参照TXTを拒否: measurement_fe3o4_demo.csv - 必要な列がありません: l (行 1)
+既存カードを保持: 00-019-0629 (名前は画面から変更できます)
+XRD参照TXTを拒否: reference_invalid.txt - 必要な列がありません: h (行 4)
+既存カードを保持: TEST-Y-001 (名前は画面から変更できます)
+XRD参照TXTを拒否: two_peaks.csv - 必要な列がありません: l (行 1)
+XRD参照データ: 2件読込 / 4件エラー
+読込できなかったファイル: invalid_missing.csv;measurement_fe3o4_demo.csv;reference_invalid.txt;two_peaks.csv;
+PASS: reference reload preserves names and measurements
+PASS: replace and adopt advances to next peak
+PASS: native assigned phase trace in single graph
+PASS: stack creation leaves single graph marker positions unchanged
+PASS: stack markers follow reversed display order: last table row has zero offset
+PASS: project marker selection propagated
+Expanded table width=630 height=205
+PASS: expanded peak table uses full responsive content width
+PASS: native marker and color selectors open
+PASS: marker/color apply button stores native selectors
+PASS: cursor registers manual peak at exact sample
+PASS: cursor angle matches x wave
+PASS: manual peak can be removed
+PASS: auto peak deletion also removes its assignment
+Fit result=0 a=5.89 c=23.2
+W_coef[0]= {8.32667e-17,0.028825,0.00185791}
+PASS: Igor CurveFit recovers synthetic hexagonal a/c
+PASS: CurveFit restores current data folder
+PASS: assignment changes invalidate lattice fit
+PASS: all five workflow tabs render
+PASS: mouse-wheel event scrolls peak table
+PASS: style settings are isolated by project
+XRD v0.3.0 runtime tests: failures=0
+PASS: formula label uses subscripts
+PASS: formula charge notation retained
+PASS: type label recognized in descriptive name
+PASS: fixed Cu phase excluded without Cu
+PASS: allowed fixed formula retained
+PASS: all eight substitution type families bypass filter
+PASS: unknown composition retained conservatively
+PASS: periodic UI contains all 118 element buttons
+PASS: periodic button adds selected element
+PASS: Cu phase returns when Cu selected
+PASS: periodic apply updates candidates and closes chooser
+PASS: manual add preserves zoomed angle range
+PASS: manual add preserves zoomed intensity range
+PASS: measurement switch restores its own zoom
+PASS: explicit reset returns entire measurement range
+PASS: lattice counts separate: first 4 peaks, second 3
+PASS: phase list ordinal starts at one and maps reference
+PASS: lattice input uses only selected measurement
+PASS: cubic CurveFit recovers known a and nonzero slope
+PASS: cubic uncertainty saved and working folder restored
+PASS: cubic fit rejects fewer than three peaks
+PASS: saved reference folder restores symbolic path
+PASS: restored folder is the original selection
+PASS: type-first reference table retains English name on right
+PASS: legacy marker and color retained during migration
+PASS: two sample graph has 30 gap and 30 top headroom
+PASS: editable condition textbox exists for each measurement
+XRD v0.4.0 runtime tests: failures=0
+PASS: eight families accept underscore, case and joined type names
+XRD参照データ: 4件読込 / 0件エラー
+PASS: metadata-free Greek-theta legacy references load
+PASS: legacy phase label 1
+PASS: automatic marker is filled 1
+PASS: automatic color is dark 1
+PASS: legacy phase label 2
+PASS: automatic marker is filled 2
+PASS: automatic color is dark 2
+PASS: legacy phase label 3
+PASS: automatic marker is filled 3
+PASS: automatic color is dark 3
+PASS: legacy phase label 4
+PASS: automatic marker is filled 4
+PASS: automatic color is dark 4
+PASS: parent folder does not misclassify ordinary card
+PASS: composition fallback recognizes verified Y and W
+PASS: ordinary Cu excluded while named Y retained
+XRD imported 7 points; header lines skipped: 0
+PASS: XY file imports
+PASS: XY raw preserved and display normalized
+PASS: selected peak black guide group exists
+PASS: guide refresh preserves zoom
+PASS: list selection moves guide to new peak
+PASS: element click does not recreate window
+PASS: element selected immediately
+PASS: repeated click deselects element
+PASS: filter refresh stamps current measurement cache
+PASS: style reference dropdown populated
+PASS: dropdown switches reference and saves previous native style
+PASS: explicit ordinary override disables inferred type
+PASS: explicit type restores family
+PASS: legacy automatic slash migrates to filled square
+PASS: migration preserves manually chosen style
+XRD v0.4.1 runtime tests: failures=0
+XRD_RunV41Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:xrd_workbench_v0.6.0:samples:","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v60:reg41:","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:xrd_workbench_v0.6.0:tests:fixtures:")

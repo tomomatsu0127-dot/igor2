@@ -1,0 +1,1 @@
+PASS: five-column imported data and missing d survive experiment reloadPASS: reference name and folder hint survive reloadXRD v0.4.3 reference persistence tests: failures=0LoadData/O/Q/R/L=7 "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v43:final:reference_roundtrip.pxp"; XRD_VerifyV43Restored()

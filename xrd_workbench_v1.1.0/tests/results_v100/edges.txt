@@ -1,0 +1,27 @@
+PASS: v100 edge explicit serial accepted
+PASS: v100 edge liberal project name accepted
+PASS: v100 case-only rename updates physical and displayed names
+元に戻しました：Unknown設定
+やり直しました：Unknown設定
+PASS: v100 retained analysis Undo and Redo execute after physical rename
+PASS: v100 missing or nonnumeric manual serial is never auto-assigned
+PASS: v100 folder byte-limit preflight rejects 256-byte name
+PASS: v100 generated Wave byte-limit fails before folder changes
+PASS: v100 target Wave collision rejected without overwrite
+PASS: v100 unavailable backup prevents any rename
+PASS: v100 Shift-click selects a raw point in identification mode
+PASS: v100 selected raw cursor enables add button
+PASS: v100 one selected point is added without reselection
+PASS: v100 selected raw point appears in the peak list
+PASS: v100 double-click event performs plot zoom
+PASS: v100 double-click centers ten-degree range
+PASS: v100 right-click event restores previous view
+PASS: v100 right-click restores pre-double-click range
+PASS: v100 disabled custom navigation leaves contextual click native
+PASS: v100 added-peak footer stays below controls at larger panel size
+PASS: v100 last project can be deleted
+PASS: v100 deleting last project does not create a replacement
+PASS: v100 last project can be restored
+PASS: v100 restored last sample is active
+v100 edge failures=0
+XRD_RunV100Edges("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v100:edges:")

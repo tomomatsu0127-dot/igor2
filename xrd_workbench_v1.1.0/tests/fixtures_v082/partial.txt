@@ -1,0 +1,6 @@
+# card_number: TEST-PARTIAL
+# formula: Test
+tt int h k l
+45 20 None -2 1
+30 100 -1 0 2
+45 10 - 0 0
