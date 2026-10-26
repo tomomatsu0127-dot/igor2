@@ -1,0 +1,14 @@
+PASS: v100 new project belongs to Management
+RENAME BEGIN
+RENAME RESULT 0
+PASS: v100 physical project rename preserves identity resolution
+SET META BEGIN
+SET META RESULT 0
+PASS: v100 manual serial and separate composition create readable Waves
+PASS: v100 rename updates readable Wave names
+PASS: v100 rename preserves manual number and composition
+PASS: v100 first peak selection zooms to ten degrees
+PASS: v100 project deletion is recoverable and removed from active registry lookup
+PASS: v100 restore preserves identities
+v100 smoke failures=0
+XRD_RunV100Smoke("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v100:distribution_smoke:")

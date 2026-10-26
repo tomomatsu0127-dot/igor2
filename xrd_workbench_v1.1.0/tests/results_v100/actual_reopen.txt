@@ -1,0 +1,9 @@
+¶XRD_VerifyV100Restored()
+  PASS: v100 reopened project and sample IDs resolve
+  PASS: v100 reopened project name and manual serial retained
+  PASS: v100 reopened named dependency evaluates correctly
+  PASS: v100 reopened assignments state and lattice history retained
+  PASS: v100 saved independent figure reopens
+  PASS: v100 native figure axes retained across Experiment save and reopen
+  PASS: v100 auto-zoom setting persists
+  v100 actual reopen failures=0

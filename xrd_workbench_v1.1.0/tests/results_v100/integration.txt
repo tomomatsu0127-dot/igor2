@@ -1,0 +1,63 @@
+PASS: v100 normal shared reference imports
+PASS: v100 real reference assignments created
+PASS: v100 explicit sample metadata accepted
+PASS: v100 adopted-card named Wave created
+PASS: v100 independent saved figure created
+PASS: v100 Unicode project physically renamed
+PASS: v100 old physical folder removed only after new location exists
+PASS: v100 quoted Unicode project and display name agree
+PASS: v100 Raw assignments and hkl are byte-identical
+PASS: v100 lattice result and immutable history retained
+PASS: v100 completion and Undo entry count retained
+PASS: v100 Workbench and cross-project comparison resolve renamed source
+PASS: v100 readable Wave and serialized dependency point at renamed source
+PASS: v100 independent figure snapshot and open window preserved
+PASS: v100 saved manual graph formatting retained
+PASS: v100 shared reference is unchanged by rename
+PASS: v100 illegal project name rejected
+PASS: v100 duplicate project name rejected without overwrite
+PASS: v100 rollback mutation 1
+PASS: v100 rollback keeps scientific data 1
+PASS: v100 rollback mutation 2
+PASS: v100 rollback keeps scientific data 2
+PASS: v100 rollback mutation 3
+PASS: v100 rollback keeps scientific data 3
+PASS: v100 rollback mutation 4
+PASS: v100 rollback keeps scientific data 4
+PASS: v100 rollback mutation 5
+PASS: v100 rollback keeps scientific data 5
+PASS: v100 rollback mutation 6
+PASS: v100 rollback keeps scientific data 6
+PASS: v100 rollback mutation 7
+PASS: v100 rollback keeps scientific data 7
+PASS: v100 rollback mutation 8
+PASS: v100 rollback keeps scientific data 8
+PASS: v100 rollback mutation 9
+PASS: v100 rollback keeps scientific data 9
+PASS: v100 rollback mutation 10
+PASS: v100 rollback keeps scientific data 10
+PASS: v100 rollback mutation 11
+PASS: v100 rollback keeps scientific data 11
+PASS: v100 rollback mutation 12
+PASS: v100 rollback keeps scientific data 12
+PASS: v100 project rename succeeds after failure recovery
+PASS: v100 common peak selector runs
+PASS: v100 selected registered peak is centered at plus-minus five degrees
+PASS: v100 selecting another peak moves the view
+PASS: v100 previous view is available
+PASS: v100 previous view restores exact bounds
+PASS: v100 auto-zoom OFF selects without moving axes
+PASS: v100 edge zoom is clamped to data bounds
+PASS: v100 registered peak mouse event selects and zooms
+PASS: v100 distant mouse event does not snap to a peak
+PASS: v100 zoom and selection never modify scientific values
+PASS: v100 status refresh preserves resized footer position
+PASS: v100 no implicit New buttons in match screen
+PASS: v100 deleted project is retained only in recovery registry
+PASS: v100 deleted sample excluded from new plots and common reference kept
+PASS: v100 saved figure remains usable after source deletion
+PASS: v100 restore refuses an existing project name
+PASS: v100 recoverable deletion restores source
+PASS: v100 restored source retains data assignments and completion
+v100 integration failures=0
+XRD_RunV100Guard("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:xrd_workbench_v1.0.0:tests:fixtures_v053:","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v100:integration:")

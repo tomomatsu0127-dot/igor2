@@ -1,0 +1,6 @@
+# card_number: TEST-CU
+# formula: CuFeO2
+# name: Copper Iron Oxide
+l k h I 2theta d
+1 1 1 100 31 2.882
+0 0 2 40 34 2.636

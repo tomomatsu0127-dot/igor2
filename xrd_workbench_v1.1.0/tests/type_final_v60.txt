@@ -1,0 +1,35 @@
+XRD参照データ: 5件読込 / 0件エラー
+PASS: three QS and two Y cards load independently
+PASS: same type retains separate card identities
+PASS: one card emits both nearby reflections instead of nearest only
+PASS: alternatives from one card share one whole-pattern shift
+PASS: alternative exposes distinct hkl and signed angular difference
+PASS: outside match tolerance is labelled for manual inspection
+PASS: user may explicitly adopt the non-nearest reflection
+PASS: assignment stores chosen card and chosen reflection
+元に戻しました：同定の採用・置換
+PASS: non-nearest reflection adoption is undoable
+やり直しました：同定の採用・置換
+PASS: non-nearest reflection adoption is redoable
+PASS: QS chooser lists all three cards and excludes Y cards
+PASS: single mode switches to clicked card and unchecks the others
+PASS: draft changes do not affect live candidates before apply
+PASS: single-card QS policy applies to candidate generation
+PASS: excluding a reference does not erase prior identification
+PASS: stale candidate cannot adopt a card excluded by current family policy
+PASS: candidate rows use only chosen QS card
+PASS: multiple mode permits two selected QS cards
+PASS: unchecked QS card stays out of multiple mode
+PASS: Y-type can be configured separately
+PASS: QS policy does not change Y-type selection
+PASS: explicit all-off is preserved instead of silently enabling cards
+PASS: all-cards action restores multiple selection
+PASS: responsive layout preserves separate readable hkl and delta columns
+PASS: narrower search radius removes the distant alternative
+PASS: invalid search radius cannot emit every reference row
+PASS: additional same-type card imports without replacing existing cards
+PASS: newly imported card does not bypass configured multiple selection
+PASS: new project has independent default type policy
+PASS: reference selection and multiple reflections leave no runtime error
+v0.5.3 tests failures=0
+XRD_RunV53Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:xrd_workbench_v0.6.0:tests:fixtures_v053:","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v60:type:")

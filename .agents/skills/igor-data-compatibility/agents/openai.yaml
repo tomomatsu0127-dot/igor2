@@ -1,0 +1,4 @@
+interface:
+  display_name: "Igor Data Compatibility"
+  short_description: "WaveとData Folderと同定の参照対応を更新前後と再読込後で確認する"
+  default_prompt: "$igor-data-compatibility を使い、保存済み同定の互換性を複製Experimentで調査し、確認済みと未確認を分けてください。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Igor Performance Debug"
+  short_description: "処理時間とメモリ増加と描画や再計算の重複を実測とコードから調査する"
+  default_prompt: "$igor-performance-debug を使い、再現条件と計測結果から遅延の原因を調べ、許可のない最適化は実装せず記録してください。"

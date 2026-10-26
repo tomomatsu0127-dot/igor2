@@ -1,0 +1,102 @@
+{
+  "version": "1.0.0",
+  "native_passed": 375,
+  "failed": 0,
+  "production_ipf": 37,
+  "functions": 530,
+  "baseline_files_unchanged": 212,
+  "suites": [
+    {
+      "suite": "v0.9/v1.0 統合・12箇所の故障注入",
+      "passed": 61,
+      "failed": 0,
+      "log": "integration.txt"
+    },
+    {
+      "suite": "番号・名前・追加・拡大・最終Project削除",
+      "passed": 23,
+      "failed": 0,
+      "log": "edges.txt"
+    },
+    {
+      "suite": "識別子・完了状態・Raw・依存式",
+      "passed": 19,
+      "failed": 0,
+      "log": "core100.txt"
+    },
+    {
+      "suite": "実旧Experimentの移行・改名・Undo",
+      "passed": 15,
+      "failed": 0,
+      "log": "legacy.txt"
+    },
+    {
+      "suite": "改名後Experimentの実再読込",
+      "passed": 7,
+      "failed": 0,
+      "log": "actual_reopen.txt"
+    },
+    {
+      "suite": "欠損hkl・実5参照ファイル・計算防御",
+      "passed": 57,
+      "failed": 0,
+      "log": "native.txt"
+    },
+    {
+      "suite": "欠損hklの実再読込",
+      "passed": 10,
+      "failed": 0,
+      "log": "actual_reopen82.txt"
+    },
+    {
+      "suite": "既存参照形式・厳密な不正入力検証",
+      "passed": 55,
+      "failed": 0,
+      "log": "43.txt"
+    },
+    {
+      "suite": "共有参照・版管理・キャッシュ",
+      "passed": 17,
+      "failed": 0,
+      "log": "library.txt"
+    },
+    {
+      "suite": "六方晶・立方晶CurveFitと履歴",
+      "passed": 8,
+      "failed": 0,
+      "log": "lattice.txt"
+    },
+    {
+      "suite": "ピーク・CurveFit・同定回帰",
+      "passed": 33,
+      "failed": 0,
+      "log": "profile.txt"
+    },
+    {
+      "suite": "プロジェクト横断作図と保存",
+      "passed": 16,
+      "failed": 0,
+      "log": "plot.txt"
+    },
+    {
+      "suite": "共有マーカー・色",
+      "passed": 5,
+      "failed": 0,
+      "log": "styles.txt"
+    },
+    {
+      "suite": "Undo・キー処理・自動保存3世代",
+      "passed": 41,
+      "failed": 0,
+      "log": "saveundo.txt"
+    },
+    {
+      "suite": "配布用検証runnerの起動・基本操作",
+      "passed": 8,
+      "failed": 0,
+      "log": "distribution_smoke.txt"
+    }
+  ],
+  "manual_viewports_checked": 6,
+  "manual_horizontal_overflow": false
+}

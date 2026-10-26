@@ -1,0 +1,47 @@
+XRD参照TXTを拒否: invalid_missing.csv - 必要な列がありません: l (行 1)
+XRD参照TXTを拒否: measurement_fe3o4_demo.csv - 必要な列がありません: l (行 1)
+XRD参照TXTを拒否: reference_invalid.txt - 必要な列がありません: h (行 4)
+XRD参照TXTを拒否: two_peaks.csv - 必要な列がありません: l (行 1)
+XRD参照データ: 2件読込 / 4件エラー
+読込できなかったファイル: invalid_missing.csv;measurement_fe3o4_demo.csv;reference_invalid.txt;two_peaks.csv;
+PASS: first measured peak adopts reference reflection
+PASS: duplicate reflection is rejected before replacement
+PASS: rejected replacement retains old Unknown and original assignment
+PASS: rejected duplicate does not add Undo entry
+PASS: overlap path also rejects reuse by another measured peak
+PASS: conflict identifies owning measured peak
+PASS: same measured peak may re-adopt its own reflection
+PASS: different reference reflection can be assigned
+PASS: released reflection can be assigned to another measured peak
+PASS: another measurement may use the same reference reflection
+PASS: completion table follows stored measurement order
+PASS: first table row is top trace; all three follow top-to-bottom order
+PASS: phase marker shares its measured trace offset
+PASS: condition labels follow the same top-to-bottom order
+PASS: hidden measurement leaves no gap or reversed stack
+PASS: moving measurement up changes graph and condition order together
+PASS: single click previews without adoption
+PASS: double click queues adoption without rebuilding inside callback
+PASS: repeated double click coalesces while pending
+PASS: deferred adoption assigns clicked candidate and advances one measured peak
+PASS: double click adoption preserves zoom and standard Ctrl I cursor
+PASS: already processed deferred action cannot adopt twice
+PASS: changing measured peak cancels stale double click
+PASS: changing measurement cancels stale double click
+PASS: quick open focuses existing workbench without rebuilding or clearing cursor
+PASS: completed graph uses native automatic dimensions and persistent resize hook
+PASS: native horizontal resize changes width independently
+PASS: native vertical resize changes height independently
+PASS: resizing retains axis ranges and 24 point legend
+PASS: resizing retains 24 point axis text
+PASS: resize preserves manually edited legend content and font
+PASS: resize observer releases queue guard
+PASS: existing fixed-size figure can enable drag without losing handwritten legend
+PASS: queued nonzero shift retains full precision
+PASS: nonzero-shift double click adopts captured reflection
+PASS: long legend remains inside resized native canvas
+PASS: size panel reads physical dimensions without dividing screen magnification twice
+PASS: resizing earlier-project figure retains its own phase names
+PASS: new assignment and figure paths leave no runtime error
+v0.5.2 tests failures=0
+XRD_RunV52Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:xrd_workbench_v0.6.0:samples:","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v60:reg52:")

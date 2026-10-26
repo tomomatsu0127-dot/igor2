@@ -1,0 +1,18 @@
+PASS: v080 same Data1 across projects has distinct immutable measurement UIDs
+PASS: v080 Unknown counts as reviewed; unfinished measurement remains excluded
+PASS: v080 global figure selection includes finished sample in partially completed project
+PASS: v080 live comparison resolves selected UIDs across projects
+PASS: v080 renaming project and sample preserves source resolution
+PASS: v080 recipe is Experiment-wide, outside projects
+PASS: v080 figure labels are saved independently of source measurement names
+PASS: v080 independent completed cross-project figure draws
+PASS: v080 final figure X trace uses the stored snapshot
+PASS: v080 source row order is top-to-bottom in stacked figure
+PASS: v080 numeric snapshots remain unchanged after source edits
+PASS: v080 manual axis and line formatting is captured as native recreation text
+PASS: v080 saved figure can reopen after its window is closed
+PASS: v080 reopened figure retains manually edited native range
+PASS: v080 recipe editor restores independent labels and measurement order
+PASS: v080 recipe rows can be reordered independently of project order
+XRD v0.8.0 plot tests: failures=0
+String/G root:XRDLiveTestFile="C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v100:plot:live.txt"; XRD_RunV80PlotTests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v100:plot:")

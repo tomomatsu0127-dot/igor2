@@ -1,0 +1,4 @@
+interface:
+  display_name: "Igor Safe Update"
+  short_description: "既存動作と保存済み同定結果を守りながらIgorの変更範囲を最小化する"
+  default_prompt: "$igor-safe-update を使い、原因を確認して許可された範囲だけ修正し、互換性と試験結果を記録してください。"

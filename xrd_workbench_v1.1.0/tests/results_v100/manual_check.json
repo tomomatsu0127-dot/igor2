@@ -1,0 +1,50 @@
+[
+  {
+    "file": "MANUAL_ja.html",
+    "width": 1100,
+    "bodyWidth": 1100,
+    "sections": 1,
+    "images": true,
+    "anchors": true
+  },
+  {
+    "file": "MANUAL_ja.html",
+    "width": 390,
+    "bodyWidth": 390,
+    "sections": 1,
+    "images": true,
+    "anchors": true
+  },
+  {
+    "file": "MANUAL_BEGINNER_ja.html",
+    "width": 1100,
+    "bodyWidth": 1100,
+    "sections": 6,
+    "images": true,
+    "anchors": true
+  },
+  {
+    "file": "MANUAL_BEGINNER_ja.html",
+    "width": 390,
+    "bodyWidth": 390,
+    "sections": 6,
+    "images": true,
+    "anchors": true
+  },
+  {
+    "file": "MANUAL_UPDATE_ja.html",
+    "width": 1100,
+    "bodyWidth": 1100,
+    "sections": 5,
+    "images": true,
+    "anchors": true
+  },
+  {
+    "file": "MANUAL_UPDATE_ja.html",
+    "width": 390,
+    "bodyWidth": 390,
+    "sections": 5,
+    "images": true,
+    "anchors": true
+  }
+]

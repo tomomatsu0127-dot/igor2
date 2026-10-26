@@ -1,0 +1,10 @@
+PASS: measurement-specific wavelength persists
+PASS: local fit coefficients and center persist
+PASS: reference display name persists separately from card
+PASS: saved experiment reopens responsive workbench without runtime errors
+PASS: saved project reopens all imported measurement state
+元に戻しました：手動ピーク追加
+やり直しました：手動ピーク追加
+PASS: undo and redo snapshots remain usable after reload
+XRD v0.5.0 persistence failures=0
+XRD_V50Persistence("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v52:reg50:v50_roundtrip.pxp")
