@@ -2,7 +2,7 @@
 
 管理版: 1.0.0 / 2026-10-26 JST
 
-- 状態: 調査・管理基盤整備中。main未統合。
+- 状態: 依存調査・Skills作成完了。再取得による再開検証と最終記録中。main未統合。
 - Repository: https://github.com/tomomatsu0127-dot/igor2
 - 継続ブランチ: `codex/safe-development-v1.0.0`
 - 開始main SHA: `2c30ceffde11c4013bf496fced92f7da6d68ee49`
@@ -20,9 +20,9 @@
 
 ## 残りと次の操作
 
-1. Igor 9仕様・コード根拠つきの依存調査と実.pxp試験手順を保存する。
-2. 3 Skillsを作成・配置し、構文と読み込みを確認する。
-3. 管理ファイル、相対include、ハッシュ、再取得による再開を検証し結果を記録する。
-4. ブランチへpushし、Draft PRを作成する。mainへは統合しない。
+1. 新しいcheckoutへGitHub branchを取得し、管理文書・本体ハッシュ・Skillsを復元できるか検証する。
+2. 検証スクリプトが本体改変を検出するか、独立した試験checkoutだけで確認する。
+3. 最終結果を記録してpushし、Draft PRを作成する。mainへは統合しない。
+4. 次回は利用者の実.pxpの複製で `docs/IGOR905_VALIDATION_v1.0.0.md` を実施する。互換性確認後に正本化候補のmain採用を判断する。
 
 再開時は最初にremoteをfetchし、本ファイルとログの新しい記録を確認する。チェックポイントのSHAは `git log -1` とremote branchで取得する。
