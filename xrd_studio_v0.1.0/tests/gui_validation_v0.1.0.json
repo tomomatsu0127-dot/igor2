@@ -1,0 +1,28 @@
+{
+  "compact": [
+    "responsive layout",
+    "detect callback",
+    "complete identification",
+    "lattice callback",
+    "compare callback",
+    "single callback",
+    "save callback",
+    "reopen assignments",
+    "three generation recovery",
+    "recovery keeps unsaved marker",
+    "tables remain connected"
+  ],
+  "wide": [
+    "responsive layout",
+    "detect callback",
+    "complete identification",
+    "lattice callback",
+    "compare callback",
+    "single callback",
+    "save callback",
+    "reopen assignments",
+    "three generation recovery",
+    "recovery keeps unsaved marker",
+    "tables remain connected"
+  ]
+}

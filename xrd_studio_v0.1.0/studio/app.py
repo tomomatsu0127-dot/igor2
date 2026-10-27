@@ -101,7 +101,7 @@ class App:
     def table(self, parent, columns, widths, height=8):
         frame = ttk.Frame(parent)
         frame.pack(fill="both", expand=True)
-        tree = ttk.Treeview(frame, columns=columns, show="headings", height=height, selectmode="browse")
+        tree = ttk.Treeview(frame, columns=columns, show="headings", height=6 if self.compact and height == 8 else height, selectmode="browse")
         for key, width in zip(columns, widths):
             tree.heading(key, text=key)
             tree.column(key, width=width, minwidth=45, stretch=True)
@@ -130,6 +130,7 @@ class App:
             button = ttk.Button(toolbar, text=text, command=lambda fn=function: self.safe(fn))
             button.grid(row=index//5, column=index%5, sticky="ew", padx=3, pady=2)
             toolbar.columnconfigure(index%5, weight=1)
+        ttk.Label(self.root, textvariable=self.status, padding=(12, 5), anchor="w", wraplength=max(360, self.root.winfo_screenwidth()-90)).pack(side="bottom", fill="x")
         if self.compact:
             workspace = ttk.Notebook(self.root)
             workspace.pack(fill="both", expand=True, padx=5, pady=(0, 5))
@@ -170,7 +171,7 @@ class App:
         graph_frame, tables = ttk.Frame(vertical), ttk.Notebook(vertical)
         vertical.add(graph_frame, weight=3)
         vertical.add(tables, weight=2)
-        self.figure = Figure(figsize=(7.4, 4.0), dpi=100)
+        self.figure = Figure(figsize=(7.4, 3.0 if self.compact else 4.0), dpi=100)
         self.canvas = FigureCanvasTkAgg(self.figure, master=graph_frame)
         self.navigation = NavigationToolbar2Tk(self.canvas, graph_frame, pack_toolbar=False)
         self.navigation.pack(fill="x")
@@ -259,7 +260,6 @@ class App:
         self.button(plot, "書式を保存して図に反映", self.apply_plot)
         self.button(plot, "図に注釈を追加…", self.add_annotation)
         self.button(plot, "PNG / SVG / PDFへ出力…", self.export_graph)
-        ttk.Label(self.root, textvariable=self.status, padding=(12, 5), anchor="w").pack(fill="x")
 
     def section(self, parent, title, opened=True):
         fold = Fold(parent, title, opened)
@@ -323,6 +323,7 @@ class App:
                 if key in self.variables:
                     self.variables[key].set(str(value))
             self.shift_enabled.set(sample["parameters"]["shift_enabled"])
+            self.variables["filter"].set(sample["parameters"].get("reference_filter", ""))
             for peak in sample["peaks"]:
                 label = plotting.assignment_label(sample, peak["id"], state["references"])
                 self.peaks.insert("", "end", iid=str(peak["id"]), values=(peak["id"], f"{peak['angle']:.5f}", ("✓ " if peak["reviewed"] else "○ ") + label))
@@ -543,7 +544,7 @@ class App:
         if self.sample_id not in self.doc.state["samples"] or not any(p["id"] == self.peak_id for p in self.current()["peaks"]):
             return
         self.candidates = analysis.score_candidates(self.current(), self.doc.state["references"], self.peak_id,
-            self.current()["parameters"], self.variables["filter"].get().strip())
+            self.current()["parameters"], self.current()["parameters"].get("reference_filter", ""))
         for index, candidate in enumerate(self.candidates):
             ref = self.doc.state["references"][candidate["ref_id"]]
             self.candidate_table.insert("", "end", iid=str(index), values=(f"{ref['name']} [{ref['card']}]",
@@ -554,6 +555,7 @@ class App:
         self.selected_peak()
         params = {k: self.number(k) for k in ("tolerance", "radius", "max_shift")}
         params["shift_enabled"] = self.shift_enabled.get()
+        params["reference_filter"] = self.variables["filter"].get().strip()
         trial = dict(self.current()["parameters"], **params)
         analysis.score_candidates(self.current(), self.doc.state["references"], self.peak_id, trial)
         self.mutate("照合条件の保存", lambda state: state["samples"][self.sample_id]["parameters"].update(params))
@@ -801,7 +803,12 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("file", nargs="?")
     parser.add_argument("--demo", action="store_true")
+    parser.add_argument("--self-check", metavar="OUTPUT_JSON")
     args = parser.parse_args()
+    if args.self_check:
+        from .verification import run_check
+        run_check(args.self_check)
+        return
     root = tk.Tk()
     document = load_document(args.file) if args.file else Document()
     if args.demo:

@@ -7,6 +7,7 @@ import sys
 import tempfile
 import unittest
 import zipfile
+from unittest.mock import patch
 
 import numpy as np
 from studio import analysis, demo, plotting
@@ -227,6 +228,25 @@ class EngineTests(unittest.TestCase):
                     archive.writestr(key, value)
             with self.subTest(mode=mode), self.assertRaises(ValueError):
                 load_document(broken)
+
+    def test_failed_atomic_save_keeps_previous_document(self):
+        filename = self.directory / "original.labx"
+        save_document(self.doc, filename)
+        previous = filename.read_bytes()
+        self.doc.change("title", lambda state: state["plot"].update(title="new title"))
+        with patch("studio.document.os.replace", side_effect=OSError("injected disk failure")):
+            with self.assertRaises(OSError):
+                save_document(self.doc, filename)
+        self.assertEqual(filename.read_bytes(), previous)
+        self.assertTrue(self.doc.dirty)
+        self.assertEqual(list(self.directory.glob(".studio-*.tmp")), [])
+
+    def test_invalid_link_rolls_back_without_consuming_undo(self):
+        before = len(self.doc.undo_stack)
+        with self.assertRaises(ValueError):
+            self.doc.change("invalid link", lambda state: state["projects"][state["active_project"]]["compare_ids"].append("missing"))
+        self.assertEqual(len(self.doc.undo_stack), before)
+        validate(self.doc.state)
 
     def test_vector_and_raster_export_and_exact_comparison_selection(self):
         state = self.doc.state

@@ -1,0 +1,24 @@
+test_constant_normalization (test_engine.EngineTests.test_constant_normalization) ... ok
+test_corruption_and_future_schema_are_rejected (test_engine.EngineTests.test_corruption_and_future_schema_are_rejected) ... ok
+test_cubic_lattice_known_result_and_stale_history (test_engine.EngineTests.test_cubic_lattice_known_result_and_stale_history) ... ok
+test_detection_finds_known_peaks_without_touching_raw (test_engine.EngineTests.test_detection_finds_known_peaks_without_touching_raw) ... ok
+test_detection_keeps_manual_assigned_unknown_and_ids (test_engine.EngineTests.test_detection_keeps_manual_assigned_unknown_and_ids) ... ok
+test_failed_atomic_save_keeps_previous_document (test_engine.EngineTests.test_failed_atomic_save_keeps_previous_document) ... ok
+test_full_save_restart_reopen_history_arrays_and_references (test_engine.EngineTests.test_full_save_restart_reopen_history_arrays_and_references) ... ok
+test_gaussian_center_and_refit_do_not_silently_adopt (test_engine.EngineTests.test_gaussian_center_and_refit_do_not_silently_adopt) ... ok
+test_hexagonal_lattice_known_result_missing_hkl_and_rank (test_engine.EngineTests.test_hexagonal_lattice_known_result_missing_hkl_and_rank) ... ok
+test_import_headers_bom_comments_and_no_raw_mutation (test_engine.EngineTests.test_import_headers_bom_comments_and_no_raw_mutation) ... ok
+test_invalid_link_rolls_back_without_consuming_undo (test_engine.EngineTests.test_invalid_link_rolls_back_without_consuming_undo) ... ok
+test_lorentzian_fit_known_parameters (test_engine.EngineTests.test_lorentzian_fit_known_parameters) ... ok
+test_mutation_failure_is_atomic_undo_redo_and_copy_isolation (test_engine.EngineTests.test_mutation_failure_is_atomic_undo_redo_and_copy_isolation) ... ok
+test_named_reference_columns_missing_hkl_extra_columns (test_engine.EngineTests.test_named_reference_columns_missing_hkl_extra_columns) ... ok
+test_reference_quoted_csv_and_validation (test_engine.EngineTests.test_reference_quoted_csv_and_validation) ... ok
+test_reject_malformed_unsorted_nonfinite_and_missing_values (test_engine.EngineTests.test_reject_malformed_unsorted_nonfinite_and_missing_values) ... ok
+test_score_assignment_overlap_and_unique_reflection (test_engine.EngineTests.test_score_assignment_overlap_and_unique_reflection) ... ok
+test_shift_and_strong_reflection_warning (test_engine.EngineTests.test_shift_and_strong_reflection_warning) ... ok
+test_vector_and_raster_export_and_exact_comparison_selection (test_engine.EngineTests.test_vector_and_raster_export_and_exact_comparison_selection) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 4.513s
+
+OK

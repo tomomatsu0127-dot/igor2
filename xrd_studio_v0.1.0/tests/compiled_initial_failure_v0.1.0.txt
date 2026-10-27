@@ -1,0 +1,10 @@
+Windows frozen-binary integration check, 2026-10-27 JST.
+The numerical workflow and document round-trip reached figure export.
+PDF export failed with:
+ModuleNotFoundError: No module named 'matplotlib.backends.backend_pdf'
+
+Cause: PyInstaller's automatic backend discovery included TkAgg, but PDF and
+SVG backends are imported dynamically when Figure.savefig selects a format.
+Repair: build_windows.py explicitly includes backend_pdf, backend_svg and
+backend_agg. A subsequent compiled_validation_v0.1.0.json is required to
+confirm the repaired binary. This failure is not counted as a passing check.
