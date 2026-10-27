@@ -94,3 +94,13 @@
 - Paint probe old: width166 at panel1867; new: width455 at panel1867. Final geometry is used on first forced update.
 - Existing maximize ModifyControl;Size out of range (200) reproduced identically old/new (12 transitions). Not attributed to this patch; recorded as separate unresolved issue.
 - Full synthetic PXP comparison: preinit 185811 records identical, save/restart 185888 identical. Postinit changes under review against identical old-version initialization control.
+
+
+## 2026-10-27 / v1.2.1 validation and delivery
+
+- Compatibility control finished: initial 185811 records unchanged by loading new procedures; after initialization 185888 records exactly match independent v1.2.0 initialization of the same synthetic PXP. 180 initial cache changes are identical under old/new. Save/restart/reopen 185888 records exactly match. No scientific data changes.
+- Baseline new test on original v1.2.0 fails the unfinished-layout protection as expected (and the intentionally new version check). Existing ModifyControl size warning 200 is identical on old/new; not introduced by this patch. Detailed old/new logs retained in results_v121.
+- Packaged user local-source bytes, with 4 changed production IPFs and updated docs/new evidence. 186 files, 44 production IPFs, 68 relative include edges verified. HTML links/anchors checked. Original local 173 file hashes remain identical. ZIP every entry hash matched output directory.
+- User workspace root receives xrd_workbench_v1.2.1/, xrd_workbench_v1.2.1.zip and .sha256. ZIP 1071225 bytes, SHA256 6fe743339308aea143cfae8efd6a5af1d060b181619919b7c17b70d4870ad057.
+- No original user Experiment or sources modified. Dedicated /I processes only. No main merge. Real PXP, full DPI/monitors and animation frame-by-frame recording remain untested.
+- Resume branch codex/xrd-v1.2.1; report final SHA from git. Change is complete within requested scope.
