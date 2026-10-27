@@ -108,3 +108,8 @@
 - 差分空白検査はアプリコード・文書で合格。第三者ライセンス本文の末尾空白は原文どおり保持し、検査から明示除外した。実行ログと失敗ログを捏造・削除しない。
 - 本版は実行できる開発プレビュー。type別カード運用・元素判定・全証拠表・複数作図レシピ等は残り、実測の旧版比較・全DPI・大容量・長時間・別PCは未確認。XRD全機能の完成やMT/MH統合を完了とは報告しない。
 - 次: 本branchから新しい番号付き版でMIGRATION_SCOPEの残りを実装・検証。既存Igor版は保持し、mainへ統合しない。
+
+## 2026-10-27 / independent XRD review checkpoint
+
+- 配布checkpoint d65967cをpushし、remoteと一致。ローカルの配布29ファイルとZIPのSHAを再照合して一致。
+- Draft PR #2 https://github.com/tomomatsu0127-dot/igor2/pull/2 をcodex/xrd-v1.2.0向けに作成し、チャットへ添付。旧版を変更せず新規独立アプリを提案する差分として保持。mainへは反映しない。

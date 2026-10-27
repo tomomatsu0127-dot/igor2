@@ -5,6 +5,7 @@
 ## 現在の継続作業：XRD独立版 v0.1.0
 
 - 継続ブランチ: codex/xrd-standalone-v0.1.0。開始SHA: 93e92d001cf0df22d834bfb6cbb7fc3d80394966。
+- レビュー: Draft PR #2 https://github.com/tomomatsu0127-dot/igor2/pull/2 （base=codex/xrd-v1.2.0）。main未統合。
 - 新規実装先: xrd_studio_v0.1.0。旧Igor版xrd_workbench_v1.2.0は保持。203ファイルの基準SHAをdocs/BASELINE_FOR_STANDALONE_v0.1.0.jsonへ保存。
 - ユーザー確定事項: 各解析ソフトは独立開発し将来統合。今回まずXRD。途中で求められた.pxp直接読込は撤回され、既存Igorの引継ぎは不要と明示確認済み。
 - 調査: v1.2.0の44 IPF・14,477行・602関数。Wave/Data Folder、Graph/Table、CurveFit、Peak AutoFind、SaveExperiment、Undoを独立版で置換する必要がある。
