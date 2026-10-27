@@ -84,3 +84,13 @@
 - Baseline hashes recorded. Instrumented copied v1.2.0 in diagnostics only. Igor 9.05 /I probe: 1867x926 restored and 1924x987 maximized remained identical through rebuild (RTE=0).
 - Cause: XRD_DrawMeasurementGraph/DrawPeakFocus -> XRD_ViewSync -> DoUpdate before final layout. Controls and graph constructed with baseline coordinates, then enlarged by XRD_ResizePanel.
 - No user Experiment/active Igor instance was opened, saved or closed.
+
+
+## 2026-10-27 / v1.2.1 implementation checkpoint
+
+- User specified workspace root source. All 173 local files match Git content; 85 differ only by CRLF/LF. New release copies unchanged local bytes; LOCAL_BASELINE_FOR_v1.2.1 records original hashes.
+- Four application files: xrd_ui (invalidate geometry before clear + final ViewSync), xrd_v51 (do not force update until layout ready), xrd_main/ui120 (1.2.1 version). No schema or algorithm changes.
+- Native new assertions 101 pass. Existing v120 regression 102 pass, failures=0, no runtime error. Initial attempts had a test syntax error then missing external missing_hkl120 fixture; fixed harness, not application. Failed attempts retained locally.
+- Paint probe old: width166 at panel1867; new: width455 at panel1867. Final geometry is used on first forced update.
+- Existing maximize ModifyControl;Size out of range (200) reproduced identically old/new (12 transitions). Not attributed to this patch; recorded as separate unresolved issue.
+- Full synthetic PXP comparison: preinit 185811 records identical, save/restart 185888 identical. Postinit changes under review against identical old-version initialization control.

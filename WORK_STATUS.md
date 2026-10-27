@@ -4,7 +4,10 @@
 - Scope: Igor Workbench screen transitions only. New release xrd_workbench_v1.2.1.
 - Reproduced: parent dimensions/maximize unchanged; XRD_ViewSync forces a DoUpdate while controls/graphs are still at baseline geometry, before XRD_RememberControls/XRD_ResizePanel.
 - Plan: gate graph view synchronization during construction, synchronize after final layout. Schema/analysis unchanged.
-- Native regression and packaging pending.
+- Implemented: invalidate XRDLayoutReady before rebuilding; skip XRD_ViewSync until final geometry; synchronize once after layout/cursors/Y-lock. Four application files changed including version tags.
+- Native: 101 new assertions pass, 102 existing regression assertions pass. Known pre-existing maximize ModifyControl size warning 200 reproduced on old/new; not fixed in this scope.
+- Local 173-file baseline is authoritative for distribution bytes; Git source content matches with 85 line-ending-only differences.
+- Full save/restart comparison completed; old-initialization control comparison and packaging pending.
 
 # WORK_STATUS
 
