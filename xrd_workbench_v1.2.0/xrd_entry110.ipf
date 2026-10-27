@@ -24,7 +24,8 @@ Function XRD110_RegisterPanel(path)
     String/G $(base+":number")=StrVarOrDefault(path+":sampleNumber","")
     String/G $(base+":composition")=StrVarOrDefault(path+":composition","")
     String/G $(base+":label")=StrVarOrDefault(path+":displayName","")
-    NewPanel/N=XRDRegister110/K=1/W=(60,60,760,450) as "測定データを登録：番号・組成・表示名"
+    String/G $(base+":lastSyncedLabel120")=StrVarOrDefault(path+":displayName","")
+    NewPanel/N=XRDRegister110/K=1/W=(60,60,760,490) as "測定データを登録：番号・表示名・組成"
     DefaultGUIFont all={"Segoe UI",12,0}
     TitleBox owner,pos={18,15},frame=0,title="登録先："+XRD_ProjectDisplayName(owner)
     SetVariable number,pos={18,60},size={650,25},title="通し番号（015など）",value=$(base+":number"),proc=XRD110_EntryChanged
@@ -52,11 +53,14 @@ End
 
 Function XRD110_EntryChanged(sva) : SetVariableControl
     STRUCT WMSetVariableAction &sva
-    if(sva.eventCode>=1 && sva.eventCode<=3)
+    if((sva.eventCode>=1 && sva.eventCode<=3) || sva.eventCode==8 || sva.eventCode==-2)
         if(cmpstr(sva.ctrlName,"label")==0)
-            String base=XRD110_Entry()
-            String/G $(base+":composition")=StrVarOrDefault(base+":label","")
-            ControlUpdate/W=XRDRegister110 composition
+            String base=XRD110_Entry(),label=StrVarOrDefault(base+":label","")
+            if(cmpstr(label,StrVarOrDefault(base+":lastSyncedLabel120",""))!=0)
+                String/G $(base+":composition")=label
+                String/G $(base+":lastSyncedLabel120")=label
+                ControlUpdate/W=XRDRegister110 composition
+            endif
         endif
         XRD110_EntryPreview()
     endif

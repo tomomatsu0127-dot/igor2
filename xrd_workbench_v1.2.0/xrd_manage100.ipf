@@ -331,12 +331,14 @@ Function XRD100_Rollback(tx)
                 case "wave":
                     Wave w=$path
                     Rename w,$name; AbortOnRTE
+                    WaveClear w
                     break
                 case "newString":
                     KillStrings/Z $path
                     break
                 case "createdFolder":
-                    KillDataFolder/Z $path; AbortOnRTE
+                    XRD120_ClearCopyFormulas(path)
+                    KillDataFolder $path; AbortOnRTE
                     break
                 case "created":
                     KillWaves/Z $path

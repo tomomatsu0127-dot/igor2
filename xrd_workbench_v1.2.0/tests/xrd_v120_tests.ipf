@@ -222,6 +222,14 @@ Function XRD_VerifyV120Restored()
     String/G $(project+":activeData")=path
     Variable/G $(project+":activeStep")=3
     XRD_Panel()
+    Variable/G $(project+":tablesOnly")=1
+    XRD_ResizePanel()
+    ControlInfo/W=XRDWorkbench peakList
+    Variable tableY=V_top,tableWidth=V_width
+    ControlInfo/W=XRDWorkbench candidateList
+    XRD_TestCheck(V_top>tableY && V_width==tableWidth,"v120 table-focused mode keeps both lists large without overlap")
+    Variable/G $(project+":tablesOnly")=0
+    XRD_ResizePanel()
     XRD100_Select(path,0,1)
     GetAxis/W=XRDWorkbench#Pattern/Q left
     XRD_TestCheck(V_min==-30 && V_max==110,"v120 actual reopen keeps fixed identification Y bounds")
@@ -306,6 +314,11 @@ Function XRD_RunV120Changes(path,other,p1,p2,recipe,output)
     String/G $(entry+":composition")="x=0.20"
     sva.ctrlName="composition";XRD110_EntryChanged(sva)
     XRD_TestCheck(cmpstr(StrVarOrDefault(entry+":label",""),"x=0.25")==0,"v120 editing composition never changes display name")
+    sva.ctrlName="label";sva.eventCode=8;XRD110_EntryChanged(sva)
+    XRD_TestCheck(cmpstr(StrVarOrDefault(entry+":composition",""),"x=0.20")==0,"v120 refocusing an unchanged display name retains manual composition")
+    String/G $(entry+":label")="x=0.30"
+    sva.eventCode=-2;XRD110_EntryChanged(sva)
+    XRD_TestCheck(cmpstr(StrVarOrDefault(entry+":composition",""),"x=0.30")==0,"v120 focus loss synchronizes a newly entered display name")
     SavePICT/O/E=-5/SNAP=1/WIN=XRDRegister110 as output+"registration_order.png"
     DoWindow/K XRDRegister110
     String/G root:Packages:XRDWorkbench:activeProject=p2
@@ -335,6 +348,17 @@ Function XRD_RunV120Changes(path,other,p1,p2,recipe,output)
     XRD_TestCheck(NumVarOrDefault(copied+":Lattice:a",0)==5.89 && WaveExists($(copied+":LatticeRuns:Run1:inputs")),"v120 copy retains lattice values and history")
     XRD_TestCheck(cmpstr(StrVarOrDefault(copied+":copiedFromMeasurementUID120",""),XRD80_MeasurementUID(other))==0,"v120 copy records its source without moving it")
     XRD_TestCheck(!strlen(XRD120_CopyMeasurement(other,p1,"022","x=0.2","重複")),"v120 copy refuses a duplicate destination serial")
+    Wave/T copyOps=$(StrVarOrDefault(admin+":activeTransaction","")+":ops")
+    Variable mutations=DimSize(copyOps,0),fault,failedCount=0
+    for(fault=1;fault<=mutations;fault+=1)
+        Variable/G $(admin+":faultAfter")=fault
+        failed=XRD120_CopyMeasurement(other,p1,num2istr(200+fault),"x=0.1","故障検証")
+        failedCount+=!strlen(failed) && !DataFolderExists(XRD110_MeasurementPath(p1,num2istr(200+fault))) && !XRD100_Busy()
+        Print "COPY_FAULT",fault,strlen(failed),DataFolderExists(XRD110_MeasurementPath(p1,num2istr(200+fault))),XRD100_Busy(),StrVarOrDefault(StrVarOrDefault(admin+":activeTransaction","")+":restoreError","")
+    endfor
+    Variable/G $(admin+":faultAfter")=0
+    XRD_TestCheck(failedCount==mutations && mutations>2,"v120 every copy mutation rolls back without partial data")
+    Print "V120_COPY_ROLLBACK_POINTS",mutations
     Make/O/T/N=3 $(settings+":uids")
     Wave/T chosen=$(settings+":uids")
     chosen[0]=XRD80_MeasurementUID(other);chosen[1]=XRD80_MeasurementUID(path);chosen[2]=XRD80_MeasurementUID(copied)

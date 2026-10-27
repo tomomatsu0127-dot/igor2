@@ -65,6 +65,7 @@ Function XRD120_CopyList(lba) : ListBoxControl
     String/G $(base+":copyUID120")=XRD80_MeasurementUID(source)
     String/G $(base+":number")=StrVarOrDefault(source+":sampleNumber","")
     String/G $(base+":label")=StrVarOrDefault(source+":displayName","")
+    String/G $(base+":lastSyncedLabel120")=StrVarOrDefault(source+":displayName","")
     String/G $(base+":composition")=StrVarOrDefault(source+":composition","")
     String/G $(base+":file")=""
     TitleBox fileName,win=XRDRegister110,title="複製元："+XRD_ProjectDisplayName(XRD80_ProjectForMeasurement(source))+" / "+XRD110_SampleLabel(source)
@@ -88,7 +89,7 @@ Function XRD120_RebindCopy(base,oldPath,newPath)
         Wave w=$path
         if(WaveType(w)==0)
             Wave/T text=$path
-            text=XRD100_RepathList(text[p][q][r][s],oldPath,newPath)
+            text=SelectString(strsearch(text[p][q][r][s],oldPath,0)>=0,text[p][q][r][s],XRD100_RepathList(text[p][q][r][s],oldPath,newPath))
         endif
         formula=GetFormula(w)
         if(strlen(formula))
@@ -103,7 +104,13 @@ Function XRD120_RebindCopy(base,oldPath,newPath)
             break
         endif
         SVAR value=$(base+":"+PossiblyQuoteName(name))
-        value=XRD100_RepathList(value,oldPath,newPath)
+        if(strsearch(value,oldPath,0)>=0)
+            if(cmpstr(name,"nativeMacro")==0)
+                value=ReplaceString(oldPath+":",value,newPath+":")
+            else
+                value=XRD100_RepathList(value,oldPath,newPath)
+            endif
+        endif
         i+=1
     while(1)
     i=0
@@ -160,10 +167,40 @@ Function/S XRD120_CopyMeasurement(source,project,number,composition,label)
     catch
         error=max(1,GetRTError(1))
         String/G $(tx+":error")=GetErrMessage(error)
-        XRD100_Rollback(tx)
     endtry
     if(error)
+        // Leave the exception scope first so temporary Wave handles are released.
+        XRD100_Rollback(tx)
         return ""
     endif
     return path
+End
+
+Function XRD120_ClearCopyFormulas(base)
+    String base
+    DFREF folder=$base
+    String name
+    Variable i=0
+    do
+        name=GetIndexedObjNameDFR(folder,1,i)
+        if(!strlen(name))
+            break
+        endif
+        Wave w=$(base+":"+PossiblyQuoteName(name))
+        if(strlen(GetFormula(w)))
+            SetFormula w,"";AbortOnRTE
+        endif
+        WaveClear w
+        i+=1
+    while(1)
+    i=0
+    do
+        name=GetIndexedObjNameDFR(folder,4,i)
+        if(!strlen(name))
+            break
+        endif
+        XRD120_ClearCopyFormulas(base+":"+PossiblyQuoteName(name))
+        i+=1
+    while(1)
+    return 0
 End

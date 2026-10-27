@@ -62,7 +62,7 @@ Function XRD_RunV100Integration(fixtures,output)
     XRD_TestCheck(XRD100_SetSample(path,"023","x=0.2","試料023")==0,"v100 explicit sample metadata accepted")
     path=XRD80_ResolveMeasurement(uid)
     XRD_TestCheck(WaveExists($(project+":"+PossiblyQuoteName("int_QS-type_023_x=0.2_"+XRD_ProjectDisplayName(project)))),"v100 adopted-card named Wave created")
-    Wave raw=$(path+":Raw:intensity"),assigned=$(path+":Assignments:refIndex"),hkl=$(path+":Assignments:h")
+    Wave raw=$(path+":Raw:intensity"),assigned=$(path+":Assignments:refIndex"),hkl=$(path+":Assignments:refPeakIndex")
     Variable rawCRC=WaveCRC(0,raw),assignmentCRC=WaveCRC(0,assigned),hklCRC=WaveCRC(0,hkl),undoCount=NumVarOrDefault(project+":Undo:count",0)
     NewDataFolder/O $(path+":Lattice")
     Variable/G $(path+":Lattice:a")=5.89

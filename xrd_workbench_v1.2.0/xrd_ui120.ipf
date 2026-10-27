@@ -12,13 +12,19 @@ Function XRD120_RefreshPanel()
     PauseUpdate; Silent 1
     String project=XRD_Project(),path=XRD_Data()
     Variable step=NumVarOrDefault(project+":activeStep",1)
+    DoWindow/T XRDWorkbench,"XRD Workbench v1.2.0 - "+XRD_ProjectDisplayName(project)
     XRD_CapturePanelState(1)
     XRD_CaptureView()
+    XRD_EnsureFilterCurrent(path)
     if(strlen(path) && (step==1 || step==3))
         XRD81_RefreshPeaks(path)
+        if(step==1)
+            XRD120_ThresholdBinding(path)
+        endif
     elseif(step==2)
         XRD_RebuildReferenceTable(project)
         ControlUpdate/W=XRDWorkbench referenceList
+        TitleBox referenceSummary,win=XRDWorkbench,title=StrVarOrDefault(XRD80_Library()+":referenceLoadSummary","")
     elseif(step==4 && strlen(path))
         XRD_RefreshAssignmentTable(path)
         ControlUpdate/W=XRDWorkbench assignmentList
@@ -69,6 +75,12 @@ Function XRD120_Layout(scale,left,width,graphTop,half,tableTop)
     Button matchActions,win=XRDWorkbench,pos={12*scale,110*scale},size={inner,25*scale},fSize=max(12,round(12*scale))
     TitleBox legendSize120,win=XRDWorkbench,pos={side*0.52,164*scale},fSize=round(10*scale)
     Slider legendFont120,win=XRDWorkbench,pos={side*0.62,160*scale},size={side*0.33,19*scale}
+    if(NumVarOrDefault(XRD_Project()+":tablesOnly",0))
+        TitleBox strongNotice120,win=XRDWorkbench,pos={left,60*scale},size={width,32*scale},fSize=max(11,round(11*scale))
+        ListBox peakList,win=XRDWorkbench,pos={left,94*scale},size={width,half-32*scale}
+        ListBox candidateList,win=XRDWorkbench,pos={left,94*scale+half},size={width,half-30*scale}
+        return 0
+    endif
     TitleBox strongNotice120,win=XRDWorkbench,pos={left,tableTop-2*scale},size={width,32*scale},fSize=max(11,round(11*scale))
     ListBox peakList,win=XRDWorkbench,pos={left,tableTop+33*scale},size={width*0.46,half-53*scale}
     ListBox candidateList,win=XRDWorkbench,pos={left+width*0.46+5*scale,tableTop+33*scale},size={width*0.54-5*scale,half-53*scale}
@@ -180,5 +192,18 @@ Function XRD120_EmptyComparison(win,embedded)
     SetAxis/W=$win left 0,1
     TextBox/W=$win/C/N=EmptyCompare120/F=0/A=MC "\Z12比較する試料を選択してください"
     SetWindow $win userdata(XRDPlotCount)="0"
+    return 0
+End
+
+Function XRD120_ThresholdBinding(path)
+    String path
+    Variable mode=NumVarOrDefault(path+":detectorMode",0)
+    if(mode==1)
+        SetVariable threshold,win=XRDWorkbench,title="最小突出量 (%)",limits={0,100,0.1},value=$(path+":detectProminence")
+    elseif(mode==2)
+        SetVariable threshold,win=XRDWorkbench,title="最小高さ (%)",limits={0,100,0.1},value=$(path+":autoMinHeight")
+    else
+        SetVariable threshold,win=XRDWorkbench,title="高さしきい値 (%)",limits={0,100,1},value=$(path+":threshold")
+    endif
     return 0
 End

@@ -101,7 +101,7 @@ Function XRD120_UpdateWarning(path)
         endfor
     endif
     if(n)
-        TitleBox strongNotice120,win=XRDWorkbench,title="確認："+text+"\r未登録・配向等も考慮し、候補の根拠で全体を確認してください。",fColor=(42000,16000,0)
+        TitleBox strongNotice120,win=XRDWorkbench,title="確認："+text+"\r未登録・配向等も考慮し、候補の根拠で全体を確認してください。",fColor=(42000,16000,0),help={text}
     else
         TitleBox strongNotice120,win=XRDWorkbench,title="主・第2参照ピーク：測定範囲内の登録ピークと照合します。",fColor=(10000,16000,22000)
     endif
