@@ -17,7 +17,7 @@ def package(destination):
     destination = Path(destination).resolve()
     if destination.exists():
         raise FileExistsError("配布先は未使用のフォルダ名を指定してください。")
-    if destination.with_suffix(".zip").exists():
+    if destination.with_name(destination.name+".zip").exists():
         raise FileExistsError("同名の配布ZIPが既に存在します。")
     binary = ROOT / "dist" / "XRD_Studio_v0.1.0.exe"
     if not binary.is_file():
@@ -50,7 +50,7 @@ def package(destination):
     files = [{"path":p.relative_to(destination).as_posix(),"bytes":p.stat().st_size,
               "sha256":hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(destination.rglob("*")) if p.is_file()]
     (destination/"MANIFEST_v0.1.0.json").write_text(json.dumps({"version":"0.1.0","files":files},ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    archive_path = destination.with_suffix(".zip")
+    archive_path = destination.with_name(destination.name+".zip")
     with zipfile.ZipFile(archive_path,"w",zipfile.ZIP_DEFLATED) as archive:
         for path in sorted(destination.rglob("*")):
             if path.is_file():
