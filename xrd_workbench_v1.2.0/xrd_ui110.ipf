@@ -276,44 +276,21 @@ End
 Function XRD110_SideLegend(win,embedded)
     String win
     Variable embedded
-    if(embedded!=2)
+    if(embedded!=2 || !WinType(win))
         return 0
     endif
-    String traces=TraceNameList(win,";",1),trace,key,seen="",labels="",name
-    Variable i,ref
-    for(i=0;i<ItemsInList(traces);i+=1)
-        trace=StringFromList(i,traces);ref=str2num(GetUserData(win,"","Ref_"+trace))
-        if(numtype(ref)!=0 || ref<=0)
-            continue
-        endif
-        key=XRD_PhaseLabel(ref)
-        if(WhichListItem(key,seen)<0)
-            seen+=key+";"
-            if(strlen(labels))
-                labels+="\r"
-            endif
-            labels+="\s("+trace+") "+XRD_LegendText(key)
+    String keys="",traces="",name,annotations=AnnotationList(win)
+    Variable n=XRD110_LegendItems(win,keys,traces),font=NumVarOrDefault(XRD120_CompareSettings()+":legendFont",12),i
+    for(i=0;i<ItemsInList(annotations);i+=1)
+        name=StringFromList(i,annotations)
+        if(StringMatch(name,"SidePhases110*") || cmpstr(name,"EmptyCompare120")==0)
+            TextBox/W=$win/K/N=$name
         endif
     endfor
-    if(strlen(labels))
-        Variable rows=ceil(ItemsInList(seen)/2),c,j,n=ItemsInList(seen)
-        String column,annotation
-        for(c=0;c<2;c+=1)
-            column=""
-            for(j=0;j<rows;j+=1)
-                if(c*rows+j<n)
-                    if(strlen(column))
-                        column+="\r"
-                    endif
-                    column+=StringFromList(c*rows+j,labels,"\r")
-                endif
-            endfor
-            annotation=SelectString(c,"SidePhases110","SidePhases110_2")
-            if(strlen(column))
-                Legend/W=$win/C/N=$annotation/F=0/B=1/A=LT/X=(c*50)/Y=0/E=2 "\Z10"+column
-            endif
-        endfor
-        ModifyGraph/W=$win margin(top)=max(25,rows*13+12)
+    ModifyGraph/W=$win gFont="Times New Roman",gfSize=font
+    if(n)
+        XRD120_OneLegend(win,"SidePhases110",keys,traces,font,2,2)
+        ModifyGraph/W=$win margin(top)=max(25,ceil(n/2)*font*1.5+12)
     endif
-    return 0
+    return n
 End

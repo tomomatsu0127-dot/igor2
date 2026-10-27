@@ -193,6 +193,7 @@ Function XRD_ResizePanel()
     XRD_UpdateHistoryUI()
     XRD_V72Layout(w,h,scale)
     XRD100_ViewLayout(contentLeft,contentW,scale)
+    XRD120_Layout(scale,contentLeft,contentW,graphTop,half,tableTop)
     // No graph recreation, axis changes, or active-subwindow changes on resize.
     SetWindow XRDWorkbench userdata(XRDLayoutBusy)="0"
     XRD_CapturePanelState(0)

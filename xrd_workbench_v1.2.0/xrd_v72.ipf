@@ -28,7 +28,7 @@ Function XRD_V72Controls(project,path)
     Button zoomPeak,pos={16,82},size={90,22},title="選択±5°",proc=XRD_V72Button
     Button resetZoom,pos={112,82},size={90,22},title="全範囲",proc=XRD_V72Button
     Button unknownPeak,pos={208,82},size={90,22},title="不明にする",proc=XRD_Button
-    PopupMenu matchActions,pos={16,112},size={280,22},title="",mode=1,value=XRD_MatchActionChoices(),proc=XRD_MatchActionPopup
+    Button matchActions,pos={16,110},size={280,26},fSize=12,title="その他の操作… ▼",proc=XRD120_MatchMenu
     TitleBox sideHint,pos={16,68},frame=0,title="右の候補をダブルクリックして採用"
     TitleBox sideRange,pos={16,138},frame=0,title="他プロジェクトも選択可 ／ 右図と同じ範囲"
     XRD_DrawLiveStack("XRDWorkbench#SideCompare",2)
@@ -261,7 +261,7 @@ Function XRD_V72Layout(w,h,scale)
     GroupBox workGroup,win=XRDWorkbench,size={side-4*scale,h-73*scale}
     TitleBox recoveryState,win=XRDWorkbench,pos={side+12*scale,h-39*scale},size={w-side-205*scale,16*scale}
 
-    PopupMenu matchActions,win=XRDWorkbench,pos={12*scale,112*scale},bodyWidth=inner,fSize=round(10*scale)
+    Button matchActions,win=XRDWorkbench,pos={12*scale,110*scale},size={inner,25*scale},fSize=max(12,round(12*scale))
     Button pointAdd,win=XRDWorkbench,pos={12*scale+(inner+6*scale)/2,137*scale},size={(inner-6*scale)/2,20*scale}
     Button deletePeak2,win=XRDWorkbench,pos={12*scale,161*scale},size={(inner-6*scale)/2,20*scale}
     MoveSubwindow/W=XRDWorkbench#SideCompare fnum=(12*scale,190*scale,side-4*scale,h-48*scale)

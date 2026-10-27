@@ -5,3 +5,5 @@ xrd_workbench_v1.1.0/** -text
 *.yaml text eol=lf
 *.json text eol=lf
 xrd_workbench_v1.1.0/** -text
+
+/xrd_workbench_v1.2.0/** -text

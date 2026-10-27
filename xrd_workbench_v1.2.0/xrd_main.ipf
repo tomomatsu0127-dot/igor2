@@ -40,6 +40,9 @@
 #include ":xrd_tree110"
 #include ":xrd_entry110"
 #include ":xrd_legend110"
+#include ":xrd_ui120"
+#include ":xrd_reference120"
+#include ":xrd_transfer120"
 #include <Peak AutoFind>
 
 // XRD Workbench v1.2.0; Igor Pro 9+. Load this entry point only.

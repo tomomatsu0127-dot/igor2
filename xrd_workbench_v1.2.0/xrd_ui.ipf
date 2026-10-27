@@ -2,6 +2,10 @@
 // XRD Workbench v1.2.0. Japanese guided workflow UI.
 
 Function XRD_Panel()
+    PauseUpdate; Silent 1
+    if(XRD120_CanRefresh())
+        return XRD120_RefreshPanel()
+    endif
     XRD_CapturePanelState(1)
     XRD_CaptureView()
     XRD_Init()
@@ -16,14 +20,21 @@ Function XRD_Panel()
     projectName=XRD_ProjectDisplayName(project)
     NVAR step=$(project+":activeStep")
     step=max(1,min(4,step))
-    DoWindow/K XRDWorkbench
-    NewPanel/EXP=1/N=XRDWorkbench/W=(10,10,868,520) as "XRD Workbench v1.2.0 - "+projectName
+    Variable newFrame=!WinType("XRDWorkbench")
+    if(newFrame)
+        NewPanel/EXP=1/N=XRDWorkbench/W=(10,10,868,520) as "XRD Workbench v1.2.0 - "+projectName
+    else
+        XRD120_ClearContents()
+        DoWindow/T XRDWorkbench,"XRD Workbench v1.2.0 - "+projectName
+    endif
     ModifyPanel/W=XRDWorkbench fixedSize=0
     XRD_UISettings()
     SetWindow XRDWorkbench userdata(XRDProject)=project
     SetWindow XRDWorkbench userdata(XRDData)=path
     SetWindow XRDWorkbench userdata(XRDStep)=num2istr(step)
-    SetWindow XRDWorkbench userdata(XRDInstance)=num2str(ticks)+num2str(enoise(1))
+    if(newFrame || !strlen(GetUserData("XRDWorkbench","","XRDInstance")))
+        SetWindow XRDWorkbench userdata(XRDInstance)=num2str(ticks)+num2str(enoise(1))
+    endif
     SetWindow XRDWorkbench userdata(XRDUIVersion)="1.2.0"
     DefaultGUIFont/W=XRDWorkbench all={"Segoe UI",10,0},popup={"Segoe UI",10,0}
     SetWindow XRDWorkbench hook(wheel)=XRD_PanelHook
@@ -83,11 +94,16 @@ Function XRD_Panel()
     Button undoAction,pos={565,494},size={95,16},title="元に戻す (Ctrl+Z)",proc=XRD_UndoButton
     XRD_UpdateHistoryUI()
     XRD110_Controls(project,path)
+    XRD120_Controls()
     XRD_RememberControls()
-    XRD_RestorePanelState()
+    if(newFrame)
+        XRD_RestorePanelState()
+    endif
     XRD_ResizePanel()
     XRD_RestorePanelCursors(path)
     XRD81_AttachPicker(path)
+    XRD120_LockY()
+    XRD120_UpdateWarning(path)
     XRD_StartAutoSave()
     XRD_RequestLive()
     return 0
@@ -448,6 +464,9 @@ Function XRD_ApplySelectedCandidate(path,overlap)
         return -1
     endif
     NVAR selectedPeak=$(path+":selectedPeakRow"),selectedCandidate=$(path+":selectedCandidateRow")
+    if(!XRD120_ConfirmCandidate(path,selectedCandidate))
+        return -4
+    endif
     Variable result=XRD_AssignCandidate(path,selectedPeak,selectedCandidate,overlap)
     if(result<0)
         if(result==-2)

@@ -50,27 +50,46 @@ End
 Function XRD110_LegendColumns(win,keys,traces,font,cols,canvasWidth)
     String win,keys,traces
     Variable font,cols,canvasWidth
-    Variable n=ItemsInList(keys),rows=ceil(n/cols),c,j,index,x=0,width
-    String labels,name
+    return XRD120_OneLegend(win,"Phases",keys,traces,font,cols,1)
+End
+
+Function XRD120_OneLegend(win,name,keys,traces,font,cols,exterior)
+    String win,name,keys,traces
+    Variable font,cols,exterior
+    Variable n=ItemsInList(keys),rows=ceil(n/cols),c,j,index
+    Make/FREE/D/N=4 widths=0,stops=0
+    String text="",label
     for(c=0;c<cols;c+=1)
-        labels="";width=0
         for(j=0;j<rows;j+=1)
             index=c*rows+j
-            if(index>=n)
-                break
+            if(index<n)
+                widths[c]=max(widths[c],XRD110_LegendWidth(StringFromList(index,keys),font))
             endif
-            if(strlen(labels))
-                labels+="\r"
-            endif
-            labels+="\s("+StringFromList(index,traces)+") "+XRD_LegendText(StringFromList(index,keys))
-            width=max(width,XRD110_LegendWidth(StringFromList(index,keys),font))
         endfor
-        if(strlen(labels))
-            name=SelectString(c==0,"PhasesCol110_"+num2istr(c+1),"Phases")
-            Legend/W=$win/C/N=$name/F=0/A=LT/E=1/X=(100*x/canvasWidth)/Y=0 "\Z"+num2istr(font)+labels
+        stops[c]=widths[c]+font
+        if(c>0)
+            stops[c]+=stops[c-1]
         endif
-        x+=width+font
     endfor
+    for(j=0;j<rows;j+=1)
+        if(j>0)
+            text+="\r"
+        endif
+        for(c=0;c<cols;c+=1)
+            index=c*rows+j
+            if(index>=n)
+                continue
+            endif
+            if(c>0)
+                text+="\t"
+            endif
+            label=ReplaceString("\\M",XRD_LegendText(StringFromList(index,keys)),"\\M\\Z"+num2istr(font))
+            text+="\\F'Times New Roman'\\Z"+num2istr(font)+"\\s("+StringFromList(index,traces)+") "+label
+        endfor
+    endfor
+    if(n)
+        Legend/W=$win/C/N=$name/F=0/M=0/A=LT/E=(exterior)/X=0/Y=0/T={stops[0],stops[1],stops[2]} text
+    endif
     return rows
 End
 

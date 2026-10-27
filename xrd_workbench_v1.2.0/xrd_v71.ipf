@@ -132,7 +132,7 @@ Function XRD_DrawLiveStack(win,embedded)
         folder=XRD_PlotRoot()+":LiveSide"
     endif
     if(!strlen(path) || !ItemsInList(list))
-        return -1
+        return XRD120_EmptyComparison(win,embedded)
     endif
     NewDataFolder/O $folder
     Variable existing=WinType(win)!=0,i,j,total=ItemsInList(list),offset,spacing=135,upper=100+(total-1)*135+40
@@ -197,7 +197,7 @@ Function XRD_DrawLiveStack(win,embedded)
         if(embedded==2)
             label=SelectString(cmpstr(data,path)==0,"","▶ ")+XRD_ProjectDisplayName(XRD_PlotOwner(data))+"\r"+XRD110_SampleLabel(data)
         endif
-        TextBox/W=$win/C/N=$("LiveLabel"+num2istr(i))/F=0/B=1/A=RT/X=1/Y=(100*(upper-offset-100)/(upper+30)) "\\Z12"+label
+        TextBox/W=$win/C/N=$("LiveLabel"+num2istr(i))/F=0/B=1/A=RT/X=1/Y=(100*(upper-offset-100)/(upper+30)) "\\F'Times New Roman'\\Z"+num2istr(SelectNumber(embedded==2,12,NumVarOrDefault(XRD120_CompareSettings()+":legendFont",12)))+label
     endfor
     if(existing)
         RemoveFromGraph/W=$win/Z XRDLiveAxisAnchor

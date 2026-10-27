@@ -188,9 +188,9 @@ Function XRD110_ComparePanel()
     endfor
     XRD110_TreeBuild(2)
     DoWindow/K XRDCompareSelection
-    NewPanel/N=XRDCompareSelection/K=1/W=(55,55,980,635) as "左の比較図に追加：全プロジェクト"
+    NewPanel/N=XRDCompareSelection/K=1/W=(55,55,980,635) as "左の比較図を選択：全プロジェクト"
     DefaultGUIFont all={"Segoe UI",12,0}
-    TitleBox help,pos={15,15},frame=0,title="プロジェクト名を押して展開し、比較する試料にチェック。\r他プロジェクトで同定済みの試料も追加できます。編集中の試料は必ず表示します。"
+    TitleBox help,pos={15,15},frame=0,title="プロジェクト名を押して展開し、比較する試料にチェック。\r他プロジェクトで同定済みの試料も追加できます。チェックした試料だけを表示します。"
     ListBox samples,pos={15,75},size={890,410},mode=1,listWave=$(tree+":table"),selWave=$(tree+":flags"),widths={45,630,195},proc=XRD110_CompareList
     Button apply,pos={15,510},size={890,32},title="選んだ試料を左の比較図に表示",proc=XRD_CompareSelectionButton
     SetWindow XRDCompareSelection hook(wheel110)=XRD110_WheelHook

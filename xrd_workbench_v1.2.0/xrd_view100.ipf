@@ -108,7 +108,11 @@ Function XRD100_Zoom(path,center,span)
         endfor
     endif
     SetAxis/W=$win bottom lo,hi
-    SetAxis/W=$win left -30,max(10,maximum*1.12)
+    if(NumVarOrDefault(XRD_Project()+":activeStep",1)==3)
+        XRD120_LockY()
+    else
+        SetAxis/W=$win left -30,max(10,maximum*1.12)
+    endif
     DoUpdate/W=$win
     XRD_RecordPendingZoom(path)
     XRD_CaptureView()

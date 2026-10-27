@@ -222,6 +222,8 @@ Function XRD81_RefreshPeaks(path,[rescore])
     String name=StrVarOrDefault(path+":displayName","")+"  ["+StrVarOrDefault(path+":analysisState","")+"]"
     XRD110_DataChooser()
     XRD_UpdateHistoryUI()
+    XRD120_LockY()
+    XRD120_UpdateWarning(path)
     XRD_RequestLive()
     return 0
 End

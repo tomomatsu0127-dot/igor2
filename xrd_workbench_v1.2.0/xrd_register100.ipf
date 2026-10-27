@@ -329,6 +329,7 @@ Function XRD100_SetSample(path,number,composition,label)
         endif
         XRD100_Commit(tx)
     catch
+        String/G $(tx+":errorDetail")=GetRTErrMessage()
         error=max(1,GetRTError(1))
         XRD100_Rollback(tx)
     endtry

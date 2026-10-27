@@ -335,6 +335,9 @@ Function XRD100_Rollback(tx)
                 case "newString":
                     KillStrings/Z $path
                     break
+                case "createdFolder":
+                    KillDataFolder/Z $path; AbortOnRTE
+                    break
                 case "created":
                     KillWaves/Z $path
                     break

@@ -39,28 +39,7 @@ Function/S XRD_AllMeasurementPaths(completedOnly)
 End
 
 Function/S XRD_ComparePaths()
-    String base=XRD_PlotRoot(),all=XRD_AllMeasurementPaths(0),out="",path
-    Wave/T/Z selected=$(base+":compareUIDs")
-    Variable i
-    if(WaveExists(selected))
-        for(i=0;i<numpnts(selected);i+=1)
-            path=XRD80_ResolveMeasurement(selected[i])
-            if(strlen(path) && WhichListItem(path,all)>=0 && WhichListItem(path,out)<0)
-                out+=path+";"
-            endif
-        endfor
-    else
-        // Initial comparison remains the current project's familiar order.
-        String project=XRD_Project(),names=XRD_MeasurementOrderList(project)
-        for(i=0;i<ItemsInList(names);i+=1)
-            out+=project+":Measurements:"+StringFromList(i,names)+";"
-        endfor
-    endif
-    path=XRD_Data()
-    if(strlen(path) && WhichListItem(path,out)<0)
-        out=path+";"+out
-    endif
-    return out
+    return XRD120_ComparePaths()
 End
 
 Function/S XRD_ComparisonPhases(path)
@@ -111,8 +90,8 @@ Function XRD_CompareSelectionButton(ba) : ButtonControl
     String base=XRD_PlotRoot(),ui=base+":CompareUI"
     Wave/T paths=$(ui+":paths")
     Wave flags=$(ui+":flags")
-    Make/O/T/N=0 $(base+":compareUIDs")
-    Wave/T selected=$(base+":compareUIDs")
+    Make/O/T/N=0 $(XRD120_CompareSettings()+":uids")
+    Wave/T selected=$(XRD120_CompareSettings()+":uids")
     Variable i,n=0
     for(i=0;i<numpnts(paths);i+=1)
         if(flags[i][0] & 16)
@@ -123,7 +102,7 @@ Function XRD_CompareSelectionButton(ba) : ButtonControl
     DoWindow/K XRDCompareSelection
     XRD_RequestLive()
     if(WinType("XRDWorkbench"))
-        Execute/P/Q "XRD_Panel()"
+        Execute/P/Q "XRD_UpdateSideCompare()"
     endif
     return 0
 End

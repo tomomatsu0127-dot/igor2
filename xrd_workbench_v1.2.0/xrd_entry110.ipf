@@ -20,6 +20,7 @@ Function XRD110_RegisterPanel(path)
     String/G $(base+":ownerUID")=XRD80_ProjectUID(owner)
     String/G $(base+":sampleUID")=StrVarOrDefault(path+":measurementUID","")
     String/G $(base+":file")=""
+    String/G $(base+":copyUID120")=""
     String/G $(base+":number")=StrVarOrDefault(path+":sampleNumber","")
     String/G $(base+":composition")=StrVarOrDefault(path+":composition","")
     String/G $(base+":label")=StrVarOrDefault(path+":displayName","")
@@ -27,15 +28,17 @@ Function XRD110_RegisterPanel(path)
     DefaultGUIFont all={"Segoe UI",12,0}
     TitleBox owner,pos={18,15},frame=0,title="登録先："+XRD_ProjectDisplayName(owner)
     SetVariable number,pos={18,60},size={650,25},title="通し番号（015など）",value=$(base+":number"),proc=XRD110_EntryChanged
-    SetVariable composition,pos={18,104},size={650,25},title="組成（x=-0.1など）",value=$(base+":composition"),proc=XRD110_EntryChanged
-    SetVariable label,pos={18,148},size={650,25},title="表示名",value=$(base+":label"),proc=XRD110_EntryChanged
+    SetVariable composition,pos={18,148},size={650,25},title="組成（x=-0.1など）",value=$(base+":composition"),proc=XRD110_EntryChanged
+    SetVariable label,pos={18,104},size={650,25},title="表示名",value=$(base+":label"),proc=XRD110_EntryChanged
     Button file,pos={18,194},size={180,28},title="測定ファイルを選ぶ…",proc=XRD110_EntryButton
-    TitleBox fileName,pos={210,200},size={460,45},frame=0,title=SelectString(strlen(path)>0,"未選択","登録済み測定の情報を変更")
+    Button copy120,pos={210,194},size={458,28},title="他プロジェクトの同定済み試料から追加…",proc=XRD120_CopyButton
+    TitleBox fileName,pos={18,226},size={650,18},frame=0,title=SelectString(strlen(path)>0,"未選択","登録済み測定の情報を変更")
     TitleBox preview,pos={18,246},size={650,85},frame=0,title=""
     TitleBox note,pos={18,335},frame=0,title="引用符は入力不要。015は文字として保持。int_normは0〜100に規格化した強度です。"
     Button register,pos={18,365},size={650,30},title="この内容で登録（重複は上書きしません）",proc=XRD110_EntryButton
     if(strlen(path))
         Button file,disable=2
+        Button copy120,disable=2
     endif
     XRD110_EntryPreview()
     return 0
@@ -50,6 +53,11 @@ End
 Function XRD110_EntryChanged(sva) : SetVariableControl
     STRUCT WMSetVariableAction &sva
     if(sva.eventCode>=1 && sva.eventCode<=3)
+        if(cmpstr(sva.ctrlName,"label")==0)
+            String base=XRD110_Entry()
+            String/G $(base+":composition")=StrVarOrDefault(base+":label","")
+            ControlUpdate/W=XRDRegister110 composition
+        endif
         XRD110_EntryPreview()
     endif
     return 0
@@ -76,6 +84,7 @@ Function XRD110_ChooseFile()
     endif
     String base=XRD110_Entry()
     String/G $(base+":file")=S_fileName
+    String/G $(base+":copyUID120")=""
     TitleBox fileName,win=XRDRegister110,title=ParseFilePath(0,S_fileName,":",1,0)
     return 0
 End
@@ -96,7 +105,15 @@ Function XRD110_CommitEntry()
         return -1
     endif
     String/G root:Packages:XRDWorkbench:activeProject=owner
-    if(!strlen(path))
+    if(!strlen(path) && strlen(StrVarOrDefault(base+":copyUID120","")))
+        String copySource=XRD80_ResolveMeasurement(StrVarOrDefault(base+":copyUID120",""))
+        path=XRD120_CopyMeasurement(copySource,owner,number,composition,label)
+        if(!strlen(path))
+            DoAlert 0,"同定済み試料を複製できません。元データは変更していません。"
+            return -1
+        endif
+        String/G $(base+":sampleUID")=XRD80_MeasurementUID(path)
+    elseif(!strlen(path))
         if(!strlen(file) || XRD_ImportFile(file)!=0)
             DoAlert 0,"測定ファイルを選び、形式を確認してください。"
             return -1

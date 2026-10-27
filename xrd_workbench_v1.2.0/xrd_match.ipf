@@ -258,6 +258,7 @@ Function XRD_PreviewReference(path,refIndex,shift)
     Variable/G $(path+":Preview:shift")=shift
     XRD_BuildEvidence(path,refIndex,shift)
     XRD_UpdateEvidenceUI(path)
+    XRD120_UpdateWarning(path)
     XRD_ShiftNotice(path)
     XRD_RequestLive()
     return n

@@ -153,6 +153,7 @@ End
 
 Function XRD_ViewDeferred()
     if(WinType("XRDWorkbench"))
+        XRD120_LockY()
         XRD_RecordPendingZoom(GetUserData("XRDWorkbench","","XRDData"))
         SetWindow XRDWorkbench userdata(XRDViewPending)="0"
     endif
