@@ -1,3 +1,11 @@
+# v1.2.1 screen transition fix / 2026-10-27 JST
+
+- Branch: codex/xrd-v1.2.1, base 93e92d001cf0df22d834bfb6cbb7fc3d80394966.
+- Scope: Igor Workbench screen transitions only. New release xrd_workbench_v1.2.1.
+- Reproduced: parent dimensions/maximize unchanged; XRD_ViewSync forces a DoUpdate while controls/graphs are still at baseline geometry, before XRD_RememberControls/XRD_ResizePanel.
+- Plan: gate graph view synchronization during construction, synchronize after final layout. Schema/analysis unchanged.
+- Native regression and packaging pending.
+
 # WORK_STATUS
 
 管理版: 1.2.0 / 2026-10-27 JST

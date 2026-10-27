@@ -76,3 +76,11 @@
 - 5058d7dをcodex/xrd-v1.2.0へpush済み。mainは変更していない。配布ZIPは前項SHAと一致。
 - 差分の空白検査補足: コード・文書はcr-at-eolで合格。Igorの故障注入結果Printには空のエラー文字列を表す末尾空白が6行あり、出力を保持したため全ログを含める検査はその6行を報告する。コードの不具合・試験失敗ではない。コード・文書だけを対象にした最終検査は合格。
 - 利用者へ渡すもの: ワークスペース直下のZIP、更新HTML、初心者HTML、変更ファイル/試験結果。次の開発は本branchの最新SHAを取得して再開する。
+
+
+## 2026-10-27 / v1.2.1 investigation
+
+- Isolated branch/checkout from latest Igor branch; standalone working changes untouched.
+- Baseline hashes recorded. Instrumented copied v1.2.0 in diagnostics only. Igor 9.05 /I probe: 1867x926 restored and 1924x987 maximized remained identical through rebuild (RTE=0).
+- Cause: XRD_DrawMeasurementGraph/DrawPeakFocus -> XRD_ViewSync -> DoUpdate before final layout. Controls and graph constructed with baseline coordinates, then enlarged by XRD_ResizePanel.
+- No user Experiment/active Igor instance was opened, saved or closed.
