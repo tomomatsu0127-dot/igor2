@@ -1,0 +1,4 @@
+# card_number: TEST-NUMERIC
+tt int h k l
+35.4 80 1 2 3
+15.479 bad 2 0 -1

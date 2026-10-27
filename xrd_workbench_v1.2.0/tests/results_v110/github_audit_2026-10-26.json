@@ -1,0 +1,59 @@
+[
+  {
+    "repository": "tomomatsu0127-dot/igor2",
+    "branch": "main",
+    "tree_sha": "2c30ceffde11c4013bf496fced92f7da6d68ee49",
+    "branches": [
+      {
+        "name": "main",
+        "sha": "2c30ceffde11c4013bf496fced92f7da6d68ee49"
+      }
+    ],
+    "ipf_files": [],
+    "files": [
+      ".gitkeep"
+    ],
+    "release_count": 0
+  },
+  {
+    "repository": "tomomatsu0127-dot/XRD",
+    "branch": "main",
+    "tree_sha": "98d1d0268905f0a4d3e0cdd5bf44c020432aaa45",
+    "branches": [
+      {
+        "name": "main",
+        "sha": "98d1d0268905f0a4d3e0cdd5bf44c020432aaa45"
+      }
+    ],
+    "ipf_files": [],
+    "files": [
+      ".gitignore",
+      "AGENTS.md",
+      "HOW_TO_RUN_JA.md",
+      "README.md",
+      "docs/development_notes.md",
+      "docs/pdf_workflow_requirements.md",
+      "index.html",
+      "index_fixed.html",
+      "legacy/README_XRD_Graph_Maker.md",
+      "legacy/sample_xrd_graph.png",
+      "legacy/sample_xrd_graph.svg",
+      "legacy/xrd_graph_maker.html",
+      "run_labplot_studio.bat",
+      "run_laptop_studio.bat",
+      "sample_data/sample_measurement.xy",
+      "sample_data/sample_reference.txt",
+      "src/labplot_studio/__init__.py",
+      "src/labplot_studio/__main__.py",
+      "src/labplot_studio/exporters.py",
+      "src/labplot_studio/identify.py",
+      "src/labplot_studio/lattice.py",
+      "src/labplot_studio/main.py",
+      "src/labplot_studio/models.py",
+      "src/labplot_studio/parsers.py",
+      "src/labplot_studio/vsm.py",
+      "src/labplot_studio/xrd.py"
+    ],
+    "release_count": 0
+  }
+]

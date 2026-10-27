@@ -35,3 +35,12 @@
 - GitHub: Draft PR #1 https://github.com/tomomatsu0127-dot/igor2/pull/1 を作成してチャットに添付。作業区切りごとにbranchへ保存。mainの開始SHAは保持。
 - 判断: 開発基盤の整備は完了。正本化候補のmain採用と実.pxp互換性保証は別の未完了事項。ユーザーの「GitHubの中身を全部消してよい」は許可として受け取ったが、作業に不要な削除は行わず、別XRDの既存実装も保持した。
 - 次: AGENTS/STATUS/LOGを読んで継続branchを取得し、Igor 9.05で利用者の複製.pxpの基準採取と更新・保存・再起動比較を実施する。現在のチェックポイントSHAはgit log -1またはPR最新commitから取得する。
+
+## 2026-10-27 / v1.2.0 investigation checkpoint
+
+- 基準: fetch後、safe-development branchのHEAD/remoteがf45dfb5で一致。mainへは反映しない。新しいcodex/xrd-v1.2.0へ分岐。
+- Skills: Safe Update、Data Compatibility、Performance Debugを明示読込。調査対象と上書き禁止を確認。
+- 原因: XRD_Panelの毎回の初期サイズ再生成、ZoomのY再計算、比較への編集試料強制追加、別Legend列、Popup本文の別フォント設定をコードで確認。
+- 方針: 解析ロジックを置換せず、画面の再利用・表示設定を分離する。参照の主/第2強度反射を全測定範囲で照合し、他相との重なりを一致として扱った上で採用前に確認。
+- 他Projectからの追加は元を保持した同定済み試料の複製とし、新しい測定UIDを与える。参照ライブラリは共通のまま保持。
+- 検証: まだ新版本体の実行確認なし。旧本体の全ファイルSHAを保存した。これから最小修正、別Igor実行、PXP実再起動比較。
