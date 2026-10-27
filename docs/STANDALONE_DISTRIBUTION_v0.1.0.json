@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "status": "development-preview",
+  "date_jst": "2026-10-27",
+  "branch": "codex/xrd-standalone-v0.1.0",
+  "baseline_commit": "93e92d001cf0df22d834bfb6cbb7fc3d80394966",
+  "archive": "xrd_studio_v0.1.0.zip",
+  "archive_bytes": 72004865,
+  "archive_sha256": "77379dcfc66e4ee0345ffe56cbd46de0b07819da91687c772beb9ec7d89b8b5d",
+  "files": 29,
+  "executable": "xrd_studio_v0.1.0/XRD_Studio_v0.1.0.exe",
+  "executable_sha256": "15b627b2c7afea5da342efb45a2800d054a61f6b200d36bbd6a17419edb22f0d",
+  "engine_tests": 19,
+  "gui_checks": 22,
+  "frozen_self_check": "PASS",
+  "archive_hash_comparison": "PASS",
+  "pxp_compatibility": "excluded-by-user",
+  "full_feature_parity": "incomplete",
+  "real_measurements_and_clean_pc": "unverified"
+}

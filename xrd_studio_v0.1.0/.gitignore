@@ -1,0 +1,7 @@
+build/
+dist/
+__pycache__/
+*.spec
+*.labx
+*.zip
+build_validation_v0.1.0.log
