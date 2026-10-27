@@ -1,6 +1,21 @@
 # WORK_STATUS
 
-管理版: 1.2.0 / 2026-10-27 JST
+管理版: 1.3.0 / 2026-10-27 JST
+
+## 現在の継続作業：XRD独立版 v0.1.0
+
+- 継続ブランチ: codex/xrd-standalone-v0.1.0。開始SHA: 93e92d001cf0df22d834bfb6cbb7fc3d80394966。
+- 新規実装先: xrd_studio_v0.1.0。旧Igor版xrd_workbench_v1.2.0は保持。203ファイルの基準SHAをdocs/BASELINE_FOR_STANDALONE_v0.1.0.jsonへ保存。
+- ユーザー確定事項: 各解析ソフトは独立開発し将来統合。今回まずXRD。途中で求められた.pxp直接読込は撤回され、既存Igorの引継ぎは不要と明示確認済み。
+- 調査: v1.2.0の44 IPF・14,477行・602関数。Wave/Data Folder、Graph/Table、CurveFit、Peak AutoFind、SaveExperiment、Undoを独立版で置換する必要がある。
+- 実装: UIから独立したXRD数値エンジン、共通.labx文書、原値保持、参照・同定・プロファイル・格子履歴・Undo/Redo、Tk画面、PDF/SVG/PNG/CSV、3世代復旧コピー。狭い画面はタブへ切替。
+- 本版は開発プレビュー。旧版のtype別カード・元素判定・詳細証拠表・複数作図レシピ等の全機能移行は未完了。MT/MH未実装。MIGRATION_SCOPE_v0.1.0.mdに対応表と完了条件。
+- 確認: エンジン17試験合格。Tk実体で狭幅/横長の11操作×2=22接続確認合格。人工データの検出・同定・フィット・格子・比較・保存復元・3世代復旧を確認。
+- 現在: Windows単体EXEをビルド中。配布EXE起動・パッケージ作成は次のチェックポイントで記録する。
+- 未確認: 実測結果の旧版比較、全DPI/全モニター、全マウス操作、大量データ、長時間、別クリーンPC。既存Igorプロセス・原本PXPを操作していない。
+- 再開: 本branchをfetchし、本ファイルとWORK_LOGの末尾を読む。xrd_studio_v0.1.0の試験を実行し、対応表の残りから続ける。mainに統合しない。
+
+## 前工程：Igor版 v1.2.0（保持した記録）
 
 - 状態: v1.2.0の実装・模擬PXP互換性・最終回帰・ローカル配布作成を完了。main未統合。
 - 継続ブランチ: codex/xrd-v1.2.0
