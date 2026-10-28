@@ -104,3 +104,15 @@
 - User workspace root receives xrd_workbench_v1.2.1/, xrd_workbench_v1.2.1.zip and .sha256. ZIP 1071225 bytes, SHA256 6fe743339308aea143cfae8efd6a5af1d060b181619919b7c17b70d4870ad057.
 - No original user Experiment or sources modified. Dedicated /I processes only. No main merge. Real PXP, full DPI/monitors and animation frame-by-frame recording remain untested.
 - Resume branch codex/xrd-v1.2.1; report final SHA from git. Change is complete within requested scope.
+
+## 2026-10-29 / v1.2.2 investigation
+
+- Latest remote Igor branch codex/xrd-v1.2.1 at 3c74fca confirmed with fetch and GitHub branch inventory. Standalone untracked changes preserved.
+- Reused clean tracked checkout, new branch codex/xrd-v1.2.2, new release from delivered local bytes; complete baseline hashes retained.
+- Auditing resize, deferred updates, entrypoints, autosave and include dependencies. Instrumentation restricted to scratch. No user data or existing Igor instance touched.
+
+## 2026-10-29 / v1.2.2 implementation
+
+- Instrumented old code identifies measurementLabel as the only generic resize error: 2076*2=4152 width, native error 200, 15 reproductions. Chooser uses final panel dimensions before RememberControls; XRD110_Layout already handles its final placement. Skip redundant generic scaling for this control.
+- Call graph confirms XRD81_RefreshPeaks already updates status/chooser/warning/Y/live; return after its threshold binding in RefreshPanel. Removed second XRD_Init in XRD_Open new-window path (first Init remains). No algorithm/schema changes.
+- Production files: xrd_main/ui/ui120/v44. Version 1.2.2. Native verification pending.

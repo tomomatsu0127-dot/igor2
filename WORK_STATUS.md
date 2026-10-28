@@ -1,3 +1,13 @@
+# v1.2.2 debugging / 2026-10-29 JST
+
+- Management version: 1.4.0. Branch codex/xrd-v1.2.2; base 3c74fca (latest fetched Igor release).
+- Scope: panel resize/maximize, refresh geometry and redundant UI work; preserve schema, scientific processing and old releases.
+- Candidate cause: generic resize scales controls already sized using current parent dimensions; instrumenting individual controls before fixing.
+- New release: xrd_workbench_v1.2.2, copied byte-for-byte from delivered v1.2.1; hashes docs/BASELINE_FOR_v1.2.2.json.
+- Cause reproduced: measurementLabel captured width 2076 is scaled to 4152 at scale 2, producing native error 200. Skip this generic pass; XRD110_Layout already places it.
+- Implemented: remove duplicate Init in new-window Open and duplicate status/chooser/warning/live work after RefreshPeaks. Scientific routines unchanged.
+- Verification in progress: old instrumented native transition run reproduces 15 measurementLabel size warnings. New runtime/regression/persistence pending.
+
 # v1.2.1 screen transition fix / 2026-10-27 JST
 
 - Branch: codex/xrd-v1.2.1, base 93e92d001cf0df22d834bfb6cbb7fc3d80394966.
