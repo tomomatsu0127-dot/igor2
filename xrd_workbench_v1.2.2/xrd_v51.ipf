@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: fixed figure canvas, guided UI, view history and queued saves.
 Function/S XRD_ReferenceHeader(line)
     String line
@@ -240,7 +240,7 @@ Function XRD_FigurePanel()
     endfor
     String/G $(base+"figureTarget")=StringFromList(0,wins)
     DoWindow/K XRDFigureSettings
-    NewPanel/N=XRDFigureSettings/W=(50,50,700,405) as "完成図の書式（印刷・出力サイズ）"
+    NewPanel/K=1/N=XRDFigureSettings/W=(50,50,700,405) as "完成図の書式（印刷・出力サイズ）"
     DefaultGUIFont/W=XRDFigureSettings all={"Segoe UI",12,0}
     PopupMenu figureTarget,pos={15,18},title="図",value=XRD_FigureList(),proc=XRD_FigureTarget
     SetVariable figureWidth,pos={15,62},size={600,24},title="プロット幅 (pt)",limits={200,1200,10},value=$(base+"figureWidth")
@@ -330,7 +330,7 @@ End
 
 Function XRD_QuickGuide()
     DoWindow/K XRDGuide
-    NewNotebook/N=XRDGuide/F=1/V=1/W=(50,50,760,670) as "XRD Workbench v1.2.0 操作ガイド"
+    NewNotebook/K=1/N=XRDGuide/F=1/V=1/W=(50,50,760,670) as "XRD Workbench v1.2.0 操作ガイド"
     Notebook XRDGuide font="Segoe UI",fSize=13
     Notebook XRDGuide text="1 プロジェクトを追加\rXRD Workbench → プロジェクトを追加。名前を入力します。F6は現在の画面へ戻ります。\r\r"
     Notebook XRDGuide text="2 測定データとピーク\r測定データを追加して名前を付けます。自動検出または外部ピークを登録します。グラフからは『点を選ぶ（追加用）』→点を選択→『選択点を追加』。追加後は登録ピーク選択へ戻ります。通常モードのカーソルは登録ピークだけを選びます。削除ボタンで選択ピークを削除します。Ctrl+Iも使用できます。\r\r"

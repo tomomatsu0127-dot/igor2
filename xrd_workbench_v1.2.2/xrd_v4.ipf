@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0. Labels, view persistence, periodic selection and figure layout.
 Function XRD_V4Settings(project)
     String project
@@ -212,7 +212,7 @@ Function XRD_ElementPanel()
     SVAR allowed=$(project+":allowedElements")
     Variable i,row,col,selected
     DoWindow/K XRDElements
-    NewPanel/N=XRDElements/W=(25,25,885,520) as "元素周期表：試料に含まれる元素を選択"
+    NewPanel/K=1/N=XRDElements/W=(25,25,885,520) as "元素周期表：試料に含まれる元素を選択"
     SetWindow XRDElements userdata(XRDProject)=project
     TitleBox help,pos={12,10},frame=0,title="✓が付いた元素で候補を絞ります。Oなどの構成元素も選択してください。未選択なら全候補。"
     CheckBox enabled,pos={12,35},title="元素フィルターを使う",variable=$(project+":elementFilterMode"),proc=XRD_ElementEnabled

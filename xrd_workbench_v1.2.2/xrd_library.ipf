@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: one Experiment-wide library. Old scientific revisions stay addressable.
 
 Function/S XRD80_Library()
@@ -326,7 +326,7 @@ Function XRD80_LibraryPanel()
     colors[1][]=38000
     Make/O/D/N=0 $(ui+":map")
     DoWindow/K XRDLibrary
-    NewPanel/N=XRDLibrary/W=(30,30,1210,710) as "参照値 — Experiment共通ライブラリ"
+    NewPanel/K=1/N=XRDLibrary/W=(30,30,1210,710) as "参照値 — Experiment共通ライブラリ"
     DefaultGUIFont/W=XRDLibrary all={"Segoe UI",12,0}
     TitleBox policy,pos={15,10},frame=0,title="使用チェックは全プロジェクトで共通です。未使用にしても過去の同定は残ります。"
     PopupMenu folder,pos={15,46},title="分類",value=XRD80_LibraryFolders(),mode=1,proc=XRD80_LibraryFolderAction
@@ -567,7 +567,7 @@ Function XRD80_PreviewLibraryReference(index)
         yy=100*yy/V_max
     endif
     DoWindow/K XRDLibraryPattern
-    Display/N=XRDLibraryPattern/W=(50,70,850,470) yy vs xx as "参照パターン — "+XRD_PhaseLabel(index)
+    Display/K=1/N=XRDLibraryPattern/W=(50,70,850,470) yy vs xx as "参照パターン — "+XRD_PhaseLabel(index)
     ModifyGraph mode=1,rgb=(50000,5000,5000),lsize=1.5,noLabel(left)=1
     Label bottom "2\\f02θ\\f00 (deg.)"
     Label left "Relative intensity (%)"

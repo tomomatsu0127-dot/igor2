@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: evidence, review, reference metadata and recovery.
 Function XRD_V50Project(project)
     String project
@@ -218,7 +218,7 @@ Function XRD_EvidencePanel()
     endif
     XRD_EnsureEvidence(path)
     DoWindow/K XRDEvidence
-    NewPanel/N=XRDEvidence/W=(40,40,980,600) as "候補の根拠 — 強いピーク・重なりを確認"
+    NewPanel/K=1/N=XRDEvidence/W=(40,40,980,600) as "候補の根拠 — 強いピーク・重なりを確認"
     SetWindow XRDEvidence userdata(XRDData)=path
     DefaultGUIFont/W=XRDEvidence all={"Segoe UI",12,0}
     TitleBox evidenceSummary,pos={15,15},frame=0,title=StrVarOrDefault(path+":Evidence:summary","")
@@ -319,7 +319,7 @@ Function XRD_AuditPanel()
     endif
     XRD_BuildAudit(path)
     DoWindow/K XRDAudit
-    NewPanel/N=XRDAudit/W=(40,40,1000,580) as "同定内容と解析状態の確認"
+    NewPanel/K=1/N=XRDAudit/W=(40,40,1000,580) as "同定内容と解析状態の確認"
     SetWindow XRDAudit userdata(XRDData)=path
     DefaultGUIFont/W=XRDAudit all={"Segoe UI",12,0}
     TitleBox note,pos={15,15},frame=0,title="行をクリックすると該当角度へ移動します。強い参照ピークの欠落・重なりも確認できます。\r全ピークに相またはUnknownが付くと自動で解析完了です。"
@@ -420,7 +420,7 @@ Function XRD_MetadataPanel()
     String/G $(base+"draftRadiation")=StrVarOrDefault(path+":radiation","Cu-Kα")
     String/G $(base+"draftCalibration")=StrVarOrDefault(path+":calibrationNote","")
     DoWindow/K XRDMetadata
-    NewPanel/N=XRDMetadata/W=(40,40,790,365) as "現在の測定条件・既知の角度補正"
+    NewPanel/K=1/N=XRDMetadata/W=(40,40,790,365) as "現在の測定条件・既知の角度補正"
     SetWindow XRDMetadata userdata(XRDData)=path
     DefaultGUIFont/W=XRDMetadata all={"Segoe UI",12,0}
     SetVariable lambda,pos={15,20},size={700,24},title="波長 (Å)",limits={0.1,5,0.0001},value=$(base+"draftWavelength")
@@ -542,7 +542,7 @@ Function XRD_LatticeQualityPanel()
         return -1
     endif
     DoWindow/K XRDLatticeQuality
-    NewPanel/N=XRDLatticeQuality/W=(40,40,980,590) as "格子定数 — 使用ピークと残差"
+    NewPanel/K=1/N=XRDLatticeQuality/W=(40,40,980,590) as "格子定数 — 使用ピークと残差"
     DefaultGUIFont/W=XRDLatticeQuality all={"Segoe UI",12,0}
     TitleBox result,pos={15,15},frame=0,title=StrVarOrDefault(path+":Lattice:state","")+"\r"+XRD_LatticeResultText(path)
     TitleBox conditions,pos={15,175},frame=0,title="波長 "+num2str(NumVarOrDefault(path+":Lattice:wavelength",NaN))+" Å / ゼロ補正 "+num2str(NumVarOrDefault(path+":Lattice:zeroCorrection",0))+" deg\r残差は角度差ではなくPDF変換式の回帰残差です。ピーク中心の誤差による重み付けは未使用です。"
@@ -722,7 +722,7 @@ Function XRD_RecoveryList()
     SetDimLabel 1,0,File,table
     SetDimLabel 1,1,'更新日時',table
     SetDimLabel 1,2,'フルパス',table
-    Edit/N=XRDRecoveryCopies table as "復旧コピー一覧：選んだパスをFile > Open Experimentで開く"
+    Edit/K=1/N=XRDRecoveryCopies table as "復旧コピー一覧：選んだパスをFile > Open Experimentで開く"
     DoAlert 0,"復旧するときは、現在のExperimentを保存してから、一覧の.pxpをFile → Open Experimentで開いてください。最新コピー以外のセッションも一覧に含まれます。"
     return 0
 End
@@ -771,7 +771,7 @@ Function XRD_ComparisonPanel()
     XRD_BuildComparison()
     Wave/T table=$(XRD_Project()+":Comparison:table")
     DoWindow/K XRDComparison
-    Edit/N=XRDComparison table as "試料別の同定・格子定数一覧（1行=1ピーク割り当て）"
+    Edit/K=1/N=XRDComparison table as "試料別の同定・格子定数一覧（1行=1ピーク割り当て）"
 End
 
 Function XRD_WriteReport(destination)
@@ -861,7 +861,7 @@ Function XRD_V50Button(ba) : ButtonControl
         case "referenceErrors":
             Wave/T/Z errors=$(XRD80_Library()+":References:errors")
             if(WaveExists(errors))
-                Edit errors as "参照TXTのエラー：ファイル名・理由・行"
+                Edit/K=1 errors as "参照TXTのエラー：ファイル名・理由・行"
             endif
             break
         case "metadata":
@@ -880,7 +880,7 @@ Function XRD_V50Button(ba) : ButtonControl
         case "residualGraph":
             path=GetUserData(ba.win,"","XRDData")
             Wave residual=$(path+":Lattice:residual"),angles=$(path+":Lattice:usedAngle")
-            Display residual vs angles as "格子定数：回帰残差と測定角度"
+            Display/K=1 residual vs angles as "格子定数：回帰残差と測定角度"
             ModifyGraph mode=3,marker=19
             Label bottom "2\\f02θ\\f00 (deg.)"
             Label left "Residual (transformed coordinates)"

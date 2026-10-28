@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: local Igor CurveFit with explicit center adoption.
 Function/S XRD_ProfilePath(path,id)
     String path
@@ -227,7 +227,7 @@ Function XRD_ProfilePanel()
     Variable/G $(path+":profileLo")=max(xx[0],angles[selected]-half)
     Variable/G $(path+":profileHi")=min(xx[numpnts(xx)-1],angles[selected]+half)
     DoWindow/K XRDProfilePanel
-    NewPanel/N=XRDProfilePanel/W=(40,40,790,410) as "選択ピーク — Igor CurveFit"
+    NewPanel/K=1/N=XRDProfilePanel/W=(40,40,790,410) as "選択ピーク — Igor CurveFit"
     SetWindow XRDProfilePanel userdata(XRDData)=path
     SetWindow XRDProfilePanel userdata(XRDPeakID)=num2istr(ids[selected])
     DefaultGUIFont/W=XRDProfilePanel all={"Segoe UI",12,0}
@@ -280,7 +280,7 @@ Function XRD_ProfileButton(ba) : ButtonControl
                 Wave fullFit=$(rp+":Result:fullFit")
                 fullFit=fitted[p]+bg[p]
                 DoWindow/K XRDProfileGraph
-                Display/N=XRDProfileGraph observed/TN=Observed vs fx as "局所ピーク：測定・CurveFit・残差"
+                Display/K=1/N=XRDProfileGraph observed/TN=Observed vs fx as "局所ピーク：測定・CurveFit・残差"
                 AppendToGraph fullFit/TN=Fit vs fx
                 AppendToGraph/L=Residual residual/TN=Residual vs fx
                 ModifyGraph rgb(Observed)=(0,0,0),rgb(Fit)=(50000,0,0),rgb(Residual)=(0,15000,45000),axisEnab(left)={0.28,1},axisEnab(Residual)={0,0.20},freePos(Residual)=0

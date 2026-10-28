@@ -1,12 +1,14 @@
 # v1.2.2 debugging / 2026-10-29 JST
 
 - Management version: 1.4.0. Branch codex/xrd-v1.2.2; base 3c74fca (latest fetched Igor release).
-- Scope: panel resize/maximize, refresh geometry and redundant UI work; preserve schema, scientific processing and old releases.
+- Scope: panel resize/maximize, refresh geometry and redundant UI work; user added no-warning closure for regenerable XRD windows. Preserve schema, scientific processing and old releases.
 - Candidate cause: generic resize scales controls already sized using current parent dimensions; instrumenting individual controls before fixing.
 - New release: xrd_workbench_v1.2.2, copied byte-for-byte from delivered v1.2.1; hashes docs/BASELINE_FOR_v1.2.2.json.
 - Cause reproduced: measurementLabel captured width 2076 is scaled to 4152 at scale 2, producing native error 200. Skip this generic pass; XRD110_Layout already places it.
 - Implemented: remove duplicate Init in new-window Open and duplicate status/chooser/warning/live work after RefreshPeaks. Scientific routines unchanged.
-- Verification in progress: old instrumented native transition run reproduces 15 measurementLabel size warnings. New runtime/regression/persistence pending.
+- Native v122 layout matrix passed without warning/error; inherited v120 regression 102 passed. Close/reopen tests 18 passed including manual native annotation replay and legacy /K=0 recreation.
+- Synthetic v1.2.1 PXP: 185888 full records unchanged before initialization; after Open only liveBusy=0 added. Fresh save/restart/reopen 185889 records identical. Independent old initializer control and actual UI close test in progress.
+- Performance: 20 samples x2001 points, 5 warm runs; 20 refresh median 1321.05->901.21 ms, new-window Open 170.882->156.526 ms. No real-data speed guarantee.
 
 # v1.2.1 screen transition fix / 2026-10-27 JST
 

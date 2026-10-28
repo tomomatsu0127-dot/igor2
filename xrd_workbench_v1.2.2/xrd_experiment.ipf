@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0. Experiment identity, compatible migration and sample state.
 // Physical legacy paths remain stable: old graphs and Undo targets keep their bindings.
 
@@ -461,7 +461,7 @@ Function XRD80_ProjectLatticeSummary()
     SetDimLabel 1,10,'計算日時',table
     SetDimLabel 1,11,'計算ID',table
     DoWindow/K XRDProjectLatticeSummary
-    Edit/N=XRDProjectLatticeSummary table as XRD_ProjectDisplayName(project)+"：格子定数・計算履歴"
+    Edit/K=1/N=XRDProjectLatticeSummary table as XRD_ProjectDisplayName(project)+"：格子定数・計算履歴"
     return n
 End
 

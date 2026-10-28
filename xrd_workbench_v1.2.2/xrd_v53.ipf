@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: persistent, project-local reference-family selection.
 Function/S XRD_TypeFamilies()
     return "Z-type;X-type;M-type;QS-type;W-type;T-type;Y-type;U-type"
@@ -41,7 +41,7 @@ Function XRD_TypePanel()
     Variable/G $(draft+":family")=3
     String/G $(draft+":project")=project
     DoWindow/K XRDTypeCards
-    NewPanel/N=XRDTypeCards/W=(40,40,960,575) as "typeごとに使用する参照カードを選択"
+    NewPanel/K=1/N=XRDTypeCards/W=(40,40,960,575) as "typeごとに使用する参照カードを選択"
     DefaultGUIFont/W=XRDTypeCards all={"Segoe UI",12,0}
     PopupMenu family,pos={15,15},title="type",mode=4,value=XRD_TypeFamilies(),proc=XRD_TypeFamilyPopup
     PopupMenu useMode,pos={300,15},title="使い方",mode=1,value="複数件を使う;1件だけ使う",proc=XRD_TypeModePopup

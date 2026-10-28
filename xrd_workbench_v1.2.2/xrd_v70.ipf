@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: focused phase selection, ordered legends and review workflow.
 Function/S XRD_OrderedKeys(project,keys)
     String project,keys
@@ -95,7 +95,7 @@ Function XRD_LegendOrderPanel()
     String/G $(base+"legendDraft")=XRD_UsedStyleChoices()
     Variable/G $(base+"legendRow")=0
     DoWindow/K XRDLegendOrder
-    NewPanel/N=XRDLegendOrder/W=(50,50,610,475) as "使用中の相：凡例の順番"
+    NewPanel/K=1/N=XRDLegendOrder/W=(50,50,610,475) as "使用中の相：凡例の順番"
     DefaultGUIFont/W=XRDLegendOrder all={"Segoe UI",12,0}
     SetWindow XRDLegendOrder userdata(XRDProject)=XRD_Project()
     TitleBox note,pos={15,15},frame=0,title="上から順に、凡例の左から右へ並びます。\r同じ共通グループは1項目として扱います。"
@@ -329,7 +329,7 @@ Function XRD_OpenReviewLegacy()
         Wave gx=$(rootPath+":angle"+num2istr(i)),gy=$(rootPath+":intensity"+num2istr(i))
         offset=(total-1-i)*135;gy=yy[p]+offset
         if(n==0)
-            Display/N=XRDReviewGraph/W=(60,60,850,700) gy/TN=$trace vs gx as "同定中の試料比較（確認用）"
+            Display/K=1/N=XRDReviewGraph/W=(60,60,850,700) gy/TN=$trace vs gx as "同定中の試料比較（確認用）"
             SetWindow XRDReviewGraph userdata(XRDGraphData)=rootPath
             SetWindow XRDReviewGraph userdata(XRDReview)="1"
         else

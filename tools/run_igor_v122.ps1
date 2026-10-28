@@ -1,4 +1,4 @@
-﻿param([string]$Command='Print "COMPILED v1.2.1"',[string]$Log='scratch/v121/compile.txt',[int]$Timeout=55,[string]$TestProc='xrd_tests',[string]$Release='xrd_workbench_v1.2.2')
+﻿param([string]$Command='Print "COMPILED v1.2.2"',[string]$Log='scratch/v121/compile.txt',[int]$Timeout=55,[string]$TestProc='xrd_workbench_v1.2.2/tests/xrd_v122_tests',[string]$Release='xrd_workbench_v1.2.2')
 $ErrorActionPreference='Stop'
 New-Item -ItemType Directory -Force (Split-Path -Parent $Log) | Out-Null
 function IgorQuote([string]$s) { return '"'+$s.Replace('\','\\').Replace('"','\"')+'"' }
@@ -18,7 +18,7 @@ $taskProcess=[Diagnostics.Process]::Start($taskPsi)
 if(!$taskProcess.WaitForExit($Timeout*1000)) {
   # Terminate only the /I isolated process created in this invocation.
   $taskProcess.Kill()
-  throw 'Isolated v1.2.1 test timed out; user Igor was not targeted.'
+  throw 'Isolated v1.2.2 test timed out; user Igor was not targeted.'
 }
 if(!(Test-Path -LiteralPath $Log) -or (Get-Item -LiteralPath $Log).LastWriteTime -lt $taskStarted) { throw 'Igor did not write a fresh log.' }
 $taskLogText=Get-Content -LiteralPath $Log -Raw

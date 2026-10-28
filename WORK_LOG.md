@@ -116,3 +116,16 @@
 - Instrumented old code identifies measurementLabel as the only generic resize error: 2076*2=4152 width, native error 200, 15 reproductions. Chooser uses final panel dimensions before RememberControls; XRD110_Layout already handles its final placement. Skip redundant generic scaling for this control.
 - Call graph confirms XRD81_RefreshPeaks already updates status/chooser/warning/Y/live; return after its threshold binding in RefreshPanel. Removed second XRD_Init in XRD_Open new-window path (first Init remains). No algorithm/schema changes.
 - Production files: xrd_main/ui/ui120/v44. Version 1.2.2. Native verification pending.
+
+## 2026-10-29 / user close-policy addition
+
+- User requested no close warning for regenerable windows/graphs. Use native /K=1 on XRD-owned top-level panel/graph/table/guide creation. No global Igor preference change and no Experiment close/save override. Existing managed plot kill hook retains native edits; normalize older stored graph recreation Display flags to /K=1 during replay.
+- Analysis Ctrl+Z remains the existing analysis history; this change does not imply that Ctrl+Z restores a closed window. Workbench F6 and saved plot recipes are the reopen paths to verify.
+- Performance measurement before close-policy changes: 20 synthetic measurements x2001 points, 5 timed runs after warmup. Refresh status/chooser/warning calls each 2->1, Init new-window Open 3->2. Timings retained in scratch; verification harness initial compile mistakes corrected (parameter declarations must precede instrumentation, globals need NVAR). Failed attempts not counted as passes.
+
+## 2026-10-29 / native verification checkpoint
+
+- Native layout matrix passes without errors, inherited v120 regression 102 passes, close/reopen lifecycle 18 passes. /K=1 verified in WinRecreation. Workbench close captures cursors before child destruction; managed plot kill hook captures manual annotation and replay retains it.
+- Initial attempted DoIgorMenu File/Close cannot run from a function (native 627); test was corrected to lifecycle KillWindow plus /K flag check. Actual UI X close remains to verify.
+- Compatibility source is prior synthetic validated v1.2.1 updated.pxp. Initial helper CloseProc waits of 150ms were too short; increasing to 2s lets old procedure close before new one is opened. No old/new code co-compiles in the successful run. Failed attempts retained only in scratch.
+- Successful full compare: 185888 records unchanged before init. XRD_Open adds only UI:liveBusy=0; 185889 records identical after fresh save/process restart/reopen. Raw/Processed, assignments/Unknown/missing hkl, libraries/revisions, UIDs, history, formula metadata included. Old-version initialization control running.

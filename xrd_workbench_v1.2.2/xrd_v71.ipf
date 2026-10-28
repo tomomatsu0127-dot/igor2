@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: detection focus, linked zoom and event-driven live identification.
 Function XRD_V71Controls(project,path)
     String project,path
@@ -175,7 +175,7 @@ Function XRD_DrawLiveStack(win,embedded)
             elseif(embedded)
                 Display/HOST=XRDWorkbench/N=Pattern/W=(210,60,840,270) gy/TN=$trace vs xx
             else
-                Display/N=XRDReviewGraph/W=(35,35,825,600) gy/TN=$trace vs xx as "同定状況のライブ比較"
+                Display/K=1/N=XRDReviewGraph/W=(35,35,825,600) gy/TN=$trace vs xx as "同定状況のライブ比較"
             endif
             SetWindow $win userdata(XRDGraphData)=folder
             SetWindow $win userdata(XRDReview)="1"

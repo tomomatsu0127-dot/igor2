@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: one Experiment palette, with explicit legacy conflict choices.
 Function/S XRD80_Styles()
     NewDataFolder/O root:Packages
@@ -94,7 +94,7 @@ Function XRD80_StyleConflicts()
     SetDimLabel 1,2,'別の設定の由来',table
     SetDimLabel 1,3,'選択状況',table
     DoWindow/K XRDStyleConflicts
-    NewPanel/N=XRDStyleConflicts/W=(35,35,945,450) as "色・記号の引継ぎ：使う設定を選ぶ"
+    NewPanel/K=1/N=XRDStyleConflicts/W=(35,35,945,450) as "色・記号の引継ぎ：使う設定を選ぶ"
     DefaultGUIFont/W=XRDStyleConflicts all={"Segoe UI",12,0}
     TitleBox help,pos={15,12},frame=0,title="同じ相に異なる設定がありました。行を選び、引き継ぐ方を選んでください。\r元のプロジェクトの設定は保存してあります。"
     ListBox conflicts,pos={15,68},size={870,225},listWave=table,mode=1,widths={160,250,250,180},proc=XRD80_ConflictSelect

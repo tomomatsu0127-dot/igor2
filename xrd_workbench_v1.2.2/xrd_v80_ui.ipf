@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: project/sample navigator and independent plotting entry.
 Function XRD80_ShowProjectManager()
     return XRD110_Manager()
@@ -23,7 +23,7 @@ Function XRD80_ShowProjectManager()
     SetDimLabel 1,0,'プロジェクト',projects
     SetDimLabel 1,1,'進捗',projects
     DoWindow/K XRDProjectManager
-    NewPanel/N=XRDProjectManager/W=(35,35,1015,620) as "プロジェクトと測定データ"
+    NewPanel/K=1/N=XRDProjectManager/W=(35,35,1015,620) as "プロジェクトと測定データ"
     DefaultGUIFont/W=XRDProjectManager all={"Segoe UI",12,0}
     TitleBox help,pos={15,15},frame=0,title="左でプロジェクト、右で測定データを選択します。右の試料をダブルクリックすると解析を開きます。"
     ListBox projects,pos={15,55},size={330,390},listWave=projects,mode=1,widths={245,75},selRow=selected,proc=XRD80_ManagerList

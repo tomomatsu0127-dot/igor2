@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: Experiment-wide comparison and independent figure recipes.
 // All source paths below are Igor data folders, never external file paths.
 Function/S XRD_PlotRoot()
@@ -74,7 +74,7 @@ Function XRD_CompareSelection()
         flags[i][0]=32+16*(WhichListItem(paths[i],selected)>=0)
     endfor
     DoWindow/K XRDCompareSelection
-    NewPanel/N=XRDCompareSelection/W=(55,55,835,555) as "同定中に見比べる試料（全プロジェクト）"
+    NewPanel/K=1/N=XRDCompareSelection/W=(55,55,835,555) as "同定中に見比べる試料（全プロジェクト）"
     DefaultGUIFont/W=XRDCompareSelection all={"Segoe UI",12,0}
     TitleBox help,pos={15,15},frame=0,title="解析中・未解析の試料も比較できます。編集中の試料は必ず表示します。\rプロジェクト名・試料名・同定相をグラフに表示します。"
     ListBox samples,pos={15,70},size={745,350},listWave=$(base+":table"),selWave=$(base+":flags"),mode=1,widths={45,210,300,145}
@@ -174,7 +174,7 @@ Function XRD_PlotWorkspace()
     XRD_EnsureNumeric(base+":red",0)
     XRD_EnsureNumeric(base+":green",0)
     XRD_EnsureNumeric(base+":blue",0)
-    NewPanel/N=XRDPlotWorkspace/W=(35,35,1005,760) as "作図：全プロジェクトの解析完了試料"
+    NewPanel/K=1/N=XRDPlotWorkspace/W=(35,35,1005,760) as "作図：全プロジェクトの解析完了試料"
     SetWindow XRDPlotWorkspace hook(XRDPlotUI)=XRD81_PlotWorkspaceHook
     DefaultGUIFont/W=XRDPlotWorkspace all={"Segoe UI",12,0},popup={"Segoe UI",12,0}
     PopupMenu saved,pos={15,15},title="保存した図",value=XRD_PlotChoices(),proc=XRD_PlotChoice
@@ -654,7 +654,7 @@ Function XRD_PlotDrawRecipe(recipe,preserveNative)
         Wave gy=$(folder+":displayIntensity")
         offset=(n-1-i)*spacing;gy=yy[p]+offset;trace="Measurement"+num2istr(savedIndex+1)
         if(i==0)
-            Display/N=$win gy/TN=$trace vs xx as StrVarOrDefault(recipe+":displayName","XRD 比較図")
+            Display/K=1/N=$win gy/TN=$trace vs xx as StrVarOrDefault(recipe+":displayName","XRD 比較図")
             SetWindow $win userdata(XRDGraphData)=recipe
             SetWindow $win userdata(XRDPlotRecipe)=recipe
             SetWindow $win userdata(XRDExperimentPlot)="1"
@@ -703,7 +703,7 @@ Function XRD_PlotRestoreNative(recipe,win)
     if(!strlen(script))
         return -1
     endif
-    Variable i,created=0,error=0
+    Variable i,k,created=0,error=0
     String/G $(recipe+":nativeReplayError")=""
     Variable/G $(recipe+":replaying")=1
     DFREF old=GetDataFolderDFR()
@@ -720,6 +720,14 @@ Function XRD_PlotRestoreNative(recipe,win)
             // This function already saves and restores the caller's data folder.
             if(strsearch(line,"DFREF ",0)==0 || strsearch(line,"SetDataFolder fldrSav",0)==0)
                 continue
+            endif
+            // Stored recreation scripts from older releases may use /K=0.
+            // Keep manual graph edits while adopting the package close policy.
+            if(!created && strsearch(line,"Display",0)==0)
+                for(k=0;k<=4;k+=1)
+                    line=ReplaceString("/K="+num2istr(k),line,"")
+                endfor
+                line="Display/K=1 "+line[7,inf]
             endif
             Execute/Q/Z line
             if(V_flag)

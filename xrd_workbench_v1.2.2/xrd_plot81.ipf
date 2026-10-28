@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // v1.2.0: folder selection, drag ordering and live figure settings.
 Function XRD81_PlotWorkspaceHook(s)
     STRUCT WMWinHookStruct &s
@@ -74,7 +74,7 @@ Function XRD81_PlotSources()
     SetDimLabel 1,1,'プロジェクト / 測定データ',table
     SetDimLabel 1,2,'解析状態',table
     DoWindow/K XRDPlotSources
-    NewPanel/N=XRDPlotSources/W=(50,50,830,630) as "作図する測定データ：プロジェクトフォルダ"
+    NewPanel/K=1/N=XRDPlotSources/W=(50,50,830,630) as "作図する測定データ：プロジェクトフォルダ"
     DefaultGUIFont/W=XRDPlotSources all={"Segoe UI",12,0}
     TitleBox hint,pos={15,15},frame=0,title="プロジェクト内の完了試料をチェックしてください。\r未解析・解析中の試料は表示のみです。順番は作図ウィンドウでドラッグします。"
     ListBox folders,pos={15,75},size={745,425},listWave=table,selWave=flags,mode=1,widths={50,480,195}

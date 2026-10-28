@@ -22,7 +22,7 @@ Function XRD_Panel()
     step=max(1,min(4,step))
     Variable newFrame=!WinType("XRDWorkbench")
     if(newFrame)
-        NewPanel/EXP=1/N=XRDWorkbench/W=(10,10,868,520) as "XRD Workbench v1.2.2 - "+projectName
+        NewPanel/K=1/EXP=1/N=XRDWorkbench/W=(10,10,868,520) as "XRD Workbench v1.2.2 - "+projectName
     else
         // Invalidate old geometry before constructing the next screen.
         SetWindow XRDWorkbench userdata(XRDLayoutReady)="0"

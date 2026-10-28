@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: persistent left comparison beside single-sample identification.
 Function XRD_V72Settings(project)
     String project
@@ -146,7 +146,7 @@ Function XRD_MatchSettingsPanel()
         return -1
     endif
     DoWindow/K XRDMatchSettings
-    NewPanel/N=XRDMatchSettings/W=(45,45,510,435) as "同定条件と表示"
+    NewPanel/K=1/N=XRDMatchSettings/W=(45,45,510,435) as "同定条件と表示"
     DefaultGUIFont/W=XRDMatchSettings all={"Segoe UI",12,0}
     SetWindow XRDMatchSettings userdata(XRDData)=path
     NVAR mode=$(path+":candidateMode")

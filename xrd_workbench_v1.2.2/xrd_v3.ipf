@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: normalized display and project-wide native symbols.
 Function XRD_CloseEditors()
     DoWindow/K XRDElements
@@ -246,6 +246,11 @@ Function XRD_PanelHook(info)
         XRD_ScheduleViewCheck()
     endif
     if(cmpstr(info.winName,"XRDWorkbench")==0)
+        // Capture while child graphs still exist, before no-dialog closure.
+        if(info.eventCode==17)
+            XRD_CapturePanelState(1)
+            XRD_CaptureView()
+        endif
         if(info.eventCode==0)
             SetWindow XRDWorkbench userdata(XRDAdoptPending)="0"
         endif
@@ -312,7 +317,7 @@ Function XRD_StylePanel()
     Wave values=$(XRD80_Styles()+":values")
     DoWindow/K XRDElements
     DoWindow/K XRDStyles
-    NewPanel/N=XRDStyles/W=(70,70,560,420) as "Experiment共通の相・色・記号"
+    NewPanel/K=1/N=XRDStyles/W=(70,70,560,420) as "Experiment共通の相・色・記号"
     SetWindow XRDStyles userdata(XRDRef)=num2istr(index)
     SetWindow XRDStyles userdata(XRDProject)=project
     String/G root:Packages:XRDWorkbench:UI:styleChoices=choices
@@ -376,7 +381,7 @@ Function XRD_OpenPicker()
     DoWindow/K XRDDetectionPreview
     DoWindow/K XRDMaterials
     DoWindow/K XRDLegendOrder
-    Display/N=XRDPeakPicker/W=(70,70,640,410) yy/TN=Measurement vs xx as "カーソルAをピークへ移動 → この位置を登録"
+    Display/K=1/N=XRDPeakPicker/W=(70,70,640,410) yy/TN=Measurement vs xx as "カーソルAをピークへ移動 → この位置を登録"
     ModifyGraph/W=XRDPeakPicker rgb(Measurement)=(0,0,0)
     XRD_GraphStyle("XRDPeakPicker",110,0)
     SetWindow XRDPeakPicker userdata(XRDData)=path

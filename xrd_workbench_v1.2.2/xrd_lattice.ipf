@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0. Hexagonal fit using supplied PDF p15 and Igor CurveFit.
 Function XRD_LatticePanel()
     String path=XRD_Data(),list="",rp,choice
@@ -30,9 +30,9 @@ Function XRD_LatticePanel()
     String/G $(path+":Lattice:crystalSystem")=crystal
     Wave inputs=$(path+":Lattice:inputs")
     DoWindow/K XRDLatticeInput
-    Edit/N=XRDLatticeInput inputs as "使用=1 / 除外=0。2theta・hklは確認用"
+    Edit/K=1/N=XRDLatticeInput inputs as "使用=1 / 除外=0。2theta・hklは確認用"
     DoWindow/K XRDLatticePanel
-    NewPanel/N=XRDLatticePanel/W=(80,80,510,235) as crystal+" 格子定数"
+    NewPanel/K=1/N=XRDLatticePanel/W=(80,80,510,235) as crystal+" 格子定数"
     SetWindow XRDLatticePanel userdata(XRDData)=path
     TitleBox note,pos={10,15},frame=0,title="表のUse列を1/0に設定してください。六方晶4本以上・立方晶3本以上。\rhkl不明の反射は除外: "+num2istr(NumVarOrDefault(path+":Lattice:missingHKLExcluded",0))+"本"
     SetVariable wavelength,pos={10,65},size={300,20},title="波長 (Å)",value=$(path+":measurementWavelength"),noedit=1

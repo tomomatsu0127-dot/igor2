@@ -1,0 +1,239 @@
+{
+  "scope": "XRD-owned top-level windows only; no Experiment/global preference changes",
+  "creation_sites": [
+    {
+      "file": "xrd_detect.ipf",
+      "line": 248,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_detect.ipf",
+      "line": 284,
+      "kind": "Display"
+    },
+    {
+      "file": "xrd_entry110.ipf",
+      "line": 28,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_experiment.ipf",
+      "line": 464,
+      "kind": "Edit"
+    },
+    {
+      "file": "xrd_lattice.ipf",
+      "line": 33,
+      "kind": "Edit"
+    },
+    {
+      "file": "xrd_lattice.ipf",
+      "line": 35,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_legend110.ipf",
+      "line": 173,
+      "kind": "Display"
+    },
+    {
+      "file": "xrd_library.ipf",
+      "line": 329,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_library.ipf",
+      "line": 570,
+      "kind": "Display"
+    },
+    {
+      "file": "xrd_manager100.ipf",
+      "line": 183,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_plot81.ipf",
+      "line": 77,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_plotworkspace.ipf",
+      "line": 77,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_plotworkspace.ipf",
+      "line": 177,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_plotworkspace.ipf",
+      "line": 657,
+      "kind": "Display"
+    },
+    {
+      "file": "xrd_profile.ipf",
+      "line": 230,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_profile.ipf",
+      "line": 283,
+      "kind": "Display"
+    },
+    {
+      "file": "xrd_transfer120.ipf",
+      "line": 37,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_tree110.ipf",
+      "line": 100,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_tree110.ipf",
+      "line": 191,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_ui.ipf",
+      "line": 25,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v3.ipf",
+      "line": 315,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v3.ipf",
+      "line": 379,
+      "kind": "Display"
+    },
+    {
+      "file": "xrd_v4.ipf",
+      "line": 215,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v45.ipf",
+      "line": 143,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v50.ipf",
+      "line": 221,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v50.ipf",
+      "line": 322,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v50.ipf",
+      "line": 423,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v50.ipf",
+      "line": 545,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v50.ipf",
+      "line": 725,
+      "kind": "Edit"
+    },
+    {
+      "file": "xrd_v50.ipf",
+      "line": 774,
+      "kind": "Edit"
+    },
+    {
+      "file": "xrd_v50.ipf",
+      "line": 864,
+      "kind": "Edit"
+    },
+    {
+      "file": "xrd_v50.ipf",
+      "line": 883,
+      "kind": "Display"
+    },
+    {
+      "file": "xrd_v51.ipf",
+      "line": 243,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v51.ipf",
+      "line": 333,
+      "kind": "NewNotebook"
+    },
+    {
+      "file": "xrd_v53.ipf",
+      "line": 44,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v70.ipf",
+      "line": 98,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v70.ipf",
+      "line": 332,
+      "kind": "Display"
+    },
+    {
+      "file": "xrd_v71.ipf",
+      "line": 178,
+      "kind": "Display"
+    },
+    {
+      "file": "xrd_v72.ipf",
+      "line": 149,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v80_styles.ipf",
+      "line": 97,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v80_ui.ipf",
+      "line": 26,
+      "kind": "NewPanel"
+    },
+    {
+      "file": "xrd_v82.ipf",
+      "line": 43,
+      "kind": "Edit"
+    }
+  ],
+  "files_changed": [
+    "xrd_detect.ipf",
+    "xrd_experiment.ipf",
+    "xrd_lattice.ipf",
+    "xrd_library.ipf",
+    "xrd_plot81.ipf",
+    "xrd_plotworkspace.ipf",
+    "xrd_profile.ipf",
+    "xrd_ui.ipf",
+    "xrd_v3.ipf",
+    "xrd_v4.ipf",
+    "xrd_v45.ipf",
+    "xrd_v50.ipf",
+    "xrd_v51.ipf",
+    "xrd_v53.ipf",
+    "xrd_v70.ipf",
+    "xrd_v71.ipf",
+    "xrd_v72.ipf",
+    "xrd_v80_styles.ipf",
+    "xrd_v80_ui.ipf",
+    "xrd_v82.ipf"
+  ],
+  "native_replay": "force Display/K=1 before replaying first Display command",
+  "reference": "https://docs.wavemetrics.com/igorpro/commands/display"
+}

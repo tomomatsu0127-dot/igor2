@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: baseline-aware prominence detector; no external runtime.
 Function XRD_DetectionSettings(path)
     String path
@@ -245,7 +245,7 @@ Function XRD_DetectionPanel()
     endif
     XRD_DetectionSettings(path)
     DoWindow/K XRDDetectionSettings
-    NewPanel/N=XRDDetectionSettings/W=(20,20,715,395) as "この測定のピーク検出方式・精度"
+    NewPanel/K=1/N=XRDDetectionSettings/W=(20,20,715,395) as "この測定のピーク検出方式・精度"
     DefaultGUIFont/W=XRDDetectionSettings all={"Segoe UI",12,0}
     SetWindow XRDDetectionSettings userdata(XRDData)=path
     NVAR mode=$(path+":detectorMode")
@@ -281,7 +281,7 @@ Function XRD_ShowDetection(path)
     String d=path+":Detection"
     Wave raw=$(path+":Processed:intensity"),xx=$(path+":Raw:twoTheta"),yy=$(d+":filteredSignal"),gx=$(d+":angle"),base=$(d+":baseline"),px=$(d+":peakAngle"),py=$(d+":peakHeight")
     DoWindow/K XRDDetectionPreview
-    Display/N=XRDDetectionPreview/W=(70,70,850,510) raw/TN=Raw vs xx as "検出候補の確認（まだ登録しません）"
+    Display/K=1/N=XRDDetectionPreview/W=(70,70,850,510) raw/TN=Raw vs xx as "検出候補の確認（まだ登録しません）"
     AppendToGraph/W=XRDDetectionPreview yy/TN=Smoothed vs gx
     AppendToGraph/W=XRDDetectionPreview base/TN=Background vs gx
     AppendToGraph/W=XRDDetectionPreview py/TN=Peaks vs px

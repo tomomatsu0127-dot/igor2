@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // XRD Workbench v1.2.0: rotating recovery copies and project-scoped undo.
 Function XRD_RecoverySettings()
     NewDataFolder/O root:Packages:XRDWorkbench:Recovery
@@ -140,7 +140,7 @@ End
 Function XRD_SaveSettingsPanel()
     XRD_RecoverySettings()
     DoWindow/K XRDSaveSettings
-    NewPanel/N=XRDSaveSettings/W=(80,80,630,390) as "保存・自動保存"
+    NewPanel/K=1/N=XRDSaveSettings/W=(80,80,630,390) as "保存・自動保存"
     DefaultGUIFont/W=XRDSaveSettings all={"Segoe UI",12,0}
     CheckBox enabled,pos={15,15},title="自動保存を使う",variable=root:Packages:XRDWorkbench:Recovery:enabled,proc=XRD_AutoSaveToggle
     SetVariable minutes,pos={15,48},size={270,22},title="保存間隔（分）",limits={1,60,1},value=root:Packages:XRDWorkbench:Recovery:minutes,proc=XRD_AutoSaveMinutes

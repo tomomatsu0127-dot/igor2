@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // v1.2.0: explicit missing Miller indices, never inferred or zero-filled.
 Function XRD82_HKLKnown(h,k,l)
     Variable h,k,l
@@ -40,7 +40,7 @@ Function XRD82_OpenNumericDraft(draft)
         Variable/G $(draft+":numericTextActive82")=1
     endif
     DoWindow/K XRDLibraryNumbers
-    Edit/N=XRDLibraryNumbers/W=(60,90,1060,560) $(draft+":twoTheta"),$(draft+":intensity"),$(draft+":dText82"),$(draft+":hText82"),$(draft+":kText82"),$(draft+":lText82") as "参照の下書き — 指数不明は hkl不明 / d不明は 欠損"
+    Edit/K=1/N=XRDLibraryNumbers/W=(60,90,1060,560) $(draft+":twoTheta"),$(draft+":intensity"),$(draft+":dText82"),$(draft+":hText82"),$(draft+":kText82"),$(draft+":lText82") as "参照の下書き — 指数不明は hkl不明 / d不明は 欠損"
     ModifyTable/W=XRDLibraryNumbers width=130
     return 0
 End
