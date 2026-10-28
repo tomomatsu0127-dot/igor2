@@ -138,3 +138,8 @@
 - 配布baselineの区別: 初期BASELINE_FORはrepo旧版全体のSHA。配布旧版はrepoの履歴ファイルを一部含まない186ファイルのため、当時ZIP SHA6fe743...と全エントリの一致からLOCAL_BASELINE_FORも独立採取。旧版を変更して差を解消していない。最初のpackage試行は履歴ファイル不存在で停止し、二つのbaselineを区別する検証へ訂正。
 - 最終配布: 205ファイル、本体44 IPF、相対include70本、HTML参照/anchor成功、ZIP内全ファイルのSHA一致。ZIP1199567 bytes、SHA256=8d8b82d859117a7df367680fce8ac0187fdfdeab7ba513a309d6d3e7a25f5095。利用者ワークスペース直下へ新規v1.2.2ディレクトリとZIP/sha256。sourcesと原本は保持。
 - 変更23 IPFの多くはネイティブ/K=1のみ。mainへ統合しない。実PXP・全DPI・実クリック・長時間/メモリ・別PCは未確認。次は本branchから新番号版で進める。
+
+## 2026-10-29 / v1.2.2 review checkpoint
+
+- 配布・検証checkpoint37ffa58をpushしremote一致。Draft PR #3 https://github.com/tomomatsu0127-dot/igor2/pull/3 をcodex/xrd-v1.2.1向けに作成し、チャットへ添付。main未変更。
+- 利用者へはv1.2.2 ZIP、更新手順、検証結果を渡す。既存同定を保持して新番号版から再開。
