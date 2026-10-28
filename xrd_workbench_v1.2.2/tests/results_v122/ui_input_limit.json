@@ -1,0 +1,7 @@
+{
+  "result": "UNVERIFIED",
+  "operation": "actual user X/close button click",
+  "error": "GetCursorPos failed: Access denied (0x80070005)",
+  "observed": "Isolated synthetic Workbench accessible through AX; screenshot black; input rejected before action. No user Experiment touched.",
+  "native_checks": "/K=1 creation flags and close/reopen lifecycle verified separately."
+}

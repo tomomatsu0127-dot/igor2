@@ -104,3 +104,42 @@
 - User workspace root receives xrd_workbench_v1.2.1/, xrd_workbench_v1.2.1.zip and .sha256. ZIP 1071225 bytes, SHA256 6fe743339308aea143cfae8efd6a5af1d060b181619919b7c17b70d4870ad057.
 - No original user Experiment or sources modified. Dedicated /I processes only. No main merge. Real PXP, full DPI/monitors and animation frame-by-frame recording remain untested.
 - Resume branch codex/xrd-v1.2.1; report final SHA from git. Change is complete within requested scope.
+
+## 2026-10-29 / v1.2.2 investigation
+
+- Latest remote Igor branch codex/xrd-v1.2.1 at 3c74fca confirmed with fetch and GitHub branch inventory. Standalone untracked changes preserved.
+- Reused clean tracked checkout, new branch codex/xrd-v1.2.2, new release from delivered local bytes; complete baseline hashes retained.
+- Auditing resize, deferred updates, entrypoints, autosave and include dependencies. Instrumentation restricted to scratch. No user data or existing Igor instance touched.
+
+## 2026-10-29 / v1.2.2 implementation
+
+- Instrumented old code identifies measurementLabel as the only generic resize error: 2076*2=4152 width, native error 200, 15 reproductions. Chooser uses final panel dimensions before RememberControls; XRD110_Layout already handles its final placement. Skip redundant generic scaling for this control.
+- Call graph confirms XRD81_RefreshPeaks already updates status/chooser/warning/Y/live; return after its threshold binding in RefreshPanel. Removed second XRD_Init in XRD_Open new-window path (first Init remains). No algorithm/schema changes.
+- Production files: xrd_main/ui/ui120/v44. Version 1.2.2. Native verification pending.
+
+## 2026-10-29 / user close-policy addition
+
+- User requested no close warning for regenerable windows/graphs. Use native /K=1 on XRD-owned top-level panel/graph/table/guide creation. No global Igor preference change and no Experiment close/save override. Existing managed plot kill hook retains native edits; normalize older stored graph recreation Display flags to /K=1 during replay.
+- Analysis Ctrl+Z remains the existing analysis history; this change does not imply that Ctrl+Z restores a closed window. Workbench F6 and saved plot recipes are the reopen paths to verify.
+- Performance measurement before close-policy changes: 20 synthetic measurements x2001 points, 5 timed runs after warmup. Refresh status/chooser/warning calls each 2->1, Init new-window Open 3->2. Timings retained in scratch; verification harness initial compile mistakes corrected (parameter declarations must precede instrumentation, globals need NVAR). Failed attempts not counted as passes.
+
+## 2026-10-29 / native verification checkpoint
+
+- Native layout matrix passes without errors, inherited v120 regression 102 passes, close/reopen lifecycle 18 passes. /K=1 verified in WinRecreation. Workbench close captures cursors before child destruction; managed plot kill hook captures manual annotation and replay retains it.
+- Initial attempted DoIgorMenu File/Close cannot run from a function (native 627); test was corrected to lifecycle KillWindow plus /K flag check. Actual UI X close remains to verify.
+- Compatibility source is prior synthetic validated v1.2.1 updated.pxp. Initial helper CloseProc waits of 150ms were too short; increasing to 2s lets old procedure close before new one is opened. No old/new code co-compiles in the successful run. Failed attempts retained only in scratch.
+- Successful full compare: 185888 records unchanged before init. XRD_Open adds only UI:liveBusy=0; 185889 records identical after fresh save/process restart/reopen. Raw/Processed, assignments/Unknown/missing hkl, libraries/revisions, UIDs, history, formula metadata included. Old-version initialization control running.
+
+## 2026-10-29 / v1.2.2 final validation and delivery
+
+- 最終コード: 配置343、既存回帰102、閉鎖・再表示18、Undo/自動保存41=504合格、失敗0。原値・科学処理とUndoを保持し、自動保存の予定時刻/3世代/失敗復元も確認。
+- 互換性: v1.2.1模擬PXP185888記録はコード読込前後全一致。起動後185889記録は旧版の独立対照群と全一致。別名保存後に専用PIDを終了・再起動・再読込し185889記録全一致。初期との差1件は既存Open経路のUI:liveBusy=0追加のみ。
+- 実UI: 専用Igor PID13608、UI122Isolated=1221029のみを起動して試行。AXで対象画面は確認できたが、画像は黒く、Raise操作はGetCursorPosアクセス拒否0x80070005で入力前に拒否。×実クリックは未確認と明示した。専用PID/起動引数を照合して当該プロセスだけ停止。利用者Igorへ入力・接続・終了要求なし。
+- 配布baselineの区別: 初期BASELINE_FORはrepo旧版全体のSHA。配布旧版はrepoの履歴ファイルを一部含まない186ファイルのため、当時ZIP SHA6fe743...と全エントリの一致からLOCAL_BASELINE_FORも独立採取。旧版を変更して差を解消していない。最初のpackage試行は履歴ファイル不存在で停止し、二つのbaselineを区別する検証へ訂正。
+- 最終配布: 205ファイル、本体44 IPF、相対include70本、HTML参照/anchor成功、ZIP内全ファイルのSHA一致。ZIP1199567 bytes、SHA256=8d8b82d859117a7df367680fce8ac0187fdfdeab7ba513a309d6d3e7a25f5095。利用者ワークスペース直下へ新規v1.2.2ディレクトリとZIP/sha256。sourcesと原本は保持。
+- 変更23 IPFの多くはネイティブ/K=1のみ。mainへ統合しない。実PXP・全DPI・実クリック・長時間/メモリ・別PCは未確認。次は本branchから新番号版で進める。
+
+## 2026-10-29 / v1.2.2 review checkpoint
+
+- 配布・検証checkpoint37ffa58をpushしremote一致。Draft PR #3 https://github.com/tomomatsu0127-dot/igor2/pull/3 をcodex/xrd-v1.2.1向けに作成し、チャットへ添付。main未変更。
+- 利用者へはv1.2.2 ZIP、更新手順、検証結果を渡す。既存同定を保持して新番号版から再開。

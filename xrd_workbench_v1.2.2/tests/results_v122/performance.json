@@ -1,0 +1,40 @@
+{
+  "old": {
+    "refresh20_ms": [
+      1384.1,
+      1347.49,
+      1321.05,
+      1320.76,
+      1264.01
+    ],
+    "refresh20_median_ms": 1321.05,
+    "open_ms": [
+      170.882,
+      169.645,
+      166.841,
+      183.931,
+      183.802
+    ],
+    "open_median_ms": 170.882,
+    "steady_state": "5 warm runs, 20 samples x2001 points; 20 refreshes per run; one manual peak per sample"
+  },
+  "new": {
+    "refresh20_ms": [
+      909.459,
+      888.986,
+      886.541,
+      901.21,
+      916.781
+    ],
+    "refresh20_median_ms": 901.21,
+    "open_ms": [
+      161.791,
+      151.747,
+      156.526,
+      152.624,
+      182.799
+    ],
+    "open_median_ms": 156.526,
+    "steady_state": "5 warm runs, 20 samples x2001 points; 20 refreshes per run; one manual peak per sample"
+  }
+}
