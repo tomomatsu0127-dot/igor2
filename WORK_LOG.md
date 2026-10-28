@@ -129,3 +129,12 @@
 - Initial attempted DoIgorMenu File/Close cannot run from a function (native 627); test was corrected to lifecycle KillWindow plus /K flag check. Actual UI X close remains to verify.
 - Compatibility source is prior synthetic validated v1.2.1 updated.pxp. Initial helper CloseProc waits of 150ms were too short; increasing to 2s lets old procedure close before new one is opened. No old/new code co-compiles in the successful run. Failed attempts retained only in scratch.
 - Successful full compare: 185888 records unchanged before init. XRD_Open adds only UI:liveBusy=0; 185889 records identical after fresh save/process restart/reopen. Raw/Processed, assignments/Unknown/missing hkl, libraries/revisions, UIDs, history, formula metadata included. Old-version initialization control running.
+
+## 2026-10-29 / v1.2.2 final validation and delivery
+
+- 最終コード: 配置343、既存回帰102、閉鎖・再表示18、Undo/自動保存41=504合格、失敗0。原値・科学処理とUndoを保持し、自動保存の予定時刻/3世代/失敗復元も確認。
+- 互換性: v1.2.1模擬PXP185888記録はコード読込前後全一致。起動後185889記録は旧版の独立対照群と全一致。別名保存後に専用PIDを終了・再起動・再読込し185889記録全一致。初期との差1件は既存Open経路のUI:liveBusy=0追加のみ。
+- 実UI: 専用Igor PID13608、UI122Isolated=1221029のみを起動して試行。AXで対象画面は確認できたが、画像は黒く、Raise操作はGetCursorPosアクセス拒否0x80070005で入力前に拒否。×実クリックは未確認と明示した。専用PID/起動引数を照合して当該プロセスだけ停止。利用者Igorへ入力・接続・終了要求なし。
+- 配布baselineの区別: 初期BASELINE_FORはrepo旧版全体のSHA。配布旧版はrepoの履歴ファイルを一部含まない186ファイルのため、当時ZIP SHA6fe743...と全エントリの一致からLOCAL_BASELINE_FORも独立採取。旧版を変更して差を解消していない。最初のpackage試行は履歴ファイル不存在で停止し、二つのbaselineを区別する検証へ訂正。
+- 最終配布: 205ファイル、本体44 IPF、相対include70本、HTML参照/anchor成功、ZIP内全ファイルのSHA一致。ZIP1199567 bytes、SHA256=8d8b82d859117a7df367680fce8ac0187fdfdeab7ba513a309d6d3e7a25f5095。利用者ワークスペース直下へ新規v1.2.2ディレクトリとZIP/sha256。sourcesと原本は保持。
+- 変更23 IPFの多くはネイティブ/K=1のみ。mainへ統合しない。実PXP・全DPI・実クリック・長時間/メモリ・別PCは未確認。次は本branchから新番号版で進める。

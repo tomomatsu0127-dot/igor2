@@ -1,0 +1,33 @@
+{
+  "files": 205,
+  "production_ipf": 44,
+  "relative_include_edges": 70,
+  "changed_production_files": [
+    "xrd_detect.ipf",
+    "xrd_experiment.ipf",
+    "xrd_lattice.ipf",
+    "xrd_library.ipf",
+    "xrd_main.ipf",
+    "xrd_plot81.ipf",
+    "xrd_plotworkspace.ipf",
+    "xrd_profile.ipf",
+    "xrd_ui.ipf",
+    "xrd_ui120.ipf",
+    "xrd_v3.ipf",
+    "xrd_v4.ipf",
+    "xrd_v44.ipf",
+    "xrd_v45.ipf",
+    "xrd_v50.ipf",
+    "xrd_v51.ipf",
+    "xrd_v53.ipf",
+    "xrd_v70.ipf",
+    "xrd_v71.ipf",
+    "xrd_v72.ipf",
+    "xrd_v80_styles.ipf",
+    "xrd_v80_ui.ipf",
+    "xrd_v82.ipf"
+  ],
+  "archive_bytes": 1199567,
+  "sha256": "8d8b82d859117a7df367680fce8ac0187fdfdeab7ba513a309d6d3e7a25f5095",
+  "destination": "C:\\Users\\su200\\.codex\\.chatgpt-projects\\g-p-6a5870af62f08191b290a75911038b0d\\xrd_workbench_v1.2.2"
+}

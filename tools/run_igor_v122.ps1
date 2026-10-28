@@ -1,4 +1,4 @@
-﻿param([string]$Command='Print "COMPILED v1.2.2"',[string]$Log='scratch/v121/compile.txt',[int]$Timeout=55,[string]$TestProc='xrd_workbench_v1.2.2/tests/xrd_v122_tests',[string]$Release='xrd_workbench_v1.2.2')
+﻿param([string]$Command='Print "COMPILED v1.2.2"',[string]$Log='scratch/v122/compile.txt',[int]$Timeout=55,[string]$TestProc='xrd_workbench_v1.2.2/tests/xrd_v122_tests',[string]$Release='xrd_workbench_v1.2.2')
 $ErrorActionPreference='Stop'
 New-Item -ItemType Directory -Force (Split-Path -Parent $Log) | Out-Null
 function IgorQuote([string]$s) { return '"'+$s.Replace('\','\\').Replace('"','\"')+'"' }
