@@ -1,0 +1,9 @@
+FORCED_PAINT control-width/panel-width  208  858
+LARGE STEP1  1867  926  0
+FORCED_PAINT control-width/panel-width  455  1867
+LARGE STEP3  1867  926  0
+MAX STEP3  2560  1366  1
+FORCED_PAINT control-width/panel-width  628  2560
+MAX STEP1  2560  1366  1
+RTE  200
+XRD121_Probe()

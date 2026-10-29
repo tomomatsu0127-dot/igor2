@@ -143,3 +143,12 @@
 
 - 配布・検証checkpoint37ffa58をpushしremote一致。Draft PR #3 https://github.com/tomomatsu0127-dot/igor2/pull/3 をcodex/xrd-v1.2.1向けに作成し、チャットへ添付。main未変更。
 - 利用者へはv1.2.2 ZIP、更新手順、検証結果を渡す。既存同定を保持して新番号版から再開。
+
+## 2026-10-29 / v1.2.3 investigation and implementation checkpoint
+
+- GitHub fetchでIgor最新版v1.2.2 / 971cb8dを確認。別作業のあるdevelopment checkoutを保持し、cleanなtmp/xrd-v1.2.1 checkoutでcodex/xrd-v1.2.3へ分岐。diagnosticsの未追跡資料も保持。
+- Safe UpdateとData Compatibilityを読込。入口include/startup/既存UI保存処理を確認し、旧版全ファイルのSHAをBASELINE_FOR_v1.2.3へ採取。
+- 原因をIgor 9.05で再現: MDI最大化が新規補助パネルへ移る、再作成時の初期寸法復帰、管理/作図controlsの固定MoveWindow。文字変更単独では寸法不変だったため、この処理は変更しない。
+- 実装: 新規v1.2.3へ補助パネル/FLT=1、更新時geometry引継ぎと_endfloat_解除。科学処理・保存schemaは変更しない。native probeでWorkbench最大化とサイズが不変、library/manager/elementsのサイズ/位置不変を確認。
+- 試験helperの引数不足、caseの同一行構文、Print内root変数直接参照を検出し訂正。失敗・timeoutはscratch保持、合格へ算入しない。独立起動したPID以外へ終了要求を送らない。
+- 次: 回帰、操作matrix、模擬PXP再起動比較と配布。実PXP/全DPI/実focus操作は未確認。main未統合。

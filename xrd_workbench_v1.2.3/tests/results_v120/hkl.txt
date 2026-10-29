@@ -1,0 +1,65 @@
+PASS: v082 actual source imports 00-001-0562.txt
+PASS: v082 all rows and missing counts retained 00-001-0562.txt
+PASS: v082 every original angle/intensity/d/index/missing cell exact 1
+同一内容の参照を保持: 00-001-0562 (表示名・使用設定は変更しません)
+PASS: v082 missing-value reload remains idempotent 00-001-0562.txt
+PASS: v082 actual source imports 00-003-0380.txt
+PASS: v082 all rows and missing counts retained 00-003-0380.txt
+PASS: v082 every original angle/intensity/d/index/missing cell exact 2
+同一内容の参照を保持: 00-003-0380 (表示名・使用設定は変更しません)
+PASS: v082 missing-value reload remains idempotent 00-003-0380.txt
+PASS: v082 actual source imports 00-017-0106.txt
+PASS: v082 all rows and missing counts retained 00-017-0106.txt
+PASS: v082 every original angle/intensity/d/index/missing cell exact 3
+同一内容の参照を保持: 00-017-0106 (表示名・使用設定は変更しません)
+PASS: v082 missing-value reload remains idempotent 00-017-0106.txt
+PASS: v082 actual source imports 00-019-0098.txt
+PASS: v082 all rows and missing counts retained 00-019-0098.txt
+PASS: v082 every original angle/intensity/d/index/missing cell exact 4
+同一内容の参照を保持: 00-019-0098 (表示名・使用設定は変更しません)
+PASS: v082 missing-value reload remains idempotent 00-019-0098.txt
+PASS: v082 actual source imports 00-039-0183.txt
+PASS: v082 all rows and missing counts retained 00-039-0183.txt
+PASS: v082 every original angle/intensity/d/index/missing cell exact 5
+同一内容の参照を保持: 00-039-0183 (表示名・使用設定は変更しません)
+PASS: v082 missing-value reload remains idempotent 00-039-0183.txt
+PASS: v082 partial hkl keeps known negative component and missing components
+PASS: v082 None token is case insensitive
+PASS: v082 strict invalid row rejected 0
+PASS: v082 strict invalid row rejected 1
+PASS: v082 strict invalid row rejected 2
+PASS: v082 strict invalid row rejected 3
+PASS: v082 strict invalid row rejected 4
+PASS: v082 strict invalid row rejected 5
+PASS: v082 strict invalid row rejected 6
+PASS: v082 strict invalid row rejected 7
+PASS: v082 strict invalid row rejected 8
+PASS: v082 strict invalid row rejected 9
+PASS: v082 strict invalid row rejected 10
+PASS: v082 strict invalid row rejected 11
+PASS: v082 strict invalid row rejected 12
+PASS: v082 missing d token does not bypass supplied d validation
+PASS: v082 legacy helper accepts the same explicit missing tokens
+XRD参照TXTを拒否: invalid_after_valid.txt - 数値を読めません: 2列目 ('bad') (行 4)
+PASS: v082 invalid text still rejects entire file atomically after a valid missing row
+PASS: v082 five-column partial-index fixture imports
+PASS: v082 sorted partial indices and absent d preserved
+PASS: v082 friendly missing hkl label and existing known label
+PASS: v082 same-angle unindexed reflections retain distinct queued identities
+PASS: v082 unknown hkl participates in candidate scoring
+PASS: v082 unindexed source reflection is a selectable candidate
+PASS: v082 candidate label is friendly and score remains finite
+PASS: v082 preview includes indexed and unindexed source sticks
+PASS: v082 unknown hkl reflection can be adopted and completes its measurement
+PASS: v082 assignment label shows unknown hkl
+PASS: v082 lattice preparation excludes only unindexed adopted reflection
+PASS: v082 known adopted hkl survives lattice preparation
+PASS: v082 native editor displays friendly hkl text waves
+PASS: v082 invalid editor text does not change numeric missing cells
+PASS: v082 missing hkl draft passes numeric editor and scientific validation
+PASS: v082 scientific revision keeps missing hkl
+PASS: v082 old adopted revision and completion survive library edit
+PASS: v082 cubic guard excludes injected unknown Use=1 before real CurveFit
+PASS: v082 hexagonal guard excludes injected unknown Use=1 before real CurveFit
+v082 failures=0
+XRD_RunV82Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:development:igor2:xrd_workbench_v1.2.0:tests:fixtures_v082:","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:v120:hkl:")
