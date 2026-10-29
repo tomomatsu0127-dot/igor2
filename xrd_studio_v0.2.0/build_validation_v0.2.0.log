@@ -85,3 +85,54 @@
 56796 INFO: Processing standard module hook 'hook-PySide6.QtCore.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
 63294 INFO: Processing standard module hook 'hook-PySide6.QtWidgets.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
 70622 INFO: Processing standard module hook 'hook-PySide6.QtGui.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+114729 INFO: Processing standard module hook 'hook-matplotlib.backends.backend_qtagg.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+114739 INFO: Processing standard module hook 'hook-matplotlib.backends.qt_compat.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+114742 INFO: hook-matplotlib.backends.qt_compat: selected 'PySide6' as Qt bindings because hook for 'PySide6' has been run before.
+114873 INFO: Analyzing hidden import 'matplotlib.backends.backend_pdf'
+119181 INFO: Analyzing hidden import 'matplotlib.backends.backend_svg'
+119249 INFO: Processing module hooks (post-graph stage)...
+119262 WARNING: Hidden import "pycparser.lextab" not found!
+119262 WARNING: Hidden import "pycparser.yacctab" not found!
+119288 INFO: Processing standard module hook 'hook-matplotlib.backends.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+119291 INFO: Matplotlib backend selection method: automatic discovery of used backends
+120483 INFO: Trying determine the default backend as first importable candidate from the list: ['QtAgg', 'Qt5Agg', 'Gtk4Agg', 'Gtk3Agg', 'TkAgg', 'WxAgg']
+122365 INFO: Selected matplotlib backends: ['QtAgg']
+122856 INFO: Processing standard module hook 'hook-PIL.SpiderImagePlugin.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+122979 WARNING: Hidden import "scipy.special._cdflib" not found!
+123138 INFO: Performing binary vs. data reclassification (334 entries)
+123346 INFO: Looking for ctypes DLLs
+123585 INFO: Analyzing run-time hooks ...
+123595 INFO: Including run-time hook 'pyi_rth_pkgutil.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+123595 INFO: Including run-time hook 'pyi_rth_multiprocessing.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+123595 INFO: Including run-time hook 'pyi_rth_inspect.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+123613 INFO: Including run-time hook 'pyi_rth_mplconfig.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+123616 INFO: Processing pre-find-module-path hook 'hook-_pyi_rth_utils.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\pre_find_module_path'
+123622 INFO: Processing standard module hook 'hook-_pyi_rth_utils.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks'
+123639 INFO: Including run-time hook 'pyi_rth_pyside6.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+123650 INFO: Including run-time hook 'pyi_rth_setuptools.py' from 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks'
+123699 INFO: Creating base_library.zip...
+123752 INFO: Looking for dynamic libraries
+132428 INFO: Extra DLL search directories (AddDllDirectory): ['C:\\Users\\su200\\Documents\\Codex\\2026-10-29\\igor-igor-excel\\work\\studio-runtime\\Lib\\site-packages\\shiboken6', 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\numpy.libs', 'C:\\Users\\su200\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\scipy.libs']
+132428 INFO: Extra DLL search directories (PATH): ['C:\\Users\\su200\\Documents\\Codex\\2026-10-29\\igor-igor-excel\\work\\studio-runtime\\Lib\\site-packages\\PySide6']
+138327 INFO: Warnings written to C:\Users\su200\Documents\Codex\2026-10-29\igor-igor-excel\work\design-repo\xrd_studio_v0.2.0\build\XRD_Studio_v0.2.0\warn-XRD_Studio_v0.2.0.txt
+138612 INFO: Graph cross-reference written to C:\Users\su200\Documents\Codex\2026-10-29\igor-igor-excel\work\design-repo\xrd_studio_v0.2.0\build\XRD_Studio_v0.2.0\xref-XRD_Studio_v0.2.0.html
+138728 INFO: checking PYZ
+138728 INFO: Building PYZ because PYZ-00.toc is non existent
+138728 INFO: Building PYZ (ZlibArchive) C:\Users\su200\Documents\Codex\2026-10-29\igor-igor-excel\work\design-repo\xrd_studio_v0.2.0\build\XRD_Studio_v0.2.0\PYZ-00.pyz
+141529 INFO: Building PYZ (ZlibArchive) C:\Users\su200\Documents\Codex\2026-10-29\igor-igor-excel\work\design-repo\xrd_studio_v0.2.0\build\XRD_Studio_v0.2.0\PYZ-00.pyz completed successfully.
+141611 INFO: checking PKG
+141611 INFO: Building PKG because PKG-00.toc is non existent
+141611 INFO: Building PKG (CArchive) XRD_Studio_v0.2.0.pkg
+187863 INFO: Building PKG (CArchive) XRD_Studio_v0.2.0.pkg completed successfully.
+187885 INFO: Bootloader C:\Users\su200\AppData\Local\Programs\Python\Python312\Lib\site-packages\PyInstaller\bootloader\Windows-64bit-intel\runw.exe
+187885 INFO: checking EXE
+187885 INFO: Building EXE because EXE-00.toc is non existent
+187885 INFO: Building EXE from EXE-00.toc
+187924 INFO: Copying bootloader EXE to C:\Users\su200\Documents\Codex\2026-10-29\igor-igor-excel\work\design-repo\xrd_studio_v0.2.0\dist\XRD_Studio_v0.2.0.exe
+188023 INFO: Copying icon to EXE
+188110 INFO: Copying 0 resources to EXE
+188110 INFO: Embedding manifest in EXE
+188186 INFO: Appending PKG archive to EXE
+188321 INFO: Fixing EXE headers
+201073 INFO: Building EXE from EXE-00.toc completed successfully.
+201095 INFO: Build complete! The results are available in: C:\Users\su200\Documents\Codex\2026-10-29\igor-igor-excel\work\design-repo\xrd_studio_v0.2.0\dist

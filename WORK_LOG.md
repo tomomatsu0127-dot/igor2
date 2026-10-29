@@ -195,3 +195,12 @@
 - Root cause confirmed from CArchive/Analysis TOC and PE exports: the authoring runtime puts Poppler ICU78 on PATH. PyInstaller bundled that icuuc.dll, but Qt6Core imports unversioned Windows ICU exports absent from ICU78. System32 ICU supplies them. This is a packaging dependency collision, not a numerical algorithm failure.
 - Build environment is restricted to Windows/interpreter directories for the child only, followed by a clean build. Archive validation rejects foreign ICU. Added self-check failure JSON. No global PATH or system library was changed.
 - Added pre-commit validation for invalid element input; it cannot persist an invalid filter or consume Undo. Final source suite now 41 tests, all pass. Synthetic schema restart comparison including Unknown and missing hkl passes. Final compiled validation remains pending and no unverified binary has been delivered.
+
+
+## 2026-10-29 / Studio v0.2.0 verified executable preview delivered
+
+- Clean build from isolated child PATH excludes the foreign Poppler ICU; archive assertion passes. Final binary self-check exits 0 with frozen=true: numerical workflow, raw/assignment save-reopen, PDF/SVG/PNG, Qt window/Japanese font, working-table Undo/Redo and XLSX all pass. Offscreen compiled screenshot was visually inspected.
+- Final source suite: 41 passing tests. Schema1->schema2 comparison includes Unknown and missing hkl, with all original fields equal through separate-process reopening. Original baseline 167 files preserved. No real measurements/PXP or existing Igor used.
+- Output folder and ZIP include only new app/source, docs, license notices and artificial samples. Manifest covers 91 files and every ZIP entry matches the folder bytes. ZIP 106783345 bytes, SHA256 82c3d8196b87f711669fe8f92166a7e536f93b12a7bfb541f596876ead7e3344. EXE SHA256 80bb4ab61f971f6e5ca20e9e3769802210edce3a4ff65ab68571dadd986697f0.
+- This completes the authorized initial implementation/delivery stage, not all 52 migration items. README/FEATURE_PROGRESS explicitly retain detector equivalence, full reference/type UI, individual plot editing, broader data/performance/DPI/clean-PC work.
+- Next implementation should use a new version directory from this branch and preserve the delivered preview. No main merge. Final Git SHA is obtained from git rather than embedded self-referentially here.
