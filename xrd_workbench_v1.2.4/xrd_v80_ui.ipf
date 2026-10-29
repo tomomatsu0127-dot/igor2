@@ -129,8 +129,7 @@ Function XRD80_ManagerButton(ba) : ButtonControl
             XRD80_OpenManagerSelection(1)
             break
         case "addProject":
-            XRD_NewProjectUI()
-            XRD80_ShowProjectManager()
+            Execute/P/Q "XRD124_AddProjectUI()"
             break
         case "renameProject":
             XRD100_QueueManager("renameProject")

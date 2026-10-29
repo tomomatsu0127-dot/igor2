@@ -170,3 +170,26 @@
 - Safe Update、Performance Debug、Data Compatibility、Computer Useを読込。Igor専用PID以外へ終了要求なし。最初のUI起動は/UNATTENDEDなしでCOM同一性検査に失敗、データを開かず中止。以後/UNATTENDED + Visible=1 +固有マーカー確認で専用Igorへ接続。
 - 旧版を実クリックして確認: XRDLibraryのscanReferencesはDoAlertDialog/OKを作成するが、大きなfloatingパネルの背後に隠れて見えない。accessibilityで確認待ちを検出。元フォルダ未設定の空Experimentでも再現するため大量データ処理ではない。公式NewPanel仕様にもfloatingのfocus衝突注意あり: https://docs.wavemetrics.com/igorpro/commands/newpanel
 - 修正は入力/確認/フォルダ選択の短い間だけXRD所有floatingパネルを隠して復帰。サイズ維持の仕様とパネルの下書きは保持。計算とschemaは変更しない。修正後のnative/UI/互換性試験はこれから。
+
+## 2026-10-29 / v1.2.4 native and UI investigation follow-up
+
+- 実クリックで隠れたDoAlertを再現。ダイアログ表示中のvisibleなXRD floatingだけをSetWindow hide=1/2で退避する方式をnative17項目で確認。DoWindow/HIDEではfloatの表示状態が正しく変化しないことを途中試験で検出し、GetWindow hide / SetWindow hideへ訂正。
+- DoPromptへby-reference文字列を直接渡すとIgor compilerがPossible bugを返すためローカルdraftで入力し、確定したときだけ返却する。試験のsum式・KillWindow引数列・Printのglobal直接参照の不正を訂正。失敗試行は合格に算入しない。
+- UI: 参照追加のNo、Yes→フォルダ選択→同梱サンプル4参照の取込成功、元フォルダ未設定のOK、プロジェクト名入力・確定・Cancelと復帰を確認。
+- 追加後の再操作でXRDProjectManager0が残ることを検出。callbackからの直接再構築をExecute/Pへ回し、成功return=0を明示。さらにnative WinListでDoWindow/Kがfloating managerを残すこと、KillWindow/Zなら同じウィンドウを閉鎖できることを実証。管理・ライブラリ再構築の閉鎖をKillWindow/Zへ限定変更。プロジェクト追加全体も退避/復帰で囲み取消/例外で復帰する。
+- 中間264項目はPASS。最終コードの再実行とPXP再起動はこれから。regressionはmissing_hkl120.txtを出力先にも必要とするため初回が入力待ちとなり専用PID26076/marker1303637002だけ停止。fixture配置後に再実行する。利用者Igor/原本は操作していない。
+
+## 2026-10-29 / v1.2.4 final verification
+
+- 最終コードで退避/復帰17、サイズ247、同定/コピー等回帰102=366項目PASS、FAIL0。COMログはappendで重複出力するため、最終command実行区間だけを採取した。regressionは出力先にmissing_hkl120.txtを配置した未使用のregression_finalで再実行し102PASS。
+- 最終UI: 専用PID6524/token1629522534で実クリックによる追加、確定、次の追加のCancelを確認。native WinListは成功後もCancel後もXRDProjectManager;のみ、RTE=0。ライブラリも1枚だけ。DoWindow/KからKillWindow/Zへの変更で重複を解消した。専用COM objectを保持するworkerによりUI後のnative状態も同一プロセスへ照会できた。
+- UI前工程で参照追加No/Yes、フォルダ選択、同梱4参照の取込、フォルダ未設定のOK、プロジェクト文字列の入力も確認。全体の入れ子退避・例外復帰・cancel時の非変更を保持。
+- 互換性: validated synthetic v1.2.3 updated.pxpをcopyし、新版読込前/後・初期化後・別名保存して専用process終了/起動/再読込後の185889項目が全一致。今回のデータ変更0。比較JSONを保存、実研究データをGitへ含めない。
+- 未確認は利用者実PXP/全DPI/長時間等。計算処理とschemaは無変更。次は版付き配布とSHA照合・commit/push。
+
+## 2026-10-29 / v1.2.4 delivery
+
+- 配布: workspace直下xrd_workbench_v1.2.4/とZIP/sha256。229ファイル、46本体IPF、75相対include、HTMLリンク/anchor正常、ZIP全エントリSHA一致。1249033 bytes、SHA256=f65ad17ec2261303b9f8207b29de8fd702b892ed63041e67460d5eade86eb3cf。
+- 旧v1.2.3 repo全ファイルをBASELINE_FORと照合し不変。旧配布ZIPのSHA f31c5a...と全エントリも不変。sources/利用者原本/既存Igorへ変更なし。専用UIも終了済み。
+- 差分の空白検査はコード・文書で合格。native出力Error=0とCOPY_FAULTの空エラー欄の末尾空白はログ原文として保持し、結果ログを除外した検査と区別した。
+- 完成版をcodex/xrd-v1.2.4へcommit/push。main未統合。利用者実PXP/全DPI/長時間等は未確認。ダイアログ自体のOSレベル故障注入は未実行。

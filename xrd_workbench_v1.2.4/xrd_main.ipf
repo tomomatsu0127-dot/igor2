@@ -127,4 +127,5 @@ Function XRD_NewProjectUI()
     String/G $(destination+":displayName")=TrimString(label)
     XRD100_RefreshRegistry(destination)
     XRD_Panel()
+    return 0
 End

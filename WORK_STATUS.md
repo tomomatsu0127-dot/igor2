@@ -1,16 +1,18 @@
 # WORK_STATUS — v1.2.4 / 2026-10-29 JST
 
-管理版: 1.6.0。修正実装済み、検証中。main未統合。
+管理版: 1.6.1。修正・人工データ検証・配布完了。main未統合。
 
-- Branch: codex/xrd-v1.2.4。開始SHA: fb0c031 (origin/codex/xrd-v1.2.3と一致)。実装先: xrd_workbench_v1.2.4。
-- Scope: プロジェクト追加、参照追加・追加確認のダイアログ隠蔽による操作不能。
-- 再現: Igor 9.05専用の空Experimentでライブラリの「元フォルダの追加を確認」を実クリック。DoAlertDialogとOKは存在するがfloating panelの背後に隠れ、画面は応答待ち。ダイアログの存在をWindows accessibilityで確認。
-- 原因: v1.2.3で導入された大きな/FLT=1の補助パネルと標準モーダルダイアログの重なり。計算の無限ループではない。プロジェクト追加は同じ補助パネルからDoPromptを呼び出す。
-- 修正: 必要なダイアログの表示中だけ、表示中のXRD floating panelを隠し、応答後（取消/例外含む）に同じオブジェクトを復帰。新規参照フォルダ選択にも適用。元から非表示のパネルや他のアプリ/Igorパネルには作用しない。
-- 本体: xrd_modal124を追加。main/reference/libraryの該当ダイアログ経路と表示版番号を更新。計算・保存schema不変。
-- 旧版全ファイルSHA: docs/BASELINE_FOR_v1.2.4.json。既存のuntracked diagnostics/と別checkoutの独立版を保持。
-- 未確認: 修正後のnative/UI実操作、PXP保存再起動、利用者実PXP、全DPI/長時間。
-- 次: 専用Igorでcompile、UIのOK/取消/入力、サイズと既存回帰、保存再起動、配布ZIP。
+- Branch: codex/xrd-v1.2.4。開始SHA: fb0c031 (origin/codex/xrd-v1.2.3)。実装先: xrd_workbench_v1.2.4。
+- Scope: プロジェクト追加・参照追加/追加確認で操作不能に見える問題。
+- 原因: Igor 9.05で大きなfloating補助パネルがDoAlert/DoPromptを隠して応答待ちになる。さらに実操作ではDoWindow/Kが元のmanagerを残してmanager0が生成されることをnative WinListで確認。
+- 実装: xrd_modal124で必要な入力/確認/フォルダ選択中だけvisibleなXRD floatingを退避して同じobjectを復帰。追加処理はcallback終了後に実行。manager/libraryの再構築前閉鎖にKillWindow/Zを使用。計算・schema不変。
+- 変更: 本体46 IPF中8（追加1）。main/reference/library/tree110/v80_ui/modal124と表示版番号ui/ui120。旧版全ファイルSHAはdocs/BASELINE_FOR_v1.2.4.json。
+- 最終native: 退避/復帰17、寸法247、既存同定・コピー等102、計366合格・失敗0。tests/results_v124。
+- UI: 実クリックで旧版を再現。新版で入力・確定・取消・OK/No/Yes、参照フォルダ選択と4件取込。最終コードで追加後も再操作でき、nativeでmanagerが1枚だけ、RTE=0を確認。
+- 互換性: 模擬v1.2.3 PXP185889項目が読込前後・初期化後・別名保存/終了/起動/再読込後すべて一致。利用者の原本・sources・旧版を変更しない。
+- 未確認: 利用者実PXP、全DPI/モニター、長時間・大容量、独自Procedure、旧パス遮断環境。速度改善率は未測定。
+- 配布: ワークスペース直下xrd_workbench_v1.2.4/、ZIP/sha256。229ファイル、本体46 IPF、相対include75本、HTML参照/全ZIPエントリSHA一致。ZIP SHA256=f65ad17ec2261303b9f8207b29de8fd702b892ed63041e67460d5eade86eb3cf。旧v1.2.3 repo baselineと旧配布ZIP全ファイルも不変。
+- 再開: 本branchをfetchし本ファイルとWORK_LOG末尾、TEST_RESULTS_v1.2.4を読む。追加変更は次の番号版へ。mainへ統合しない。
 
 # 保持した前版記録
 

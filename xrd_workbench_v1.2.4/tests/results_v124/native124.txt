@@ -1,0 +1,268 @@
+
+  PASS: v124 guards both auxiliary panels
+  PASS: v124 excludes hidden and foreign panels
+  PASS: v124 nested dialog does not own outer visibility
+  PASS: v124 library hidden while dialog waits
+  PASS: v124 manager hidden while dialog waits
+  PASS: v124 foreign panel remains visible
+  PASS: v124 nested completion keeps outer panels hidden
+  PASS: v124 library restored after dialog
+  PASS: v124 manager restored after dialog
+  PASS: v124 originally hidden panel remains hidden
+  PASS: v124 library geometry unchanged
+  PASS: v124 manager geometry unchanged
+  PASS: v124 main geometry unchanged
+  PASS: v124 main stays maximized
+  PASS: v124 closed panel is not recreated
+  PASS: v124 raw processed and peak data remain intact
+  PASS: v124 runtime clean
+  V124_FAILURES  0
+  PASS: v123 auxiliary independent from MDI maximize: XRDLibrary
+  PASS: v123 main geometry after opening: XRDLibrary
+  PASS: v123 main maximize after opening: XRDLibrary
+  PASS: v123 auxiliary retains size and position: XRDLibrary
+  PASS: v123 main geometry after refresh: XRDLibrary
+  PASS: v123 auxiliary retains size and position: XRDLibrary
+  PASS: v123 main geometry after refresh: XRDLibrary
+  PASS: v123 auxiliary retains size and position: XRDLibrary
+  PASS: v123 main geometry after refresh: XRDLibrary
+  PASS: v123 main geometry after close: XRDLibrary
+  PASS: v123 main maximize after close: XRDLibrary
+  PASS: v123 native runtime clean: XRDLibrary
+  PASS: v123 auxiliary independent from MDI maximize: XRDProjectManager
+  PASS: v123 main geometry after opening: XRDProjectManager
+  PASS: v123 main maximize after opening: XRDProjectManager
+  PASS: v123 auxiliary retains size and position: XRDProjectManager
+  PASS: v123 main geometry after refresh: XRDProjectManager
+  PASS: v123 auxiliary retains size and position: XRDProjectManager
+  PASS: v123 main geometry after refresh: XRDProjectManager
+  PASS: v123 auxiliary retains size and position: XRDProjectManager
+  PASS: v123 main geometry after refresh: XRDProjectManager
+  PASS: v123 main geometry after close: XRDProjectManager
+  PASS: v123 main maximize after close: XRDProjectManager
+  PASS: v123 native runtime clean: XRDProjectManager
+  PASS: v123 auxiliary independent from MDI maximize: XRDElements
+  PASS: v123 main geometry after opening: XRDElements
+  PASS: v123 main maximize after opening: XRDElements
+  PASS: v123 auxiliary retains size and position: XRDElements
+  PASS: v123 main geometry after refresh: XRDElements
+  PASS: v123 auxiliary retains size and position: XRDElements
+  PASS: v123 main geometry after refresh: XRDElements
+  PASS: v123 auxiliary retains size and position: XRDElements
+  PASS: v123 main geometry after refresh: XRDElements
+  PASS: v123 main geometry after close: XRDElements
+  PASS: v123 main maximize after close: XRDElements
+  PASS: v123 native runtime clean: XRDElements
+  PASS: v123 auxiliary independent from MDI maximize: XRDDetectionSettings
+  PASS: v123 main geometry after opening: XRDDetectionSettings
+  PASS: v123 main maximize after opening: XRDDetectionSettings
+  PASS: v123 auxiliary retains size and position: XRDDetectionSettings
+  PASS: v123 main geometry after refresh: XRDDetectionSettings
+  PASS: v123 auxiliary retains size and position: XRDDetectionSettings
+  PASS: v123 main geometry after refresh: XRDDetectionSettings
+  PASS: v123 auxiliary retains size and position: XRDDetectionSettings
+  PASS: v123 main geometry after refresh: XRDDetectionSettings
+  PASS: v123 main geometry after close: XRDDetectionSettings
+  PASS: v123 main maximize after close: XRDDetectionSettings
+  PASS: v123 native runtime clean: XRDDetectionSettings
+  PASS: v123 auxiliary independent from MDI maximize: XRDSaveSettings
+  PASS: v123 main geometry after opening: XRDSaveSettings
+  PASS: v123 main maximize after opening: XRDSaveSettings
+  PASS: v123 auxiliary retains size and position: XRDSaveSettings
+  PASS: v123 main geometry after refresh: XRDSaveSettings
+  PASS: v123 auxiliary retains size and position: XRDSaveSettings
+  PASS: v123 main geometry after refresh: XRDSaveSettings
+  PASS: v123 auxiliary retains size and position: XRDSaveSettings
+  PASS: v123 main geometry after refresh: XRDSaveSettings
+  PASS: v123 main geometry after close: XRDSaveSettings
+  PASS: v123 main maximize after close: XRDSaveSettings
+  PASS: v123 native runtime clean: XRDSaveSettings
+  PASS: v123 auxiliary independent from MDI maximize: XRDPlotWorkspace
+  PASS: v123 main geometry after opening: XRDPlotWorkspace
+  PASS: v123 main maximize after opening: XRDPlotWorkspace
+  PASS: v123 auxiliary retains size and position: XRDPlotWorkspace
+  PASS: v123 main geometry after refresh: XRDPlotWorkspace
+  PASS: v123 auxiliary retains size and position: XRDPlotWorkspace
+  PASS: v123 main geometry after refresh: XRDPlotWorkspace
+  PASS: v123 auxiliary retains size and position: XRDPlotWorkspace
+  PASS: v123 main geometry after refresh: XRDPlotWorkspace
+  PASS: v123 main geometry after close: XRDPlotWorkspace
+  PASS: v123 main maximize after close: XRDPlotWorkspace
+  PASS: v123 native runtime clean: XRDPlotWorkspace
+  PASS: v123 auxiliary independent from MDI maximize: XRDCompareSelection
+  PASS: v123 main geometry after opening: XRDCompareSelection
+  PASS: v123 main maximize after opening: XRDCompareSelection
+  PASS: v123 auxiliary retains size and position: XRDCompareSelection
+  PASS: v123 main geometry after refresh: XRDCompareSelection
+  PASS: v123 auxiliary retains size and position: XRDCompareSelection
+  PASS: v123 main geometry after refresh: XRDCompareSelection
+  PASS: v123 auxiliary retains size and position: XRDCompareSelection
+  PASS: v123 main geometry after refresh: XRDCompareSelection
+  PASS: v123 main geometry after close: XRDCompareSelection
+  PASS: v123 main maximize after close: XRDCompareSelection
+  PASS: v123 native runtime clean: XRDCompareSelection
+  PASS: v123 auxiliary independent from MDI maximize: XRDOptions100
+  PASS: v123 main geometry after opening: XRDOptions100
+  PASS: v123 main maximize after opening: XRDOptions100
+  PASS: v123 auxiliary retains size and position: XRDOptions100
+  PASS: v123 main geometry after refresh: XRDOptions100
+  PASS: v123 auxiliary retains size and position: XRDOptions100
+  PASS: v123 main geometry after refresh: XRDOptions100
+  PASS: v123 auxiliary retains size and position: XRDOptions100
+  PASS: v123 main geometry after refresh: XRDOptions100
+  PASS: v123 main geometry after close: XRDOptions100
+  PASS: v123 main maximize after close: XRDOptions100
+  PASS: v123 native runtime clean: XRDOptions100
+  PASS: v123 auxiliary independent from MDI maximize: XRDTypeCards
+  PASS: v123 main geometry after opening: XRDTypeCards
+  PASS: v123 main maximize after opening: XRDTypeCards
+  PASS: v123 auxiliary retains size and position: XRDTypeCards
+  PASS: v123 main geometry after refresh: XRDTypeCards
+  PASS: v123 auxiliary retains size and position: XRDTypeCards
+  PASS: v123 main geometry after refresh: XRDTypeCards
+  PASS: v123 auxiliary retains size and position: XRDTypeCards
+  PASS: v123 main geometry after refresh: XRDTypeCards
+  PASS: v123 main geometry after close: XRDTypeCards
+  PASS: v123 main maximize after close: XRDTypeCards
+  PASS: v123 native runtime clean: XRDTypeCards
+  PASS: v123 auxiliary independent from MDI maximize: XRDMatchSettings
+  PASS: v123 main geometry after opening: XRDMatchSettings
+  PASS: v123 main maximize after opening: XRDMatchSettings
+  PASS: v123 auxiliary retains size and position: XRDMatchSettings
+  PASS: v123 main geometry after refresh: XRDMatchSettings
+  PASS: v123 auxiliary retains size and position: XRDMatchSettings
+  PASS: v123 main geometry after refresh: XRDMatchSettings
+  PASS: v123 auxiliary retains size and position: XRDMatchSettings
+  PASS: v123 main geometry after refresh: XRDMatchSettings
+  PASS: v123 main geometry after close: XRDMatchSettings
+  PASS: v123 main maximize after close: XRDMatchSettings
+  PASS: v123 native runtime clean: XRDMatchSettings
+  PASS: v123 auxiliary independent from MDI maximize: XRDLibrary
+  PASS: v123 main geometry after opening: XRDLibrary
+  PASS: v123 main maximize after opening: XRDLibrary
+  PASS: v123 auxiliary retains size and position: XRDLibrary
+  PASS: v123 main geometry after refresh: XRDLibrary
+  PASS: v123 auxiliary retains size and position: XRDLibrary
+  PASS: v123 main geometry after refresh: XRDLibrary
+  PASS: v123 auxiliary retains size and position: XRDLibrary
+  PASS: v123 main geometry after refresh: XRDLibrary
+  PASS: v123 main geometry after close: XRDLibrary
+  PASS: v123 main maximize after close: XRDLibrary
+  PASS: v123 native runtime clean: XRDLibrary
+  PASS: v123 auxiliary independent from MDI maximize: XRDProjectManager
+  PASS: v123 main geometry after opening: XRDProjectManager
+  PASS: v123 main maximize after opening: XRDProjectManager
+  PASS: v123 auxiliary retains size and position: XRDProjectManager
+  PASS: v123 main geometry after refresh: XRDProjectManager
+  PASS: v123 auxiliary retains size and position: XRDProjectManager
+  PASS: v123 main geometry after refresh: XRDProjectManager
+  PASS: v123 auxiliary retains size and position: XRDProjectManager
+  PASS: v123 main geometry after refresh: XRDProjectManager
+  PASS: v123 main geometry after close: XRDProjectManager
+  PASS: v123 main maximize after close: XRDProjectManager
+  PASS: v123 native runtime clean: XRDProjectManager
+  PASS: v123 auxiliary independent from MDI maximize: XRDElements
+  PASS: v123 main geometry after opening: XRDElements
+  PASS: v123 main maximize after opening: XRDElements
+  PASS: v123 auxiliary retains size and position: XRDElements
+  PASS: v123 main geometry after refresh: XRDElements
+  PASS: v123 auxiliary retains size and position: XRDElements
+  PASS: v123 main geometry after refresh: XRDElements
+  PASS: v123 auxiliary retains size and position: XRDElements
+  PASS: v123 main geometry after refresh: XRDElements
+  PASS: v123 main geometry after close: XRDElements
+  PASS: v123 main maximize after close: XRDElements
+  PASS: v123 native runtime clean: XRDElements
+  PASS: v123 auxiliary independent from MDI maximize: XRDDetectionSettings
+  PASS: v123 main geometry after opening: XRDDetectionSettings
+  PASS: v123 main maximize after opening: XRDDetectionSettings
+  PASS: v123 auxiliary retains size and position: XRDDetectionSettings
+  PASS: v123 main geometry after refresh: XRDDetectionSettings
+  PASS: v123 auxiliary retains size and position: XRDDetectionSettings
+  PASS: v123 main geometry after refresh: XRDDetectionSettings
+  PASS: v123 auxiliary retains size and position: XRDDetectionSettings
+  PASS: v123 main geometry after refresh: XRDDetectionSettings
+  PASS: v123 main geometry after close: XRDDetectionSettings
+  PASS: v123 main maximize after close: XRDDetectionSettings
+  PASS: v123 native runtime clean: XRDDetectionSettings
+  PASS: v123 auxiliary independent from MDI maximize: XRDSaveSettings
+  PASS: v123 main geometry after opening: XRDSaveSettings
+  PASS: v123 main maximize after opening: XRDSaveSettings
+  PASS: v123 auxiliary retains size and position: XRDSaveSettings
+  PASS: v123 main geometry after refresh: XRDSaveSettings
+  PASS: v123 auxiliary retains size and position: XRDSaveSettings
+  PASS: v123 main geometry after refresh: XRDSaveSettings
+  PASS: v123 auxiliary retains size and position: XRDSaveSettings
+  PASS: v123 main geometry after refresh: XRDSaveSettings
+  PASS: v123 main geometry after close: XRDSaveSettings
+  PASS: v123 main maximize after close: XRDSaveSettings
+  PASS: v123 native runtime clean: XRDSaveSettings
+  PASS: v123 auxiliary independent from MDI maximize: XRDPlotWorkspace
+  PASS: v123 main geometry after opening: XRDPlotWorkspace
+  PASS: v123 main maximize after opening: XRDPlotWorkspace
+  PASS: v123 auxiliary retains size and position: XRDPlotWorkspace
+  PASS: v123 main geometry after refresh: XRDPlotWorkspace
+  PASS: v123 auxiliary retains size and position: XRDPlotWorkspace
+  PASS: v123 main geometry after refresh: XRDPlotWorkspace
+  PASS: v123 auxiliary retains size and position: XRDPlotWorkspace
+  PASS: v123 main geometry after refresh: XRDPlotWorkspace
+  PASS: v123 main geometry after close: XRDPlotWorkspace
+  PASS: v123 main maximize after close: XRDPlotWorkspace
+  PASS: v123 native runtime clean: XRDPlotWorkspace
+  PASS: v123 auxiliary independent from MDI maximize: XRDCompareSelection
+  PASS: v123 main geometry after opening: XRDCompareSelection
+  PASS: v123 main maximize after opening: XRDCompareSelection
+  PASS: v123 auxiliary retains size and position: XRDCompareSelection
+  PASS: v123 main geometry after refresh: XRDCompareSelection
+  PASS: v123 auxiliary retains size and position: XRDCompareSelection
+  PASS: v123 main geometry after refresh: XRDCompareSelection
+  PASS: v123 auxiliary retains size and position: XRDCompareSelection
+  PASS: v123 main geometry after refresh: XRDCompareSelection
+  PASS: v123 main geometry after close: XRDCompareSelection
+  PASS: v123 main maximize after close: XRDCompareSelection
+  PASS: v123 native runtime clean: XRDCompareSelection
+  PASS: v123 auxiliary independent from MDI maximize: XRDOptions100
+  PASS: v123 main geometry after opening: XRDOptions100
+  PASS: v123 main maximize after opening: XRDOptions100
+  PASS: v123 auxiliary retains size and position: XRDOptions100
+  PASS: v123 main geometry after refresh: XRDOptions100
+  PASS: v123 auxiliary retains size and position: XRDOptions100
+  PASS: v123 main geometry after refresh: XRDOptions100
+  PASS: v123 auxiliary retains size and position: XRDOptions100
+  PASS: v123 main geometry after refresh: XRDOptions100
+  PASS: v123 main geometry after close: XRDOptions100
+  PASS: v123 main maximize after close: XRDOptions100
+  PASS: v123 native runtime clean: XRDOptions100
+  PASS: v123 auxiliary independent from MDI maximize: XRDTypeCards
+  PASS: v123 main geometry after opening: XRDTypeCards
+  PASS: v123 main maximize after opening: XRDTypeCards
+  PASS: v123 auxiliary retains size and position: XRDTypeCards
+  PASS: v123 main geometry after refresh: XRDTypeCards
+  PASS: v123 auxiliary retains size and position: XRDTypeCards
+  PASS: v123 main geometry after refresh: XRDTypeCards
+  PASS: v123 auxiliary retains size and position: XRDTypeCards
+  PASS: v123 main geometry after refresh: XRDTypeCards
+  PASS: v123 main geometry after close: XRDTypeCards
+  PASS: v123 main maximize after close: XRDTypeCards
+  PASS: v123 native runtime clean: XRDTypeCards
+  PASS: v123 auxiliary independent from MDI maximize: XRDMatchSettings
+  PASS: v123 main geometry after opening: XRDMatchSettings
+  PASS: v123 main maximize after opening: XRDMatchSettings
+  PASS: v123 auxiliary retains size and position: XRDMatchSettings
+  PASS: v123 main geometry after refresh: XRDMatchSettings
+  PASS: v123 auxiliary retains size and position: XRDMatchSettings
+  PASS: v123 main geometry after refresh: XRDMatchSettings
+  PASS: v123 auxiliary retains size and position: XRDMatchSettings
+  PASS: v123 main geometry after refresh: XRDMatchSettings
+  PASS: v123 main geometry after close: XRDMatchSettings
+  PASS: v123 main maximize after close: XRDMatchSettings
+  PASS: v123 native runtime clean: XRDMatchSettings
+  PASS: v123 floating element control targets correct project
+  PASS: v123 plot controls do not force initial size
+  PASS: v123 manager controls do not force initial size
+  PASS: v123 management updates paths on floating panels
+  PASS: v123 floating panel path can be restored
+  PASS: v123 main frame reused
+  PASS: v123 raw processed and peaks unchanged
+  v123 failures=  0  RTE=  0
+Error=0 

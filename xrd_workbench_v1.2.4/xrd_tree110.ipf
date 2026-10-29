@@ -98,7 +98,7 @@ Function XRD110_Manager()
     XRD110_TreeBuild(0)
     PauseUpdate; Silent 1
     String panelState123=XRD123_PanelState("XRDProjectManager")
-    DoWindow/K XRDProjectManager
+    KillWindow/Z XRDProjectManager
     NewPanel/FLT=1/N=XRDProjectManager/K=1/W=(35,35,1015,715) as "プロジェクトと測定データ"
     ModifyPanel/W=XRDProjectManager fixedSize=0
     DefaultGUIFont all={"Segoe UI",12,0}

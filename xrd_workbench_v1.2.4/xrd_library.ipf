@@ -327,7 +327,7 @@ Function XRD80_LibraryPanel()
     Make/O/D/N=0 $(ui+":map")
     PauseUpdate; Silent 1
     String panelState123=XRD123_PanelState("XRDLibrary")
-    DoWindow/K XRDLibrary
+    KillWindow/Z XRDLibrary
     NewPanel/FLT=1/K=1/N=XRDLibrary/W=(30,30,1210,710) as "参照値 — Experiment共通ライブラリ"
     ModifyPanel/W=XRDLibrary fixedSize=0
     DefaultGUIFont/W=XRDLibrary all={"Segoe UI",12,0}
@@ -445,7 +445,7 @@ Function XRD80_SelectLibraryReference(index)
     Duplicate/O $(rp+":k"),$(draft+":k")
     Duplicate/O $(rp+":l"),$(draft+":l")
     Variable/G $(draft+":numericTextActive82")=0
-    DoWindow/K XRDLibraryNumbers
+    KillWindow/Z XRDLibraryNumbers
     SetVariable displayName,win=XRDLibrary,pos={15,375},size={535,24},title="表示名",value=$(draft+":displayOverride")
     SetVariable materialName,win=XRDLibrary,pos={580,375},size={565,24},title="物質名",value=$(draft+":phaseName")
     SetVariable formula,win=XRDLibrary,pos={15,410},size={535,24},title="化学式",value=$(draft+":formula")
@@ -570,7 +570,7 @@ Function XRD80_PreviewLibraryReference(index)
     if(V_max>0)
         yy=100*yy/V_max
     endif
-    DoWindow/K XRDLibraryPattern
+    KillWindow/Z XRDLibraryPattern
     Display/K=1/N=XRDLibraryPattern/W=(50,70,850,470) yy vs xx as "参照パターン — "+XRD_PhaseLabel(index)
     ModifyGraph mode=1,rgb=(50000,5000,5000),lsize=1.5,noLabel(left)=1
     Label bottom "2\\f02θ\\f00 (deg.)"
