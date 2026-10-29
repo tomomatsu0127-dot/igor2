@@ -174,3 +174,9 @@
 - Deliverables: docs/xrd_standalone_design_v1.0.0 (15-page PDF, Markdown, evidence JSON, static verification JSON, README). User copies are in the current task's outputs directory.
 - Validation: 207 document/source checks pass, all 15 pages rendered and visually inspected. Japanese extraction, margins and 52 feature IDs verified. No new application runtime, real data, Igor, performance or clean-PC tests were performed.
 - Preservation: existing released IPFs, source measurements/references, user PXP, old standalone preview and untracked v0.1.1 retained. No main merge. Continue with a separately versioned application implementation only when that work is requested.
+
+
+## 2026-10-29 / Studio v0.2.0 investigation
+
+- User authorized implementation including the Igor-provided foundations. Branch from saved design a48f555; new version directory; copied saved preview modules only. Existing untracked v0.1.1 retained. Baseline hashes recorded. Qt dependency installed only in a task-owned environment.
+- Scope: XRD desktop foundations and the existing independent engine; Wave-like working tables, graph operations, document/management/Undo/recovery, numerical workflow. Schema1-to-schema2 persistence requires separate-process comparisons. No Igor process or original research data is used.
