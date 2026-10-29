@@ -163,3 +163,14 @@
 - 配布: 利用者ワークスペース直下xrd_workbench_v1.2.3、ZIP、sha256へ新規出力。220ファイル、本体45 IPF、相対include73本、HTMLリンクとanchor正常、全ZIPエントリのSHA一致。ZIP1230883 bytes / SHA256=f31c5a1ada0f5e93016574d1908ecfab784f38440aac607a72b158338832c36b。
 - 旧v1.2.2 repo全ファイルはbaseline SHA一致。旧配布ZIPのSHA8d8b82...と全エントリも不変。sources、原本測定/参照、利用者PXPに触れていない。専用PID以外へ終了要求なし。
 - 補助パネルは前面表示。開いたままの更新は寸法・位置保持、×後の新規表示は初期寸法。図/表/ガイドの新規表示・明示サイズ操作まで固定する仕様ではない。main未統合。次は本branchをfetchして追加変更を新しい番号版へ作成する。
+
+
+## 2026-10-29 / XRD standalone design v1.0.0
+
+- Investigation: fetched origin; latest Igor source is codex/xrd-v1.2.3 at fb0c031093659db9db2562753dd0a0bd34561e4e. Preserved the unrelated untracked standalone v0.1.1 checkout. Managed-worktree tool could not accept the external project path in this chat; used a separate Git worktree under this task's work directory instead.
+- Scope: design only. User final correction limits this effort to XRD, retracting M-H/M-T integration. Excel is optional table I/O. No application changes or Igor connection.
+- Evidence: 45 production IPFs / 604 functions / 14632 lines. Reviewed include/startup, Peak AutoFind, persistence/write paths, reference revisions, matching, profile/lattice and plots. Organized 52 traceable functional groups. Existing preview 7d5f209 is incomplete; 8 delivered modules match its saved remote source after line-ending normalization.
+- Design: single desktop product, PySide6 UI as first candidate, reusable independent numerical components, immutable raw/reference revisions, .labx project, stable IDs, explicit fit adoption, immutable result runs, snapshot figures, optional XLSX without Excel automation. Includes stage-by-stage delivery and measurable acceptance gates; numerical tolerances/performance are proposed targets, not results.
+- Deliverables: docs/xrd_standalone_design_v1.0.0 (15-page PDF, Markdown, evidence JSON, static verification JSON, README). User copies are in the current task's outputs directory.
+- Validation: 207 document/source checks pass, all 15 pages rendered and visually inspected. Japanese extraction, margins and 52 feature IDs verified. No new application runtime, real data, Igor, performance or clean-PC tests were performed.
+- Preservation: existing released IPFs, source measurements/references, user PXP, old standalone preview and untracked v0.1.1 retained. No main merge. Continue with a separately versioned application implementation only when that work is requested.

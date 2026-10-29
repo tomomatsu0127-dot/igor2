@@ -1,0 +1,853 @@
+{
+  "scope": "Design-only verification, no application runtime validation",
+  "passed": 207,
+  "pages": 15,
+  "features": 52,
+  "checks": [
+    {
+      "check": "Latest Igor baseline commit",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_autofind.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_autofind.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_detect.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_detect.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_entry110.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_entry110.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_experiment.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_experiment.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_graph.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_graph.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_import.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_import.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_lattice.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_lattice.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_legend110.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_legend110.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_library.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_library.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_main.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_main.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_manage100.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_manage100.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_manager100.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_manager100.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_match.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_match.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_peak.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_peak.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_plot81.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_plot81.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_plotworkspace.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_plotworkspace.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_profile.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_profile.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_project.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_project.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_reference.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_reference.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_reference120.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_reference120.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_register100.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_register100.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_transfer120.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_transfer120.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_tree110.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_tree110.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_ui.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_ui.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_ui110.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_ui110.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_ui120.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_ui120.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_ui123.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_ui123.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v3.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v3.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v4.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v4.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v41.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v41.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v42.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v42.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v44.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v44.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v45.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v45.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v50.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v50.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v51.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v51.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v52.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v52.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v53.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v53.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v70.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v70.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v71.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v71.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v72.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v72.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v80_styles.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v80_styles.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v80_ui.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v80_ui.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v81.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v81.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_v82.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_v82.ipf",
+      "pass": true
+    },
+    {
+      "check": "Source hash: xrd_view100.ipf",
+      "pass": true
+    },
+    {
+      "check": "Delivered release text: xrd_view100.ipf",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F01/XRD_NewProject",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F01/XRD_MoveMeasurement",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F02/XRD110_CommitEntry",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F02/XRD110_SerialAvailable",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F02/XRD110_EntryChanged",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F03/XRD_ApplyMetadata",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F04/XRD100_RenameProject",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F04/XRD100_TrashProject",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F04/XRD100_RestoreProject",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F05/XRD100_SetSample",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F05/XRD_DeleteMeasurement",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F05/XRD_RestoreMeasurement",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F06/XRD120_CopyMeasurement",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F07/XRD_ParseLine",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F07/XRD_ImportFile",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F08/XRD_NormalizeMeasurement",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F09/XRD81_CreateNamedWaves",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F09/XRD_PeakTable",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F10/XRD_DetectLegacy",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F11/XRD_DetectRobust",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F12/XRD_DetectAutoFind",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F13/XRD_DetectionControls",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F13/XRD_DetectionPreset",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F14/XRD_Manual",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F14/XRD_Delete",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F14/XRD81_AddCursorPoint",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F15/XRD_ExternalPeaks",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F16/XRD_RegisterDetection",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F17/XRD_LoadReferenceFile",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F18/XRD80_FindIdenticalReference",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F18/XRD80_StampReference",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F19/XRD80_LibraryPanel",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F19/XRD80_CheckLibraryAdditions",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F20/XRD_TypeFamilies",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F20/XRD_ApplyTypeDraft",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F21/XRD_FormulaCompatible",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F21/XRD_ElementPanel",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F22/XRD_ClassProtected",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F22/XRD_MaterialAllowed",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F22/XRD_FilterReason",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F23/XRD82_HKLKnown",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F23/XRD82_ExcludeMissingLatticeHKL",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F24/XRD_PreviewReference",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F24/XRD_ReferenceArrow",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F25/XRD_CandidateAllowed",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F25/XRD_CandidateModeAction",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F26/XRD_ScoreCandidates",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F27/XRD_ReferenceShift",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F27/XRD_RefineShift",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F28/XRD_BuildEvidence",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F28/XRD_EvidencePanel",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F29/XRD_AssignCandidate",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F29/XRD_ReferencePeakOwner",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F30/XRD_SetUnknown",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F30/XRD_ClearPeakReview",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F30/XRD_RemoveAssignmentsForPeak",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F31/XRD120_StrongMissing",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F31/XRD120_ConfirmCandidate",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F32/XRD_BuildAudit",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F32/XRD_UpdateAnalysisState",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F33/XRD_FitPeakProfile",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F34/XRD_AdoptProfile",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F34/XRD_RestoreRegisteredAngle",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F35/XRD_FitCubic",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F35/XRD_FitHexagonal",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F36/XRD_PrepareLattice",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F36/XRD_LatticeAngle",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F37/XRD_RecordLatticeQuality",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F37/XRD80_RecordLatticeRun",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F37/XRD80_MarkLatticeStale",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F38/XRD80_ProjectLatticeSummary",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F39/XRD120_ComparePaths",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F39/XRD_CompareSelection",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F40/XRD_PlotSaveDraft",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F40/XRD_PlotDrawRecipe",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F40/XRD80_MarkPlotsStale",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F41/XRD81_MovePlotRow",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F41/XRD81_StoreLineSettings",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F42/XRD120_OneLegend",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F42/XRD_ApplyLegendOrder",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F43/XRD110_SeparateLegend",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F43/XRD110_ExportLegend",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F44/XRD_PlotCaptureNative",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F44/XRD_PlotRestoreNative",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F45/XRD81_ExportGraph",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F45/XRD_WriteReport",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F46/XRD81_SelectPeak",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F46/XRD100_Zoom",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F47/XRD120_LockY",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F48/XRD123_PanelState",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F48/XRD123_FinishPanel",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F48/XRD_ResizePanel",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F49/XRD_TextSizeAction",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F49/XRD_StylePanel",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F49/XRD_QuickGuide",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F50/XRD_RecordUndo",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F50/XRD_Undo",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F50/XRD_Redo",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F50/XRD_SaveViewBox",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F51/XRD_SaveRecovery",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F51/XRD_SaveSettingsPanel",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F52/XRD80_RegisterObject",
+      "pass": true
+    },
+    {
+      "check": "Evidence: F52/XRD100_VerifyFingerprint",
+      "pass": true
+    },
+    {
+      "check": "Preview saved-source match: io.py",
+      "pass": true
+    },
+    {
+      "check": "Preview saved-source match: analysis.py",
+      "pass": true
+    },
+    {
+      "check": "Preview saved-source match: document.py",
+      "pass": true
+    },
+    {
+      "check": "Preview saved-source match: plotting.py",
+      "pass": true
+    },
+    {
+      "check": "Preview saved-source match: app.py",
+      "pass": true
+    },
+    {
+      "check": "Preview saved-source match: verification.py",
+      "pass": true
+    },
+    {
+      "check": "Preview saved-source match: __init__.py",
+      "pass": true
+    },
+    {
+      "check": "Preview saved-source match: demo.py",
+      "pass": true
+    },
+    {
+      "check": "Japanese text extracts correctly",
+      "pass": true
+    },
+    {
+      "check": "All 52 feature IDs in PDF",
+      "pass": true
+    },
+    {
+      "check": "All 52 feature IDs in Markdown",
+      "pass": true
+    },
+    {
+      "check": "No replacement glyph",
+      "pass": true
+    },
+    {
+      "check": "PDF text within page margins",
+      "pass": true
+    }
+  ],
+  "outputs": [
+    {
+      "file": "XRD_単体ソフト設計書_v1.0.0.md",
+      "bytes": 47363,
+      "sha256": "d42e314496a1627815893cb76f02c04ba499da31ac1f996a525637b865ee9eb7"
+    },
+    {
+      "file": "XRD_単体ソフト設計書_v1.0.0.pdf",
+      "bytes": 241619,
+      "sha256": "688edd39350d1593c1953328a042d1000beb0751aa12e728c1e787566227b884"
+    },
+    {
+      "file": "XRD_機能対応表_v1.0.0.json",
+      "bytes": 55371,
+      "sha256": "4fcafe589facc5f55e12ffee97258aee30b2eca463e31d73784199c3156958b1"
+    }
+  ]
+}

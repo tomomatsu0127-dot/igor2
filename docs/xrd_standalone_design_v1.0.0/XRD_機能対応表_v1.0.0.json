@@ -1,0 +1,1425 @@
+{
+  "design_version": "1.0.0",
+  "date_jst": "2026-10-29",
+  "scope": "XRD only; design, no application changes",
+  "source_branch": "codex/xrd-v1.2.3",
+  "source_commit": "fb0c031093659db9db2562753dd0a0bd34561e4e",
+  "production_ipf_count": 45,
+  "production_function_count": 604,
+  "production_lines": 14632,
+  "feature_count": 52,
+  "files": [
+    {
+      "file": "xrd_autofind.ipf",
+      "bytes": 16634,
+      "sha256": "1a2c30c1adedade9f1cf9c7c6f15d3f2f4e0ab0907437eb1ab03ad8023be9c85",
+      "lines": 347
+    },
+    {
+      "file": "xrd_detect.ipf",
+      "bytes": 15053,
+      "sha256": "151aa2bbd39ebc895afcddeac2ecb274db77588a1d2dfb7aad97216007bc96f5",
+      "lines": 337
+    },
+    {
+      "file": "xrd_entry110.ipf",
+      "bytes": 8829,
+      "sha256": "bf35a4118e161056711b86d38cef32fc977155e5bbe3ba29e690b0b04681385b",
+      "lines": 186
+    },
+    {
+      "file": "xrd_experiment.ipf",
+      "bytes": 25421,
+      "sha256": "4ef284e285ba40f078e3efde1ff7d46b48b1bab9388983fbc4e1d503309c8f10",
+      "lines": 723
+    },
+    {
+      "file": "xrd_graph.ipf",
+      "bytes": 3625,
+      "sha256": "17ddda9632c4996b25b797efa7b874f6eab190cbc1d815722fc6ca1375ea4c04",
+      "lines": 103
+    },
+    {
+      "file": "xrd_import.ipf",
+      "bytes": 3126,
+      "sha256": "8838168ac11dd2f0b3be11a923f0d455b0144babb34f7c6bea8800f0073861ad",
+      "lines": 97
+    },
+    {
+      "file": "xrd_lattice.ipf",
+      "bytes": 10639,
+      "sha256": "5bd061d372ef3396f6f9db066951afb70bebd9e87309fb6d4eb8d554d64d4d3b",
+      "lines": 260
+    },
+    {
+      "file": "xrd_legend110.ipf",
+      "bytes": 8506,
+      "sha256": "61fd5b92f145aa7267e37e19aabbb5b78e18e9c56bb207a4e65f2d88ae11e61a",
+      "lines": 221
+    },
+    {
+      "file": "xrd_library.ipf",
+      "bytes": 27892,
+      "sha256": "b564f33af6049e6eb92cc7ec4b8a979d0e2be1ed83ead637f5c2e7670ec20b08",
+      "lines": 645
+    },
+    {
+      "file": "xrd_main.ipf",
+      "bytes": 4423,
+      "sha256": "e165fbcfcadd4a202de677f2a3f23fbf15fca5b116a9cec7cd5b8e9f3aa4c879",
+      "lines": 131
+    },
+    {
+      "file": "xrd_manage100.ipf",
+      "bytes": 22161,
+      "sha256": "df19a61da809b35a5971dd3d7626e0270e52a6c6453e571d00523df6e49bc120",
+      "lines": 633
+    },
+    {
+      "file": "xrd_manager100.ipf",
+      "bytes": 8216,
+      "sha256": "d540028ea75dc391047b9177414c7e77bf31335858099f53eace5c833677e1e7",
+      "lines": 189
+    },
+    {
+      "file": "xrd_match.ipf",
+      "bytes": 20781,
+      "sha256": "537d8efd7107bb2f3ff4c876ef85d591c8fde56b6a343e4fc2a2b99248f77055",
+      "lines": 544
+    },
+    {
+      "file": "xrd_peak.ipf",
+      "bytes": 6067,
+      "sha256": "7cbddb8df815d8180e9b0f24b0aa618ed5afb50fae075090919951b17480b8f7",
+      "lines": 176
+    },
+    {
+      "file": "xrd_plot81.ipf",
+      "bytes": 12042,
+      "sha256": "388743df5d611bd2a0771258a9398d08e82b93a2484fc8dcc8646c83aa184bab",
+      "lines": 314
+    },
+    {
+      "file": "xrd_plotworkspace.ipf",
+      "bytes": 36660,
+      "sha256": "26f128c5e1cccc05a4e8ec70c09871be2ca4098ab74280b444629f28f14da776",
+      "lines": 848
+    },
+    {
+      "file": "xrd_profile.ipf",
+      "bytes": 14109,
+      "sha256": "7b29af4157b233c94b52dbdc136f5eb2946bb1e7bba31cb915a5435631136d36",
+      "lines": 304
+    },
+    {
+      "file": "xrd_project.ipf",
+      "bytes": 14449,
+      "sha256": "6a42564fcc4ad0523080c739b3036cc7a2b20f46e359346a7ac04a1d17cc5afa",
+      "lines": 389
+    },
+    {
+      "file": "xrd_reference.ipf",
+      "bytes": 15275,
+      "sha256": "79d39ba05530a1ffbf81d2d025a2eb157f51557a5dc24b40de999b8bca34ecba",
+      "lines": 447
+    },
+    {
+      "file": "xrd_reference120.ipf",
+      "bytes": 4493,
+      "sha256": "d674f8f2ff891ebb1471d8779850d32de538feff65f2e574909686ff3cc5d2ed",
+      "lines": 109
+    },
+    {
+      "file": "xrd_register100.ipf",
+      "bytes": 14583,
+      "sha256": "710c8f937937138c05ce3adbe7b88a34f3ce3b091a6a29ea06e62231147647c3",
+      "lines": 377
+    },
+    {
+      "file": "xrd_transfer120.ipf",
+      "bytes": 7919,
+      "sha256": "9c1c669fa4519e93715da87111e02811ec724744985ea6cf41c9395e42cc2334",
+      "lines": 210
+    },
+    {
+      "file": "xrd_tree110.ipf",
+      "bytes": 12627,
+      "sha256": "7222ec9efff4ee5b9b7da5a75c3cf081b0020d3902740b3318b418660e5e7a2a",
+      "lines": 316
+    },
+    {
+      "file": "xrd_ui.ipf",
+      "bytes": 27833,
+      "sha256": "cd56861953a60314d8600c9dbaf2eb4800d0945f84a75c91943a8692c174c6df",
+      "lines": 600
+    },
+    {
+      "file": "xrd_ui110.ipf",
+      "bytes": 12910,
+      "sha256": "a88067600fe1ec6855972dbc9681ed4c9030754de3feea9dddacf72ef49060db",
+      "lines": 295
+    },
+    {
+      "file": "xrd_ui120.ipf",
+      "bytes": 8514,
+      "sha256": "140141400b09e33110a1bea975af072a3c33991cccfa1e805941d32a1191b91e",
+      "lines": 212
+    },
+    {
+      "file": "xrd_ui123.ipf",
+      "bytes": 953,
+      "sha256": "8b1420a4b3d26425679386637e7c469f33cdacf8661a0252775d7cd148dbb75d",
+      "lines": 25
+    },
+    {
+      "file": "xrd_v3.ipf",
+      "bytes": 16513,
+      "sha256": "5316b8e5cabad8b50e996972c30cdda1282d156c6001053396b105ee0f7f78fb",
+      "lines": 430
+    },
+    {
+      "file": "xrd_v4.ipf",
+      "bytes": 10431,
+      "sha256": "fc5a19e1a08a1f27a009afe652bd8ff8ae521dca475b5175933fb3f7a2a5be85",
+      "lines": 286
+    },
+    {
+      "file": "xrd_v41.ipf",
+      "bytes": 8240,
+      "sha256": "99ce754ef0b240e3222237da6934be34126f50e1180c351352b6f6991ae7130b",
+      "lines": 226
+    },
+    {
+      "file": "xrd_v42.ipf",
+      "bytes": 4390,
+      "sha256": "494186cf8e139838f34cbb668eabd89c86a989bb861849127c7a5971da468ea6",
+      "lines": 115
+    },
+    {
+      "file": "xrd_v44.ipf",
+      "bytes": 10785,
+      "sha256": "f61652d2d2763daa93adefbb2356ac1996eb90f87f1018097656c3c2a4b1e81e",
+      "lines": 260
+    },
+    {
+      "file": "xrd_v45.ipf",
+      "bytes": 11322,
+      "sha256": "71834c6e647dcc8d5dac8a7e56667d758b8172bafb5a33a1aab6f2f55483c060",
+      "lines": 287
+    },
+    {
+      "file": "xrd_v50.ipf",
+      "bytes": 40103,
+      "sha256": "ce1903d823e249f45fc8087b3c0d963d8b2ca87ad251f11064cdb9d8005c827b",
+      "lines": 921
+    },
+    {
+      "file": "xrd_v51.ipf",
+      "bytes": 16315,
+      "sha256": "3a64501495add08ba5b9ff8e1a5d577de5f855ec4e7f107ae4a0cfbfeeb5d1e2",
+      "lines": 376
+    },
+    {
+      "file": "xrd_v52.ipf",
+      "bytes": 7989,
+      "sha256": "46ce1b1a6a5c8eb61fb1c81a4f43b8fbf2ef393283e9ba950802ccc9e764c36f",
+      "lines": 197
+    },
+    {
+      "file": "xrd_v53.ipf",
+      "bytes": 9878,
+      "sha256": "5246a282eaa3af449e1ae3661bec30830329574b538f6636a8c7b33a23820d5f",
+      "lines": 247
+    },
+    {
+      "file": "xrd_v70.ipf",
+      "bytes": 19059,
+      "sha256": "ef828b115aa970a18ee0578d9f2e7e8e32b4b241644e3a0fd018036d065caa69",
+      "lines": 456
+    },
+    {
+      "file": "xrd_v71.ipf",
+      "bytes": 21132,
+      "sha256": "4012870b02271fa200eecfabe03e1bd6a0394c1021ac332116b6cf037be32497",
+      "lines": 465
+    },
+    {
+      "file": "xrd_v72.ipf",
+      "bytes": 11572,
+      "sha256": "832aedb94c14500aeb30588a15c88a489322c255511b17c8088978e9f4a2720c",
+      "lines": 276
+    },
+    {
+      "file": "xrd_v80_styles.ipf",
+      "bytes": 7460,
+      "sha256": "ec74d2a05c7b22ddbf4bd2f3c1d3ea4f808e0eef5aa492038fcc36062c801d91",
+      "lines": 184
+    },
+    {
+      "file": "xrd_v80_ui.ipf",
+      "bytes": 6996,
+      "sha256": "489bfebba18bfcc3ae6a73e6c3566d3ac804472111c2353255fbfb3c6e1223ff",
+      "lines": 168
+    },
+    {
+      "file": "xrd_v81.ipf",
+      "bytes": 14322,
+      "sha256": "57ef9d1ae75f30ae3a999e2e89869327e993034df45cbd97b9fc886a29e6113b",
+      "lines": 419
+    },
+    {
+      "file": "xrd_v82.ipf",
+      "bytes": 3693,
+      "sha256": "7f4ab72bad7e2256e83e63f5e8a7362e0ebf3d5e3d2e13b113dda563986b4d13",
+      "lines": 91
+    },
+    {
+      "file": "xrd_view100.ipf",
+      "bytes": 6794,
+      "sha256": "280365cf8ae59fa3954a85f47fa7c7469c325854c302c7e30261cb75ae22e1ed",
+      "lines": 190
+    }
+  ],
+  "features": [
+    {
+      "id": "F01",
+      "group": "管理",
+      "feature": "複数プロジェクト・試料順序",
+      "current": "同一文書内でプロジェクトと測定を整理・切替・並べ替え。",
+      "preview": "部分実装",
+      "design": "Project/Sampleの固定IDと表示順を保存。",
+      "evidence": [
+        {
+          "symbol": "XRD_NewProject",
+          "file": "xrd_project.ipf",
+          "line": 32,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_project.ipf#L32"
+        },
+        {
+          "symbol": "XRD_MoveMeasurement",
+          "file": "xrd_project.ipf",
+          "line": 228,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_project.ipf#L228"
+        }
+      ]
+    },
+    {
+      "id": "F02",
+      "group": "管理",
+      "feature": "通し番号・表示名・組成",
+      "current": "015を文字列で保持。同一プロジェクトの重複を拒否。表示名から組成へ一方向連動。",
+      "preview": "部分実装",
+      "design": "登録プレビューと重複検査を維持。",
+      "evidence": [
+        {
+          "symbol": "XRD110_CommitEntry",
+          "file": "xrd_entry110.ipf",
+          "line": 100,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_entry110.ipf#L100"
+        },
+        {
+          "symbol": "XRD110_SerialAvailable",
+          "file": "xrd_entry110.ipf",
+          "line": 163,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_entry110.ipf#L163"
+        },
+        {
+          "symbol": "XRD110_EntryChanged",
+          "file": "xrd_entry110.ipf",
+          "line": 58,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_entry110.ipf#L58"
+        }
+      ]
+    },
+    {
+      "id": "F03",
+      "group": "管理",
+      "feature": "試料メタデータ",
+      "current": "測定波長・放射線名・ゼロ補正・校正注記を保持。",
+      "preview": "部分実装",
+      "design": "値と単位を文書へ保存し変更で結果を古い状態にする。",
+      "evidence": [
+        {
+          "symbol": "XRD_ApplyMetadata",
+          "file": "xrd_v50.ipf",
+          "line": 448,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v50.ipf#L448"
+        }
+      ]
+    },
+    {
+      "id": "F04",
+      "group": "管理",
+      "feature": "プロジェクト改名・削除・復元",
+      "current": "影響確認・バックアップ・失敗時復元を伴う管理操作。",
+      "preview": "追加実装",
+      "design": "表示名とIDを分離し、文書内ごみ箱へ移動。",
+      "evidence": [
+        {
+          "symbol": "XRD100_RenameProject",
+          "file": "xrd_manage100.ipf",
+          "line": 398,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_manage100.ipf#L398"
+        },
+        {
+          "symbol": "XRD100_TrashProject",
+          "file": "xrd_manage100.ipf",
+          "line": 471,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_manage100.ipf#L471"
+        },
+        {
+          "symbol": "XRD100_RestoreProject",
+          "file": "xrd_manage100.ipf",
+          "line": 510,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_manage100.ipf#L510"
+        }
+      ]
+    },
+    {
+      "id": "F05",
+      "group": "管理",
+      "feature": "試料の変更・削除・復元",
+      "current": "番号・組成・表示名の変更、試料の削除・復元。",
+      "preview": "追加実装",
+      "design": "原値・同定・履歴を保持して復元可能にする。",
+      "evidence": [
+        {
+          "symbol": "XRD100_SetSample",
+          "file": "xrd_register100.ipf",
+          "line": 288,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_register100.ipf#L288"
+        },
+        {
+          "symbol": "XRD_DeleteMeasurement",
+          "file": "xrd_v42.ipf",
+          "line": 22,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v42.ipf#L22"
+        },
+        {
+          "symbol": "XRD_RestoreMeasurement",
+          "file": "xrd_v42.ipf",
+          "line": 59,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v42.ipf#L59"
+        }
+      ]
+    },
+    {
+      "id": "F06",
+      "group": "管理",
+      "feature": "同定済み試料の複製",
+      "current": "他プロジェクトから同定・履歴を複製し、新IDと複製元を付与。",
+      "preview": "部分実装",
+      "design": "参照版を固定し、元試料から独立して編集。",
+      "evidence": [
+        {
+          "symbol": "XRD120_CopyMeasurement",
+          "file": "xrd_transfer120.ipf",
+          "line": 132,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_transfer120.ipf#L132"
+        }
+      ]
+    },
+    {
+      "id": "F07",
+      "group": "読込",
+      "feature": "測定2列ファイル",
+      "current": "TXT/CSV/XY/DAT。有限値・厳密昇順・3点以上を検査し不正行を拒否。",
+      "preview": "再利用候補",
+      "design": "読込前確認と行番号付きエラー。",
+      "evidence": [
+        {
+          "symbol": "XRD_ParseLine",
+          "file": "xrd_import.ipf",
+          "line": 3,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_import.ipf#L3"
+        },
+        {
+          "symbol": "XRD_ImportFile",
+          "file": "xrd_import.ipf",
+          "line": 24,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_import.ipf#L24"
+        }
+      ]
+    },
+    {
+      "id": "F08",
+      "group": "読込",
+      "feature": "元値と規格化値",
+      "current": "元強度を保持し0-100のmin-max規格化。定数データは0。",
+      "preview": "再利用候補",
+      "design": "raw配列と処理配列を分離。",
+      "evidence": [
+        {
+          "symbol": "XRD_NormalizeMeasurement",
+          "file": "xrd_v3.ipf",
+          "line": 42,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v3.ipf#L42"
+        }
+      ]
+    },
+    {
+      "id": "F09",
+      "group": "読込",
+      "feature": "データ表・名前付き配列",
+      "current": "IgorのWave表で原値・処理値・ピーク等を閲覧。",
+      "preview": "置換必須",
+      "design": "アプリ内の読取表とCSV/XLSX出力で置換。",
+      "evidence": [
+        {
+          "symbol": "XRD81_CreateNamedWaves",
+          "file": "xrd_v81.ipf",
+          "line": 231,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v81.ipf#L231"
+        },
+        {
+          "symbol": "XRD_PeakTable",
+          "file": "xrd_peak.ipf",
+          "line": 152,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_peak.ipf#L152"
+        }
+      ]
+    },
+    {
+      "id": "F10",
+      "group": "ピーク",
+      "feature": "旧しきい値方式",
+      "current": "高さしきい値と間隔による従来方式。",
+      "preview": "追加実装",
+      "design": "既存ロジックを独立実装して比較。",
+      "evidence": [
+        {
+          "symbol": "XRD_DetectLegacy",
+          "file": "xrd_peak.ipf",
+          "line": 39,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_peak.ipf#L39"
+        }
+      ]
+    },
+    {
+      "id": "F11",
+      "group": "ピーク",
+      "feature": "背景考慮方式",
+      "current": "再標本化・平滑化・背景・突出度・SNR・幅・間隔で検出。",
+      "preview": "部分実装",
+      "design": "現行Robust方式を優先移植し条件を記録。",
+      "evidence": [
+        {
+          "symbol": "XRD_DetectRobust",
+          "file": "xrd_detect.ipf",
+          "line": 34,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_detect.ipf#L34"
+        }
+      ]
+    },
+    {
+      "id": "F12",
+      "group": "ピーク",
+      "feature": "Igor Peak AutoFind方式",
+      "current": "標準ライブラリのノイズ推定・AutoFindPeaksに依存。",
+      "preview": "置換必須",
+      "design": "独立検出方式へ置換。名称を分け、性能比較で採用を判定。",
+      "evidence": [
+        {
+          "symbol": "XRD_DetectAutoFind",
+          "file": "xrd_autofind.ipf",
+          "line": 3,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_autofind.ipf#L3"
+        }
+      ]
+    },
+    {
+      "id": "F13",
+      "group": "ピーク",
+      "feature": "検出プレビュー・プリセット",
+      "current": "候補だけ確認し、良ければ登録。基本/詳細設定と複数プリセット。",
+      "preview": "部分実装",
+      "design": "仮候補と登録済みピークを別レイヤーで表示。",
+      "evidence": [
+        {
+          "symbol": "XRD_DetectionControls",
+          "file": "xrd_autofind.ipf",
+          "line": 121,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_autofind.ipf#L121"
+        },
+        {
+          "symbol": "XRD_DetectionPreset",
+          "file": "xrd_autofind.ipf",
+          "line": 159,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_autofind.ipf#L159"
+        }
+      ]
+    },
+    {
+      "id": "F14",
+      "group": "ピーク",
+      "feature": "手動追加・削除・選択",
+      "current": "角度入力またはカーソル位置から確認後に追加し、IDで選択。",
+      "preview": "部分実装",
+      "design": "追加モードを明示し通常クリックと分離。",
+      "evidence": [
+        {
+          "symbol": "XRD_Manual",
+          "file": "xrd_peak.ipf",
+          "line": 110,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_peak.ipf#L110"
+        },
+        {
+          "symbol": "XRD_Delete",
+          "file": "xrd_peak.ipf",
+          "line": 129,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_peak.ipf#L129"
+        },
+        {
+          "symbol": "XRD81_AddCursorPoint",
+          "file": "xrd_v81.ipf",
+          "line": 125,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v81.ipf#L125"
+        }
+      ]
+    },
+    {
+      "id": "F15",
+      "group": "ピーク",
+      "feature": "外部ピークリスト",
+      "current": "角度・由来を読み込み、エラー時は一括反映しない。",
+      "preview": "追加実装",
+      "design": "外部由来の角度を測定点へ黙って丸めない。",
+      "evidence": [
+        {
+          "symbol": "XRD_ExternalPeaks",
+          "file": "xrd_autofind.ipf",
+          "line": 181,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_autofind.ipf#L181"
+        }
+      ]
+    },
+    {
+      "id": "F16",
+      "group": "ピーク",
+      "feature": "再検出時の保護",
+      "current": "手動・外部・確認済みピークを再検出で消さない。",
+      "preview": "部分実装",
+      "design": "ピークID・由来・同定を維持し、未確認自動候補だけ更新。",
+      "evidence": [
+        {
+          "symbol": "XRD_RegisterDetection",
+          "file": "xrd_autofind.ipf",
+          "line": 88,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_autofind.ipf#L88"
+        }
+      ]
+    },
+    {
+      "id": "F17",
+      "group": "参照",
+      "feature": "参照ファイルと列名",
+      "current": "2theta/I/h/k/l、任意d、VESTA追加列とメタデータを読む。",
+      "preview": "再利用候補",
+      "design": "列名を検証し、強度を別物理量から推定しない。",
+      "evidence": [
+        {
+          "symbol": "XRD_LoadReferenceFile",
+          "file": "xrd_reference.ipf",
+          "line": 72,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_reference.ipf#L72"
+        }
+      ]
+    },
+    {
+      "id": "F18",
+      "group": "参照",
+      "feature": "参照UID・科学的版・重複",
+      "current": "同じ内容を重複追加せず科学的revisionを管理。",
+      "preview": "部分実装",
+      "design": "固定反射IDを追加し、採用した版を文書内へ保持。",
+      "evidence": [
+        {
+          "symbol": "XRD80_FindIdenticalReference",
+          "file": "xrd_library.ipf",
+          "line": 66,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_library.ipf#L66"
+        },
+        {
+          "symbol": "XRD80_StampReference",
+          "file": "xrd_library.ipf",
+          "line": 95,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_library.ipf#L95"
+        }
+      ]
+    },
+    {
+      "id": "F19",
+      "group": "参照",
+      "feature": "共通ライブラリ・追加検知",
+      "current": "共通ライブラリの使用チェック、元フォルダへの追加検知。",
+      "preview": "部分実装",
+      "design": "ローカルライブラリと文書内参照版を分け、更新を明示。",
+      "evidence": [
+        {
+          "symbol": "XRD80_LibraryPanel",
+          "file": "xrd_library.ipf",
+          "line": 310,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_library.ipf#L310"
+        },
+        {
+          "symbol": "XRD80_CheckLibraryAdditions",
+          "file": "xrd_library.ipf",
+          "line": 256,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_library.ipf#L256"
+        }
+      ]
+    },
+    {
+      "id": "F20",
+      "group": "参照",
+      "feature": "type別の使用カード",
+      "current": "Z/X/M/QS/W/T/Y/U-typeごとに単一/複数カードを選択。",
+      "preview": "追加実装",
+      "design": "文書共通の使用設定と採用済み版を保存。",
+      "evidence": [
+        {
+          "symbol": "XRD_TypeFamilies",
+          "file": "xrd_v53.ipf",
+          "line": 3,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v53.ipf#L3"
+        },
+        {
+          "symbol": "XRD_ApplyTypeDraft",
+          "file": "xrd_v53.ipf",
+          "line": 176,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v53.ipf#L176"
+        }
+      ]
+    },
+    {
+      "id": "F21",
+      "group": "参照",
+      "feature": "周期表・元素適合",
+      "current": "化学式を用いた元素適合判定と周期表による選択。",
+      "preview": "追加実装",
+      "design": "部分文字列検索から元素集合の判定へ改める。",
+      "evidence": [
+        {
+          "symbol": "XRD_FormulaCompatible",
+          "file": "xrd_reference.ipf",
+          "line": 413,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_reference.ipf#L413"
+        },
+        {
+          "symbol": "XRD_ElementPanel",
+          "file": "xrd_v4.ipf",
+          "line": 210,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v4.ipf#L210"
+        }
+      ]
+    },
+    {
+      "id": "F22",
+      "group": "参照",
+      "feature": "相の分類・保護・候補対象",
+      "current": "保護typeは元素条件による除外を回避。他は化学式の適合と使用チェックで判定。",
+      "preview": "追加実装",
+      "design": "分類・保護の規則と除外理由を表示・保存。",
+      "evidence": [
+        {
+          "symbol": "XRD_ClassProtected",
+          "file": "xrd_reference.ipf",
+          "line": 398,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_reference.ipf#L398"
+        },
+        {
+          "symbol": "XRD_MaterialAllowed",
+          "file": "xrd_v70.ipf",
+          "line": 179,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v70.ipf#L179"
+        },
+        {
+          "symbol": "XRD_FilterReason",
+          "file": "xrd_v50.ipf",
+          "line": 386,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v50.ipf#L386"
+        }
+      ]
+    },
+    {
+      "id": "F23",
+      "group": "参照",
+      "feature": "hkl不明の取り扱い",
+      "current": "2thetaとIが正常なら同定に利用。hkl不明は格子計算から除外。",
+      "preview": "再利用候補",
+      "design": "nullで保存し0,0,0へ変換しない。",
+      "evidence": [
+        {
+          "symbol": "XRD82_HKLKnown",
+          "file": "xrd_v82.ipf",
+          "line": 3,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v82.ipf#L3"
+        },
+        {
+          "symbol": "XRD82_ExcludeMissingLatticeHKL",
+          "file": "xrd_v82.ipf",
+          "line": 13,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v82.ipf#L13"
+        }
+      ]
+    },
+    {
+      "id": "F24",
+      "group": "同定",
+      "feature": "参照パターン・反射矢印",
+      "current": "参照棒の濃さ・線幅と選択反射の矢印を表示。",
+      "preview": "部分実装",
+      "design": "測定ピーク画面と参照画面を分ける。",
+      "evidence": [
+        {
+          "symbol": "XRD_PreviewReference",
+          "file": "xrd_match.ipf",
+          "line": 230,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_match.ipf#L230"
+        },
+        {
+          "symbol": "XRD_ReferenceArrow",
+          "file": "xrd_v71.ipf",
+          "line": 330,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v71.ipf#L330"
+        }
+      ]
+    },
+    {
+      "id": "F25",
+      "group": "同定",
+      "feature": "全候補/既採用相/新しい相",
+      "current": "候補モードによって対象とスコア配分を変更。",
+      "preview": "追加実装",
+      "design": "モードとスコア設定を明示して保存。",
+      "evidence": [
+        {
+          "symbol": "XRD_CandidateAllowed",
+          "file": "xrd_v50.ipf",
+          "line": 54,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v50.ipf#L54"
+        },
+        {
+          "symbol": "XRD_CandidateModeAction",
+          "file": "xrd_v50.ipf",
+          "line": 247,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v50.ipf#L247"
+        }
+      ]
+    },
+    {
+      "id": "F26",
+      "group": "同定",
+      "feature": "候補順位と内訳",
+      "current": "局所一致・全体一致・新規説明・強度・強反射不足を計算。",
+      "preview": "部分実装",
+      "design": "現行重みを移植し、同点の並びを決定的にする。",
+      "evidence": [
+        {
+          "symbol": "XRD_ScoreCandidates",
+          "file": "xrd_match.ipf",
+          "line": 4,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_match.ipf#L4"
+        }
+      ]
+    },
+    {
+      "id": "F27",
+      "group": "同定",
+      "feature": "カード共通シフト",
+      "current": "カードの反射全体へ共通角度シフトを適用。",
+      "preview": "部分実装",
+      "design": "現行方式を照合し、測定ゼロ補正と区別して保存。",
+      "evidence": [
+        {
+          "symbol": "XRD_ReferenceShift",
+          "file": "xrd_v70.ipf",
+          "line": 216,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v70.ipf#L216"
+        },
+        {
+          "symbol": "XRD_RefineShift",
+          "file": "xrd_v50.ipf",
+          "line": 69,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v50.ipf#L69"
+        }
+      ]
+    },
+    {
+      "id": "F28",
+      "group": "同定",
+      "feature": "候補の全体証拠表",
+      "current": "一致/不足/他相との重なりを全測定範囲で確認。",
+      "preview": "追加実装",
+      "design": "各反射から図へ移動できる証拠表を実装。",
+      "evidence": [
+        {
+          "symbol": "XRD_BuildEvidence",
+          "file": "xrd_v50.ipf",
+          "line": 115,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v50.ipf#L115"
+        },
+        {
+          "symbol": "XRD_EvidencePanel",
+          "file": "xrd_v50.ipf",
+          "line": 214,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v50.ipf#L214"
+        }
+      ]
+    },
+    {
+      "id": "F29",
+      "group": "同定",
+      "feature": "採用と反射所有",
+      "current": "参照反射と測定ピークの紐付け、重複した反射所有を防止。",
+      "preview": "部分実装",
+      "design": "ピークIDと参照版/反射IDによる整合性検査。",
+      "evidence": [
+        {
+          "symbol": "XRD_AssignCandidate",
+          "file": "xrd_match.ipf",
+          "line": 282,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_match.ipf#L282"
+        },
+        {
+          "symbol": "XRD_ReferencePeakOwner",
+          "file": "xrd_v52.ipf",
+          "line": 4,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v52.ipf#L4"
+        }
+      ]
+    },
+    {
+      "id": "F30",
+      "group": "同定",
+      "feature": "重なり・Unknown・解除",
+      "current": "同じ測定ピークへ複数相を採用し、Unknownや解除も記録。",
+      "preview": "再利用候補",
+      "design": "Unknownを未処理と区別し、理由を追記可能にする。",
+      "evidence": [
+        {
+          "symbol": "XRD_SetUnknown",
+          "file": "xrd_match.ipf",
+          "line": 336,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_match.ipf#L336"
+        },
+        {
+          "symbol": "XRD_ClearPeakReview",
+          "file": "xrd_match.ipf",
+          "line": 369,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_match.ipf#L369"
+        },
+        {
+          "symbol": "XRD_RemoveAssignmentsForPeak",
+          "file": "xrd_match.ipf",
+          "line": 391,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_match.ipf#L391"
+        }
+      ]
+    },
+    {
+      "id": "F31",
+      "group": "同定",
+      "feature": "主/第2反射の確認",
+      "current": "測定範囲内で最強2反射を照合し、不足を表示・採用前確認。",
+      "preview": "部分実装",
+      "design": "範囲外は除外し、他相との重なりも一致と扱う。",
+      "evidence": [
+        {
+          "symbol": "XRD120_StrongMissing",
+          "file": "xrd_reference120.ipf",
+          "line": 3,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_reference120.ipf#L3"
+        },
+        {
+          "symbol": "XRD120_ConfirmCandidate",
+          "file": "xrd_reference120.ipf",
+          "line": 44,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_reference120.ipf#L44"
+        }
+      ]
+    },
+    {
+      "id": "F32",
+      "group": "同定",
+      "feature": "確認一覧・完了状態",
+      "current": "全ピークに採用/Unknownが付くと解析完了。確認一覧で見直す。",
+      "preview": "部分実装",
+      "design": "完了判定を単一関数へ統一し、不整合を防止。",
+      "evidence": [
+        {
+          "symbol": "XRD_BuildAudit",
+          "file": "xrd_v50.ipf",
+          "line": 259,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v50.ipf#L259"
+        },
+        {
+          "symbol": "XRD_UpdateAnalysisState",
+          "file": "xrd_experiment.ipf",
+          "line": 187,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_experiment.ipf#L187"
+        }
+      ]
+    },
+    {
+      "id": "F33",
+      "group": "フィット",
+      "feature": "Gaussian/Lorentzian局所フィット",
+      "current": "背景ON/OFF、端3点平均直線と定数項、中心・FWHM・誤差・残差。",
+      "preview": "部分実装",
+      "design": "現行モデル定義とパラメータ変換を固定。",
+      "evidence": [
+        {
+          "symbol": "XRD_FitPeakProfile",
+          "file": "xrd_profile.ipf",
+          "line": 57,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_profile.ipf#L57"
+        }
+      ]
+    },
+    {
+      "id": "F34",
+      "group": "フィット",
+      "feature": "中心採用・取消",
+      "current": "計算だけでは角度を変更しない。採用/元位置復帰と再フィットを分離。",
+      "preview": "再利用候補",
+      "design": "新しい試行結果で採用済み中心を上書きしない。",
+      "evidence": [
+        {
+          "symbol": "XRD_AdoptProfile",
+          "file": "xrd_profile.ipf",
+          "line": 164,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_profile.ipf#L164"
+        },
+        {
+          "symbol": "XRD_RestoreRegisteredAngle",
+          "file": "xrd_profile.ipf",
+          "line": 191,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_profile.ipf#L191"
+        }
+      ]
+    },
+    {
+      "id": "F35",
+      "group": "格子",
+      "feature": "立方晶・六方晶",
+      "current": "立方晶3本以上、六方晶4本以上。現行PDF変換式の回帰。",
+      "preview": "再利用候補",
+      "design": "無重み回帰を基準とし推定値・不確かさ・残差を保持。",
+      "evidence": [
+        {
+          "symbol": "XRD_FitCubic",
+          "file": "xrd_lattice.ipf",
+          "line": 47,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_lattice.ipf#L47"
+        },
+        {
+          "symbol": "XRD_FitHexagonal",
+          "file": "xrd_lattice.ipf",
+          "line": 174,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_lattice.ipf#L174"
+        }
+      ]
+    },
+    {
+      "id": "F36",
+      "group": "格子",
+      "feature": "使用/除外と角度由来",
+      "current": "採用済みフィット中心を優先し、波長・ゼロ補正・hklを使用。",
+      "preview": "部分実装",
+      "design": "除外理由と角度由来を表に出す。",
+      "evidence": [
+        {
+          "symbol": "XRD_PrepareLattice",
+          "file": "xrd_lattice.ipf",
+          "line": 112,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_lattice.ipf#L112"
+        },
+        {
+          "symbol": "XRD_LatticeAngle",
+          "file": "xrd_profile.ipf",
+          "line": 46,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_profile.ipf#L46"
+        }
+      ]
+    },
+    {
+      "id": "F37",
+      "group": "格子",
+      "feature": "品質・履歴・再計算表示",
+      "current": "入力・結果・残差・相の版を履歴に保持し変更後は再計算を案内。",
+      "preview": "部分実装",
+      "design": "入力revisionとfingerprintで古い結果を判定。",
+      "evidence": [
+        {
+          "symbol": "XRD_RecordLatticeQuality",
+          "file": "xrd_v50.ipf",
+          "line": 463,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v50.ipf#L463"
+        },
+        {
+          "symbol": "XRD80_RecordLatticeRun",
+          "file": "xrd_experiment.ipf",
+          "line": 330,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_experiment.ipf#L330"
+        },
+        {
+          "symbol": "XRD80_MarkLatticeStale",
+          "file": "xrd_experiment.ipf",
+          "line": 254,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_experiment.ipf#L254"
+        }
+      ]
+    },
+    {
+      "id": "F38",
+      "group": "格子",
+      "feature": "プロジェクト別結果一覧",
+      "current": "複数試料・相の格子定数を集計。",
+      "preview": "追加実装",
+      "design": "結果と不確かさ、計算条件をCSV/XLSXへ。",
+      "evidence": [
+        {
+          "symbol": "XRD80_ProjectLatticeSummary",
+          "file": "xrd_experiment.ipf",
+          "line": 410,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_experiment.ipf#L410"
+        }
+      ]
+    },
+    {
+      "id": "F39",
+      "group": "比較",
+      "feature": "プロジェクト横断比較",
+      "current": "選んだ試料だけを表示。編集試料を強制追加せず、0件は空表示。",
+      "preview": "部分実装",
+      "design": "文書内横断IDを許可し、比較と編集選択を分離。",
+      "evidence": [
+        {
+          "symbol": "XRD120_ComparePaths",
+          "file": "xrd_ui120.ipf",
+          "line": 140,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_ui120.ipf#L140"
+        },
+        {
+          "symbol": "XRD_CompareSelection",
+          "file": "xrd_plotworkspace.ipf",
+          "line": 66,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_plotworkspace.ipf#L66"
+        }
+      ]
+    },
+    {
+      "id": "F40",
+      "group": "作図",
+      "feature": "独立した複数の保存図",
+      "current": "数値snapshotとレシピを保持し、後の解析変更を古い状態として表示。",
+      "preview": "追加実装",
+      "design": "ライブ比較と完成図を別オブジェクトにする。",
+      "evidence": [
+        {
+          "symbol": "XRD_PlotSaveDraft",
+          "file": "xrd_plotworkspace.ipf",
+          "line": 413,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_plotworkspace.ipf#L413"
+        },
+        {
+          "symbol": "XRD_PlotDrawRecipe",
+          "file": "xrd_plotworkspace.ipf",
+          "line": 632,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_plotworkspace.ipf#L632"
+        },
+        {
+          "symbol": "XRD80_MarkPlotsStale",
+          "file": "xrd_plotworkspace.ipf",
+          "line": 822,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_plotworkspace.ipf#L822"
+        }
+      ]
+    },
+    {
+      "id": "F41",
+      "group": "作図",
+      "feature": "試料順・個別線・オフセット",
+      "current": "ドラッグ並替え・表示名・相マーカー・線幅・色・縦ずらし。",
+      "preview": "部分実装",
+      "design": "図ごとの書式を保存し再表示する。",
+      "evidence": [
+        {
+          "symbol": "XRD81_MovePlotRow",
+          "file": "xrd_plot81.ipf",
+          "line": 109,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_plot81.ipf#L109"
+        },
+        {
+          "symbol": "XRD81_StoreLineSettings",
+          "file": "xrd_plot81.ipf",
+          "line": 173,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_plot81.ipf#L173"
+        }
+      ]
+    },
+    {
+      "id": "F42",
+      "group": "作図",
+      "feature": "凡例1-4列と順序",
+      "current": "単一の編集対象として多列凡例を扱い、共通文字サイズと順序を設定。",
+      "preview": "部分実装",
+      "design": "相の色と記号を全図で一貫させ、個別書式も保存。",
+      "evidence": [
+        {
+          "symbol": "XRD120_OneLegend",
+          "file": "xrd_legend110.ipf",
+          "line": 56,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_legend110.ipf#L56"
+        },
+        {
+          "symbol": "XRD_ApplyLegendOrder",
+          "file": "xrd_v70.ipf",
+          "line": 153,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v70.ipf#L153"
+        }
+      ]
+    },
+    {
+      "id": "F43",
+      "group": "作図",
+      "feature": "凡例分離・凡例PNG",
+      "current": "凡例だけ別ウィンドウへ表示・PNG出力。",
+      "preview": "追加実装",
+      "design": "同じ凡例モデルから図と凡例画像を生成。",
+      "evidence": [
+        {
+          "symbol": "XRD110_SeparateLegend",
+          "file": "xrd_legend110.ipf",
+          "line": 158,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_legend110.ipf#L158"
+        },
+        {
+          "symbol": "XRD110_ExportLegend",
+          "file": "xrd_legend110.ipf",
+          "line": 197,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_legend110.ipf#L197"
+        }
+      ]
+    },
+    {
+      "id": "F44",
+      "group": "作図",
+      "feature": "Igorによる自由な図編集",
+      "current": "軸・線・文字・凡例の手編集を再現情報として保存。",
+      "preview": "置換必須",
+      "design": "アプリ内の軸/線/文字/注釈編集と保存で置換。",
+      "evidence": [
+        {
+          "symbol": "XRD_PlotCaptureNative",
+          "file": "xrd_plotworkspace.ipf",
+          "line": 695,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_plotworkspace.ipf#L695"
+        },
+        {
+          "symbol": "XRD_PlotRestoreNative",
+          "file": "xrd_plotworkspace.ipf",
+          "line": 708,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_plotworkspace.ipf#L708"
+        }
+      ]
+    },
+    {
+      "id": "F45",
+      "group": "出力",
+      "feature": "図・レポートの書出し",
+      "current": "Igorの図出力と解析レポート出力。",
+      "preview": "部分実装",
+      "design": "PDF/SVG/PNG、解析表CSV、任意XLSXをアプリ内で生成。",
+      "evidence": [
+        {
+          "symbol": "XRD81_ExportGraph",
+          "file": "xrd_v81.ipf",
+          "line": 412,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v81.ipf#L412"
+        },
+        {
+          "symbol": "XRD_WriteReport",
+          "file": "xrd_v50.ipf",
+          "line": 793,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v50.ipf#L793"
+        }
+      ]
+    },
+    {
+      "id": "F46",
+      "group": "操作",
+      "feature": "登録ピークの選択・拡大",
+      "current": "登録マーカーのみ選択。初回±5度、自動拡大ON/OFF、全体復帰。",
+      "preview": "部分実装",
+      "design": "空白クリックの誤選択を防ぎIDを保持。",
+      "evidence": [
+        {
+          "symbol": "XRD81_SelectPeak",
+          "file": "xrd_v81.ipf",
+          "line": 53,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v81.ipf#L53"
+        },
+        {
+          "symbol": "XRD100_Zoom",
+          "file": "xrd_view100.ipf",
+          "line": 85,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_view100.ipf#L85"
+        }
+      ]
+    },
+    {
+      "id": "F47",
+      "group": "操作",
+      "feature": "同定画面のY軸固定",
+      "current": "同定画面の規格化強度Yを-30から110へ固定。",
+      "preview": "追加実装",
+      "design": "ズームや選択でY軸が揺れず、表示操作は科学値を変えない。",
+      "evidence": [
+        {
+          "symbol": "XRD120_LockY",
+          "file": "xrd_ui120.ipf",
+          "line": 109,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_ui120.ipf#L109"
+        }
+      ]
+    },
+    {
+      "id": "F48",
+      "group": "操作",
+      "feature": "主画面と補助画面の寸法保持",
+      "current": "v1.2.3の補助画面開閉・更新で主画面の大きさ/最大化を維持。",
+      "preview": "置換必須",
+      "design": "固定QMainWindowとdock/dialogの再利用へ移す。",
+      "evidence": [
+        {
+          "symbol": "XRD123_PanelState",
+          "file": "xrd_ui123.ipf",
+          "line": 3,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_ui123.ipf#L3"
+        },
+        {
+          "symbol": "XRD123_FinishPanel",
+          "file": "xrd_ui123.ipf",
+          "line": 14,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_ui123.ipf#L14"
+        },
+        {
+          "symbol": "XRD_ResizePanel",
+          "file": "xrd_v44.ipf",
+          "line": 100,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v44.ipf#L100"
+        }
+      ]
+    },
+    {
+      "id": "F49",
+      "group": "操作",
+      "feature": "文字・色・記号・初心者案内",
+      "current": "文字サイズ、相の色と記号、表中心表示、基本/詳細と案内。",
+      "preview": "部分実装",
+      "design": "可読性・折畳み設定・狭い画面用タブを実装。",
+      "evidence": [
+        {
+          "symbol": "XRD_TextSizeAction",
+          "file": "xrd_v44.ipf",
+          "line": 225,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v44.ipf#L225"
+        },
+        {
+          "symbol": "XRD_StylePanel",
+          "file": "xrd_v3.ipf",
+          "line": 295,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v3.ipf#L295"
+        },
+        {
+          "symbol": "XRD_QuickGuide",
+          "file": "xrd_v51.ipf",
+          "line": 335,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v51.ipf#L335"
+        }
+      ]
+    },
+    {
+      "id": "F50",
+      "group": "保存",
+      "feature": "Undo/Redo",
+      "current": "解析変更と表示履歴、管理操作の復旧を区別。",
+      "preview": "部分実装",
+      "design": "Command単位のUndo、表示履歴、管理transactionを別管理。",
+      "evidence": [
+        {
+          "symbol": "XRD_RecordUndo",
+          "file": "xrd_v45.ipf",
+          "line": 212,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v45.ipf#L212"
+        },
+        {
+          "symbol": "XRD_Undo",
+          "file": "xrd_v45.ipf",
+          "line": 227,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v45.ipf#L227"
+        },
+        {
+          "symbol": "XRD_Redo",
+          "file": "xrd_v50.ipf",
+          "line": 642,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v50.ipf#L642"
+        },
+        {
+          "symbol": "XRD_SaveViewBox",
+          "file": "xrd_v51.ipf",
+          "line": 104,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v51.ipf#L104"
+        }
+      ]
+    },
+    {
+      "id": "F51",
+      "group": "保存",
+      "feature": "文書保存と自動保存",
+      "current": "Igor Experiment保存、復旧コピー、世代管理と設定。",
+      "preview": "部分実装",
+      "design": "自己完結.labx、原子的保存、通常保存と復旧を分離。",
+      "evidence": [
+        {
+          "symbol": "XRD_SaveRecovery",
+          "file": "xrd_v45.ipf",
+          "line": 61,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v45.ipf#L61"
+        },
+        {
+          "symbol": "XRD_SaveSettingsPanel",
+          "file": "xrd_v45.ipf",
+          "line": 140,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_v45.ipf#L140"
+        }
+      ]
+    },
+    {
+      "id": "F52",
+      "group": "保存",
+      "feature": "UID・由来・改名整合性",
+      "current": "表示名/パス変更後も同定・図・履歴の参照を保つ。",
+      "preview": "部分実装",
+      "design": "パスと行番号を主キーにせず固定IDで参照。",
+      "evidence": [
+        {
+          "symbol": "XRD80_RegisterObject",
+          "file": "xrd_experiment.ipf",
+          "line": 45,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_experiment.ipf#L45"
+        },
+        {
+          "symbol": "XRD100_VerifyFingerprint",
+          "file": "xrd_manage100.ipf",
+          "line": 620,
+          "url": "https://github.com/tomomatsu0127-dot/igor2/blob/fb0c031093659db9db2562753dd0a0bd34561e4e/xrd_workbench_v1.2.3/xrd_manage100.ipf#L620"
+        }
+      ]
+    }
+  ],
+  "preview_commit": "7d5f2092a52b20b5dd421dbd8d0e229010a1163b",
+  "verification": "Static source inspection only; no new Igor or standalone runtime tests"
+}
