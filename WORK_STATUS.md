@@ -1,3 +1,19 @@
+# WORK_STATUS — v1.2.4 / 2026-10-29 JST
+
+管理版: 1.6.0。修正実装済み、検証中。main未統合。
+
+- Branch: codex/xrd-v1.2.4。開始SHA: fb0c031 (origin/codex/xrd-v1.2.3と一致)。実装先: xrd_workbench_v1.2.4。
+- Scope: プロジェクト追加、参照追加・追加確認のダイアログ隠蔽による操作不能。
+- 再現: Igor 9.05専用の空Experimentでライブラリの「元フォルダの追加を確認」を実クリック。DoAlertDialogとOKは存在するがfloating panelの背後に隠れ、画面は応答待ち。ダイアログの存在をWindows accessibilityで確認。
+- 原因: v1.2.3で導入された大きな/FLT=1の補助パネルと標準モーダルダイアログの重なり。計算の無限ループではない。プロジェクト追加は同じ補助パネルからDoPromptを呼び出す。
+- 修正: 必要なダイアログの表示中だけ、表示中のXRD floating panelを隠し、応答後（取消/例外含む）に同じオブジェクトを復帰。新規参照フォルダ選択にも適用。元から非表示のパネルや他のアプリ/Igorパネルには作用しない。
+- 本体: xrd_modal124を追加。main/reference/libraryの該当ダイアログ経路と表示版番号を更新。計算・保存schema不変。
+- 旧版全ファイルSHA: docs/BASELINE_FOR_v1.2.4.json。既存のuntracked diagnostics/と別checkoutの独立版を保持。
+- 未確認: 修正後のnative/UI実操作、PXP保存再起動、利用者実PXP、全DPI/長時間。
+- 次: 専用Igorでcompile、UIのOK/取消/入力、サイズと既存回帰、保存再起動、配布ZIP。
+
+# 保持した前版記録
+
 # WORK_STATUS — v1.2.3 / 2026-10-29 JST
 
 管理版: 1.5.1。修正・人工データ検証・配布完了。main未統合。

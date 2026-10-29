@@ -1,0 +1,15 @@
+{
+  "old_version": "1.2.1",
+  "new_version": "1.2.2",
+  "old_records": 185888,
+  "pre_records": 185888,
+  "pre_changes": [],
+  "post_records": 185889,
+  "old_initializer_control_changes": [],
+  "restart_records": 185889,
+  "restart_changes": [],
+  "post_old_differences": [
+    "N|root:Packages:XRDWorkbench:UI:liveBusy"
+  ],
+  "fixture": "prior validated synthetic v1.2.1 packed Experiment; no user research data"
+}

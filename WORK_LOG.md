@@ -163,3 +163,10 @@
 - 配布: 利用者ワークスペース直下xrd_workbench_v1.2.3、ZIP、sha256へ新規出力。220ファイル、本体45 IPF、相対include73本、HTMLリンクとanchor正常、全ZIPエントリのSHA一致。ZIP1230883 bytes / SHA256=f31c5a1ada0f5e93016574d1908ecfab784f38440aac607a72b158338832c36b。
 - 旧v1.2.2 repo全ファイルはbaseline SHA一致。旧配布ZIPのSHA8d8b82...と全エントリも不変。sources、原本測定/参照、利用者PXPに触れていない。専用PID以外へ終了要求なし。
 - 補助パネルは前面表示。開いたままの更新は寸法・位置保持、×後の新規表示は初期寸法。図/表/ガイドの新規表示・明示サイズ操作まで固定する仕様ではない。main未統合。次は本branchをfetchして追加変更を新しい番号版へ作成する。
+
+## 2026-10-29 / v1.2.4 investigation and implementation
+
+- fetchでIgor最新codex/xrd-v1.2.3 fb0c031を確認。既存checkoutの未追跡diagnosticsを保持し、codex/xrd-v1.2.4へ分岐。旧版全バイトSHAを保存、新番号版を複製。
+- Safe Update、Performance Debug、Data Compatibility、Computer Useを読込。Igor専用PID以外へ終了要求なし。最初のUI起動は/UNATTENDEDなしでCOM同一性検査に失敗、データを開かず中止。以後/UNATTENDED + Visible=1 +固有マーカー確認で専用Igorへ接続。
+- 旧版を実クリックして確認: XRDLibraryのscanReferencesはDoAlertDialog/OKを作成するが、大きなfloatingパネルの背後に隠れて見えない。accessibilityで確認待ちを検出。元フォルダ未設定の空Experimentでも再現するため大量データ処理ではない。公式NewPanel仕様にもfloatingのfocus衝突注意あり: https://docs.wavemetrics.com/igorpro/commands/newpanel
+- 修正は入力/確認/フォルダ選択の短い間だけXRD所有floatingパネルを隠して復帰。サイズ維持の仕様とパネルの下書きは保持。計算とschemaは変更しない。修正後のnative/UI/互換性試験はこれから。

@@ -1,0 +1,23 @@
+ModifyPanel/W=XRDWorkbench fixedSize=0  858  510  0
+FORCED_PAINT control-width/panel-width  166  858
+XRD_RememberControls()  858  510  0
+XRD_ResizePanel()  858  510  0
+XRD_RestorePanelCursors(path)  858  510  0
+LARGE STEP1  1867  926  0
+XRD120_ClearContents()  1867  926  0
+ModifyPanel/W=XRDWorkbench fixedSize=0  1867  926  0
+FORCED_PAINT control-width/panel-width  166  1867
+XRD_RememberControls()  1867  926  0
+XRD_ResizePanel()  1867  926  0
+XRD_RestorePanelCursors(path)  1867  926  0
+LARGE STEP3  1867  926  0
+MAX STEP3  1924  987  1
+XRD120_ClearContents()  1924  987  1
+ModifyPanel/W=XRDWorkbench fixedSize=0  1924  987  1
+FORCED_PAINT control-width/panel-width  166  1924
+XRD_RememberControls()  1924  987  1
+XRD_ResizePanel()  1924  987  1
+XRD_RestorePanelCursors(path)  1924  987  1
+MAX STEP1  1924  987  1
+RTE  0
+XRD121_Probe()

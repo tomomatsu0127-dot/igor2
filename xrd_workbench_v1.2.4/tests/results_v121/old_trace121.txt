@@ -1,0 +1,169 @@
+
+CHECK RTE step=1;XRD_Panel  0
+
+CHECK RTE XRD_ResizePanel  0
+
+CHECK RTE String instance=GetUserData  0
+FAIL: v121 unfinished layout does not resolve or overwrite view baseline
+
+CHECK RTE baseline=expected[p]  0
+AFTER BUTTON  0  0    0
+AFTER UPDATE  0  0    0
+PASS: v121 transition dimensions 0/0
+PASS: v121 transition native frame and maximize 0/0
+PASS: v121 final control geometry 0/0
+PASS: v121 final baseline matches visible axes 0/0
+AFTER BUTTON  0  1    0
+AFTER UPDATE  0  1    0
+PASS: v121 transition dimensions 0/1
+PASS: v121 transition native frame and maximize 0/1
+PASS: v121 final control geometry 0/1
+PASS: v121 final baseline matches visible axes 0/1
+AFTER BUTTON  0  2    0
+AFTER UPDATE  0  2    0
+PASS: v121 transition dimensions 0/2
+PASS: v121 transition native frame and maximize 0/2
+PASS: v121 final control geometry 0/2
+PASS: v121 final baseline matches visible axes 0/2
+AFTER BUTTON  0  3    0
+AFTER UPDATE  0  3    0
+PASS: v121 transition dimensions 0/3
+PASS: v121 transition native frame and maximize 0/3
+PASS: v121 final control geometry 0/3
+PASS: v121 final baseline matches visible axes 0/3
+AFTER BUTTON  0  4    0
+AFTER UPDATE  0  4    0
+PASS: v121 transition dimensions 0/4
+PASS: v121 transition native frame and maximize 0/4
+PASS: v121 final control geometry 0/4
+PASS: v121 final baseline matches visible axes 0/4
+AFTER BUTTON  0  5    0
+AFTER UPDATE  0  5    0
+PASS: v121 transition dimensions 0/5
+PASS: v121 transition native frame and maximize 0/5
+PASS: v121 final control geometry 0/5
+PASS: v121 final baseline matches visible axes 0/5
+AFTER BUTTON  0  6    0
+AFTER UPDATE  0  6    0
+PASS: v121 transition dimensions 0/6
+PASS: v121 transition native frame and maximize 0/6
+PASS: v121 final control geometry 0/6
+PASS: v121 final baseline matches visible axes 0/6
+AFTER BUTTON  0  7    0
+AFTER UPDATE  0  7    0
+PASS: v121 transition dimensions 0/7
+PASS: v121 transition native frame and maximize 0/7
+PASS: v121 final control geometry 0/7
+PASS: v121 final baseline matches visible axes 0/7
+AFTER BUTTON  0  8    0
+AFTER UPDATE  0  8    0
+PASS: v121 transition dimensions 0/8
+PASS: v121 transition native frame and maximize 0/8
+PASS: v121 final control geometry 0/8
+PASS: v121 final baseline matches visible axes 0/8
+AFTER BUTTON  0  9    0
+AFTER UPDATE  0  9    0
+PASS: v121 transition dimensions 0/9
+PASS: v121 transition native frame and maximize 0/9
+PASS: v121 final control geometry 0/9
+PASS: v121 final baseline matches visible axes 0/9
+AFTER BUTTON  0  10    0
+AFTER UPDATE  0  10    0
+PASS: v121 transition dimensions 0/10
+PASS: v121 transition native frame and maximize 0/10
+PASS: v121 final control geometry 0/10
+PASS: v121 final baseline matches visible axes 0/10
+AFTER BUTTON  0  11    0
+AFTER UPDATE  0  11    0
+PASS: v121 transition dimensions 0/11
+PASS: v121 transition native frame and maximize 0/11
+PASS: v121 final control geometry 0/11
+PASS: v121 final baseline matches visible axes 0/11
+
+CHECK RTE XRD_ResizePanel  0
+AFTER BUTTON  1  0  ModifyControl;Size out of range  200
+AFTER UPDATE  1  0    0
+PASS: v121 transition dimensions 1/0
+PASS: v121 transition native frame and maximize 1/0
+PASS: v121 final control geometry 1/0
+PASS: v121 final baseline matches visible axes 1/0
+AFTER BUTTON  1  1  ModifyControl;Size out of range  200
+AFTER UPDATE  1  1    0
+PASS: v121 transition dimensions 1/1
+PASS: v121 transition native frame and maximize 1/1
+PASS: v121 final control geometry 1/1
+PASS: v121 final baseline matches visible axes 1/1
+AFTER BUTTON  1  2  ModifyControl;Size out of range  200
+AFTER UPDATE  1  2    0
+PASS: v121 transition dimensions 1/2
+PASS: v121 transition native frame and maximize 1/2
+PASS: v121 final control geometry 1/2
+PASS: v121 final baseline matches visible axes 1/2
+AFTER BUTTON  1  3  ModifyControl;Size out of range  200
+AFTER UPDATE  1  3    0
+PASS: v121 transition dimensions 1/3
+PASS: v121 transition native frame and maximize 1/3
+PASS: v121 final control geometry 1/3
+PASS: v121 final baseline matches visible axes 1/3
+AFTER BUTTON  1  4  ModifyControl;Size out of range  200
+AFTER UPDATE  1  4    0
+PASS: v121 transition dimensions 1/4
+PASS: v121 transition native frame and maximize 1/4
+PASS: v121 final control geometry 1/4
+PASS: v121 final baseline matches visible axes 1/4
+AFTER BUTTON  1  5  ModifyControl;Size out of range  200
+AFTER UPDATE  1  5    0
+PASS: v121 transition dimensions 1/5
+PASS: v121 transition native frame and maximize 1/5
+PASS: v121 final control geometry 1/5
+PASS: v121 final baseline matches visible axes 1/5
+AFTER BUTTON  1  6  ModifyControl;Size out of range  200
+AFTER UPDATE  1  6    0
+PASS: v121 transition dimensions 1/6
+PASS: v121 transition native frame and maximize 1/6
+PASS: v121 final control geometry 1/6
+PASS: v121 final baseline matches visible axes 1/6
+AFTER BUTTON  1  7  ModifyControl;Size out of range  200
+AFTER UPDATE  1  7    0
+PASS: v121 transition dimensions 1/7
+PASS: v121 transition native frame and maximize 1/7
+PASS: v121 final control geometry 1/7
+PASS: v121 final baseline matches visible axes 1/7
+AFTER BUTTON  1  8  ModifyControl;Size out of range  200
+AFTER UPDATE  1  8    0
+PASS: v121 transition dimensions 1/8
+PASS: v121 transition native frame and maximize 1/8
+PASS: v121 final control geometry 1/8
+PASS: v121 final baseline matches visible axes 1/8
+AFTER BUTTON  1  9  ModifyControl;Size out of range  200
+AFTER UPDATE  1  9    0
+PASS: v121 transition dimensions 1/9
+PASS: v121 transition native frame and maximize 1/9
+PASS: v121 final control geometry 1/9
+PASS: v121 final baseline matches visible axes 1/9
+AFTER BUTTON  1  10  ModifyControl;Size out of range  200
+AFTER UPDATE  1  10    0
+PASS: v121 transition dimensions 1/10
+PASS: v121 transition native frame and maximize 1/10
+PASS: v121 final control geometry 1/10
+PASS: v121 final baseline matches visible axes 1/10
+AFTER BUTTON  1  11  ModifyControl;Size out of range  200
+AFTER UPDATE  1  11    0
+PASS: v121 transition dimensions 1/11
+PASS: v121 transition native frame and maximize 1/11
+PASS: v121 final control geometry 1/11
+PASS: v121 final baseline matches visible axes 1/11
+
+CHECK RTE step=3;XRD_Panel  0
+PASS: v121 identification retains fixed Y
+PASS: v121 transitions preserve all raw processed and peak points
+ModifyControl;Size out of range
+CHECK RTE Cursor/P/W=XRDWorkbench#Pattern A  200
+
+CHECK RTE ba.ctrlName=step1;XRD_Button  0
+PASS: v121 screen changes retain both native cursors
+FAIL: v121 native panel version
+ModifyControl;Size out of range
+CHECK RTE SavePICT/O/E=-5/SNAP=1/WIN=XRDWorkbench as output+transition121.png  200
+v121 failures=  2  RTE=  0
+XRD_RunV121Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:diagnostics:")
