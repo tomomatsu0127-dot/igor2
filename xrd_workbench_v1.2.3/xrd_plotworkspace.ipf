@@ -77,6 +77,7 @@ Function XRD_CompareSelection()
     String panelState123=XRD123_PanelState("XRDCompareSelection")
     DoWindow/K XRDCompareSelection
     NewPanel/FLT=1/K=1/N=XRDCompareSelection/W=(55,55,835,555) as "同定中に見比べる試料（全プロジェクト）"
+    ModifyPanel/W=XRDCompareSelection fixedSize=0
     DefaultGUIFont/W=XRDCompareSelection all={"Segoe UI",12,0}
     TitleBox help,pos={15,15},frame=0,title="解析中・未解析の試料も比較できます。編集中の試料は必ず表示します。\rプロジェクト名・試料名・同定相をグラフに表示します。"
     ListBox samples,pos={15,70},size={745,350},listWave=$(base+":table"),selWave=$(base+":flags"),mode=1,widths={45,210,300,145}
@@ -180,6 +181,7 @@ Function XRD_PlotWorkspace()
     PauseUpdate; Silent 1
     String panelState123=XRD123_PanelState("XRDPlotWorkspace")
     NewPanel/FLT=1/K=1/N=XRDPlotWorkspace/W=(35,35,1005,800) as "作図：全プロジェクトの解析完了試料"
+    ModifyPanel/W=XRDPlotWorkspace fixedSize=0
     SetWindow XRDPlotWorkspace hook(XRDPlotUI)=XRD81_PlotWorkspaceHook
     DefaultGUIFont/W=XRDPlotWorkspace all={"Segoe UI",12,0},popup={"Segoe UI",12,0}
     PopupMenu saved,pos={15,15},title="保存した図",value=XRD_PlotChoices(),proc=XRD_PlotChoice

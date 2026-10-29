@@ -149,6 +149,7 @@ Function XRD_MatchSettingsPanel()
     String panelState123=XRD123_PanelState("XRDMatchSettings")
     DoWindow/K XRDMatchSettings
     NewPanel/FLT=1/K=1/N=XRDMatchSettings/W=(45,45,510,435) as "同定条件と表示"
+    ModifyPanel/W=XRDMatchSettings fixedSize=0
     DefaultGUIFont/W=XRDMatchSettings all={"Segoe UI",12,0}
     SetWindow XRDMatchSettings userdata(XRDData)=path
     NVAR mode=$(path+":candidateMode")

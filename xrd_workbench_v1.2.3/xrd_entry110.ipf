@@ -28,6 +28,7 @@ Function XRD110_RegisterPanel(path)
     PauseUpdate; Silent 1
     String panelState123=XRD123_PanelState("XRDRegister110")
     NewPanel/FLT=1/N=XRDRegister110/K=1/W=(60,60,760,490) as "測定データを登録：番号・表示名・組成"
+    ModifyPanel/W=XRDRegister110 fixedSize=0
     DefaultGUIFont all={"Segoe UI",12,0}
     TitleBox owner,pos={18,15},frame=0,title="登録先："+XRD_ProjectDisplayName(owner)
     SetVariable number,pos={18,60},size={650,25},title="通し番号（015など）",value=$(base+":number"),proc=XRD110_EntryChanged

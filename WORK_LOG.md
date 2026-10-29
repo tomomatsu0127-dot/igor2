@@ -152,3 +152,14 @@
 - 実装: 新規v1.2.3へ補助パネル/FLT=1、更新時geometry引継ぎと_endfloat_解除。科学処理・保存schemaは変更しない。native probeでWorkbench最大化とサイズが不変、library/manager/elementsのサイズ/位置不変を確認。
 - 試験helperの引数不足、caseの同一行構文、Print内root変数直接参照を検出し訂正。失敗・timeoutはscratch保持、合格へ算入しない。独立起動したPID以外へ終了要求を送らない。
 - 次: 回帰、操作matrix、模擬PXP再起動比較と配布。実PXP/全DPI/実focus操作は未確認。main未統合。
+
+## 2026-10-29 / v1.2.3 final validation and delivery
+
+- 初期checkpoint92d64d6をpush済み。最終ではfloating panelを作成直後にfixedSize=0へ設定し、既存libraryの選択時layout/sizeLimitとの衝突を解消。これが残すRTEで後続の管理backupが失敗することを回帰で検出した。計算処理は変更しない。
+- 管理のWindowPathsは通常graph/panelに加えてfloating panelも捕捉し、改名時のXRDData等を保持。nativeで更新・復元を確認。図・プロジェクト画面のcontrols再配置から固定MoveWindowを除去し、作図の初回サイズはNewPanelへ移した。
+- 最終Igor 9.05: 寸法247、配置/切替343、既存102、閉鎖18、Undo/自動保存41、別プロセスPXP再読込12、計763合格・失敗0。人工データ。途中の構文誤り/fixture不足待機/初期fixedSize不具合は最終合格へ混ぜない。
+- 互換性: 模擬v1.2.2 PXPの185889項目をdump。画面閉鎖hookのuiActiveChildがXRDWorkbench#Pattern→XRDWorkbenchとなる1件は旧版対照群でも同一。新版の読込/初期化後は旧版対照群と完全一致。別名保存後に専用Igorを終了・起動し185889項目すべて一致。旧版からの科学値/UID/revision/Assignments/Undo/依存式の差なし。補助画面を保存した総合試験PXPも新プロセスで再読込し12項目合格。
+- Computer Use skillを読込しsky.list_appsを使用したが、hidden/UNATTENDEDの専用Igorはtargetable windowを返さなかった。UI入力は実行せず、ネイティブcallbackとIgor生成画像の確認に限定。実マウス/キーボードfocus、全DPI、実PXP、長時間は未確認。
+- 配布: 利用者ワークスペース直下xrd_workbench_v1.2.3、ZIP、sha256へ新規出力。220ファイル、本体45 IPF、相対include73本、HTMLリンクとanchor正常、全ZIPエントリのSHA一致。ZIP1230883 bytes / SHA256=f31c5a1ada0f5e93016574d1908ecfab784f38440aac607a72b158338832c36b。
+- 旧v1.2.2 repo全ファイルはbaseline SHA一致。旧配布ZIPのSHA8d8b82...と全エントリも不変。sources、原本測定/参照、利用者PXPに触れていない。専用PID以外へ終了要求なし。
+- 補助パネルは前面表示。開いたままの更新は寸法・位置保持、×後の新規表示は初期寸法。図/表/ガイドの新規表示・明示サイズ操作まで固定する仕様ではない。main未統合。次は本branchをfetchして追加変更を新しい番号版へ作成する。

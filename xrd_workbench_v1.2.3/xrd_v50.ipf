@@ -221,6 +221,7 @@ Function XRD_EvidencePanel()
     String panelState123=XRD123_PanelState("XRDEvidence")
     DoWindow/K XRDEvidence
     NewPanel/FLT=1/K=1/N=XRDEvidence/W=(40,40,980,600) as "候補の根拠 — 強いピーク・重なりを確認"
+    ModifyPanel/W=XRDEvidence fixedSize=0
     SetWindow XRDEvidence userdata(XRDData)=path
     DefaultGUIFont/W=XRDEvidence all={"Segoe UI",12,0}
     TitleBox evidenceSummary,pos={15,15},frame=0,title=StrVarOrDefault(path+":Evidence:summary","")
@@ -325,6 +326,7 @@ Function XRD_AuditPanel()
     String panelState123=XRD123_PanelState("XRDAudit")
     DoWindow/K XRDAudit
     NewPanel/FLT=1/K=1/N=XRDAudit/W=(40,40,1000,580) as "同定内容と解析状態の確認"
+    ModifyPanel/W=XRDAudit fixedSize=0
     SetWindow XRDAudit userdata(XRDData)=path
     DefaultGUIFont/W=XRDAudit all={"Segoe UI",12,0}
     TitleBox note,pos={15,15},frame=0,title="行をクリックすると該当角度へ移動します。強い参照ピークの欠落・重なりも確認できます。\r全ピークに相またはUnknownが付くと自動で解析完了です。"
@@ -429,6 +431,7 @@ Function XRD_MetadataPanel()
     String panelState123=XRD123_PanelState("XRDMetadata")
     DoWindow/K XRDMetadata
     NewPanel/FLT=1/K=1/N=XRDMetadata/W=(40,40,790,365) as "現在の測定条件・既知の角度補正"
+    ModifyPanel/W=XRDMetadata fixedSize=0
     SetWindow XRDMetadata userdata(XRDData)=path
     DefaultGUIFont/W=XRDMetadata all={"Segoe UI",12,0}
     SetVariable lambda,pos={15,20},size={700,24},title="波長 (Å)",limits={0.1,5,0.0001},value=$(base+"draftWavelength")
@@ -554,6 +557,7 @@ Function XRD_LatticeQualityPanel()
     String panelState123=XRD123_PanelState("XRDLatticeQuality")
     DoWindow/K XRDLatticeQuality
     NewPanel/FLT=1/K=1/N=XRDLatticeQuality/W=(40,40,980,590) as "格子定数 — 使用ピークと残差"
+    ModifyPanel/W=XRDLatticeQuality fixedSize=0
     DefaultGUIFont/W=XRDLatticeQuality all={"Segoe UI",12,0}
     TitleBox result,pos={15,15},frame=0,title=StrVarOrDefault(path+":Lattice:state","")+"\r"+XRD_LatticeResultText(path)
     TitleBox conditions,pos={15,175},frame=0,title="波長 "+num2str(NumVarOrDefault(path+":Lattice:wavelength",NaN))+" Å / ゼロ補正 "+num2str(NumVarOrDefault(path+":Lattice:zeroCorrection",0))+" deg\r残差は角度差ではなくPDF変換式の回帰残差です。ピーク中心の誤差による重み付けは未使用です。"

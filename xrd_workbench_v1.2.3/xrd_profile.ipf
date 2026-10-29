@@ -230,6 +230,7 @@ Function XRD_ProfilePanel()
     String panelState123=XRD123_PanelState("XRDProfilePanel")
     DoWindow/K XRDProfilePanel
     NewPanel/FLT=1/K=1/N=XRDProfilePanel/W=(40,40,790,410) as "選択ピーク — Igor CurveFit"
+    ModifyPanel/W=XRDProfilePanel fixedSize=0
     SetWindow XRDProfilePanel userdata(XRDData)=path
     SetWindow XRDProfilePanel userdata(XRDPeakID)=num2istr(ids[selected])
     DefaultGUIFont/W=XRDProfilePanel all={"Segoe UI",12,0}

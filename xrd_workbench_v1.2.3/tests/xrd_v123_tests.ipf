@@ -105,6 +105,14 @@ Function XRD_RunV123Tests()
     XRD123_Box("XRDProjectManager",auxBox)
     XRD100_ManagerControls();DoUpdate
     XRD_TestCheck(XRD123_BoxSame("XRDProjectManager",auxBox),"v123 manager controls do not force initial size")
+    XRD_DetectionPanel()
+    NewDataFolder/O root:XRD123Tx
+    Make/O/T/N=(0,3) root:XRD123Tx:windows
+    XRD100_WindowPaths("root:XRD123Tx",path,path,1)
+    XRD100_WindowPaths("root:XRD123Tx",path,path+"_test",0)
+    XRD_TestCheck(cmpstr(GetUserData("XRDDetectionSettings","","XRDData"),path+"_test")==0,"v123 management updates paths on floating panels")
+    XRD100_WindowPaths("root:XRD123Tx",path+"_test",path,0)
+    XRD_TestCheck(cmpstr(GetUserData("XRDDetectionSettings","","XRDData"),path)==0,"v123 floating panel path can be restored")
     XRD_TestCheck(cmpstr(instance,GetUserData("XRDWorkbench","","XRDInstance"))==0,"v123 main frame reused")
     XRD_TestCheck(WaveCRC(0,raw)==rawCRC && WaveCRC(0,processed)==processedCRC && WaveCRC(0,peaks)==peakCRC,"v123 raw processed and peaks unchanged")
     CtrlNamedBackground XRDAutoSave,stop

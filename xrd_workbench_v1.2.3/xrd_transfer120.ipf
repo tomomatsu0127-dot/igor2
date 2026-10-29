@@ -37,6 +37,7 @@ Function XRD120_CopyPicker()
     String panelState123=XRD123_PanelState("XRDCopy120")
     DoWindow/K XRDCopy120
     NewPanel/FLT=1/N=XRDCopy120/K=1/W=(50,50,930,580) as "同定済み試料から追加：元は残して複製"
+    ModifyPanel/W=XRDCopy120 fixedSize=0
     DefaultGUIFont/W=XRDCopy120 all={"Segoe UI",12,0}
     TitleBox help,pos={15,18},frame=0,title="追加する試料をダブルクリックしてください。\r元の測定・同定結果を保持し、新しい試料として登録先へ複製します。"
     ListBox sources,pos={15,75},size={835,380},listWave=table,mode=1,selRow=-1,widths={300,120,390},proc=XRD120_CopyList

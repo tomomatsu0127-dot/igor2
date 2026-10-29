@@ -182,6 +182,7 @@ Function XRD100_ViewOptions()
     String panelState123=XRD123_PanelState("XRDOptions100")
     DoWindow/K XRDOptions100
     NewPanel/FLT=1/N=XRDOptions100/K=1/W=(80,80,660,240) as "XRD Workbench オプション"
+    ModifyPanel/W=XRDOptions100 fixedSize=0
     CheckBox auto,pos={20,25},title="同定ピークの選択時に自動拡大",variable=root:Packages:XRDWorkbench:UI:autoZoom100
     TitleBox note,pos={20,80},frame=0,title="範囲操作はIgor標準の拡大操作を使用し、全体表示ボタンで戻します。"
     XRD123_FinishPanel("XRDOptions100",panelState123)

@@ -98,6 +98,7 @@ Function XRD_LegendOrderPanel()
     String panelState123=XRD123_PanelState("XRDLegendOrder")
     DoWindow/K XRDLegendOrder
     NewPanel/FLT=1/K=1/N=XRDLegendOrder/W=(50,50,610,475) as "使用中の相：凡例の順番"
+    ModifyPanel/W=XRDLegendOrder fixedSize=0
     DefaultGUIFont/W=XRDLegendOrder all={"Segoe UI",12,0}
     SetWindow XRDLegendOrder userdata(XRDProject)=XRD_Project()
     TitleBox note,pos={15,15},frame=0,title="上から順に、凡例の左から右へ並びます。\r同じ共通グループは1項目として扱います。"

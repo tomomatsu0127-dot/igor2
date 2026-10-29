@@ -143,6 +143,7 @@ Function XRD_SaveSettingsPanel()
     String panelState123=XRD123_PanelState("XRDSaveSettings")
     DoWindow/K XRDSaveSettings
     NewPanel/FLT=1/K=1/N=XRDSaveSettings/W=(80,80,630,390) as "保存・自動保存"
+    ModifyPanel/W=XRDSaveSettings fixedSize=0
     DefaultGUIFont/W=XRDSaveSettings all={"Segoe UI",12,0}
     CheckBox enabled,pos={15,15},title="自動保存を使う",variable=root:Packages:XRDWorkbench:Recovery:enabled,proc=XRD_AutoSaveToggle
     SetVariable minutes,pos={15,48},size={270,22},title="保存間隔（分）",limits={1,60,1},value=root:Packages:XRDWorkbench:Recovery:minutes,proc=XRD_AutoSaveMinutes

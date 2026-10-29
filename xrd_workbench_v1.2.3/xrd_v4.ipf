@@ -215,6 +215,7 @@ Function XRD_ElementPanel()
     String panelState123=XRD123_PanelState("XRDElements")
     DoWindow/K XRDElements
     NewPanel/FLT=1/K=1/N=XRDElements/W=(25,25,885,520) as "元素周期表：試料に含まれる元素を選択"
+    ModifyPanel/W=XRDElements fixedSize=0
     SetWindow XRDElements userdata(XRDProject)=project
     TitleBox help,pos={12,10},frame=0,title="✓が付いた元素で候補を絞ります。Oなどの構成元素も選択してください。未選択なら全候補。"
     CheckBox enabled,pos={12,35},title="元素フィルターを使う",variable=$(project+":elementFilterMode"),proc=XRD_ElementEnabled

@@ -26,6 +26,7 @@ Function XRD80_ShowProjectManager()
     String panelState123=XRD123_PanelState("XRDProjectManager")
     DoWindow/K XRDProjectManager
     NewPanel/FLT=1/K=1/N=XRDProjectManager/W=(35,35,1015,620) as "プロジェクトと測定データ"
+    ModifyPanel/W=XRDProjectManager fixedSize=0
     DefaultGUIFont/W=XRDProjectManager all={"Segoe UI",12,0}
     TitleBox help,pos={15,15},frame=0,title="左でプロジェクト、右で測定データを選択します。右の試料をダブルクリックすると解析を開きます。"
     ListBox projects,pos={15,55},size={330,390},listWave=projects,mode=1,widths={245,75},selRow=selected,proc=XRD80_ManagerList

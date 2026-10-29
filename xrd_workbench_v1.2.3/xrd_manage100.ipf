@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 // v1.2.0: journaled physical project operations; stable IDs remain unchanged.
 Function/S XRD100_Management()
     NewDataFolder/O root:Packages
@@ -238,7 +238,7 @@ End
 Function XRD100_WindowPaths(tx,oldPath,newPath,capture)
     String tx,oldPath,newPath
     Variable capture
-    String windows=WinList("*",";","WIN:65"),win,children,keys="XRDData;XRDProject;XRDAdoptData;XRDLivePaths;XRDFollowPeak;XRDGraphData;XRDPlotRecipe",key,value
+    String windows=WinList("*",";","WIN:65")+WinList("*",";","FLT:1"),win,children,keys="XRDData;XRDProject;XRDAdoptData;XRDLivePaths;XRDFollowPeak;XRDGraphData;XRDPlotRecipe",key,value
     Wave/T saved=$(tx+":windows")
     Variable i,j,n
     for(i=0;i<ItemsInList(windows);i+=1)

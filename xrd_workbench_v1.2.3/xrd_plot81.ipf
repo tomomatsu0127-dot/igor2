@@ -77,6 +77,7 @@ Function XRD81_PlotSources()
     String panelState123=XRD123_PanelState("XRDPlotSources")
     DoWindow/K XRDPlotSources
     NewPanel/FLT=1/K=1/N=XRDPlotSources/W=(50,50,830,630) as "作図する測定データ：プロジェクトフォルダ"
+    ModifyPanel/W=XRDPlotSources fixedSize=0
     DefaultGUIFont/W=XRDPlotSources all={"Segoe UI",12,0}
     TitleBox hint,pos={15,15},frame=0,title="プロジェクト内の完了試料をチェックしてください。\r未解析・解析中の試料は表示のみです。順番は作図ウィンドウでドラッグします。"
     ListBox folders,pos={15,75},size={745,425},listWave=table,selWave=flags,mode=1,widths={50,480,195}

@@ -248,6 +248,7 @@ Function XRD_DetectionPanel()
     String panelState123=XRD123_PanelState("XRDDetectionSettings")
     DoWindow/K XRDDetectionSettings
     NewPanel/FLT=1/K=1/N=XRDDetectionSettings/W=(20,20,715,395) as "この測定のピーク検出方式・精度"
+    ModifyPanel/W=XRDDetectionSettings fixedSize=0
     DefaultGUIFont/W=XRDDetectionSettings all={"Segoe UI",12,0}
     SetWindow XRDDetectionSettings userdata(XRDData)=path
     NVAR mode=$(path+":detectorMode")

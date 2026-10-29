@@ -97,6 +97,7 @@ Function XRD80_StyleConflicts()
     String panelState123=XRD123_PanelState("XRDStyleConflicts")
     DoWindow/K XRDStyleConflicts
     NewPanel/FLT=1/K=1/N=XRDStyleConflicts/W=(35,35,945,450) as "色・記号の引継ぎ：使う設定を選ぶ"
+    ModifyPanel/W=XRDStyleConflicts fixedSize=0
     DefaultGUIFont/W=XRDStyleConflicts all={"Segoe UI",12,0}
     TitleBox help,pos={15,12},frame=0,title="同じ相に異なる設定がありました。行を選び、引き継ぐ方を選んでください。\r元のプロジェクトの設定は保存してあります。"
     ListBox conflicts,pos={15,68},size={870,225},listWave=table,mode=1,widths={160,250,250,180},proc=XRD80_ConflictSelect

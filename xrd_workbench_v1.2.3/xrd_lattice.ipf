@@ -35,6 +35,7 @@ Function XRD_LatticePanel()
     String panelState123=XRD123_PanelState("XRDLatticePanel")
     DoWindow/K XRDLatticePanel
     NewPanel/FLT=1/K=1/N=XRDLatticePanel/W=(80,80,510,235) as crystal+" 格子定数"
+    ModifyPanel/W=XRDLatticePanel fixedSize=0
     SetWindow XRDLatticePanel userdata(XRDData)=path
     TitleBox note,pos={10,15},frame=0,title="表のUse列を1/0に設定してください。六方晶4本以上・立方晶3本以上。\rhkl不明の反射は除外: "+num2istr(NumVarOrDefault(path+":Lattice:missingHKLExcluded",0))+"本"
     SetVariable wavelength,pos={10,65},size={300,20},title="波長 (Å)",value=$(path+":measurementWavelength"),noedit=1

@@ -1,4 +1,4 @@
-param([string]$Command='XRD_RunV123Tests()',[string]$TestProc='xrd_workbench_v1.2.3/tests/xrd_v123_tests',[string]$Log='scratch/v123/native123_com.txt')
+param([string]$Command='XRD_RunV123Tests()',[string]$TestProc='xrd_workbench_v1.2.3/tests/xrd_v123_tests',[string]$Log='scratch/v123/native123_com.txt',[string]$Experiment='')
 $ErrorActionPreference='Stop'
 $taskToken=Get-Random -Minimum 1000000 -Maximum 1900000000
 $taskExe='C:\Program Files\WaveMetrics\Igor Pro 9 Folder\IgorBinaries_x64\Igor64.exe'
@@ -21,6 +21,7 @@ try {
     $taskIdentity=Invoke-TaskIgor 'Printf "%.0f",root:XRD123Isolation'
     if($taskIdentity -notmatch ('\s'+$taskToken+'\s*$')){throw 'Isolated instance identity not verified.'}
     $taskVerified=$true
+    if($Experiment){$taskApp.LoadExperiment(0,2,'',(Join-Path $taskRoot $Experiment))}
     Invoke-TaskIgor 'Variable/G root:taskHistory=CaptureHistoryStart()' | Out-Null
     Invoke-TaskIgor ('OpenProc "'+(Task-IgorPath 'xrd_workbench_v1.2.3/xrd_main.ipf')+'";OpenProc "'+(Task-IgorPath ($TestProc+'.ipf'))+'"') | Out-Null
     try {$taskApp.CompileProcedures(1)} catch {

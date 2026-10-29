@@ -243,6 +243,7 @@ Function XRD_FigurePanel()
     String panelState123=XRD123_PanelState("XRDFigureSettings")
     DoWindow/K XRDFigureSettings
     NewPanel/FLT=1/K=1/N=XRDFigureSettings/W=(50,50,700,405) as "完成図の書式（印刷・出力サイズ）"
+    ModifyPanel/W=XRDFigureSettings fixedSize=0
     DefaultGUIFont/W=XRDFigureSettings all={"Segoe UI",12,0}
     PopupMenu figureTarget,pos={15,18},title="図",value=XRD_FigureList(),proc=XRD_FigureTarget
     SetVariable figureWidth,pos={15,62},size={600,24},title="プロット幅 (pt)",limits={200,1200,10},value=$(base+"figureWidth")

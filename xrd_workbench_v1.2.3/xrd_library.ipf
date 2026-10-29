@@ -329,6 +329,7 @@ Function XRD80_LibraryPanel()
     String panelState123=XRD123_PanelState("XRDLibrary")
     DoWindow/K XRDLibrary
     NewPanel/FLT=1/K=1/N=XRDLibrary/W=(30,30,1210,710) as "参照値 — Experiment共通ライブラリ"
+    ModifyPanel/W=XRDLibrary fixedSize=0
     DefaultGUIFont/W=XRDLibrary all={"Segoe UI",12,0}
     TitleBox policy,pos={15,10},frame=0,title="使用チェックは全プロジェクトで共通です。未使用にしても過去の同定は残ります。"
     PopupMenu folder,pos={15,46},title="分類",value=XRD80_LibraryFolders(),mode=1,proc=XRD80_LibraryFolderAction

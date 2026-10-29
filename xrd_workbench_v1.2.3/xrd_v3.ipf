@@ -320,6 +320,7 @@ Function XRD_StylePanel()
     String panelState123=XRD123_PanelState("XRDStyles")
     DoWindow/K XRDStyles
     NewPanel/FLT=1/K=1/N=XRDStyles/W=(70,70,560,420) as "Experiment共通の相・色・記号"
+    ModifyPanel/W=XRDStyles fixedSize=0
     SetWindow XRDStyles userdata(XRDRef)=num2istr(index)
     SetWindow XRDStyles userdata(XRDProject)=project
     String/G root:Packages:XRDWorkbench:UI:styleChoices=choices

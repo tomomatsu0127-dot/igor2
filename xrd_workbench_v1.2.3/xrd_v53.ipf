@@ -44,6 +44,7 @@ Function XRD_TypePanel()
     String panelState123=XRD123_PanelState("XRDTypeCards")
     DoWindow/K XRDTypeCards
     NewPanel/FLT=1/K=1/N=XRDTypeCards/W=(40,40,960,575) as "typeごとに使用する参照カードを選択"
+    ModifyPanel/W=XRDTypeCards fixedSize=0
     DefaultGUIFont/W=XRDTypeCards all={"Segoe UI",12,0}
     PopupMenu family,pos={15,15},title="type",mode=4,value=XRD_TypeFamilies(),proc=XRD_TypeFamilyPopup
     PopupMenu useMode,pos={300,15},title="使い方",mode=1,value="複数件を使う;1件だけ使う",proc=XRD_TypeModePopup

@@ -100,6 +100,7 @@ Function XRD110_Manager()
     String panelState123=XRD123_PanelState("XRDProjectManager")
     DoWindow/K XRDProjectManager
     NewPanel/FLT=1/N=XRDProjectManager/K=1/W=(35,35,1015,715) as "プロジェクトと測定データ"
+    ModifyPanel/W=XRDProjectManager fixedSize=0
     DefaultGUIFont all={"Segoe UI",12,0}
     TitleBox help,pos={15,15},frame=0,title="プロジェクト名で展開・折りたたみ。プロジェクト／測定データをダブルクリックして開きます。"
     ListBox projects,pos={15,55},size={935,390},mode=1,listWave=$(tree+":table"),selWave=$(tree+":flags"),widths={1,700,220},proc=XRD110_ManagerList
@@ -194,6 +195,7 @@ Function XRD110_ComparePanel()
     String panelState123=XRD123_PanelState("XRDCompareSelection")
     DoWindow/K XRDCompareSelection
     NewPanel/FLT=1/N=XRDCompareSelection/K=1/W=(55,55,980,635) as "左の比較図を選択：全プロジェクト"
+    ModifyPanel/W=XRDCompareSelection fixedSize=0
     DefaultGUIFont all={"Segoe UI",12,0}
     TitleBox help,pos={15,15},frame=0,title="プロジェクト名を押して展開し、比較する試料にチェック。\r他プロジェクトで同定済みの試料も追加できます。チェックした試料だけを表示します。"
     ListBox samples,pos={15,75},size={890,410},mode=1,listWave=$(tree+":table"),selWave=$(tree+":flags"),widths={45,630,195},proc=XRD110_CompareList
