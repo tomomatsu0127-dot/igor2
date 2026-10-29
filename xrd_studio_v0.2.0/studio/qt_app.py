@@ -373,7 +373,9 @@ class StudioWindow(QMainWindow):
         if not self.refreshing and 0<=row<len(self.reference_ids):self.reference_id=self.reference_ids[row];self.draw()
     def save_reference_settings(self):
         if self.refreshing:return
-        values={'allowed_elements':self.elements.text().strip(),'candidate_mode':['all','adopted','new'][self.mode.currentIndex()]};self.change('候補の絞込み',lambda st:st['reference_settings'].update(values))
+        values={'allowed_elements':self.elements.text().strip(),'candidate_mode':['all','adopted','new'][self.mode.currentIndex()]}
+        analysis.formula_compatible({'formula':'','phase_class':''},values['allowed_elements'])
+        self.change('候補の絞込み',lambda st:st['reference_settings'].update(values))
     def match_parameters(self):
         self.require_sample();sid=self.sample_id;value={'tolerance':self.tolerance.value(),'shift_enabled':self.shift.isChecked()};self.change('照合条件',lambda st:st['samples'][sid]['parameters'].update(value))
     def accept_sample(self,sid,sample,label):

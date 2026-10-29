@@ -78,6 +78,11 @@ class QtTests(unittest.TestCase):
             finally:dialog.accept()
         QTimer.singleShot(30,interact);w.wave_dialog()
         if errors:raise errors[0]
+    def test_invalid_element_input_does_not_commit_setting(self):
+        w=self.window;before=len(w.document.undo_stack);w.elements.setText('ba')
+        with self.assertRaises(ValueError):w.save_reference_settings()
+        self.assertEqual(w.document.state['reference_settings']['allowed_elements'],'')
+        self.assertEqual(len(w.document.undo_stack),before)
 
 
 if __name__=='__main__':unittest.main()

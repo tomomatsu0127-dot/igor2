@@ -21,6 +21,7 @@ test_array_models_guard_raw_and_undo_working_copy (test_qt.QtTests.test_array_mo
 test_cancel_discards_worker_result (test_qt.QtTests.test_cancel_discards_worker_result) ... ok
 test_data_browser_copy_and_edit_with_table_delegate (test_qt.QtTests.test_data_browser_copy_and_edit_with_table_delegate) ... ok
 test_detector_button_adoption_undo_and_lattice_worker (test_qt.QtTests.test_detector_button_adoption_undo_and_lattice_worker) ... ok
+test_invalid_element_input_does_not_commit_setting (test_qt.QtTests.test_invalid_element_input_does_not_commit_setting) ... ok
 test_minimum_and_wide_layouts_have_available_actions (test_qt.QtTests.test_minimum_and_wide_layouts_have_available_actions) ... ok
 test_save_reopen_figure_and_cross_project_compare_ui (test_qt.QtTests.test_save_reopen_figure_and_cross_project_compare_ui) ... ok
 test_supplementary_dialogs_preserve_main_geometry (test_qt.QtTests.test_supplementary_dialogs_preserve_main_geometry) ... ok
@@ -40,6 +41,6 @@ test_working_copy_cell_undo_and_restart_preserve_raw (test_workspace.WorkspaceTe
 test_xlsx_and_csv_keep_serial_and_text_not_formulas (test_workspace.WorkspaceTests.test_xlsx_and_csv_keep_serial_and_text_not_formulas) ... ok
 
 ----------------------------------------------------------------------
-Ran 40 tests in 14.162s
+Ran 41 tests in 14.788s
 
 OK
