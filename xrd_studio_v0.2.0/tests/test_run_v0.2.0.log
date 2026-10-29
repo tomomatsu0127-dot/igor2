@@ -1,0 +1,45 @@
+test_constant_normalization (test_engine.EngineTests.test_constant_normalization) ... ok
+test_corruption_and_future_schema_are_rejected (test_engine.EngineTests.test_corruption_and_future_schema_are_rejected) ... ok
+test_cubic_lattice_known_result_and_stale_history (test_engine.EngineTests.test_cubic_lattice_known_result_and_stale_history) ... ok
+test_detection_finds_known_peaks_without_touching_raw (test_engine.EngineTests.test_detection_finds_known_peaks_without_touching_raw) ... ok
+test_detection_keeps_manual_assigned_unknown_and_ids (test_engine.EngineTests.test_detection_keeps_manual_assigned_unknown_and_ids) ... ok
+test_failed_atomic_save_keeps_previous_document (test_engine.EngineTests.test_failed_atomic_save_keeps_previous_document) ... ok
+test_full_save_restart_reopen_history_arrays_and_references (test_engine.EngineTests.test_full_save_restart_reopen_history_arrays_and_references) ... ok
+test_gaussian_center_and_refit_do_not_silently_adopt (test_engine.EngineTests.test_gaussian_center_and_refit_do_not_silently_adopt) ... ok
+test_hexagonal_lattice_known_result_missing_hkl_and_rank (test_engine.EngineTests.test_hexagonal_lattice_known_result_missing_hkl_and_rank) ... ok
+test_import_headers_bom_comments_and_no_raw_mutation (test_engine.EngineTests.test_import_headers_bom_comments_and_no_raw_mutation) ... ok
+test_invalid_link_rolls_back_without_consuming_undo (test_engine.EngineTests.test_invalid_link_rolls_back_without_consuming_undo) ... ok
+test_lorentzian_fit_known_parameters (test_engine.EngineTests.test_lorentzian_fit_known_parameters) ... ok
+test_mutation_failure_is_atomic_undo_redo_and_copy_isolation (test_engine.EngineTests.test_mutation_failure_is_atomic_undo_redo_and_copy_isolation) ... ok
+test_named_reference_columns_missing_hkl_extra_columns (test_engine.EngineTests.test_named_reference_columns_missing_hkl_extra_columns) ... ok
+test_reference_quoted_csv_and_validation (test_engine.EngineTests.test_reference_quoted_csv_and_validation) ... ok
+test_reject_malformed_unsorted_nonfinite_and_missing_values (test_engine.EngineTests.test_reject_malformed_unsorted_nonfinite_and_missing_values) ... ok
+test_score_assignment_overlap_and_unique_reflection (test_engine.EngineTests.test_score_assignment_overlap_and_unique_reflection) ... ok
+test_shift_and_strong_reflection_warning (test_engine.EngineTests.test_shift_and_strong_reflection_warning) ... ok
+test_vector_and_raster_export_and_exact_comparison_selection (test_engine.EngineTests.test_vector_and_raster_export_and_exact_comparison_selection) ... ok
+test_array_models_guard_raw_and_undo_working_copy (test_qt.QtTests.test_array_models_guard_raw_and_undo_working_copy) ... ok
+test_cancel_discards_worker_result (test_qt.QtTests.test_cancel_discards_worker_result) ... ok
+test_data_browser_copy_and_edit_with_table_delegate (test_qt.QtTests.test_data_browser_copy_and_edit_with_table_delegate) ... ok
+test_detector_button_adoption_undo_and_lattice_worker (test_qt.QtTests.test_detector_button_adoption_undo_and_lattice_worker) ... ok
+test_minimum_and_wide_layouts_have_available_actions (test_qt.QtTests.test_minimum_and_wide_layouts_have_available_actions) ... ok
+test_save_reopen_figure_and_cross_project_compare_ui (test_qt.QtTests.test_save_reopen_figure_and_cross_project_compare_ui) ... ok
+test_supplementary_dialogs_preserve_main_geometry (test_qt.QtTests.test_supplementary_dialogs_preserve_main_geometry) ... ok
+test_background_off_and_explicit_adoption (test_workspace.WorkspaceTests.test_background_off_and_explicit_adoption) ... ok
+test_candidate_modes_and_new_phase_score (test_workspace.WorkspaceTests.test_candidate_modes_and_new_phase_score) ... ok
+test_complete_unknown_is_distinct_from_unreviewed (test_workspace.WorkspaceTests.test_complete_unknown_is_distinct_from_unreviewed) ... ok
+test_copy_transforms_and_units_without_mutating_source (test_workspace.WorkspaceTests.test_copy_transforms_and_units_without_mutating_source) ... ok
+test_cross_project_comparison_and_copy_keep_identification (test_workspace.WorkspaceTests.test_cross_project_comparison_and_copy_keep_identification) ... ok
+test_element_set_filter_and_protected_types (test_workspace.WorkspaceTests.test_element_set_filter_and_protected_types) ... ok
+test_external_angles_exact_and_atomic_rejection (test_workspace.WorkspaceTests.test_external_angles_exact_and_atomic_rejection) ... ok
+test_external_is_retained_after_detection (test_workspace.WorkspaceTests.test_external_is_retained_after_detection) ... ok
+test_invalid_cell_rolls_back_history_and_values (test_workspace.WorkspaceTests.test_invalid_cell_rolls_back_history_and_values) ... ok
+test_recovery_rotation_and_failed_write_preserves_generation (test_workspace.WorkspaceTests.test_recovery_rotation_and_failed_write_preserves_generation) ... ok
+test_saved_plot_snapshot_survives_analysis_and_trash (test_workspace.WorkspaceTests.test_saved_plot_snapshot_survives_analysis_and_trash) ... ok
+test_serial_leading_zero_duplicate_and_restore_conflict (test_workspace.WorkspaceTests.test_serial_leading_zero_duplicate_and_restore_conflict) ... ok
+test_working_copy_cell_undo_and_restart_preserve_raw (test_workspace.WorkspaceTests.test_working_copy_cell_undo_and_restart_preserve_raw) ... ok
+test_xlsx_and_csv_keep_serial_and_text_not_formulas (test_workspace.WorkspaceTests.test_xlsx_and_csv_keep_serial_and_text_not_formulas) ... ok
+
+----------------------------------------------------------------------
+Ran 40 tests in 14.162s
+
+OK

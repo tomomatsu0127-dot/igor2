@@ -15,7 +15,7 @@ import numpy as np
 
 from . import VERSION
 
-SCHEMA = 1
+SCHEMA = 2
 FORMAT = "laboratory-studio"
 
 
@@ -25,12 +25,29 @@ def uid():
 
 def new_state():
     project_id = uid()
-    return {"id": uid(), "module": "xrd", "projects": {
+    return upgrade({"id": uid(), "module": "xrd", "projects": {
         project_id: {"id": project_id, "name": "新しいプロジェクト", "sample_ids": [], "compare_ids": []}},
         "active_project": project_id, "samples": {}, "references": {},
         "plot": {"width_cm": 16.0, "height_cm": 10.0, "font_pt": 12.0,
                  "line_pt": 1.3, "legend_columns": 2, "offset": 120.0,
-                 "title": "", "x_min": None, "x_max": None}}
+                 "title": "", "x_min": None, "x_max": None}})
+
+
+def upgrade(state):
+    """Add document containers without changing raw data or existing analysis values."""
+    state.setdefault("waves", {})
+    state.setdefault("plots", {})
+    state.setdefault("reference_settings", {"allowed_elements": "", "candidate_mode": "all"})
+    state.setdefault("audit", [])
+    state["plot"].setdefault("y_min", None)
+    state["plot"].setdefault("y_max", None)
+    state["plot"].setdefault("annotations", [])
+    for p in state["projects"].values():
+        p.setdefault("deleted", False)
+    for s in state["samples"].values():
+        s.setdefault("deleted", False)
+        s.setdefault("revision", 0)
+    return state
 
 
 def validate(state):
@@ -47,10 +64,14 @@ def validate(state):
             if sid in seen_samples or sid not in samples or samples[sid]["project_id"] != pid:
                 raise ValueError("試料とプロジェクトの対応が不正です。")
             seen_samples.add(sid)
-        if not set(project["compare_ids"]).issubset(project["sample_ids"]):
+        if not set(project["compare_ids"]).issubset(samples):
             raise ValueError("比較対象の試料が見つかりません。")
     if seen_samples != set(samples):
         raise ValueError("所属のない試料が含まれています。")
+    for project in projects.values():
+        serials = [samples[sid]["serial"] for sid in project["sample_ids"] if not samples[sid].get("deleted")]
+        if any(not isinstance(s, str) or not s.strip() for s in serials) or len(serials) != len(set(serials)):
+            raise ValueError("通し番号は空でない文字列とし、プロジェクト内で重複できません。")
     for rid, ref in refs.items():
         if ref["id"] != rid or not isinstance(ref["x"], np.ndarray):
             raise ValueError("参照IDまたはデータが不正です。")
@@ -88,12 +109,23 @@ def validate(state):
                 raise ValueError("同定の参照反射が見つかりません。")
             if not np.isfinite(assignment["shift"]):
                 raise ValueError("同定のシフト値が不正です。")
+        owners = [(a["ref_id"], a["reflection"]) for a in sample["assignments"] if a["ref_id"] is not None]
+        if len(owners) != len(set(owners)):
+            raise ValueError("同じ参照反射が重複して割り当てられています。")
+    for key, wave in state.get("waves", {}).items():
+        if key != wave["id"] or wave["sample_id"] not in samples:
+            raise ValueError("作業データの所属が不正です。")
+        if any(not isinstance(wave[k], np.ndarray) or wave[k].ndim != 1 or not np.all(np.isfinite(wave[k])) for k in ("x", "y")) or len(wave["x"]) != len(wave["y"]):
+            raise ValueError("作業データには同じ点数の有限な1次元配列が必要です。")
+    for plot in state.get("plots", {}).values():
+        if any(sid not in samples for sid in plot["source_ids"]):
+            raise ValueError("保存図の試料がありません。")
     return state
 
 
 class Document:
     def __init__(self, state=None):
-        self.state = new_state() if state is None else validate(state)
+        self.state = new_state() if state is None else validate(upgrade(state))
         self.undo_stack = []
         self.redo_stack = []
         self.dirty = False
@@ -181,7 +213,7 @@ def load_document(filename):
         if sum(i.file_size for i in archive.infolist()) > 2_000_000_000:
             raise ValueError("文書の展開後サイズが2GBを超えています。")
         payload = json.loads(archive.read("document.json"))
-        if payload.get("format") != FORMAT or payload.get("schema_version") != SCHEMA:
+        if payload.get("format") != FORMAT or payload.get("schema_version") not in (1, SCHEMA):
             raise ValueError("この保存形式または新しい保存版には対応していません。")
         cache = {}
 
@@ -206,5 +238,5 @@ def load_document(filename):
         document.undo_stack = decode(payload.get("undo", []))
         document.redo_stack = decode(payload.get("redo", []))
         for _, state in document.undo_stack + document.redo_stack:
-            validate(state)
+            validate(upgrade(state))
         return document

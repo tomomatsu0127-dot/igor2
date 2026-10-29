@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib
 from matplotlib.figure import Figure
 from matplotlib import font_manager
+import textwrap
 
 PALETTE = ["#1565a4", "#b33b32", "#3d803b", "#8c55a1", "#b37812", "#248385"]
 MARKERS = ["o", "s", "^", "D", "v", "P", "X", "*"]
@@ -49,15 +50,17 @@ def draw(figure, state, sample_id=None, compare=False, candidate=None, selected_
         return ax
     ax = figure.add_subplot(111)
     project = state["projects"][state["active_project"]]
-    ids = project["compare_ids"] if compare else ([sample_id] if sample_id in state["samples"] else [])
+    ids = [sid for sid in project["compare_ids"] if sid in state['samples'] and not state['samples'][sid].get('deleted')] if compare else ([sample_id] if sample_id in state["samples"] else [])
     offset = settings["offset"] if compare else 0
+    style_indices = {rid: i for i, rid in enumerate(state['references'])}
     for row, sid in enumerate(ids):
         sample = state["samples"][sid]
         base = row * offset
         ax.plot(sample["raw_x"], sample["processed_y"] + base,
                 color=PALETTE[row % len(PALETTE)] if compare else "#20272e",
                 linewidth=settings["line_pt"], label=sample["name"])
-        for index, rid in enumerate(sorted({a["ref_id"] for a in sample["assignments"] if a["ref_id"]})):
+        for rid in sorted({a["ref_id"] for a in sample["assignments"] if a["ref_id"]}):
+            index = style_indices[rid]
             points = [p for p in sample["peaks"] if any(a["peak_id"] == p["id"] and a["ref_id"] == rid for a in sample["assignments"])]
             if points:
                 color = state["references"][rid].get("color", PALETTE[index % len(PALETTE)])
@@ -76,6 +79,8 @@ def draw(figure, state, sample_id=None, compare=False, candidate=None, selected_
         ax.vlines(ref["x"] + candidate["shift"], -27, -27 + intensities,
                   color="#1565a4", linewidth=1, label=ref["name"] + " [reference]")
     ax.set(xlabel=r"$2\theta$ (deg)", ylabel="Normalized intensity (%)" + (" + offset" if compare else ""), title=settings["title"])
+    if settings.get('x_label'):ax.set_xlabel(settings['x_label'])
+    if settings.get('y_label'):ax.set_ylabel(settings['y_label'])
     ax.tick_params(direction="in", top=True, right=True, labelsize=settings["font_pt"])
     ax.xaxis.label.set_size(settings["font_pt"])
     ax.yaxis.label.set_size(settings["font_pt"])
@@ -84,9 +89,12 @@ def draw(figure, state, sample_id=None, compare=False, candidate=None, selected_
         ax.set_ylim(-30, max(110, (len(ids)-1)*offset + 115))
         if settings["x_min"] is not None or settings["x_max"] is not None:
             ax.set_xlim(left=settings["x_min"], right=settings["x_max"])
+        if settings.get('y_min') is not None or settings.get('y_max') is not None:
+            ax.set_ylim(bottom=settings.get('y_min'),top=settings.get('y_max'))
         handles, labels = ax.get_legend_handles_labels()
         unique = dict(zip(labels, handles))
-        ax.legend(unique.values(), unique.keys(), frameon=False, ncol=settings["legend_columns"],
+        wrapped = ['\n'.join(textwrap.wrap(label,22,break_long_words=True)) for label in unique]
+        ax.legend(unique.values(), wrapped, frameon=False, ncol=settings["legend_columns"],
                   fontsize=settings["font_pt"]*.85, loc="upper right")
     else:
         ax.text(.5, .5, "測定ファイルを追加して解析を開始\nまたは「人工データで試す」", ha="center", va="center",
@@ -97,8 +105,10 @@ def draw(figure, state, sample_id=None, compare=False, candidate=None, selected_
     return ax
 
 
-def export_figure(filename, state, sample_id=None, compare=False):
+def export_figure(filename, state, sample_id=None, compare=False, candidate=None, selected_peak=None, limits=None, dpi=300):
     settings = state["plot"]
     figure = Figure(figsize=(settings["width_cm"]/2.54, settings["height_cm"]/2.54), dpi=150)
-    draw(figure, state, sample_id, compare)
-    figure.savefig(filename, dpi=300, facecolor="white")
+    axis=draw(figure, state, sample_id, compare, candidate, selected_peak)
+    if limits is not None:
+        axis.set_xlim(limits[0]);axis.set_ylim(limits[1])
+    figure.savefig(filename, dpi=dpi, facecolor="white")

@@ -1,6 +1,7 @@
 """Independent numerical XRD engine; no Igor runtime or procedure execution."""
 from datetime import datetime, timezone
 import copy
+import re
 
 import numpy as np
 import scipy
@@ -122,18 +123,36 @@ def reference_shift(sample, reference, parameters):
     return best[2]
 
 
-def score_candidates(sample, references, peak_id, parameters, element_filter="", enabled_only=True):
+PERIODIC = set('H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og'.split())
+
+
+def formula_compatible(reference, element_filter):
+    allowed=set(re.findall(r'[A-Z][a-z]?', element_filter))
+    if element_filter.strip() and (not allowed or not allowed.issubset(PERIODIC)):
+        raise ValueError('許可元素はFe O Baのように正しい元素記号で入力してください。')
+    if not allowed or not reference['formula'].strip():return True
+    if re.search(r'\b(?:Z|X|M|QS|W|T|Y|U)-type\b',reference.get('phase_class',''),re.I):return True
+    elements=set(re.findall(r'[A-Z][a-z]?',reference['formula']))
+    if not elements.issubset(PERIODIC):return True
+    return not elements or elements.issubset(allowed)
+
+
+def score_candidates(sample, references, peak_id, parameters, element_filter="", enabled_only=True, candidate_mode="all"):
     if not 0 < parameters["tolerance"] <= 5 or not 0.01 <= parameters["radius"] <= 5 or not 0 <= parameters["max_shift"] <= 5:
         raise ValueError("一致幅・候補範囲・シフト上限を確認してください。")
     peak = next(p for p in sample["peaks"] if p["id"] == peak_id)
     explained = {a["peak_id"] for a in sample["assignments"] if a["ref_id"] is not None}
     measured_max = max([p["height"] for p in sample["peaks"]] + [1e-12])
     results = []
+    adopted={a['ref_id'] for a in sample['assignments'] if a['ref_id'] is not None}
+    if candidate_mode not in ('all','adopted','new'):raise ValueError('候補モードが不正です。')
     for rid, ref in references.items():
         if enabled_only and not ref["enabled"]:
             continue
-        if element_filter and element_filter.casefold() not in (ref["name"] + " " + ref["formula"] + " " + ref["phase_class"]).casefold():
+        if not formula_compatible(ref,element_filter):
             continue
+        if candidate_mode=='adopted' and rid not in adopted:continue
+        if candidate_mode=='new' and rid in adopted:continue
         maximum = max(float(np.max(ref["intensity"])), 1e-12)
         shift = reference_shift(sample, ref, parameters)
         matches = _matches(sample, ref, shift, parameters["tolerance"])
@@ -162,11 +181,13 @@ def score_candidates(sample, references, peak_id, parameters, element_filter="",
                 continue
             local = 100 * max(0, 1 - abs(residual) / parameters["tolerance"])
             total = np.clip(.30 * local + .60 * global_score + .10 * intensity_score - min(15, 5 * missing), 0, 100)
+            if candidate_mode=='new':
+                total=np.clip(.30*local+.40*global_score+.20*new_score+.10*intensity_score-min(15,5*missing),0,100)
             results.append({"ref_id": rid, "reflection": index, "shift": shift, "residual": residual,
                             "local": local, "global": global_score, "new": new_score,
                             "intensity": intensity_score, "missing": missing, "total": float(total),
-                            "algorithm": "overlap-score-v1"})
-    return sorted(results, key=lambda c: -c["total"])
+                            "algorithm": "overlap-score-v2", "candidate_mode":candidate_mode})
+    return sorted(results, key=lambda c: (-c["total"],c['ref_id'],c['reflection']))
 
 
 def strong_reflection_warnings(sample, reference, shift, tolerance):
@@ -204,7 +225,7 @@ def clear_assignments(sample, peak_id):
     sample["status"] = "同定中"
 
 
-def fit_profile(sample, peak_id, lo, hi, model="Gaussian"):
+def fit_profile(sample, peak_id, lo, hi, model="Gaussian", background=True):
     x, y = sample["raw_x"], sample["processed_y"]
     peak = next(p for p in sample["peaks"] if p["id"] == peak_id)
     if not x[0] <= lo < peak["angle"] < hi <= x[-1]:
@@ -213,7 +234,7 @@ def fit_profile(sample, peak_id, lo, hi, model="Gaussian"):
     fx, observed = x[mask], y[mask]
     if len(fx) < 9:
         raise ValueError("フィット範囲には9点以上が必要です。")
-    baseline = np.interp(fx, [fx[0], fx[-1]], [np.mean(observed[:3]), np.mean(observed[-3:])])
+    baseline = np.interp(fx, [fx[0], fx[-1]], [np.mean(observed[:3]), np.mean(observed[-3:])]) if background else np.zeros_like(fx)
     signal = observed - baseline
     if model == "Gaussian":
         def function(x, constant, amplitude, center, width):
@@ -234,7 +255,7 @@ def fit_profile(sample, peak_id, lo, hi, model="Gaussian"):
     fitted = function(fx, *coefficients) + baseline
     residual = observed - fitted
     previous = sample["profiles"].get(str(peak_id), {})
-    result = {"model": model, "algorithm": "scipy-curve-fit-v1", "created": timestamp(),
+    result = {"model": model, "algorithm": "scipy-curve-fit-v2", "background_enabled":bool(background), "created": timestamp(),
               "lo": lo, "hi": hi, "center": float(coefficients[2]), "center_sigma": float(sigma[2]),
               "fwhm": float(coefficients[3] * fwhm_factor), "fwhm_sigma": float(sigma[3] * fwhm_factor),
               "coefficients": coefficients, "covariance": covariance,

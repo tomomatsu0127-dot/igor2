@@ -180,3 +180,11 @@
 
 - User authorized implementation including the Igor-provided foundations. Branch from saved design a48f555; new version directory; copied saved preview modules only. Existing untracked v0.1.1 retained. Baseline hashes recorded. Qt dependency installed only in a task-owned environment.
 - Scope: XRD desktop foundations and the existing independent engine; Wave-like working tables, graph operations, document/management/Undo/recovery, numerical workflow. Schema1-to-schema2 persistence requires separate-process comparisons. No Igor process or original research data is used.
+
+## 2026-10-29 / Studio v0.2.0 implementation checkpoint
+
+- Added native Qt desktop foundations: projects/trash/independent copy, read-only raw data and editable working arrays with units/notes and arithmetic/derivative/smoothing, graph/cursor/axis formatting, cross-project comparison and frozen figure recipes. Existing independent XRD workflow is connected through four stages, profile dialog, lattice history and vector/raster/table export.
+- Added external peak import retaining exact entered angles, element-set filtering with protected types, candidate modes and evidence. Original three Igor detection implementations are not all ported; current detector remains explicitly SciPy-based. All-function equivalence is not claimed.
+- Schema2 extends schema1 without scientific recalculation. Working state and Undo/Redo upgrade on load. Forty engine/workspace/Qt tests pass; schema1 synthetic data with Unknown and missing hkl is generated in the original release process, upgraded/saved/reopened in independent processes, with every original field preserved. Original file unchanged. Baseline 167 files unchanged.
+- Source executable integration passed numerical analysis, Qt window rendering, working-table Undo/Redo and XLSX. Initial offscreen Qt screenshot lacked fonts because its system font database was empty; register an installed Windows font, then verify legible Japanese. Windows font files are not redistributed.
+- Packaged binary is building. First build preceded final source edits and is not the deliverable; final build is rerun from the completed source. Scientific real-data comparison, all DPI and clean-PC checks remain unverified. Existing Igor processes and original measurements/PXP were not touched.
