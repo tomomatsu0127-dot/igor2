@@ -1,0 +1,9 @@
+{
+  "archive": "XRD_Studio_v0.2.0.zip",
+  "bytes": 106783345,
+  "sha256": "82c3d8196b87f711669fe8f92166a7e536f93b12a7bfb541f596876ead7e3344",
+  "files": 91,
+  "exe_sha256": "80bb4ab61f971f6e5ca20e9e3769802210edce3a4ff65ab68571dadd986697f0",
+  "every_zip_entry_verified": true,
+  "unit_tests": 41
+}

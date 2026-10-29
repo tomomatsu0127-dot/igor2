@@ -174,3 +174,33 @@
 - Deliverables: docs/xrd_standalone_design_v1.0.0 (15-page PDF, Markdown, evidence JSON, static verification JSON, README). User copies are in the current task's outputs directory.
 - Validation: 207 document/source checks pass, all 15 pages rendered and visually inspected. Japanese extraction, margins and 52 feature IDs verified. No new application runtime, real data, Igor, performance or clean-PC tests were performed.
 - Preservation: existing released IPFs, source measurements/references, user PXP, old standalone preview and untracked v0.1.1 retained. No main merge. Continue with a separately versioned application implementation only when that work is requested.
+
+
+## 2026-10-29 / Studio v0.2.0 investigation
+
+- User authorized implementation including the Igor-provided foundations. Branch from saved design a48f555; new version directory; copied saved preview modules only. Existing untracked v0.1.1 retained. Baseline hashes recorded. Qt dependency installed only in a task-owned environment.
+- Scope: XRD desktop foundations and the existing independent engine; Wave-like working tables, graph operations, document/management/Undo/recovery, numerical workflow. Schema1-to-schema2 persistence requires separate-process comparisons. No Igor process or original research data is used.
+
+## 2026-10-29 / Studio v0.2.0 implementation checkpoint
+
+- Added native Qt desktop foundations: projects/trash/independent copy, read-only raw data and editable working arrays with units/notes and arithmetic/derivative/smoothing, graph/cursor/axis formatting, cross-project comparison and frozen figure recipes. Existing independent XRD workflow is connected through four stages, profile dialog, lattice history and vector/raster/table export.
+- Added external peak import retaining exact entered angles, element-set filtering with protected types, candidate modes and evidence. Original three Igor detection implementations are not all ported; current detector remains explicitly SciPy-based. All-function equivalence is not claimed.
+- Schema2 extends schema1 without scientific recalculation. Working state and Undo/Redo upgrade on load. Forty engine/workspace/Qt tests pass; schema1 synthetic data with Unknown and missing hkl is generated in the original release process, upgraded/saved/reopened in independent processes, with every original field preserved. Original file unchanged. Baseline 167 files unchanged.
+- Source executable integration passed numerical analysis, Qt window rendering, working-table Undo/Redo and XLSX. Initial offscreen Qt screenshot lacked fonts because its system font database was empty; register an installed Windows font, then verify legible Japanese. Windows font files are not redistributed.
+- Packaged binary is building. First build preceded final source edits and is not the deliverable; final build is rerun from the completed source. Scientific real-data comparison, all DPI and clean-PC checks remain unverified. Existing Igor processes and original measurements/PXP were not touched.
+
+## 2026-10-29 / Studio compiled dependency repair
+
+- Compiled self-check did not complete and main startup produced QtCore DLL import failure. Computer Use could read the visible test exception; hidden test windows were not targetable. Closing via UI reported unavailable coordinate geometry; only processes belonging to this task's exact new EXE path were closed, never Igor.
+- Root cause confirmed from CArchive/Analysis TOC and PE exports: the authoring runtime puts Poppler ICU78 on PATH. PyInstaller bundled that icuuc.dll, but Qt6Core imports unversioned Windows ICU exports absent from ICU78. System32 ICU supplies them. This is a packaging dependency collision, not a numerical algorithm failure.
+- Build environment is restricted to Windows/interpreter directories for the child only, followed by a clean build. Archive validation rejects foreign ICU. Added self-check failure JSON. No global PATH or system library was changed.
+- Added pre-commit validation for invalid element input; it cannot persist an invalid filter or consume Undo. Final source suite now 41 tests, all pass. Synthetic schema restart comparison including Unknown and missing hkl passes. Final compiled validation remains pending and no unverified binary has been delivered.
+
+
+## 2026-10-29 / Studio v0.2.0 verified executable preview delivered
+
+- Clean build from isolated child PATH excludes the foreign Poppler ICU; archive assertion passes. Final binary self-check exits 0 with frozen=true: numerical workflow, raw/assignment save-reopen, PDF/SVG/PNG, Qt window/Japanese font, working-table Undo/Redo and XLSX all pass. Offscreen compiled screenshot was visually inspected.
+- Final source suite: 41 passing tests. Schema1->schema2 comparison includes Unknown and missing hkl, with all original fields equal through separate-process reopening. Original baseline 167 files preserved. No real measurements/PXP or existing Igor used.
+- Output folder and ZIP include only new app/source, docs, license notices and artificial samples. Manifest covers 91 files and every ZIP entry matches the folder bytes. ZIP 106783345 bytes, SHA256 82c3d8196b87f711669fe8f92166a7e536f93b12a7bfb541f596876ead7e3344. EXE SHA256 80bb4ab61f971f6e5ca20e9e3769802210edce3a4ff65ab68571dadd986697f0.
+- This completes the authorized initial implementation/delivery stage, not all 52 migration items. README/FEATURE_PROGRESS explicitly retain detector equivalence, full reference/type UI, individual plot editing, broader data/performance/DPI/clean-PC work.
+- Next implementation should use a new version directory from this branch and preserve the delivered preview. No main merge. Final Git SHA is obtained from git rather than embedded self-referentially here.

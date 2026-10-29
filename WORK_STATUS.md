@@ -1,3 +1,37 @@
+# WORK_STATUS / XRD Studio v0.2.0 / 2026-10-29 JST
+
+管理版: 1.7.2。今回の「作り始める」依頼に対する基盤実装・検証・配布を完了。全52機能の移行完了ではない。main未統合。
+
+- Branch: codex/xrd-studio-v0.2.0。開始: a48f555（設計）。本体: xrd_studio_v0.2.0。基準Igorはv1.2.3 / fb0c031。
+- Igorの前提機能を追加: Qtデスクトップ、プロジェクトと復元、原値閲覧と独立作業Wave（編集/単位/注記/基本処理/図表出力）、グラフ操作/カーソル/軸書式、Undo/Redo、.labx保存/復旧、完成図snapshot、CSV/XLSX。
+- XRD接続: 4段階画面、既存独立検出/同定/フィット/格子。外部ピーク、元素集合と保護type、候補3モード/証拠表、背景ON/OFF、横断比較を追加。
+- 確認: 今回41試験合格（既存19、workspace14、Qt8）。旧schema1の全フィールドを拡張後およびschema2保存/別プロセス再読込で比較し一致。Unknown/hkl欠損/Undoを含む。元文書不変。旧コード167ファイルSHA一致。
+- 最終EXE: frozen=true、終了0、Qt画面/日本語、人工5ピークと5割当、フィット、格子、Raw/割当保存復元、PDF/SVG/PNG、作業表Undo/Redo、XLSXを自己検査PASS。compiled_validation_v0.2.0.json/png参照。
+- 修復: Poppler PATHのICU78をPyInstallerが誤同梱しQtCoreが失敗。PEの不足exportを確認し、ビルド子プロセスのPATH限定とclean buildで解消。外来ICUのarchive拒否と自己検査失敗JSONを追加。PC全体のPATH/DLLは変更なし。
+- 配布: このチャットのoutputs/XRD_Studio_v0.2.0/（EXE・README・追加機能/進捗/試験・人工例・ソース・第三者ライセンス）、同ZIP/sha256、preview。ZIP91ファイル、106783345 bytes、全entryハッシュ一致。
+- ZIP SHA256: 82c3d8196b87f711669fe8f92166a7e536f93b12a7bfb541f596876ead7e3344。EXE SHA256: 80bb4ab61f971f6e5ca20e9e3769802210edce3a4ff65ab68571dadd986697f0。
+- 残り: Igorの旧/Robust検出方式、type別カード専用UI/周期表/参照版更新、全確認表、個別作図書式/凡例分離/自由注釈、並替え、XLSX入力等はFEATURE_PROGRESSへ。大規模候補計算/fit/保存の非同期化とUndoメモリ最適化も残る。
+- 未確認: 実測Igor比較、全DPI/全マウス/複数モニター、大量/長時間、別クリーンPC。QtTestとoffscreen画像を実デスクトップの全マウス試験とは扱わない。PXP読込は対象外。
+- 保持: 旧Igor版・旧独立版・未追跡v0.1.1・利用者測定/参照/PXPは変更なし。既存Igorへ入力/接続/終了要求なし。終了したのは新しいv0.2.0の試験EXEのみ。
+- 再開: このbranchをfetchし、本書とWORK_LOG末尾、README/IGOR_FOUNDATION/FEATURE_PROGRESS/TEST_RESULTSを読む。追加実装は新番号版で行う。現在の開発版を全機能安定版と呼ばない。
+
+---
+
+以下は保持した以前の記録。
+
+# WORK_STATUS / XRD Studio v0.2.0 implementation / 2026-10-29 JST
+
+管理版: 1.7.0。今回の依頼は設計に加えてIgorの前提機能を含む独立ソフト実装の開始。
+
+- Branch: codex/xrd-studio-v0.2.0。開始SHA: a48f5558a88ef40c8eeb690ff853082a5887f9f5。
+- 新規実装先: xrd_studio_v0.2.0。旧Igor版と独立v0.1.0、未追跡v0.1.1を保持。
+- 設計基準: XRD Workbench v1.2.3、52機能の設計v1.0.0。XRD専用。PXP直接読込は必須外。
+- 今回: Qt UI、Wave相当の原値閲覧/作業コピー編集、カーソル/ズーム/軸書式、管理/Undo/保存/復旧、既存数値解析接続を先に動かす。Igor汎用の全コマンド互換実装ではない。
+- 独立エンジンv0.1.0を再利用し、schema1読み込みとschema2新規保存を検証する。原測定/参照は変更しない。
+- 基盤実装、41試験、schema1/2の別プロセス比較は完了。EXEはICU同梱衝突を修正して再検証中。設計検査の過去207項目をアプリ合格へ数えない。
+
+---
+
 # WORK_STATUS / XRD独立版設計 v1.0.0 / 2026-10-29 JST
 
 管理版: 1.6.0。今回の設計を完了。本体実装は未着手。main未統合。

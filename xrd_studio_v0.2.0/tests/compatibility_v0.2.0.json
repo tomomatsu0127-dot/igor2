@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "schema1_to_schema2": true,
+  "separate_processes": 3,
+  "all_original_fields_equal": true,
+  "raw_arrays_units_ids_references_assignments_profiles_lattice_undo_redo_preserved": true,
+  "original_file_unchanged": true,
+  "data": "Artificial cubic data only; not user PXP compatibility"
+}

@@ -1,0 +1,9 @@
+{
+  "status": "FAIL_BEFORE_REPAIR",
+  "stage": "compiled executable QtCore import",
+  "observed_error": "DLL load failed while importing QtCore: specified procedure could not be found",
+  "cause": "PyInstaller resolved icuuc.dll from development-tool Poppler PATH; its ICU78 exports do not provide the unversioned Windows ICU API required by Qt6Core",
+  "evidence": "Archive contains root icuuc.dll and icudt78.dll; Analysis-00.toc points at bundled Poppler. PE import/export comparison finds ucnv_open, ucnv_close and further required symbols missing. Windows System32 ICU provides these symbols.",
+  "repair": "Build subprocess uses only Windows and interpreter paths; perform clean build and reject an archive containing foreign icuuc.dll. Add self-check failure JSON to prevent a hidden error dialog from blocking diagnostics.",
+  "preserved": "No original data or existing Igor process was touched. Only this task's test executable processes were closed."
+}
