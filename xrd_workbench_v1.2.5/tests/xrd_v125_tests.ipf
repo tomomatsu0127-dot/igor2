@@ -38,7 +38,11 @@ Function XRD_RunV125Tests()
     XRD_TestCheck(NumVarOrDefault(path+":selectedPeakRow",-1)==12,"v125 title and empty-space clicks never change selected peak")
     lba.row=14;lba.eventCode=8;XRD_PeakListAction(lba)
     XRD_TestCheck(NumVarOrDefault(path+":selectedPeakRow",-1)==12,"v125 scroll notifications are not selections")
-    XRD_TestCheck(sum(abs(angles-beforeAngles))==0 && sum(abs(ids-beforeIDs))==0 && WaveCRC(0,raw)==rawCRC,"v125 navigation preserves all angles IDs and raw values")
+    Variable unchanged=1
+    for(i=0;i<numpnts(angles);i+=1)
+        unchanged=unchanged && angles[i]==beforeAngles[i] && ids[i]==beforeIDs[i]
+    endfor
+    XRD_TestCheck(unchanged && WaveCRC(0,raw)==rawCRC,"v125 navigation preserves all angles IDs and raw values")
     XRD110_Manager();XRD80_LibraryPanel()
     Make/FREE/D/N=4 managerBox,libraryBox
     XRD123_Box("XRDProjectManager",managerBox);XRD123_Box("XRDLibrary",libraryBox)

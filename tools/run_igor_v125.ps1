@@ -28,9 +28,10 @@ try {
         Invoke-TaskIgor 'Print CaptureHistory(root:taskHistory,0)' | Write-Output
         throw
     }
+    Invoke-TaskIgor 'MoveWindow/F 0,0,1920,1080' | Out-Null
     $taskOutput=Invoke-TaskIgor $Command
     Write-Output $taskOutput
-    if($taskOutput -match "FAIL:|RUNTIME ERROR"){throw "Native assertions failed; see log."}
+    if($taskOutput -match '(?im)(^|[\r\n])\s*(FAIL:|(?:V[0-9]+\s+)?RUNTIME ERROR(?:\s|:))'){throw "Native assertions failed; see log."}
 } finally {
     # Only the PID created above can be terminated, even if COM binds elsewhere.
     if(!$taskProcess.HasExited){$taskProcess.Kill()}

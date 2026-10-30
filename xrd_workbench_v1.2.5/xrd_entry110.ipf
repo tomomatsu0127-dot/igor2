@@ -85,15 +85,25 @@ Function XRD110_EntryButton(ba) : ButtonControl
 End
 
 Function XRD110_ChooseFile()
-    Variable ref
-    Open/D/R/Z=2/F="XRD data (*.txt,*.csv,*.xy,*.dat):.txt,.csv,.xy,.dat;All files:.*;" ref as ""
-    if(V_flag || !strlen(S_fileName))
+    Variable ref,cancelled=1,error=0
+    String hidden=XRD124_BeginModal(),chosen=""
+    try
+        Open/D/R/Z=2/F="XRD data (*.txt,*.csv,*.xy,*.dat):.txt,.csv,.xy,.dat;All files:.*;" ref as ""; AbortOnRTE
+        cancelled=V_flag;chosen=S_fileName
+    catch
+        error=GetRTError(1)
+    endtry
+    XRD124_EndModal(hidden)
+    if(error)
+        Abort GetErrMessage(error)
+    endif
+    if(cancelled || !strlen(chosen))
         return -1
     endif
     String base=XRD110_Entry()
-    String/G $(base+":file")=S_fileName
+    String/G $(base+":file")=chosen
     String/G $(base+":copyUID120")=""
-    TitleBox fileName,win=XRDRegister110,title=ParseFilePath(0,S_fileName,":",1,0)
+    TitleBox fileName,win=XRDRegister110,title=ParseFilePath(0,chosen,":",1,0)
     return 0
 End
 

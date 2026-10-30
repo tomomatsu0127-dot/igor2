@@ -201,3 +201,13 @@
 - 利用者の名前変更入力待ちをCancel/Escapeで解除し、GetActiveObjectでExperiment名を照合して現メモリの非公開バックアップを保存後、明示許可により元PIDのみ終了。最初のCreateObjectは新規Untitledへ接続したため、その空backupは不採用（ユーザーデータの代替にしない）。
 - 本体: xrd_modal125を追加し管理の改名/移行/削除/復元をguard。登録画面6エラーとrecovery guardにも既存Alert wrapper。xrd_view100にpreserveScroll任意引数を追加しpeakList callbackのみ指定。graph選択・解析・schemaは既存のまま。版番号main/ui/ui120更新。
 - これから新版nativeと実UI、現データの全フィールド・保存再起動、配布と現PXP適用を実施。未確認結果を合格と扱わない。
+
+## 2026-10-30 / v1.2.5 native and UI checkpoint
+
+- native: 新版26項目PASS。既存同定/コピー/比較/入力連動102項目PASS。管理core19項目PASS（初回runnerがPASS文言の「no runtime error」を誤検出したため先頭FAIL/RUNTIME行だけを検出するよう修正し再確認）。
+- 初回の新試験でsum(abs(wave-expression))がIgor compiler非対応だったため全要素の明示比較へ変更。最初の既存回帰はrunnerのframe寸法未設定でlarge-sizeの1項目のみ失敗。既存CLIと同じ1920x1080のframe条件を設定し102すべて再合格。アプリ側のサイズ処理は変更していない。
+- UI実操作: 旧版35度→37度、新版35度→35度。ホイールでtop48へ移動後67度がrow52として選択されtop48不変。native event4/2も同一row20/top15を確認。
+- UI管理: 日本語への改名確定と確認ダイアログ、取消、不正名警告、削除No/Yes、復元対象なし通知と実復元を確認。固定UID、Raw/Peaks保持。管理画面は1枚、RTE=0。
+- 追加監査: 登録入力エラー6か所と測定ファイル選択もguard。取消後の下書き保持を確認。
+- 計測用probeに破棄通知でもXRD_Dataを参照する誤りがあり、最後のproject削除時にnull string通知を発生させた。製品callbackでは破棄通知を無視しており計測コード由来。通知を除去後の復元・登録検証は正常、製品へprobeを含めない。
+- 実研究データはコピー上で旧版基準を採取中。科学値をrepoへ含めず、最後に現在の同名PXPへ反映する。実データ比較・再起動はまだ未完了。
