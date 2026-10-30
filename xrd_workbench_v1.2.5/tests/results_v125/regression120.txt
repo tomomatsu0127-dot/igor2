@@ -1,0 +1,103 @@
+PASS: v120 fixture imports 1
+PASS: v120 fixture imports 2
+PASS: v120 fixture imports 3
+PASS: v120 fixture imports 4
+PASS: v120 fixture imports 5
+PASS: v120 fixture imports 6
+PASS: v120 fixture imports 7
+PASS: v120 fixture imports 8
+PASS: v120 fixture imports 9
+PASS: v120 fixture imports 10
+PASS: v120 real assignment 0
+PASS: v120 real assignment 1
+PASS: v120 real assignment 2
+PASS: v120 real assignment 3
+PASS: v120 real assignment 4
+PASS: v120 real assignment 5
+PASS: v120 real assignment 6
+PASS: v120 real assignment 7
+PASS: v120 real assignment 8
+PASS: v120 real assignment 9
+PASS: v120 plain string registration accepted
+PASS: v120 leading zero and single underscore retained
+PASS: v120 fresh registration has no double separator
+PASS: v120 physical sample folder uses entered serial
+PASS: v120 serial-folder rename failure is reported
+PASS: v120 failed serial change restores original folder and ID
+PASS: v120 failed serial change retains metadata and raw data
+PASS: v120 duplicate serial in same project is refused even with another composition
+PASS: v120 duplicate serial never overwrites existing sample
+PASS: v120 serial uses a string text control
+PASS: v120 identical serial is allowed in another project
+PASS: v120 other-project measurement is identified
+PASS: v120 project tree starts collapsed
+PASS: v120 tree displays user serial instead of Data1
+PASS: v120 project expansion reveals only its child
+PASS: v120 folder collapses independently
+PASS: v120 nested selection resolves its parent project
+PASS: v120 removed Workbench controls stay absent
+PASS: v120 peak selection does not create a custom A cursor
+PASS: v120 native Ctrl-I cursor point can be added
+PASS: v120 exact native cursor angle is registered
+PASS: v120 step renders without New controls 2
+PASS: v120 full range button present step 2
+PASS: v120 native full range restoration step 2
+PASS: v120 step renders without New controls 3
+PASS: v120 full range button present step 3
+PASS: v120 native full range restoration step 3
+PASS: v120 step renders without New controls 4
+PASS: v120 registered peak selection still zooms to plus-minus five
+PASS: v120 right-click zoom override removed
+PASS: v120 mouse event cannot relocate registered peak
+PASS: v120 completed data in another project can be added to comparison
+PASS: v120 side comparison has marker legends
+PASS: v120 sample chooser stays in header without overlapping buttons
+PASS: v120 redundant source picker button removed
+PASS: v120 legend keeps requested plot rectangle
+PASS: v120 columns share a single editable native legend
+PASS: v120 changing legend columns does not shrink plot
+PASS: v120 separate legend preserves plot dimensions
+PASS: v120 separate native legend window exists
+PASS: v120 periodic table cells grow with window size
+PASS: v120 wheel over list body is handled
+PASS: v120 wheel advances visible rows
+PASS: v120 serial can change after identification and figure creation
+PASS: v120 serial rename updates active Workbench and UID links
+PASS: v120 serial rename preserves assignments and raw values
+PASS: v120 serial can return to its original value
+PASS: v120 saved figure survives serial folder changes
+PASS: v120 repeated updates preserve the parent frame and graph
+PASS: v120 repeated updates retain large native window size
+PASS: v120 operation menu has a readable native button
+PASS: v120 first peak zoom leaves Y fixed
+PASS: v120 moving to another peak leaves Y fixed
+PASS: v120 native zoom Y changes are restored to fixed bounds
+PASS: v120 secondary reference below 70 percent still warns
+PASS: v120 primary assigned to a different phase still counts as present
+PASS: v120 out-of-range reference peaks do not warn
+PASS: v120 both missing strongest reflections are identified
+PASS: v120 adding missing reflection positions clears warning
+PASS: v120 exact selection can show one other sample without the edited sample
+PASS: v120 side graph renders exactly one selected sample
+PASS: v120 sample and phase legends use the same selected font
+PASS: v120 left comparison uses one legend textbox
+PASS: v120 zero selection never silently restores all samples
+PASS: v120 zero selection clears the side graph
+PASS: v120 comparison resumes after an empty selection
+PASS: v120 display name precedes composition
+PASS: v120 display name fills composition automatically
+PASS: v120 editing composition never changes display name
+PASS: v120 refocusing an unchanged display name retains manual composition
+PASS: v120 focus loss synchronizes a newly entered display name
+PASS: v120 missing-hkl copy fixture imports
+PASS: v120 source assignment can use missing hkl
+PASS: v120 failed copy rolls back without partial sample
+PASS: v120 copy receives a new stable measurement ID
+PASS: v120 copy retains raw values and every phase assignment
+PASS: v120 copy preserves missing hkl Unknown and completion
+PASS: v120 copy retains lattice values and history
+PASS: v120 copy records its source without moving it
+PASS: v120 copy refuses a duplicate destination serial
+PASS: v120 every copy mutation rolls back without partial data
+PASS: v120 exact comparison can display three chosen samples
+v120 failures=0

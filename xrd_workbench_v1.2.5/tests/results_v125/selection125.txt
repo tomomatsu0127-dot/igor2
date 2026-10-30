@@ -1,0 +1,27 @@
+PASS: v125 native list selection returns normal control result
+PASS: v125 list click retains selected row and viewport 20
+PASS: v125 selected stable peak ID matches clicked row
+PASS: v125 native list selection returns normal control result
+PASS: v125 list click retains selected row and viewport 18
+PASS: v125 selected stable peak ID matches clicked row
+PASS: v125 native list selection returns normal control result
+PASS: v125 list click retains selected row and viewport 22
+PASS: v125 selected stable peak ID matches clicked row
+PASS: v125 native list selection returns normal control result
+PASS: v125 list click retains selected row and viewport 33
+PASS: v125 selected stable peak ID matches clicked row
+PASS: v125 native list selection returns normal control result
+PASS: v125 list click retains selected row and viewport 47
+PASS: v125 selected stable peak ID matches clicked row
+PASS: v125 native list selection returns normal control result
+PASS: v125 list click retains selected row and viewport 59
+PASS: v125 selected stable peak ID matches clicked row
+PASS: v125 graph selection still brings selected peak into view
+PASS: v125 title and empty-space clicks never change selected peak
+PASS: v125 scroll notifications are not selections
+PASS: v125 navigation preserves all angles IDs and raw values
+PASS: v125 unsupported manager action has no data mutation
+PASS: v125 manager restored with original geometry
+PASS: v125 other floating panel restored with original geometry
+PASS: v125 runtime clean
+V125_FAILURES  0

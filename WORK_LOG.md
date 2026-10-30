@@ -211,3 +211,13 @@
 - 追加監査: 登録入力エラー6か所と測定ファイル選択もguard。取消後の下書き保持を確認。
 - 計測用probeに破棄通知でもXRD_Dataを参照する誤りがあり、最後のproject削除時にnull string通知を発生させた。製品callbackでは破棄通知を無視しており計測コード由来。通知を除去後の復元・登録検証は正常、製品へprobeを含めない。
 - 実研究データはコピー上で旧版基準を採取中。科学値をrepoへ含めず、最後に現在の同名PXPへ反映する。実データ比較・再起動はまだ未完了。
+
+## 2026-10-30 / v1.2.5 actual Experiment validation and deployment
+
+- 実メモリから保管した複製を旧版でload/compileし589850項目を基準採取。旧画面閉鎖/新版読込直後の差3件はUI:left/top/maximized、初期化後差6件はUI:left/top/maximized/width/heightとRecovery:messageのみ。解析/科学値の差0。
+- 検証用hidden Igorが画面状態を通常寸法として捕捉したため、元の寸法・位置・最大化設定を戻し、実ウィンドウも最大化して新規PXPへ保存。専用PID停止→起動→再読込→全項目再採取。589850項目のうち原本との違いはRecovery:messageのみ。UI設定も元値と一致。native compile/RTE=0。
+- Save時のIgor診断CopyDimLabelToCStringは旧版以前の履歴にも存在する。RTE=0で保存され、ラベル/Note/式を含む全項目の再読込比較で保持を確認。原因修正は今回の範囲に含めない。
+- 元ディスクファイルのSHAが作業前と変わっていないことを確認した上で、利用者が指定した既存同名PXPへ検証済み内容をコピー。適用ファイルと検証PXPのSHA一致を確認。起動時のデータ保管先も保持。旧PXP/IPF、元測定/参照、sourcesに不要な変更なし。現在ファイルへの反映は利用者の明示依頼による。
+- source production47 IPFはDesktop展開先とbyte hash一致。旧v1.2.4全ファイルは基準hash一致。研究データ・個別比較JSON/TSVをGitへ追加しない。main未統合。追加変更なし。
+- 最終実QSの通常起動後にも、利用者が停止を報告したプロジェクトの選択→名前変更入力画面が前面表示→Escape取消→管理画面復帰を実クリック確認。名前・研究データは変更せず、通常Igorは開いたまま残す。
+- 配布: ワークスペース直下xrd_workbench_v1.2.5/とZIP/sha256。更新済みDesktop依存一式の文書も同期。原本.pxp・研究データは配布ZIP/リポジトリへ含めない。新規ZIP全エントリのbyte一致とinclude存在を確認。
