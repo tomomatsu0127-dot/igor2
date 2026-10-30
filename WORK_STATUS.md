@@ -1,3 +1,17 @@
+# WORK_STATUS — v1.2.5 / 2026-10-30 JST
+
+管理版: 1.7.0。調査・最小修正完了、実機検証中。
+
+- Branch: codex/xrd-v1.2.5。開始SHA: 2694482a48f43f8e88bf8869a50f58a9b2059d90 (v1.2.4)。実装先 xrd_workbench_v1.2.5。
+- 依頼: プロジェクト名変更での停止、管理画面の関連操作、スクロール後の検出ピーク選択ずれ。利用者は現行Igor終了と現在のQS_v1.2.4への適用を明示許可。
+- 再現: 現行IgorでMissingParametersDialogがfloating manager背後に隠れ入力待ち。取消で復帰。旧版の人工60ピークで35度を実クリックすると37度を選択。native callbackでevent4 row20/top15→top17→event4 row22/top17→top19と確認。
+- 原因: v1.2.4のmodal guardは管理の改名/削除/復元をカバーせず。XRD100_SelectがListBox選択callback中にrowを変更し同じクリックのhit testをずらす。
+- 修正: manager modal dispatchに共通guard、登録入力エラーにも既存guard。listからの選択だけ表示top rowを維持し、graphからの選択は従来の追従。
+- 保持: 旧版全ファイルhash、利用者のディスク保存版・実メモリからの別名バックアップと旧依存一式を非公開ローカルへ保存。元測定/参照/sourcesへ変更なし。解析・schema変更なし。
+- 未完了: 新版native/UI実操作、実PXP更新・全項目比較・保存再起動、配布・現在のPXP適用。
+
+# 保持した前版記録
+
 # WORK_STATUS — v1.2.4 / 2026-10-29 JST
 
 管理版: 1.6.1。修正・人工データ検証・配布完了。main未統合。

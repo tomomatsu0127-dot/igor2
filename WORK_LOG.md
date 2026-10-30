@@ -193,3 +193,11 @@
 - 旧v1.2.3 repo全ファイルをBASELINE_FORと照合し不変。旧配布ZIPのSHA f31c5a...と全エントリも不変。sources/利用者原本/既存Igorへ変更なし。専用UIも終了済み。
 - 差分の空白検査はコード・文書で合格。native出力Error=0とCOPY_FAULTの空エラー欄の末尾空白はログ原文として保持し、結果ログを除外した検査と区別した。
 - 完成版をcodex/xrd-v1.2.4へcommit/push。main未統合。利用者実PXP/全DPI/長時間等は未確認。ダイアログ自体のOSレベル故障注入は未実行。
+
+## 2026-10-30 / v1.2.5 investigation and implementation
+
+- 上記2件を現行UI/旧版人工fixtureで再現。選択ずれはevent4中のrow変更で2行移動するnative traceにより原因確定。公式WMListboxAction/ListBox仕様も照合: https://docs.wavemetrics.com/igorpro/programming/structures/wmlistboxaction , https://docs.wavemetrics.com/igorpro/commands/listbox 。
+- 既存コード・GitHub最新2694482から新branch、新番号版を作成。旧版のbaseline hashを保存。
+- 利用者の名前変更入力待ちをCancel/Escapeで解除し、GetActiveObjectでExperiment名を照合して現メモリの非公開バックアップを保存後、明示許可により元PIDのみ終了。最初のCreateObjectは新規Untitledへ接続したため、その空backupは不採用（ユーザーデータの代替にしない）。
+- 本体: xrd_modal125を追加し管理の改名/移行/削除/復元をguard。登録画面6エラーとrecovery guardにも既存Alert wrapper。xrd_view100にpreserveScroll任意引数を追加しpeakList callbackのみ指定。graph選択・解析・schemaは既存のまま。版番号main/ui/ui120更新。
+- これから新版nativeと実UI、現データの全フィールド・保存再起動、配布と現PXP適用を実施。未確認結果を合格と扱わない。

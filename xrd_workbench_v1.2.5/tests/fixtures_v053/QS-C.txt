@@ -1,0 +1,9 @@
+# card_number: QS-C
+# name: Test QS-C
+# formula: Ba2 Mg2 Fe12 O22
+# phase_class: QS-type
+h k l I 2theta
+1 0 0 100 30.15
+1 1 0 20 30.43
+2 0 0 60 44
+3 0 0 1 55
