@@ -1,4 +1,23 @@
-﻿# WORK_STATUS — v1.2.6 / 2026-11-04 JST
+# WORK_STATUS — v1.2.6 / 2026-11-04 JST
+
+管理版: 1.8.2。実装・native/UI・実PXP保存再起動・配布・指定QS適用完了。main未統合。
+
+- Branch: codex/xrd-v1.2.6。開始SHA: 045748ddf1ec7a1a50ec421266d74856b1cb183f。実装先 xrd_workbench_v1.2.6。
+- Scope/原因: 比較の除外・表示順・表示自由度とWave名。旧ライブ作図が登録aliasを使わずintensityN/MM_UID等を生成し、選択順も一覧列挙順だった。
+- 実装: 順序付きdraft一覧、除外/全解除/上下移動、反映/取消。間隔と参照・同定・未同定表示切替。測定線は登録int_norm/ttの実Waveを参照しnative offsetで積層。同定/参照/未同定は表示専用Waveへ相と試料の名前を付ける。化学式下付き数字をtraceではASCIIへ。新UIはリサイズ可能、背景project切替時も元projectへ適用。空選択はside/review双方をクリア。
+- 保持: 旧主図のcursor名、保存済み作図スナップショット、解析/schema/登録Wave名は維持。旧版全ファイルSHA一致。元QS・旧依存一式・検証TSVは公開repo外へ保管。sources/と元測定/参照ファイルは変更なし。
+- Native最終: 比較30、新プロセス再読込4、既存同定/コピー102、v125選択/管理26、計162合格・失敗0。tests/results_v126。
+- UI: 除外、並替、反映、チェック追加/解除、取消、標準トレース編集画面を確認。再起動最終コードで表の文字残り解消も確認。通常起動した同名QSから新比較ボタンで開くことも確認。
+- 実PXP: 基準975914項目。初期化前はUI位置4件だけ、初期化後979941項目との差4050は表示cache/draft4026、新設定4、UI/tree18、active子画面/自動保存案内2。科学値/全Wave metadata/formula/UID/同定/SharedLibrary/Undo/格子履歴/既存作図は不変。最終別名保存・専用PID終了・新プロセス再読込の979941項目は科学差0、差6件は保存直前に変えた画面状態5とactive子画面1。元の比較4試料と順序を保持。
+- 保存時のIgor既存由来CopyDimLabelToCString出力はRTE=0。labelを含む保存再読込全項目照合で保持を確認。外部IPFを上書きしただけではinclude cacheが残る場合があるので、ProcedureTextと新プロセスで最終ソースを確認。
+- 適用: Desktop QS_v1.2.4.pxpを更新前backupとhash照合後、検証済みv1.2.6 PXPへ置換。通常Igorで起動、タイトルv1.2.6と比較設定の動作を確認し、作業画面を最大化してCtrl+S。ファイル名は利用者指定のまま。QS.pxpは保持。
+- 依存: Desktop QS_update_v1.2.6_20261104_134138/xrd_workbench_v1.2.6 が同名QSの外部Procedure参照先。フォルダ保持案内を配置。旧QS/依存、更新stage/verifiedは残す。研究データは公開しない。
+- 配布: ワークスペース直下xrd_workbench_v1.2.6とZIP/sha256。251ファイル、48本体IPF、相対include79本、ZIP全バイト検証成功。ZIP SHA256=d816ee1023249997bc61b7d138663c96fd407a5e03740a2e3318a646ff57412e。
+- 未確認: 全DPI/全モニター配置、長時間連続使用、旧パス遮断した別PC移設、全ての独自Procedure。既存保存済み作図の名前一括変更は対象外。今後はこのbranchをfetchし、TEST_RESULTS_v1.2.6と本記録を読む。追加修正は新しい番号版へ。
+
+# 保持した検証途中記録
+
+# WORK_STATUS — v1.2.6 / 2026-11-04 JST
 
 管理版: 1.8.1。実装・native検証済み。実PXP最終再起動検証・配布前。main未統合。
 
@@ -7,9 +26,11 @@
 - 原因: 比較にはチェック選択だけがあり順序は全測定列挙順。ライブ作図がintensityN/MM_UID_R等の一時名を使い、既存namedIndex100を参照しない。
 - 実装: 順序付きdraft、除外/全解除/上下移動/取消/反映。間隔、参照線、同定/未同定マーク表示。side/review測定線は既存の依存式付き登録Waveを直接表示しoffsetを使用。marker/referenceは表示用cacheのみ読みやすく命名。旧主図のcursor名と保存済みrecipe経路は維持。
 - 保持: 旧版全ファイルhashをdocs/BASELINE_FOR_v1.2.6.json、実QSと旧IPF一式をDesktopの番号付きbackupへ保存。研究データはrepo外。開始時Igor起動なし。
-- 確認: 新版30、専用Igor終了/再起動4、既存同定・コピー102が合格。実UIで除外、順序、反映とトレース編集一覧を確認。前回修正26も合格、最終コードで再実行中。実QS975914項目の初期化前比較はUI位置4件だけ。\n- 未確認: 実QS最終コードの保存再起動、配布・指定QS適用はこれから。
+- 確認: 新版30、専用Igor終了/再起動4、既存同定・コピー102が合格。実UIで除外、順序、反映とトレース編集一覧を確認。前回修正26も合格、最終コードで再実行中。実QS975914項目の初期化前比較はUI位置4件だけ。
+- 未確認: 実QS最終コードの保存再起動、配布・指定QS適用はこれから。
 - 環境: COM New-Objectは32bit登録へ接続するため、64bit専用PIDを起動後GetActiveObject+一意marker照合。既存登録は変更しない。
-- 次: 実QS stageを専用Igorへ読み込み最終moduleを確認、科学値全比較・最終別名保存・再起動。元PXPは利用者明示の更新依頼により、全検証後に同名へ適用する。\n- 注意: 外部IPF差替え後に既に読込まれたincludeが残る場合をProcedureTextで確認。最終確認は新しいプロセスで行う。v1.2.6の保存実験は新パスを参照する。
+- 次: 実QS stageを専用Igorへ読み込み最終moduleを確認、科学値全比較・最終別名保存・再起動。元PXPは利用者明示の更新依頼により、全検証後に同名へ適用する。
+- 注意: 外部IPF差替え後に既に読込まれたincludeが残る場合をProcedureTextで確認。最終確認は新しいプロセスで行う。v1.2.6の保存実験は新パスを参照する。
 # WORK_STATUS — v1.2.5 / 2026-10-30 JST
 
 管理版: 1.7.1。修正・native/UI・実PXP保存再起動確認・指定PXP適用完了。main未統合。
