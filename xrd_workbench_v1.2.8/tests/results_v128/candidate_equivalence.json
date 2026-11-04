@@ -1,0 +1,20 @@
+{
+  "synthetic600": {
+    "selections": 10,
+    "old_records": 29185,
+    "new_records": 30235,
+    "differences": 1050,
+    "new_step1_focus_table_records": 1050,
+    "unexpected": 0,
+    "common_records_equal": 29185
+  },
+  "actual": {
+    "selections": 10,
+    "old_records": 19451,
+    "new_records": 19451,
+    "differences": 0,
+    "new_step1_focus_table_records": 0,
+    "unexpected": 0,
+    "common_records_equal": 19451
+  }
+}

@@ -269,3 +269,13 @@ Desktopの最新QS_v1.2.4.pxpと更新前backupのhash一致、他Igorなしを�
 全件Ensureを比較/listing経路から除き、同projectのstep変更で全Upgradeを繰り返さず、chooserの未使用sortとpreviewのEvidence重複を除去。600合成測定/比較5/85参照のmedian選択2804.88→156.721ms、更新7229.25→261.063ms。120選択でwarm後global Wave数17257→17257。候補等10選択の共通29185項目が等価。新12+既存43/26/30/102/13=226 native合格。実QS全互換・再起動・UI・同名適用は未完。
 
 環境診断はSTATUS1.10.1。既存試験のscratch専用missing_hkl120 fixture未準備でファイル選択待ちになったown test PIDだけ停止し、汎用fixtureと再現可能なrunner準備を追加して102再合格。PowerShell COM/Print試験記述も修正。製品に診断や試験用データは残さない。
+
+## 2026-11-04 v1.2.8 最終互換・配布・Desktop適用
+
+実QS全2358888項目を更新前/新コード初期化前後/別名保存/own専用Igor終了→新PID実再読込で照合。初期化後の差14はUI10/表示範囲3/active子画面と案内1、再起動後の差1はactive子画面のみ、科学差0。実10選択19451項目の候補/根拠/Preview/元ピーク/Assignments完全一致。既存CopyDimLabelToCString保存出力はRTE=0で全metadata含め保持確認。実選択median309.882→174.096ms。600合成/比較5でmedian2804.88→156.721ms、更新7229.25→261.063ms。native226合格。
+
+初回差替えで画面終了とCloseProcを続けて予約した直後Igorがucrtbase.dll/c0000409終了。元QSは未変更。新PIDで画面終了→旧entrypoint終了→新版読込を別々に実行すると正常、保存と実再読込にも成功。Igor内部原因は未確定、製品に根拠のない回避変更を追加していない。
+
+旧267ファイルSHA一致、新49本体IPFの実依存先とのbyte一致、284配布ファイル、相対include84、HTMLリンク19、ZIP全byte検査成功。ZIP SHA256=188d24f11856453f7c715af9e9db98955c1b5c498de1ae71570f71c2f19ed2f1。元Desktop同名QSと最新backupのhash一致、他Igorなしを確認して検証済みコピーへ同名適用。旧QS.pxpと更新前PXP/旧依存を保持。実コードはDesktop番号更新フォルダを参照するため保持案内を配置、研究データは非公開。
+
+通常Igorを起動しQS_v1.2.4タイトルとprocess応答を確認、開いたまま。Computer Useの通常Igor捕捉は壁紙、activationがfailed to activate captured window。現在windowを再取得した1回の再試行も同じため入力を停止。通常UI最終クリック/追加Ctrl+Sは未確認として区別し、コピー上で保存し再起動照合済みのPXPを適用したことを報告する。長時間/全DPI/600曲線同時表示/別PC/全独自Procedureも未確認。WORK_STATUS1.10.2、main未統合、同branchへ完了記録をpushする。

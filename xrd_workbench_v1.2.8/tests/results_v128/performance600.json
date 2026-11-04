@@ -1,6 +1,6 @@
 {
   "version": "1.2.8",
-  "environment": "Igor Pro 9.05 64-bit, Windows, one workstation",
+  "environment": "Igor Pro 9.05 64-bit, Windows, one workstation; isolated Automation instance, parent hidden, DoUpdate enabled",
   "workload": {
     "synthetic_measurements": 600,
     "points_each": 4001,
@@ -87,5 +87,23 @@
     "600 synthetic stored measurements, 5 displayed; not 600 simultaneously displayed traces.",
     "Sampled repeats include redraw; first import/compilation excluded.",
     "Timing and working set depend on hardware and input complexity."
-  ]
+  ],
+  "actual_current_QS_ms": {
+    "v127": [
+      367.917,
+      324.999,
+      309.882,
+      263.475,
+      286.902
+    ],
+    "v128": [
+      272.49,
+      174.096,
+      168.173,
+      190.583,
+      160.009
+    ],
+    "median_v127": 309.882,
+    "median_v128": 174.096
+  }
 }

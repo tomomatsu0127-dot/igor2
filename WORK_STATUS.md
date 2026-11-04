@@ -1,6 +1,6 @@
 # WORK_STATUS — v1.2.8 / 2026-11-04 JST
 
-管理版: 1.10.1。性能修正・600件計測・226 native合格、実QS互換確認中。更新未適用、main未統合。
+管理版: 1.10.2。性能修正・600件計測・226 native・実QS保存再起動・配布・Desktop適用完了。通常UIの最終クリック確認はツールエラーで未確認。main未統合。
 
 - Branch: codex/xrd-v1.2.8、開始cda2df536b32665e41bec04b4ae483a30c950bb9、実装先xrd_workbench_v1.2.8。
 - 依頼: 特に同定画面の応答を軽量化。最終600測定を想定。既存同定/科学値/自動保存/履歴を保持し、検証後にDesktop QSへ適用する。
@@ -13,7 +13,13 @@
 - 等価: 600件で10選択、候補/Evidence/Preview/Peaks/Assignmentsの共通29185項目は完全一致。差1050は新版だけ事前step1操作したfocusTable表示105×10のみ。実QSで10選択も照合予定。
 - Native: 新12、workflow43、選択管理26、比較30、同定/コピー102、検出13、計226合格。読取だけでunselected WaveModCount不変、project削除/復元/比較順/重複/空選択、欠損order fallback、step移動、Evidence等価も確認。
 - 試験環境の診断: PowerShell7はGetActiveObject非対応で起動確認不可、Windows PowerShell5.1のfile runnerへ統一して成功。新試験末尾Printの未束縛global直接参照はNumVarOrDefaultへ修正しcompile成功。旧102試験が参照するmissing_hkl120はscratchに手動準備されていたため初回file picker待ち、own専用PIDのみ停止。fixtureを公開テストへ追加しrunnerで必ずコピーして再実行102合格。製品不具合ではない。
-- 現在: 実QS baseline全項目採取済み。Desktop依存先の新版49本体を配置して専用copyで初期化前/後全照合→別名保存→終了/再起動、実QS選択計測と等価、実UI、配布・同名適用へ。未実施は未確認。
+- 実QS: 2358888全項目。新コード初期化前は差5（UI3/表示範囲丸め2）、初期化後は差14（UI10/表示範囲3/active子画面と案内1）、科学差0。別名保存・own PID終了・新プロセス実再読込も同数、差1はactive子画面だけ。全metadata/label/式、UID/同定/参照revision/Undo/格子履歴/科学値保持。保存RTE=0、既存CopyDimLabelToCString出力にも全照合で保持確認。
+- 実QS計測: 同一5選択median309.882→174.096ms。10選択の候補/Evidence/Preview/Peaks/Assignments19451項目完全一致。600件の共通29185項目も一致。計測は専用Automation親非表示・DoUpdateあり、ハードウェア/実表示の速度保証ではない。
+- 検証時native終了: 初回の旧画面終了とCloseProcを同一予約した直後にIgor9.05がucrtbase/c0000409で終了。元QS変更なし。新専用PIDで画面終了・旧entrypoint閉じ・新版読込を分けると成功。内部原因は未確定。再試行後の保存再起動照合は科学差0。
+- 配布: project直下xrd_workbench_v1.2.8フォルダ/ZIP/sha256、284ファイル、49本体IPF、相対include84。旧267ファイルSHA完全一致、新本体7変更・新moduleなし、HTMLリンク19、ZIP全byte照合。ZIP SHA256=188d24f11856453f7c715af9e9db98955c1b5c498de1ae71570f71c2f19ed2f1。
+- 適用: 元Desktop QS_v1.2.4.pxpの最新backupとのhash一致と他Igorなしを確認し、科学値等価を確認したQS_verified_v1.2.8.pxpを同名適用。QS.pxpは保持。通常Igorを起動しprocessのQS_v1.2.4タイトル/応答を確認。実参照先Desktop QS_update_v1.2.8_20261104_170038/xrd_workbench_v1.2.8は284ファイル全byte一致、同フォルダを残す。更新前PXP/旧依存/検証TSVはprivate、研究データ非公開。
+- 通常UI未確認: Windows Computer Useは通常Igorの現在windowを一覧で取得できるが画面捕捉は壁紙、activate_windowはfailed to activate captured window。返されたwindowを再選択して1回再試行も同じためUI操作を停止。通常UIでの最終クリックとCtrl+S追加操作を行ったとは報告しない。PXP自体は検証用コピーで保存/再起動照合済みで同名配置。最終通常Igorは開いたまま。
+- 未確認: 長時間、全DPI/モニター、600曲線の同時描画、旧パス遮断の別PC、全独自Procedure。再開はcodex/xrd-v1.2.8、TEST_RESULTS_v1.2.8、WORK_STATUS1.10.2。完了記録をcommit/pushしremote SHA一致を確認。main未統合。
 
 # 保持した前版記録
 
