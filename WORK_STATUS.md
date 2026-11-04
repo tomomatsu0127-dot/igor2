@@ -1,6 +1,6 @@
 # WORK_STATUS — v1.2.8 / 2026-11-04 JST
 
-管理版: 1.10.0。性能調査中、更新未適用。main未統合。
+管理版: 1.10.1。性能修正・600件計測・226 native合格、実QS互換確認中。更新未適用、main未統合。
 
 - Branch: codex/xrd-v1.2.8、開始cda2df536b32665e41bec04b4ae483a30c950bb9、実装先xrd_workbench_v1.2.8。
 - 依頼: 特に同定画面の応答を軽量化。最終600測定を想定。既存同定/科学値/自動保存/履歴を保持し、検証後にDesktop QSへ適用する。
@@ -8,7 +8,12 @@
 - 現行実QS: 5 project、24 measurement、70,908 raw points、161 peaks、85 references。専用Igor9.05 64-bit、COM一意marker確認後backupコピーを読込。
 - 初回測定: comparePaths 94–127ms、chooser26–29ms、score57–94ms、live178–222ms、select+live+draw334–457ms。同条件で600件人工測定との比較を進める。
 - コード原因候補: 比較対象5件を返すXRD120_ComparePathsがAllMeasurementPathsを経由し全件EnsureMeasurement→Normalize/PeakTable、DataChooserは使わない全件sort、step再構築はUpgradeProjectが全測定のpreview/evidence更新。測定・呼出し証拠に基づいて最小変更する。
-- 現在: baseline全項目TSVを採取中。次に600件の合成データで旧版の同条件測定、修正、同定等価/性能/UI/保存再起動互換試験、配布・同名適用。未実施は未確認。
+- 実装: 一覧の既存stackOrder読取はEnsureを省略（欠損時のみ従来初期化）。比較は選択UIDだけを解決しproject/measurement削除を即時検証。chooserの未使用sortを除去。同一projectのstep移動は全Upgradeを省略。PreviewReference後の同じEvidence再計算を除去。科学式、採用、Undo、参照、autosave不変。
+- 600 synthetic×4001点×30ピーク、比較5、85参照（合計624測定/2471508点）: 選択median2804.88→156.721ms、refresh7229.25→261.063ms。選択120回、warmup60後のWave17257→17257。全波形メモリリーク不存在の保証ではない。
+- 等価: 600件で10選択、候補/Evidence/Preview/Peaks/Assignmentsの共通29185項目は完全一致。差1050は新版だけ事前step1操作したfocusTable表示105×10のみ。実QSで10選択も照合予定。
+- Native: 新12、workflow43、選択管理26、比較30、同定/コピー102、検出13、計226合格。読取だけでunselected WaveModCount不変、project削除/復元/比較順/重複/空選択、欠損order fallback、step移動、Evidence等価も確認。
+- 試験環境の診断: PowerShell7はGetActiveObject非対応で起動確認不可、Windows PowerShell5.1のfile runnerへ統一して成功。新試験末尾Printの未束縛global直接参照はNumVarOrDefaultへ修正しcompile成功。旧102試験が参照するmissing_hkl120はscratchに手動準備されていたため初回file picker待ち、own専用PIDのみ停止。fixtureを公開テストへ追加しrunnerで必ずコピーして再実行102合格。製品不具合ではない。
+- 現在: 実QS baseline全項目採取済み。Desktop依存先の新版49本体を配置して専用copyで初期化前/後全照合→別名保存→終了/再起動、実QS選択計測と等価、実UI、配布・同名適用へ。未実施は未確認。
 
 # 保持した前版記録
 

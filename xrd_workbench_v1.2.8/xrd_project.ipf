@@ -208,8 +208,13 @@ Function/S XRD_MeasurementOrderList(project)
         if(NumVarOrDefault(path+":deleted",0))
             continue
         endif
-        XRD_EnsureMeasurement(path)
-        NVAR order=$(path+":stackOrder")
+        // Listing is read-only for initialized measurements. Ensuring here
+        // normalizes raw data and rebuilds peak tables for every list query.
+        NVAR/Z order=$(path+":stackOrder")
+        if(!NVAR_Exists(order))
+            XRD_EnsureMeasurement(path)
+            NVAR order=$(path+":stackOrder")
+        endif
         orders[kept]=order
         names[kept]=PossiblyQuoteName(name)
         kept+=1

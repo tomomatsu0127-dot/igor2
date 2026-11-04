@@ -77,13 +77,8 @@ Function XRD110_DataChooser()
     if(!WinType("XRDWorkbench"))
         return 0
     endif
-    String project=XRD_Project(),list=XRD127_MeasurementList(project),path=XRD_Data()
-    Variable i,selected=1
-    for(i=0;i<ItemsInList(list);i+=1)
-        if(cmpstr(path,project+":Measurements:"+StringFromList(i,list))==0)
-            selected=i+1
-        endif
-    endfor
+    // This control is a button: the sorted list is needed only when opened.
+    String path=XRD_Data()
     ControlInfo/W=XRDWorkbench measurementLabel
     if(V_flag!=1)
         KillControl/W=XRDWorkbench measurementLabel

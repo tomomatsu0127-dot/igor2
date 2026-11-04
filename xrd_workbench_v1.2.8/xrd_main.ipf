@@ -1,5 +1,5 @@
 ﻿#pragma rtGlobals=3
-#pragma version=1.27
+#pragma version=1.28
 #include ":xrd_project"
 #include ":xrd_import"
 #include ":xrd_peak"
@@ -50,7 +50,7 @@
 #include ":xrd_transfer120"
 #include <Peak AutoFind>
 
-// XRD Workbench v1.2.7; Igor Pro 9+. Load this entry point only.
+// XRD Workbench v1.2.8; Igor Pro 9+. Load this entry point only.
 Menu "XRD Workbench"
     "プロジェクト画面へ/F6", XRD_Open()
     "プロジェクト・測定データ一覧...", XRD80_ProjectManager()

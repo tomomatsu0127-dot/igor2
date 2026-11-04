@@ -1,5 +1,5 @@
 ﻿#pragma rtGlobals=3
-// XRD Workbench v1.2.7. Japanese guided workflow UI.
+// XRD Workbench v1.2.8. Japanese guided workflow UI.
 
 Function XRD_Panel()
     PauseUpdate; Silent 1
@@ -8,7 +8,11 @@ Function XRD_Panel()
     endif
     XRD_CapturePanelState(1)
     XRD_CaptureView()
-    XRD_Init()
+    // Changing steps in the same initialized project must not upgrade and
+    // preview every measurement again. A new frame/project still initializes.
+    if(!WinType("XRDWorkbench") || cmpstr(GetUserData("XRDWorkbench","","XRDProject"),XRD_Project())!=0 || NumVarOrDefault("root:Packages:XRDWorkbench:Schema:schemaVersion",0)<800)
+        XRD_Init()
+    endif
     if(!strlen(XRD_Project()))
         return XRD80_ProjectManager()
     endif
@@ -22,12 +26,12 @@ Function XRD_Panel()
     step=max(1,min(4,step))
     Variable newFrame=!WinType("XRDWorkbench")
     if(newFrame)
-        NewPanel/K=1/EXP=1/N=XRDWorkbench/W=(10,10,868,520) as "XRD Workbench v1.2.7 - "+projectName
+        NewPanel/K=1/EXP=1/N=XRDWorkbench/W=(10,10,868,520) as "XRD Workbench v1.2.8 - "+projectName
     else
         // Invalidate old geometry before constructing the next screen.
         SetWindow XRDWorkbench userdata(XRDLayoutReady)="0"
         XRD120_ClearContents()
-        DoWindow/T XRDWorkbench,"XRD Workbench v1.2.7 - "+projectName
+        DoWindow/T XRDWorkbench,"XRD Workbench v1.2.8 - "+projectName
     endif
     ModifyPanel/W=XRDWorkbench fixedSize=0
     XRD_UISettings()

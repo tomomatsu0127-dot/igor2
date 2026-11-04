@@ -41,10 +41,42 @@ Function XRD128_Measure(operation,repeat)
             case "upgrade":
                 result=XRD_UpgradeProject(project)
                 break
+            case "steps":
+                Variable/G $(project+":activeStep")=SelectNumber(mod(i,2)==0,1,3)
+                result=XRD_Panel();XRD_LiveDeferred();DoUpdate
+                break
         endswitch
         ms=StopMSTimer(timer)/1000
         Print "PERF128",operation,i,ms,result
     endfor
+End
+
+Function XRD128_Waves(base)
+    String base
+    DFREF folder=$base
+    Variable total=CountObjectsDFR(folder,1),i
+    for(i=0;i<CountObjectsDFR(folder,4);i+=1)
+        total+=XRD128_Waves(base+":"+PossiblyQuoteName(GetIndexedObjNameDFR(folder,4,i)))
+    endfor
+    return total
+End
+
+Function XRD128_ResultDump(destination)
+    String destination
+    String path=XRD_Data()
+    Wave peaks=$(path+":Peaks:angle")
+    Variable file,i
+    Open file as destination
+    for(i=0;i<min(numpnts(peaks),10);i+=1)
+        XRD_ScoreCandidates(path,i)
+        XRD127_DumpFolder(path+":Candidates",file)
+        XRD127_DumpFolder(path+":Evidence",file)
+        XRD127_DumpFolder(path+":Preview",file)
+        XRD127_DumpFolder(path+":Peaks",file)
+        XRD127_DumpFolder(path+":Assignments",file)
+    endfor
+    Close file
+    Print "RESULT128_DUMP_OK",destination
 End
 
 Function XRD128_Make600()

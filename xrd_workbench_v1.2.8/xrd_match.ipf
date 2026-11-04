@@ -222,8 +222,7 @@ Function XRD_PreviewCandidate(path,candidateRow)
     Variable/G $(path+":Preview:reflectionIndex")=reflectionRows[candidateRow]
     XRD_ReferenceArrow(path)
     XRD_RequestLive()
-    XRD_BuildEvidence(path,refs[candidateRow],shifts[candidateRow])
-    XRD_UpdateEvidenceUI(path)
+    // PreviewReference already built the identical evidence and updated its UI.
     return result
 End
 

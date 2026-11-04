@@ -1,0 +1,91 @@
+{
+  "version": "1.2.8",
+  "environment": "Igor Pro 9.05 64-bit, Windows, one workstation",
+  "workload": {
+    "synthetic_measurements": 600,
+    "points_each": 4001,
+    "peaks_each": 30,
+    "comparison_measurements": 5,
+    "references": 85,
+    "total_measurements_in_experiment": 624,
+    "total_raw_points": 2471508
+  },
+  "milliseconds": {
+    "comparePaths": {
+      "v127": [
+        2356.73,
+        2407.28,
+        2394.43
+      ],
+      "v128": [
+        1.3413,
+        0.832,
+        0.7311
+      ],
+      "median_v127": 2394.43,
+      "median_v128": 0.832,
+      "median_speedup": 2877.920673076923
+    },
+    "chooser": {
+      "v127": [
+        2374.94,
+        1956.46,
+        2109.24
+      ],
+      "v128": [
+        0.1478,
+        0.1175,
+        0.113
+      ],
+      "median_v127": 2109.24,
+      "median_v128": 0.1175,
+      "median_speedup": 17950.978723404256
+    },
+    "select": {
+      "v127": [
+        3007.96,
+        2783.59,
+        2804.88,
+        2754.16,
+        2825.85
+      ],
+      "v128": [
+        148.23,
+        150.637,
+        160.736,
+        158.239,
+        156.721
+      ],
+      "median_v127": 2804.88,
+      "median_v128": 156.721,
+      "median_speedup": 17.897282431837468
+    },
+    "refresh": {
+      "v127": [
+        7302.54,
+        6851.48,
+        7229.25
+      ],
+      "v128": [
+        254.803,
+        302.117,
+        261.063
+      ],
+      "median_v127": 7229.25,
+      "median_v128": 261.063,
+      "median_speedup": 27.691591684765747
+    }
+  },
+  "memory": {
+    "identification_selections": 120,
+    "warmup_selections": 60,
+    "count_before_last_60": 17257,
+    "count_after_last_60": 17257,
+    "scope": "No global Wave count growth after warmup; not proof against all leaks or a long-run guarantee."
+  },
+  "limits": [
+    "600 synthetic stored measurements, 5 displayed; not 600 simultaneously displayed traces.",
+    "Sampled repeats include redraw; first import/compilation excluded.",
+    "Timing and working set depend on hardware and input complexity."
+  ]
+}

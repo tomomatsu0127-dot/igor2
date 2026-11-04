@@ -1,5 +1,5 @@
 ﻿#pragma rtGlobals=3
-// v1.2.7: retain the native frame and separate view state from analysis.
+// v1.2.8: retain the native frame and separate view state from analysis.
 Function XRD120_CanRefresh()
     if(!WinType("XRDWorkbench") || cmpstr(GetUserData("XRDWorkbench","","XRDUIVersion"),"1.2.3")!=0)
         return 0
@@ -12,7 +12,7 @@ Function XRD120_RefreshPanel()
     PauseUpdate; Silent 1
     String project=XRD_Project(),path=XRD_Data()
     Variable step=NumVarOrDefault(project+":activeStep",1)
-    DoWindow/T XRDWorkbench,"XRD Workbench v1.2.7 - "+XRD_ProjectDisplayName(project)
+    DoWindow/T XRDWorkbench,"XRD Workbench v1.2.8 - "+XRD_ProjectDisplayName(project)
     XRD_CapturePanelState(1)
     XRD_CaptureView()
     XRD_EnsureFilterCurrent(path)
@@ -138,13 +138,16 @@ Function/S XRD120_CompareSettings()
 End
 
 Function/S XRD120_ComparePaths()
-    String base=XRD120_CompareSettings(),all=XRD_AllMeasurementPaths(0),out="",path,project=XRD_Project(),names
+    String base=XRD120_CompareSettings(),projects=XRD_ProjectList(),out="",path,project=XRD_Project(),names,owner
     Wave/T/Z selected=$(base+":uids")
     Variable i
     if(WaveExists(selected))
         for(i=0;i<numpnts(selected);i+=1)
             path=XRD80_ResolveMeasurement(selected[i])
-            if(strlen(path) && WhichListItem(path,all)>=0 && WhichListItem(path,out)<0)
+            // Resolve only selected UIDs. Enumerating all measurements here
+            // used to normalize/rebuild every sample on each preview click.
+            owner=XRD80_ProjectForMeasurement(path)
+            if(strlen(path) && WhichListItem(owner,projects)>=0 && !NumVarOrDefault(path+":deleted",0) && WhichListItem(path,out)<0)
                 out+=path+";"
             endif
         endfor

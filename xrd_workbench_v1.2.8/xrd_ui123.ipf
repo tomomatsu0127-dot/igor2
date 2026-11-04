@@ -1,4 +1,4 @@
-#pragma rtGlobals=3
+﻿#pragma rtGlobals=3
 // v1.2.3: auxiliary panels must not take over the MDI maximize state.
 Function/S XRD123_PanelState(win)
     String win

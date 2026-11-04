@@ -263,3 +263,9 @@ Desktopの最新QS_v1.2.4.pxpと更新前backupのhash一致、他Igorなしを�
 ## 2026-11-04 v1.2.8 性能調査開始
 
 ユーザーが同定画面を中心とする軽量化を依頼、最終600測定を想定。開始cda2df5からcodex/xrd-v1.2.8へ、新番号一式を複製。現行Igorなし、最新40MB QSの独立backupと旧IPF依存一式を保持しhash一致。現行24測定/85参照の選択+live描画334–457msを実測。全測定を正規化する比較パス取得とchooser/upgradeの全件処理を調査。実QS基準TSV、600件人工workload、旧新の同条件計測へ。初期測定と次操作はWORK_STATUS管理版1.10.0。未更新。
+
+## 2026-11-04 v1.2.8 性能修正とnative確認
+
+全件Ensureを比較/listing経路から除き、同projectのstep変更で全Upgradeを繰り返さず、chooserの未使用sortとpreviewのEvidence重複を除去。600合成測定/比較5/85参照のmedian選択2804.88→156.721ms、更新7229.25→261.063ms。120選択でwarm後global Wave数17257→17257。候補等10選択の共通29185項目が等価。新12+既存43/26/30/102/13=226 native合格。実QS全互換・再起動・UI・同名適用は未完。
+
+環境診断はSTATUS1.10.1。既存試験のscratch専用missing_hkl120 fixture未準備でファイル選択待ちになったown test PIDだけ停止し、汎用fixtureと再現可能なrunner準備を追加して102再合格。PowerShell COM/Print試験記述も修正。製品に診断や試験用データは残さない。
