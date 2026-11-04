@@ -1,0 +1,5 @@
+# card_number: QS-D
+# name: Added QS card
+# phase_class: QS-type
+h k l I 2theta
+1 0 0 100 30.13

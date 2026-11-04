@@ -1,3 +1,17 @@
+﻿# WORK_STATUS — v1.2.7 / 2026-11-04 JST
+
+管理版: 1.9.0。実装とnative検証中。指定QS適用前。main未統合。
+
+- Branch: codex/xrd-v1.2.7。開始SHA: 8af51131b53cc95a97c6429e56363f5fd4c48b4d。実装先 xrd_workbench_v1.2.7。
+- Scope: 測定chooserとtreeの通し番号順、project上下移動、登録成功時に画面を閉じる、突出量初期値5%と変更UI、番号→組成→表示名のTabと組成→表示名連動、新規projectの引用符不要入力、既存ソフト調査に基づく追加。
+- 原因: chooserがstackOrder（取込順）を流用。project一覧は物理folder列挙順。floating登録画面のDoWindow/K。登録連動が表示名→組成。新規projectはDoPromptで引用符付き文字入力。突出量は0.5の固定値。
+- 実装: xrd_workflow127に番号文字列の桁数/辞書順sort（float変換なし）、project UID順序、初期値設定、非modalのproject追加form、前/次の未同定ピーク移動。旧plot stackOrderと比較順を保持。新規測定defaultと標準presetを設定値へ、既存測定はEnsureNumericで保持。弱/ノイズpresetは設定値とのmin/maxで意味を保持。
+- UI: number→composition→labelの作成順と位置。組成の変更/blurのみlabel同期、手動label入力と単なる再focusは保持。コピーpickerも同期基準値を更新。登録成功はKillWindow/Z、失敗時の下書き保持は既存どおり。
+- 調査: HighScore公式Quick Startの未説明ピーク確認workflow、Match!公式Peak Searching/Function Listを参照。追加は未同定ピーク巡回とdefault設定に限定。科学計算や自動同定を拡張しない。
+- 保持: 旧版全ファイルSHAをdocs/BASELINE_FOR_v1.2.7.json。最新Desktop QS（約38MB）と旧依存一式を新番号backupへ保存。開始時Igorなし。研究データはrepo外。sourcesはread-only。
+- 検証: 新版compile成功、v125選択/管理26合格。今回新試験を実行中。実QS旧版基準はbaseline64でread-only採取済み。最終互換/再起動/配布/同名適用/UIは未完。
+- 診断: 初回専用IgorのCOM登録が5秒で間に合わず失敗（data読込前、own PIDのみ終了）。再試行で成功。worker/runnerに30秒以内の登録待ちと一意marker照合を追加。dump helper127は反復するpathのescapeをWaveごとに行い値は全件保存。旧helperとの完全一致を人工文字/metadataで検査予定。
+- 次: native新試験、既存102/比較30/ピーク26/検出、実UI、実QSコピーで初期化前後→別名保存→own Igor終了→新プロセス再読込全項目比較、Desktop同名QSへ適用。
 # WORK_STATUS — v1.2.6 / 2026-11-04 JST
 
 管理版: 1.8.2。実装・native/UI・実PXP保存再起動・配布・指定QS適用完了。main未統合。

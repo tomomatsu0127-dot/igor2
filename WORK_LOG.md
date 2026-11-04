@@ -237,3 +237,6 @@
 元Desktop QS_v1.2.4.pxpは元backupとのhash一致を確認してから、検証済みv1.2.6コピーへ置換。通常Igorで開き、タイトルv1.2.6、新比較設定をボタンから開く/取消、最大化を確認しCtrl+Sで表示状態も保存。更新前PXP、旧IPF依存一式、stage/verifiedをDesktopの番号付きbackupへ保管。同フォルダ内新版48 IPFが実際の外部参照先なので保持案内も配置。QS.pxpとsources/元データには変更なし。
 
 251ファイル、48本体IPF、相対include79本、ZIP全バイトSHA照合成功。配布SHA=d816ee1023249997bc61b7d138663c96fd407a5e03740a2e3318a646ff57412e。旧版全ファイルもSHA一致。未確認は全DPI/モニター・長時間・旧パス遮断移設・全独自Procedure。main未統合。再開はcodex/xrd-v1.2.6とTEST_RESULTS_v1.2.6、WORK_STATUS管理版1.8.2。
+
+## 2026-11-04 v1.2.7 実装チェックポイント
+測定番号順、project UID順、登録終了、5%の初期値と変更UI、組成→表示名連動、plain textのproject追加、未同定ピーク巡回を実装。開始8af5113、branch codex/xrd-v1.2.7。既存plot/比較順・科学値を保持。compile/v125選択管理26合格、新試験実行中。最新38MB QS/依存backupとread-only基準採取済み。調査・判断と次操作はWORK_STATUS管理版1.9.0。実PXP互換・UI・適用は未完。

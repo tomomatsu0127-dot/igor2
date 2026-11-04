@@ -1,0 +1,8 @@
+# card_number: QS-01
+# formula: Ba2 Mg2 Fe12 O22
+# name: Test QS-01
+# phase_class: QS-type
+h k l I 2theta
+1 0 0 100 30
+1 1 0 50 40
+2 0 0 25 50

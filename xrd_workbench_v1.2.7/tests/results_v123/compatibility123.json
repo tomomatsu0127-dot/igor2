@@ -1,0 +1,18 @@
+{
+  "date_jst": "2026-10-29",
+  "igor": "9.05 Windows 64-bit",
+  "fixture": "validated synthetic v1.2.2 PXP; no user data",
+  "old_records": 185889,
+  "new_preinit_records": 185889,
+  "code_load_and_initialization_matches_old_control": true,
+  "close_hook_only_change": {
+    "S|root:Packages:Workbench:Management:Project1:Measurements:'015':uiActiveChild": {
+      "old": "XRDWorkbench#Pattern",
+      "new": "XRDWorkbench"
+    }
+  },
+  "postinit_records": 185889,
+  "restart_records": 185889,
+  "restart_changes": 0,
+  "all_final_native_assertions": 763
+}
