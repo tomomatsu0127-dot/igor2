@@ -10,6 +10,7 @@ Function XRD126_ComparePanel()
     String base=XRD126_Draft(),settings=XRD120_CompareSettings(),selected=XRD_ComparePaths(),state=XRD123_PanelState("XRDCompareSelection")
     Wave/T paths=$(base+":paths")
     Wave flags=$(base+":flags")
+    String/G $(base+":settings126")=settings
     Make/O/T/N=(ItemsInList(selected)) $(base+":order126")
     Wave/T order=$(base+":order126")
     Variable i
@@ -20,9 +21,9 @@ Function XRD126_ComparePanel()
     Variable/G $(base+":references126")=NumVarOrDefault(settings+":references126",1)
     Variable/G $(base+":peaks126")=NumVarOrDefault(settings+":peaks126",1)
     Variable/G $(base+":phases126")=NumVarOrDefault(settings+":phases126",1)
+    KillWindow/Z XRDCompareSelection
     XRD126_SyncDraft()
     PauseUpdate; Silent 1
-    KillWindow/Z XRDCompareSelection
     NewPanel/FLT=1/N=XRDCompareSelection/K=1/W=(55,55,1085,675) as "比較する試料の追加・除外と表示設定"
     ModifyPanel/W=XRDCompareSelection fixedSize=0
     DefaultGUIFont all={"Segoe UI",12,0}
@@ -45,7 +46,43 @@ Function XRD126_ComparePanel()
     Button apply126,pos={530,558},size={300,32},title="比較図に反映",proc=XRD126_Button
     Button cancel126,pos={845,558},size={165,32},title="キャンセル",proc=XRD126_Button
     SetWindow XRDCompareSelection hook(wheel110)=XRD110_WheelHook
+    SetWindow XRDCompareSelection hook(resize126)=XRD126_ResizeHook
+    SetWindow XRDCompareSelection sizeLimit={900,540,inf,inf}
     XRD123_FinishPanel("XRDCompareSelection",state)
+    XRD126_Layout()
+    return 0
+End
+
+Function XRD126_ResizeHook(s)
+    STRUCT WMWinHookStruct &s
+    if(s.eventCode==6)
+        XRD126_Layout()
+    endif
+    return 0
+End
+
+Function XRD126_Layout()
+    if(!WinType("XRDCompareSelection"))
+        return 0
+    endif
+    GetWindow XRDCompareSelection wsizeForControls
+    Variable width=V_right,height=V_bottom,col=(width-45)/2,right=30+col,body=height-260
+    TitleBox help,win=XRDCompareSelection,size={width-30,32},fixedSize=1
+    TitleBox selected,win=XRDCompareSelection,pos={right,46}
+    ListBox samples,win=XRDCompareSelection,size={col,body},widths={35,col-175,120}
+    ListBox selected126,win=XRDCompareSelection,pos={right,75},size={col,body-75},widths={col*0.6,col*0.36}
+    Button remove126,win=XRDCompareSelection,pos={right,body+12},size={col*0.33-5,28}
+    Button up126,win=XRDCompareSelection,pos={right+col*0.34,body+12},size={col*0.33-5,28}
+    Button down126,win=XRDCompareSelection,pos={right+col*0.68,body+12},size={col*0.32,28}
+    Button clear126,win=XRDCompareSelection,pos={right,body+50},size={col*0.33-5,28}
+    TitleBox count126,win=XRDCompareSelection,pos={right+col*0.36,body+55}
+    GroupBox display126,win=XRDCompareSelection,pos={15,height-165},size={width-30,80}
+    SetVariable spacing126,win=XRDCompareSelection,pos={30,height-136}
+    CheckBox references126,win=XRDCompareSelection,pos={270,height-135}
+    CheckBox phases126,win=XRDCompareSelection,pos={420,height-135}
+    CheckBox peaks126,win=XRDCompareSelection,pos={600,height-135}
+    Button apply126,win=XRDCompareSelection,pos={right,height-62},size={col*0.62,32}
+    Button cancel126,win=XRDCompareSelection,pos={right+col*0.65,height-62},size={col*0.35,32}
     return 0
 End
 
@@ -70,7 +107,8 @@ Function XRD126_SyncDraft()
     SetDimLabel 1,1,'プロジェクト',table
     XRD110_TreeBuild(2)
     if(WinType("XRDCompareSelection"))
-        ControlUpdate/W=XRDCompareSelection samples,selected126
+        ControlUpdate/W=XRDCompareSelection samples
+        ControlUpdate/W=XRDCompareSelection selected126
         TitleBox count126,win=XRDCompareSelection,title=num2istr(numpnts(order))+" 試料"
     endif
     return 0
@@ -133,7 +171,10 @@ Function XRD126_EditOrder(action,row)
 End
 
 Function XRD126_Apply()
-    String base=XRD126_Draft(),settings=XRD120_CompareSettings()
+    String base=XRD126_Draft(),settings=StrVarOrDefault(base+":settings126","")
+    if(!strlen(settings) || !DataFolderExists(settings))
+        return -1
+    endif
     Wave/T order=$(base+":order126")
     Make/O/T/N=(numpnts(order)) $(settings+":uids")
     Wave/T uids=$(settings+":uids")
@@ -194,7 +235,10 @@ Function/S XRD126_Name(data,ref,suffix)
         if(!strlen(stem))
             stem=XRD110_SampleLabel(data)+"_"+XRD_ProjectDisplayName(XRD_PlotOwner(data))
         endif
-        name="int_"+SelectString(ref>0,"",XRD_PhaseLabel(ref)+"_")+stem
+        name="int_"+stem
+        if(ref>0)
+            name="int_"+XRD_PhaseLabel(ref)+"_"+stem
+        endif
     endif
     // Preserve room for a role and card discriminator even for 255-byte aliases.
     return CleanupName(name,1,200)+suffix
@@ -202,7 +246,12 @@ End
 
 Function/S XRD126_Trace(win,name)
     String win,name
-    String base=CleanupName(name,0,220),trace=base,list=""
+    String digits="₀;₁;₂;₃;₄;₅;₆;₇;₈;₉",list=""
+    Variable digit
+    for(digit=0;digit<10;digit+=1)
+        name=ReplaceString(StringFromList(digit,digits),name,num2istr(digit))
+    endfor
+    String base=CleanupName(name,0,220),trace=base
     Variable i=2
     if(WinType(win))
         list=TraceNameList(win,";",1)

@@ -1,15 +1,15 @@
 ﻿# WORK_STATUS — v1.2.6 / 2026-11-04 JST
 
-管理版: 1.8.0。実装途中、native検証前。main未統合。
+管理版: 1.8.1。実装・native検証済み。実PXP最終再起動検証・配布前。main未統合。
 
 - Branch: codex/xrd-v1.2.6。開始SHA: 045748ddf1ec7a1a50ec421266d74856b1cb183f。実装先 xrd_workbench_v1.2.6。
 - Scope: 比較試料の除外・順序・表示設定、既存登録Wave名の活用。解析とschemaは不変。
 - 原因: 比較にはチェック選択だけがあり順序は全測定列挙順。ライブ作図がintensityN/MM_UID_R等の一時名を使い、既存namedIndex100を参照しない。
 - 実装: 順序付きdraft、除外/全解除/上下移動/取消/反映。間隔、参照線、同定/未同定マーク表示。side/review測定線は既存の依存式付き登録Waveを直接表示しoffsetを使用。marker/referenceは表示用cacheのみ読みやすく命名。旧主図のcursor名と保存済みrecipe経路は維持。
 - 保持: 旧版全ファイルhashをdocs/BASELINE_FOR_v1.2.6.json、実QSと旧IPF一式をDesktopの番号付きbackupへ保存。研究データはrepo外。開始時Igor起動なし。
-- 未確認: 新版コンパイル、native/UI、保存再起動、配布・指定QS適用はこれから。
+- 確認: 新版30、専用Igor終了/再起動4、既存同定・コピー102が合格。実UIで除外、順序、反映とトレース編集一覧を確認。前回修正26も合格、最終コードで再実行中。実QS975914項目の初期化前比較はUI位置4件だけ。\n- 未確認: 実QS最終コードの保存再起動、配布・指定QS適用はこれから。
 - 環境: COM New-Objectは32bit登録へ接続するため、64bit専用PIDを起動後GetActiveObject+一意marker照合。既存登録は変更しない。
-- 次: tools/run_igor_v126.ps1でnative検証。実QS旧版baseline採取中。元PXPは利用者明示の更新依頼により、全検証後に同名へ適用する。
+- 次: 実QS stageを専用Igorへ読み込み最終moduleを確認、科学値全比較・最終別名保存・再起動。元PXPは利用者明示の更新依頼により、全検証後に同名へ適用する。\n- 注意: 外部IPF差替え後に既に読込まれたincludeが残る場合をProcedureTextで確認。最終確認は新しいプロセスで行う。v1.2.6の保存実験は新パスを参照する。
 # WORK_STATUS — v1.2.5 / 2026-10-30 JST
 
 管理版: 1.7.1。修正・native/UI・実PXP保存再起動確認・指定PXP適用完了。main未統合。

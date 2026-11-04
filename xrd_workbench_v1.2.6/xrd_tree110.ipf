@@ -28,7 +28,7 @@ Function XRD110_TreeBuild(kind)
             n+=ItemsInList(XRD_MeasurementOrderList(project))
         endif
     endfor
-    Make/O/T/N=(n,3) $(base+":table")
+    Make/O/T/N=(n,3) $(base+":table")=""
     Make/O/T/N=(n) $(base+":map"),$(base+":owners")
     Make/O/D/N=(n) $(base+":types")
     Make/O/B/U/N=(n,3) $(base+":flags")=0
