@@ -221,3 +221,6 @@
 - source production47 IPFはDesktop展開先とbyte hash一致。旧v1.2.4全ファイルは基準hash一致。研究データ・個別比較JSON/TSVをGitへ追加しない。main未統合。追加変更なし。
 - 最終実QSの通常起動後にも、利用者が停止を報告したプロジェクトの選択→名前変更入力画面が前面表示→Escape取消→管理画面復帰を実クリック確認。名前・研究データは変更せず、通常Igorは開いたまま残す。
 - 配布: ワークスペース直下xrd_workbench_v1.2.5/とZIP/sha256。更新済みDesktop依存一式の文書も同期。原本.pxp・研究データは配布ZIP/リポジトリへ含めない。新規ZIP全エントリのbyte一致とinclude存在を確認。
+
+## 2026-11-04 v1.2.6 実装チェックポイント
+比較の除外・順序・表示設定と既存Wave名再利用を実装中。開始045748d、branch codex/xrd-v1.2.6。対象と原因・次操作はWORK_STATUS v1.8.0。新規実装のnative検証は未実行。旧版と実QSのbackup保持。
