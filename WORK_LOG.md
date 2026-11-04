@@ -245,3 +245,17 @@
 新43 + 新プロセス再読込6 + 既存102 + 比較30 + 選択/管理26 + native検出13 = 220合格。実UIで番号入力→Tab組成→Tab表示名自動反映、登録成功終了、引用符なしproject作成、project上移動選択保持、初期値5%保存を確認。入力はComputer UseのUnicode type_textがIgor編集で反映されないためキー操作で確認。試験中の外部source変更でcompile前通知を出したが再compile後正常。native detector初回はfixture_v070指定にnoisy_*がなくファイル選択待ちとなったためown専用PIDだけ停止し、正しいfixture_v060で13合格。COM marker不一致の別試験起動はdata読込前に中止。製品コードに診断を残さない。
 追加完了後の比較横軸0..0を実UIで確認。主図再構築後のXRD_SyncSideRangeで20..70へ復帰するため登録完了の最後に同期を追加、native43に範囲一致の回帰を追加。空projectで無題Newボタンが生成される原因は存在しないdetectorSettingsの部分変更だった。明示title/procと無効化、空headerの案内を追加しnative確認。
 実QSは2189758項目をread-only採取（complex Wave 0）。高速helper127と旧helper120は人工値/Unicode/metadataのTSV全byte一致。実QSの前後/保存再起動照合・同名適用は未完。
+
+## 2026-11-04 v1.2.7 実QS互換・最終検証完了
+
+最終43+6+102+30+26+13=220 native合格。最後のUI変更後も既存102/30/26/13を再実行。final runner初回のnested PowerShellがcommandの引用符を落としたため、同じPowerShell内でscriptを直接呼び出す形に修正し全再合格。公開ログは最後の成功runのみ、失敗試行はscratchに保持。
+
+実QSの2189758項目を基準に両Workbench全値/metadata/UID/科学revision/履歴を比較。新版初期化前差4 UI、初期化後2189760差15（prefs2/UI11/active子画面と案内2）。科学差0。別名保存→専用PID終了→新プロセス再読込の2189760項目は差9（UI8/active子画面1）だけ。CopyDimLabelToCString出力に対して全label含め保存再読込比較し保持確認。研究データ/詳細TSVはrepo外。
+
+新manual/README/比較採用理由を作成、既存初心者/更新ガイドも新仕様へ。旧251ファイル全SHA一致、最新49 productionと実依存先のbyte一致、相対include83本、配布267ファイル/ZIP全byte確認。ZIP SHA256=7f5a83723e784752100d126c50a3dcce6859e7dfa82f910a8391575845aa1166。次は同名Desktop QSへ明示依頼どおり適用し通常UI確認。main未統合。
+
+## 2026-11-04 v1.2.7 Desktop適用完了
+
+Desktopの最新QS_v1.2.4.pxpと更新前backupのhash一致、他Igorなしを確認してから検証済みQSへ同名適用。49本体IPFを含む新版一式をDesktopの番号付き更新フォルダへ配置。通常Igor 9.05 64-bitで起動しタイトルv1.2.7、測定chooser054→055→057、ピーク初期値5%を実画面で確認。設定確認は取消し、主画面最大化でCtrl+S保存。利用者のQSは開いたままにした。旧QS.pxpと更新前PXP/旧依存は保持。適用先の保存後hashはprivate deployment.jsonへ記録。
+
+新規初期値5%は今後追加する測定と標準presetに使い、既存測定条件を保持。登録とproject入力の操作確認は人工データで実施し、実QSで試験用測定やprojectを追加していない。220 native合格、実QS全値の保存再起動比較で科学差0という検証結果は上記のとおり。全DPI/モニター、長時間、旧パス遮断の別PC移設、全独自Procedureは未確認。WORK_STATUS管理版1.9.3、変更記録のみを追加commit/pushしmain未統合で完了。

@@ -1,4 +1,23 @@
-﻿# WORK_STATUS — v1.2.7 / 2026-11-04 JST
+# WORK_STATUS — v1.2.7 / 2026-11-04 JST
+
+管理版: 1.9.3。実装・最終native/UI・実QS保存再起動・配布検証・Desktop同名適用完了。main未統合。
+
+- Branch: codex/xrd-v1.2.7、開始8af51131b53cc95a97c6429e56363f5fd4c48b4d、実装先xrd_workbench_v1.2.7。
+- 完了: 測定番号順、project UID上下順序、登録完了終了/最後の比較横軸同期、5%の新規初期値と変更UI、番号→組成→表示名Tabと組成→表示名同期、引用符なしproject追加、空project案内、未同定ピーク前/次移動。
+- 科学計算/schema/既存測定条件/登録Wave名/比較順/手動stack順は保持。project順序と初期値はPreferences127に保存。12本体IPF変更と新module1、49本体IPF。
+- Native最終: 新43、別プロセス保存再読込6、既存同定/コピー102、比較30、ピーク選択/管理26、native検出13、計220合格。最終コードで全件再実行。tests/results_v127。
+- 実UI: キー入力とTabでnumber→composition→label、x=0.7自動反映、登録成功終了、plain project作成、project上移動と選択保持、初期値5%保存を確認。source変更中のcompile通知は専用の模擬実験だけ。本文内のolder画像には注記し、初心者/更新マニュアルも新入力順へ更新。
+- 実QS: 新しい38MBディスク保存版をbackup。両Workbench全値2189758項目、complex Wave 0。新版初期化前はUI4件のみ。初期化後2189760項目、差15は新prefs folder/5%設定2、UI11、active子画面/自動保存案内2だけ。科学値/UID/同定/SharedLibrary/全Wave metadata/formula/Undo/格子履歴/既存作図不変。
+- 保存再起動: 専用PID終了→新プロセス実再読込→2189760項目全比較。差9はUI8とactive子画面1のみ、科学差0。保存時の既存CopyDimLabelToCString出力はRTE=0で、label含む全比較で保持確認。詳細TSV/利用者PXPは非公開。
+- 旧版251ファイルSHA一致。helper127と旧120の全byte一致を数値/Unicode/text/metadataで確認。研究データ/sources/元測定/参照へ変更なし。
+- 配布: ワークスペース直下のxrd_workbench_v1.2.7とZIP/sha256。267ファイル、49本体IPF、相対include83、ZIP全byte一致。SHA256=7f5a83723e784752100d126c50a3dcce6859e7dfa82f910a8391575845aa1166。
+- 適用: 元Desktop QS_v1.2.4.pxpのhashを最新backupと照合し、検証済み新版へ置換。通常Igor 9.05 64-bitでタイトルv1.2.7、測定一覧054→055→057、初期値5%を確認。確認画面を閉じ、主画面最大化でCtrl+S保存し、開いたまま。ファイル名は指定どおり維持。旧QS.pxpは保持。
+- 依存先: Desktop QS_update_v1.2.7_20261104_145923/xrd_workbench_v1.2.7。旧PXP/旧IPFと検証済みコピー、private deployment.jsonの適用hashを保持。新版の外部Procedure参照先のためフォルダ保持案内を配置。研究データは非公開。
+- 未確認: 全DPI/モニター、長時間、旧パス遮断の別PC、全独自Procedure。再開はcodex/xrd-v1.2.7とTEST_RESULTS_v1.2.7、本記録管理版1.9.3。完了記録を同branchへcommit/pushし、remote SHA一致を確認。mainへは統合しない。
+
+# 保持した実装/検証途中記録
+
+# WORK_STATUS — v1.2.7 / 2026-11-04 JST
 
 管理版: 1.9.1。実装・native/UI確認済み、実QS互換検証中。指定QS適用前。main未統合。
 
