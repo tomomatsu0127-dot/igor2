@@ -1,0 +1,35 @@
+Printf "%.0f",root:XRD127Isolation
+¶Printf "%.0f",root:XRD127Isolation
+  634689421
+Error=0 
+Variable/G root:taskHistory=CaptureHistoryStart()
+¶Variable/G root:taskHistory=CaptureHistoryStart()
+Error=0 
+OpenProc "<REPO>:xrd_workbench_v1.2.7:xrd_main.ipf";OpenProc "<REPO>:xrd_workbench_v1.2.7:tests:xrd_v127_tests.ipf"
+¶OpenProc "<REPO>:xrd_workbench_v1.2.7:xrd_main.ipf";OpenProc "<REPO>:xrd_workbench_v1.2.7:tests:xrd_v127_tests.ipf"
+Error=0 
+MoveWindow/F 0,0,1920,1080
+¶MoveWindow/F 0,0,1920,1080
+Error=0 
+XRD_RunV70Detector("<REPO>:xrd_workbench_v1.2.7:tests:fixtures_v060:","<REPO>:scratch:v127:detector:")
+¶XRD_RunV70Detector("<REPO>:xrd_workbench_v1.2.7:tests:fixtures_v060:","<REPO>:scratch:v127:detector:")
+  XRD imported 5001 points; header lines skipped: 1
+  PASS: native Peak AutoFind preview leaves peaks and Undo unchanged
+  PASS: detector dispatcher registers native AutoFind results and algorithm
+  AUTOFIND FIXTURE: 5/5 true; registered=6
+  PASS: native alternative finds at least four synthetic reference peaks
+  PASS: native AutoFind leaves original measurements bit-identical
+  元に戻しました：Igor標準方式でピーク検出
+  PASS: native detector registration is undoable
+  やり直しました：Igor標準方式でピーク検出
+  PASS: native detector registration is redoable
+  PASS: native redetection retains stable manual peak identity
+  PASS: invalid native threshold rejects without mutation
+  PASS: native mode active minimum-height threshold remains editable
+  XRD imported 4997 points; header lines skipped: 1
+  PASS: native alternative also handles nonuniform angular sampling
+  PASS: native detector returns zero peaks for a flat measurement
+  PASS: native alternative rejects undersampled input without modifying peaks
+  PASS: native detection integration leaves no runtime error
+  v0.7.0 native detector failures=0
+Error=0 

@@ -1,0 +1,3 @@
+# card_number: TEST-DUPLICATE
+tt 2theta int h k l
+35.4 35.4 80 1 2 3

@@ -1,0 +1,3 @@
+# two theta, degrees
+48.321
+58.123

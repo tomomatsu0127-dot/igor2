@@ -1,0 +1,7 @@
+# card_number: T110-8
+# name: phase 8
+# formula: BaFe12O19
+# phase_class: 
+h k l I 2theta d
+1 0 0 100 39 2.0
+1 1 0 30 62 1.0

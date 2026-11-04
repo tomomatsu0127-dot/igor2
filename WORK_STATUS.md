@@ -1,3 +1,17 @@
+# WORK_STATUS — v1.2.8 / 2026-11-04 JST
+
+管理版: 1.10.0。性能調査中、更新未適用。main未統合。
+
+- Branch: codex/xrd-v1.2.8、開始cda2df536b32665e41bec04b4ae483a30c950bb9、実装先xrd_workbench_v1.2.8。
+- 依頼: 特に同定画面の応答を軽量化。最終600測定を想定。既存同定/科学値/自動保存/履歴を保持し、検証後にDesktop QSへ適用する。
+- 開始Igorなし。最新Desktop QSは40,524,156 bytes、2026-11-04 16:59保存。旧PXP/旧依存をprivate Desktop番号backupに保存、元とSHA一致。旧267ファイルSHAをdocs/BASELINE_FOR_v1.2.8.jsonへ。
+- 現行実QS: 5 project、24 measurement、70,908 raw points、161 peaks、85 references。専用Igor9.05 64-bit、COM一意marker確認後backupコピーを読込。
+- 初回測定: comparePaths 94–127ms、chooser26–29ms、score57–94ms、live178–222ms、select+live+draw334–457ms。同条件で600件人工測定との比較を進める。
+- コード原因候補: 比較対象5件を返すXRD120_ComparePathsがAllMeasurementPathsを経由し全件EnsureMeasurement→Normalize/PeakTable、DataChooserは使わない全件sort、step再構築はUpgradeProjectが全測定のpreview/evidence更新。測定・呼出し証拠に基づいて最小変更する。
+- 現在: baseline全項目TSVを採取中。次に600件の合成データで旧版の同条件測定、修正、同定等価/性能/UI/保存再起動互換試験、配布・同名適用。未実施は未確認。
+
+# 保持した前版記録
+
 # WORK_STATUS — v1.2.7 / 2026-11-04 JST
 
 管理版: 1.9.3。実装・最終native/UI・実QS保存再起動・配布検証・Desktop同名適用完了。main未統合。
