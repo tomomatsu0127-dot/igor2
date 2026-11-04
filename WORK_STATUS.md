@@ -1,6 +1,6 @@
 ﻿# WORK_STATUS — v1.2.7 / 2026-11-04 JST
 
-管理版: 1.9.0。実装とnative検証中。指定QS適用前。main未統合。
+管理版: 1.9.1。実装・native/UI確認済み、実QS互換検証中。指定QS適用前。main未統合。
 
 - Branch: codex/xrd-v1.2.7。開始SHA: 8af51131b53cc95a97c6429e56363f5fd4c48b4d。実装先 xrd_workbench_v1.2.7。
 - Scope: 測定chooserとtreeの通し番号順、project上下移動、登録成功時に画面を閉じる、突出量初期値5%と変更UI、番号→組成→表示名のTabと組成→表示名連動、新規projectの引用符不要入力、既存ソフト調査に基づく追加。

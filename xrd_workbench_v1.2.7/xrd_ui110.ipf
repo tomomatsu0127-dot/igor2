@@ -17,7 +17,10 @@ Function XRD110_Controls(project,path)
     if(step==1)
         Button pointAdd,win=XRDWorkbench,pos={16,242},size={175,25},title="カーソルAの位置を追加",proc=XRD110_Button
         TitleBox cursorHelp110,win=XRDWorkbench,pos={16,280},size={175,42},frame=0,title="Ctrl+IでIgor標準カーソルを表示。\r曲線上にAを置いて追加します。"
-        Button detectorSettings,win=XRDWorkbench,pos={16,340},size={175,26}
+        Button detectorSettings,win=XRDWorkbench,pos={16,340},size={175,26},title="ピーク検出の設定…",proc=XRD_DetectionButton,disable=SelectNumber(strlen(path)>0,2,0)
+        if(!strlen(path))
+            Button pointAdd,win=XRDWorkbench,disable=2
+        endif
     elseif(step==2)
         TitleBox stepHelp,win=XRDWorkbench,title="参照カードを選んで棒線を比較。\r使用カードの設定は上部の参照値へ。"
         Button loadReferences,win=XRDWorkbench,disable=1
@@ -92,6 +95,9 @@ Function XRD110_DataChooser()
     endif
     GetWindow XRDWorkbench wsizeForControls
     String fullTitle="測定："+XRD110_SampleLabel(path)+" ["+StrVarOrDefault(path+":analysisState","")+"]  ▼"
+    if(!strlen(path))
+        fullTitle="測定データ未登録：測定データを追加してください"
+    endif
     Button measurementLabel,win=XRDWorkbench,pos={230*scale,6*scale},size={V_right-242*scale,20*scale},fSize=round(10*scale),title=fullTitle,help={fullTitle}
     return 0
 End

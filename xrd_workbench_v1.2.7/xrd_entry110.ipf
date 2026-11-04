@@ -151,6 +151,7 @@ Function XRD110_CommitEntry()
     String/G $(owner+":activeData")=path
     KillWindow/Z XRDRegister110
     XRD_Panel()
+    XRD_SyncSideRange()
     return 0
 End
 

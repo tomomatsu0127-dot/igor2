@@ -72,12 +72,18 @@ Function XRD_RunV127Tests(fixtures,output)
         fprintf file,"%.7g\t%.7g\r\n",xx[i],yy[i]
     endfor
     Close file
+    Variable/G $(p1+":activeStep")=3
+    XRD_Panel()
     XRD110_RegisterPanel("")
     String/G $(entry+":number")="000"
     String/G $(entry+":composition")="x=0"
     sva.ctrlName="composition";sva.eventCode=1;XRD110_EntryChanged(sva)
     String/G $(entry+":file")=output+"import127.xy"
     XRD_TestCheck(XRD110_CommitEntry()==0 && !WinType("XRDRegister110"),"v127 successful file addition closes registration panel")
+    GetAxis/W=XRDWorkbench#Pattern/Q bottom
+    Variable importMin127=V_min,importMax127=V_max
+    GetAxis/W=XRDWorkbench#SideCompare/Q bottom
+    XRD_TestCheck(abs(V_min-importMin127)<1e-8 && abs(V_max-importMax127)<1e-8 && V_max>V_min,"v127 successful import keeps comparison and measured X ranges aligned")
     String imported=XRD_Data(),importUID=XRD80_MeasurementUID(imported)
     XRD_TestCheck(cmpstr(StrVarOrDefault(imported+":sampleNumber",""),"000")==0 && cmpstr(StrVarOrDefault(imported+":displayName",""),"x=0")==0 && NumVarOrDefault(imported+":detectProminence",0)==5,"v127 zero-padded serial composition name and five percent survive import")
     XRD_TestCheck(cmpstr(StringFromList(0,XRD127_MeasurementList(p1)),"'000'")==0,"v127 newly imported smaller serial appears first")
@@ -113,6 +119,12 @@ Function XRD_RunV127Tests(fixtures,output)
     String/G root:Packages:XRDWorkbench:UI:NewProject127:name="native plain name"
     XRD127_CreateProjectDeferred()
     XRD_TestCheck(!WinType("XRDNewProject127") && cmpstr(XRD_ProjectDisplayName(XRD_Project()),"native plain name")==0 && ItemsInList(XRD_ProjectList())==before+1,"v127 plain text project creation succeeds and closes its form")
+    ControlInfo/W=XRDWorkbench measurementLabel
+    XRD_TestCheck(strsearch(S_recreation,"測定データ未登録",0)>=0,"v127 empty project header explains the next import step")
+    ControlInfo/W=XRDWorkbench detectorSettings
+    Variable emptyDisabled127=V_disable==2
+    ControlInfo/W=XRDWorkbench pointAdd
+    XRD_TestCheck(emptyDisabled127 && V_disable==2,"v127 empty project disables unavailable peak actions with explicit labels")
     String/G root:Packages:XRDWorkbench:activeProject=p1
     String/G $(p1+":activeData")=a
     NewPath/O/Q XRDReferencePath,fixtures

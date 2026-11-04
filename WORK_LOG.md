@@ -240,3 +240,8 @@
 
 ## 2026-11-04 v1.2.7 実装チェックポイント
 測定番号順、project UID順、登録終了、5%の初期値と変更UI、組成→表示名連動、plain textのproject追加、未同定ピーク巡回を実装。開始8af5113、branch codex/xrd-v1.2.7。既存plot/比較順・科学値を保持。compile/v125選択管理26合格、新試験実行中。最新38MB QS/依存backupとread-only基準採取済み。調査・判断と次操作はWORK_STATUS管理版1.9.0。実PXP互換・UI・適用は未完。
+
+## 2026-11-04 v1.2.7 native/UI確認
+新43 + 新プロセス再読込6 + 既存102 + 比較30 + 選択/管理26 + native検出13 = 220合格。実UIで番号入力→Tab組成→Tab表示名自動反映、登録成功終了、引用符なしproject作成、project上移動選択保持、初期値5%保存を確認。入力はComputer UseのUnicode type_textがIgor編集で反映されないためキー操作で確認。試験中の外部source変更でcompile前通知を出したが再compile後正常。native detector初回はfixture_v070指定にnoisy_*がなくファイル選択待ちとなったためown専用PIDだけ停止し、正しいfixture_v060で13合格。COM marker不一致の別試験起動はdata読込前に中止。製品コードに診断を残さない。
+追加完了後の比較横軸0..0を実UIで確認。主図再構築後のXRD_SyncSideRangeで20..70へ復帰するため登録完了の最後に同期を追加、native43に範囲一致の回帰を追加。空projectで無題Newボタンが生成される原因は存在しないdetectorSettingsの部分変更だった。明示title/procと無効化、空headerの案内を追加しnative確認。
+実QSは2189758項目をread-only採取（complex Wave 0）。高速helper127と旧helper120は人工値/Unicode/metadataのTSV全byte一致。実QSの前後/保存再起動照合・同名適用は未完。

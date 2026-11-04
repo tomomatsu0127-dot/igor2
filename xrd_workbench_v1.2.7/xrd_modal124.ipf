@@ -88,17 +88,4 @@ End
 // Leave the originating floating control callback before rebuilding its panel.
 Function XRD124_AddProjectUI()
     return XRD127_NewProjectPanel()
-    String hidden=XRD124_BeginModal()
-    Variable error=0
-    try
-        if(XRD_NewProjectUI()==0)
-            XRD80_ShowProjectManager(); AbortOnRTE
-        endif
-    catch
-        error=GetRTError(1)
-    endtry
-    XRD124_EndModal(hidden)
-    if(error)
-        Abort GetErrMessage(error)
-    endif
 End
