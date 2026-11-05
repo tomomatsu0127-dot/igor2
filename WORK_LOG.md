@@ -287,3 +287,9 @@ Desktopの最新QS_v1.2.4.pxpと更新前backupのhash一致、他Igorなしを�
 ## 2026-11-05 v1.2.9 実装/native検証チェックポイント
 
 新18+別プロセス再読込5+既存比較30/同定コピー102/検出13=168合格。添付手作業PXPの複製からint_M_type_003等と単純凡例を確認、元ファイル不変。Unicode実寸で列幅を短縮し共通フォント1回、原表示名を保持。新規図draftのみ一度16x12cmへ、保存済みrecipe不変。固定サイズでの表示pixel丸めと余白の計測順の修正をnative確認。実QS最新保存コピーと旧依存をprivate保管、全値比較へ。STATUS1.11.1。
+
+## 2026-11-05 v1.2.9 最終互換・配布確認
+
+実QSの基準2481476項目、新コード初期化前差1 active子画面、初期化後2481477項目差4（同画面/作図下書きwidth/height/figureDefaults129）、科学差0。別名保存・own専用PID終了・新プロセス再起動/再読込で2481477項目すべて一致。利用者QSと手作業PXPの原本hash不変。詳細はprivate、研究データ非公開。新18+実再読込5+既存30/102/13=168合格。旧284ファイルhash不変。新49本体IPF・7変更、ZIP/全byte検証、更新案内/結果/画像を同梱。STATUS1.11.2、main未統合、作業中QSへ適用なし。最終branch pushへ。
+
+配布検査: 296ファイル、49本体IPF、相対include85本、ZIP全エントリbyte一致。ZIP SHA256=5ac32ad8016c9f7dc16706b418814e95f5b34cf40e52cb9a34c72ad54fd5816f。元の合成fixture comment_header.tsvだけを許可し、実データTSVとPXPは除外した。初回package検査が既存の合成TSVも拒否したため、既知fixtureを明示許可して再実行し成功。配布ZIPに研究データなし。

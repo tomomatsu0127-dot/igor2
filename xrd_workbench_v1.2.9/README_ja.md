@@ -1,3 +1,7 @@
+# XRD Workbench v1.2.9
+
+[今回の更新案内](UPDATE_v1.2.9.md) / [検証結果](TEST_RESULTS_v1.2.9.md) / [変更ファイル](CHANGED_FILES_v1.2.9.md)
+
 # XRD Workbench v1.2.8（2026-11-04）
 
 同定画面の応答を改善した更新です。操作方法・候補の計算式・同定結果・保存形式は従来どおりです。
