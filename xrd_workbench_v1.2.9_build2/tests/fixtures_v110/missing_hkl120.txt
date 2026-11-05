@@ -1,0 +1,6 @@
+# card_number: Missing120
+# formula: CuO
+# name: missing-hkl fixture
+tt int h k l
+25 100 - None -
+55 30 1 1 1

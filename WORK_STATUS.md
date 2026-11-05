@@ -1,3 +1,20 @@
+# WORK_STATUS — v1.2.9 build2 / 2026-11-05 JST
+
+管理版: 1.11.3。Desktop同名QSへ更新適用完了、通常Igorを開いた状態。main未統合。
+
+- Branch codex/xrd-v1.2.9、開始be126c5、適用版xrd_workbench_v1.2.9_build2。
+- 依頼「更新もやって」。開始時Igorなし、Desktopの保存版は前工程の基準hashと一致。新番号更新folderに元PXP/旧284依存ファイルを保管。
+- build2: 旧画面タイトルv1.2.8をv1.2.9へ訂正、xrd_ui/ui120の文字列のみ。元v1.2.9配布は保持。処理試験168は前工程の結果、今回build2の実compile/実QS保存再起動照合は別の実施結果。
+- 実参照先: Desktop/QS_update_v1.2.9_20261105_170241/xrd_workbench_v1.2.9_build2。
+- 検証: 新規初期値453.543307/340.157480 pt、画面構築RTE0。元2481476→2481477、UI/案内12差だけ、科学差0。別名保存RTE0、own PID停止→新プロセス実再読込の2481477全項目差0。dump helperは保存前に閉じ、再読込で未参照確認。
+- 適用: 元QSとbackupのhash一致、他Igorなしを再確認し検証済みコピーへ同名適用。旧QS.pxp保持。通常Igor PID29924、QS_v1.2.4タイトル/応答を確認、開いたまま。
+- 通常UI: 画面捕捉は壁紙、activationがfailed to activate captured window。現在windowの再取得/1回再試行も同じため入力中止。通常COM ActiveObjectも非公開。通常画面最終クリック/追加Ctrl+Sは未確認。PXPの保存再起動は専用コピーで完了済み。
+- 公開集計: docs/DEPLOYMENT_v1.2.9_build2.md/json。研究データ・詳細TSV・PXPは非公開。更新folderは実IPF参照先なので残す。
+- 次: 本branchへcommit/pushして完了報告。再開は本記録/DEPLOYMENT資料、通常Igorを勝手に終了しない。
+- 未確認: 全DPI/モニター、実マウス全画面操作、長時間、旧パス遮断別PC、全独自Procedure。
+
+# 前工程記録（適用前）
+
 # WORK_STATUS — v1.2.9 / 2026-11-05 JST
 
 管理版: 1.11.2。凡例・新規図の書式、native168、実QS保存再起動照合、配布検証完了。main未統合、利用者PXPへの適用なし。

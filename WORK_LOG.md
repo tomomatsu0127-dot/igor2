@@ -293,3 +293,7 @@ Desktopの最新QS_v1.2.4.pxpと更新前backupのhash一致、他Igorなしを�
 実QSの基準2481476項目、新コード初期化前差1 active子画面、初期化後2481477項目差4（同画面/作図下書きwidth/height/figureDefaults129）、科学差0。別名保存・own専用PID終了・新プロセス再起動/再読込で2481477項目すべて一致。利用者QSと手作業PXPの原本hash不変。詳細はprivate、研究データ非公開。新18+実再読込5+既存30/102/13=168合格。旧284ファイルhash不変。新49本体IPF・7変更、ZIP/全byte検証、更新案内/結果/画像を同梱。STATUS1.11.2、main未統合、作業中QSへ適用なし。最終branch pushへ。
 
 配布検査: 296ファイル、49本体IPF、相対include85本、ZIP全エントリbyte一致。ZIP SHA256=5ac32ad8016c9f7dc16706b418814e95f5b34cf40e52cb9a34c72ad54fd5816f。元の合成fixture comment_header.tsvだけを許可し、実データTSVとPXPは除外した。初回package検査が既存の合成TSVも拒否したため、既知fixtureを明示許可して再実行し成功。配布ZIPに研究データなし。
+
+## 2026-11-05 v1.2.9 build2 同名QS更新適用
+
+ユーザーが更新適用を依頼。開始be126c5、Igorなし、Desktop QSは前検証の基準hashと一致。タイトル旧版表示のみ2 moduleを修正したbuild2を独立作成。元v129一式/ZIP保持。Desktop新番号folderに元PXP/旧依存と新版一式を保管し、コピー上の新版画面構築/設定値/compileを確認。2481476→2481477全項目比較でUI/案内12差だけ、科学差0。別名保存RTE0、own専用Igor終了→新プロセス実再読込の2481477全項目差0。dump helper除去済み。適用直前の原本hash/他Igorなしを確認して同名QSへ配置。通常Igor PID29924起動、QSタイトル/応答確認、開いたまま。通常UI capture壁紙/activate失敗、再取得1回再試行同じで入力中止、通常COM ActiveObjectも非公開。最終クリック/追加Ctrl+S未確認。詳細private、公開集計はDEPLOYMENT_v1.2.9_build2、STATUS1.11.3。branchへ記録をpush、main未統合。

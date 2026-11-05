@@ -1,0 +1,7 @@
+# card_number: T110-6
+# name: phase 6
+# formula: Fe3O4
+# phase_class: 
+h k l I 2theta d
+1 0 0 100 35 2.0
+1 1 0 30 60 1.0

@@ -1,0 +1,20 @@
+{
+  "version": "1.2.9",
+  "build": 2,
+  "title_only_changed_modules": [
+    "xrd_ui.ipf",
+    "xrd_ui120.ipf"
+  ],
+  "compile_success": true,
+  "save_runtime_error": 0,
+  "baseline_records": 2481476,
+  "updated_records": 2481477,
+  "display_differences": 12,
+  "scientific_differences": 0,
+  "reopened_differences": 0,
+  "test_dump_helper_removed_before_save": true,
+  "same_filename_deployed": true,
+  "normal_process_responsive": true,
+  "normal_ui_clicks_verified": false,
+  "old_pxp_and_dependencies_preserved": true
+}

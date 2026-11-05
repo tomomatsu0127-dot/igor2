@@ -1,0 +1,24 @@
+{
+  "version": "1.2.9",
+  "native_assertions_passed": 168,
+  "failed_assertions": 0,
+  "runtime_errors": 0,
+  "old_records": 2481476,
+  "updated_records": 2481477,
+  "preinit_display_differences": 1,
+  "postinit_display_differences": 4,
+  "scientific_differences": 0,
+  "reopened_differences": 0,
+  "prior_release_files_preserved": 284,
+  "original_experiments_unchanged": true,
+  "private_data_in_repository": false,
+  "production_changed": [
+    "xrd_legend110.ipf",
+    "xrd_main.ipf",
+    "xrd_plot81.ipf",
+    "xrd_plotworkspace.ipf",
+    "xrd_v3.ipf",
+    "xrd_v51.ipf",
+    "xrd_v52.ipf"
+  ]
+}
