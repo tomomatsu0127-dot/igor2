@@ -225,6 +225,12 @@ Function XRD_PlotDefaults()
     for(i=0;i<ItemsInList(keys);i+=1)
         XRD_EnsureNumeric(ui+":"+StringFromList(i,keys),str2num(StringFromList(i,values)))
     endfor
+    // Apply the requested defaults once to the new-figure draft, not saved recipes.
+    if(!NumVarOrDefault(ui+":figureDefaults129",0))
+        Variable/G $(ui+":width")=16*72/2.54
+        Variable/G $(ui+":height")=12*72/2.54
+        Variable/G $(ui+":figureDefaults129")=1
+    endif
     SVAR/Z title=$(ui+":title")
     if(!SVAR_Exists(title))
         String/G $(ui+":title")="XRD 比較図"
@@ -866,7 +872,8 @@ Function/S XRD129_PhaseTraceName(folder,ref,prefix)
     if(WaveExists(keys) && WaveExists(refs))
         for(i=0;i<numpnts(refs);i+=1)
             if(refs[i]==ref && strlen(keys[i]))
-                key=keys[i];break
+                key=keys[i]
+                break
             endif
         endfor
     endif

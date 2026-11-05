@@ -108,6 +108,13 @@ Function XRD110_RenderLegend(win)
     Variable pw=V_right-V_left,ph=V_bottom-V_top,left=V_left,right
     GetWindow $win gsize
     right=V_right-(left+pw)
+    // psize is rounded to screen pixels; keep the requested physical size.
+    if(cmpstr(GetUserData(win,"","XRDFlexible"),"1")!=0)
+        Variable fixedWidth129=str2num(GetUserData(win,"","XRDFigureWidth")),fixedHeight129=str2num(GetUserData(win,"","XRDFigureHeight"))
+        if(numtype(fixedWidth129+fixedHeight129)==0 && fixedWidth129>0 && fixedHeight129>0)
+            pw=fixedWidth129;ph=fixedHeight129
+        endif
+    endif
     Variable baseLeft=str2num(GetUserData(win,"","XRDLegendLeft110")),baseRight=str2num(GetUserData(win,"","XRDLegendRight110"))
     if(numtype(baseLeft)!=0)
         baseLeft=left;baseRight=right
@@ -144,6 +151,9 @@ Function XRD110_RenderLegend(win)
         XRD110_LegendColumns(win,keys,traces,font,cols,canvas)
     elseif(n)
         XRD110_SeparateLegend(win,keys,traces,font,cols,totalWidth,rows)
+    endif
+    if(cmpstr(GetUserData(win,"","XRDFlexible"),"1")==0)
+        ModifyGraph/W=$win width=0,height=0
     endif
     SetWindow $win userdata(XRDLegendRows)=num2istr(SelectNumber(separate,rows,0))
     SetWindow $win userdata(XRDLegend110)="1"

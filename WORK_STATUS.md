@@ -1,6 +1,6 @@
 # WORK_STATUS — v1.2.9 / 2026-11-05 JST
 
-管理版: 1.11.0。凡例・新規図の書式を調査/実装中。main未統合、利用者PXPへの適用なし。
+管理版: 1.11.1。凡例・新規図の書式を実装、native検証済み、実QS複製で互換性検証中。main未統合、利用者PXPへの適用なし。
 
 - Branch codex/xrd-v1.2.9、開始1d52584afe93f8781935fc4210de101a3444e5d3、実装先xrd_workbench_v1.2.9。
 - 依頼: 凡例列間隔を縮め、編集しやすい本文/トレース名へ。新規図Absolute幅16・高さ12（cmと解釈）。添付手作業PXPは参照用。
@@ -8,7 +8,10 @@
 - 最小変更: Unicode実寸列幅、共通フォント指定1回、元の相名表示、int_相名_試料番号のgraph alias、新規図453.543307×340.157480 pt。手動ドラッグは明示ボタンでAutoへ。
 - 既存保存図のnativeMacro/科学値/schemaは保持。新規SnapshotにsampleNumber129のみ追加。旧284ファイルhashはdocs/BASELINE_FOR_v1.2.9.json。
 - 開始時Igorなし。原本/sources不変。添付PXPと実QSはprivateコピーで参照/互換性検証する。
-- 次: Igor9.05 compile、凡例/サイズ/再並替/手編集保持のnative確認、PXP保存再起動、配布とcommit/push。
+- 確認: Igor9.05 compile、新18・別プロセス再読込5・既存比較30/同定コピー102/検出13、計168 native合格。Unicode化学式の画像表示も確認。手編集保持と明示Auto切替を含む。
+- 診断: 新テストの関数名誤り、同一行breakのcompiler errorを修正。psizeは画面pixelへ丸められるため画面矩形は0.75pt許容、Absoluteは再現macroでも検査。固定幅への置換前に旧矩形の余白を算出し負のmarginを回避。失敗試行はscratchへ保持。
+- 実QS: 最新Desktopの41,732,679-byteディスク保存版をprivateコピーし旧依存も独立保管。原本同名適用は対象外。基準全値TSV採取済み、新版切替前後/保存再起動比較を実行中。
+- 次: 実QS全値比較、文書/配布、branchへcommit/push。
 - 未確認: 本版の実機動作/互換性、全DPI/旧パス遮断/長時間。
 
 # 保持した前版記録

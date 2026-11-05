@@ -285,6 +285,8 @@ Function XRD81_ApplyPlotLive(recipe)
     SetAxis/W=$win bottom xMin,xMax
     SetAxis/W=$win left NumVarOrDefault(recipe+":yMin",-30),upper
     SetWindow $win userdata(XRDFigureLegendFont)=num2str(NumVarOrDefault(recipe+":legendFont",24))
+    SetWindow $win userdata(XRDFigureWidth)=num2str(NumVarOrDefault(recipe+":width",453.543307))
+    SetWindow $win userdata(XRDFigureHeight)=num2str(NumVarOrDefault(recipe+":height",340.157480))
     XRD_PlotLegend(win)
     XRD_EnableFigureResize(win)
     XRD_PlotCaptureNative(recipe)
