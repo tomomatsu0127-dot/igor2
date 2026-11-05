@@ -1,0 +1,7 @@
+# v1.2.1 / 2026-10-27
+
+画面切り替えで初期座標の部品が途中描画される問題を修正。
+
+原因はXRD_DrawPeakFocus/XRD_DrawMeasurementGraphなどから呼ばれるXRD_ViewSyncのDoUpdate。XRD_Panelが最終配置する前に描画されていた。親ウィンドウのサイズ自体は維持されていた。
+
+既存のXRDLayoutReadyを再構築開始前に0へ戻し、未配置中のViewSyncを保留する。配置・カーソル復元・Y軸固定が終わってからViewSyncを一度行う。同一画面の軽い更新経路はそのまま保持。

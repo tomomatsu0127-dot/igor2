@@ -279,3 +279,7 @@ Desktopの最新QS_v1.2.4.pxpと更新前backupのhash一致、他Igorなしを�
 旧267ファイルSHA一致、新49本体IPFの実依存先とのbyte一致、284配布ファイル、相対include84、HTMLリンク19、ZIP全byte検査成功。ZIP SHA256=188d24f11856453f7c715af9e9db98955c1b5c498de1ae71570f71c2f19ed2f1。元Desktop同名QSと最新backupのhash一致、他Igorなしを確認して検証済みコピーへ同名適用。旧QS.pxpと更新前PXP/旧依存を保持。実コードはDesktop番号更新フォルダを参照するため保持案内を配置、研究データは非公開。
 
 通常Igorを起動しQS_v1.2.4タイトルとprocess応答を確認、開いたまま。Computer Useの通常Igor捕捉は壁紙、activationがfailed to activate captured window。現在windowを再取得した1回の再試行も同じため入力を停止。通常UI最終クリック/追加Ctrl+Sは未確認として区別し、コピー上で保存し再起動照合済みのPXPを適用したことを報告する。長時間/全DPI/600曲線同時表示/別PC/全独自Procedureも未確認。WORK_STATUS1.10.2、main未統合、同branchへ完了記録をpushする。
+
+## 2026-11-05 v1.2.9 凡例/図寸法 調査チェックポイント
+
+開始1d52584、codex/xrd-v1.2.9。原因と許可範囲はWORK_STATUS1.11.0。旧版284ファイルhash保持、新版に表示のみ最小変更。添付手作業PXPを私的コピーで参照、利用者本体へ適用しない。実機検証へ。

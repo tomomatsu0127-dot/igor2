@@ -1,0 +1,26 @@
+¶Printf "%.0f",root:Modal124Isolation
+  1629522534
+Error=0 
+OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.4:xrd_main.ipf"
+¶OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.4:xrd_main.ipf"
+Error=0 
+XRD_Open();XRD110_Manager();XRD80_LibraryPanel();DoWindow/T kwFrame,"XRD v1.2.4 isolated dialog verification"
+¶XRD_Open();XRD110_Manager();XRD80_LibraryPanel();DoWindow/T kwFrame,"XRD v1.2.4 isolated dialog verification"
+Error=0 
+KillWindow/Z XRDLibrary
+
+¶KillWindow/Z XRDLibrary
+Error=0 
+Print "FINAL_MANAGER_WINDOWS",WinList("XRDProjectManager*",";","WIN:64,FLT:1,FLT:2");Print "PROJECTS",XRD_ProjectList();Print "RTE",GetRTError(1)
+
+¶Print "FINAL_MANAGER_WINDOWS",WinList("XRDProjectManager*",";","WIN:64,FLT:1,FLT:2");Print "PROJECTS",XRD_ProjectList();Print "RTE",GetRTError(1)
+  FINAL_MANAGER_WINDOWS  XRDProjectManager;
+  PROJECTS  root:Packages:Workbench:Management:Project1;root:Packages:Workbench:Management:'新しいプロジェクト';
+  RTE  0
+Error=0 
+Print "CANCEL_MANAGER_WINDOWS",WinList("XRDProjectManager*",";","WIN:64,FLT:1,FLT:2");XRD80_LibraryPanel();Print "LIBRARY_WINDOWS",WinList("XRDLibrary*",";","WIN:64,FLT:1,FLT:2")
+
+¶Print "CANCEL_MANAGER_WINDOWS",WinList("XRDProjectManager*",";","WIN:64,FLT:1,FLT:2");XRD80_LibraryPanel();Print "LIBRARY_WINDOWS",WinList("XRDLibrary*",";","WIN:64,FLT:1,FLT:2")
+  CANCEL_MANAGER_WINDOWS  XRDProjectManager;
+  LIBRARY_WINDOWS  XRDLibrary;
+Error=0 

@@ -1,3 +1,18 @@
+# WORK_STATUS — v1.2.9 / 2026-11-05 JST
+
+管理版: 1.11.0。凡例・新規図の書式を調査/実装中。main未統合、利用者PXPへの適用なし。
+
+- Branch codex/xrd-v1.2.9、開始1d52584afe93f8781935fc4210de101a3444e5d3、実装先xrd_workbench_v1.2.9。
+- 依頼: 凡例列間隔を縮め、編集しやすい本文/トレース名へ。新規図Absolute幅16・高さ12（cmと解釈）。添付手作業PXPは参照用。
+- 原因: 凡例幅にUTF-8バイト数由来の過大な下限。項目ごとのフォント/下付き書式コード反復。作図後にwidth/height=0へ戻しAutoにする。
+- 最小変更: Unicode実寸列幅、共通フォント指定1回、元の相名表示、int_相名_試料番号のgraph alias、新規図453.543307×340.157480 pt。手動ドラッグは明示ボタンでAutoへ。
+- 既存保存図のnativeMacro/科学値/schemaは保持。新規SnapshotにsampleNumber129のみ追加。旧284ファイルhashはdocs/BASELINE_FOR_v1.2.9.json。
+- 開始時Igorなし。原本/sources不変。添付PXPと実QSはprivateコピーで参照/互換性検証する。
+- 次: Igor9.05 compile、凡例/サイズ/再並替/手編集保持のnative確認、PXP保存再起動、配布とcommit/push。
+- 未確認: 本版の実機動作/互換性、全DPI/旧パス遮断/長時間。
+
+# 保持した前版記録
+
 # WORK_STATUS — v1.2.8 / 2026-11-04 JST
 
 管理版: 1.10.2。性能修正・600件計測・226 native・実QS保存再起動・配布・Desktop適用完了。通常UIの最終クリック確認はツールエラーで未確認。main未統合。
