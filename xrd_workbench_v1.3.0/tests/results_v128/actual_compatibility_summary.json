@@ -1,0 +1,42 @@
+{
+  "version": "1.2.8",
+  "initialization_before": {
+    "before_records": 2358888,
+    "after_records": 2358888,
+    "changed": 5,
+    "categories": {
+      "UI geometry/selection/tree/draft": 3,
+      "stored graph view bounds": 2
+    },
+    "unexpected": 0
+  },
+  "initialization_after": {
+    "before_records": 2358888,
+    "after_records": 2358888,
+    "changed": 14,
+    "categories": {
+      "stored graph view bounds": 3,
+      "UI geometry/selection/tree/draft": 10,
+      "active UI child/autosave notice": 1
+    },
+    "unexpected": 0
+  },
+  "saved_fresh_process_reopen": {
+    "before_records": 2358888,
+    "after_records": 2358888,
+    "changed": 1,
+    "categories": {
+      "active UI child/autosave notice": 1
+    },
+    "unexpected": 0
+  },
+  "scientific_differences": 0,
+  "scope": [
+    "both Workbench roots, all numeric/text points and metadata/formulas",
+    "Registry/project/measurement UIDs",
+    "Assignments and SharedLibrary reference/revision identities",
+    "Undo/Redo, lattice histories, retained/deleted records, saved plots"
+  ],
+  "private_data_published": false,
+  "actual_candidate_equivalence_records": 19451
+}

@@ -1,0 +1,11 @@
+{
+  "baseline": "docs/BASELINE_FOR_v1.2.6.json",
+  "files_checked": 239,
+  "all_hashes_equal": true,
+  "native_assertions": {
+    "comparison.txt": 30,
+    "comparison_reopen.txt": 4,
+    "regression.txt": 102,
+    "selection_manager.txt": 26
+  }
+}

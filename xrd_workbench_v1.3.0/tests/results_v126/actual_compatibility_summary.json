@@ -1,0 +1,28 @@
+{
+  "baseline_to_postinit": {
+    "before": "baseline",
+    "after": "postinit",
+    "before_records": 975914,
+    "after_records": 979941,
+    "changed": 4050,
+    "categories": {
+      "comparison display cache/draft": 4026,
+      "new comparison display settings": 4,
+      "UI geometry/tree state": 18,
+      "active UI child/autosave notice": 2
+    },
+    "unexpected": 0
+  },
+  "postinit_to_reopened": {
+    "before": "postinit",
+    "after": "reopened",
+    "before_records": 979941,
+    "after_records": 979941,
+    "changed": 6,
+    "categories": {
+      "UI geometry/tree state": 5,
+      "active UI child/autosave notice": 1
+    },
+    "unexpected": 0
+  }
+}

@@ -297,3 +297,18 @@ Desktopの最新QS_v1.2.4.pxpと更新前backupのhash一致、他Igorなしを�
 ## 2026-11-05 v1.2.9 build2 同名QS更新適用
 
 ユーザーが更新適用を依頼。開始be126c5、Igorなし、Desktop QSは前検証の基準hashと一致。タイトル旧版表示のみ2 moduleを修正したbuild2を独立作成。元v129一式/ZIP保持。Desktop新番号folderに元PXP/旧依存と新版一式を保管し、コピー上の新版画面構築/設定値/compileを確認。2481476→2481477全項目比較でUI/案内12差だけ、科学差0。別名保存RTE0、own専用Igor終了→新プロセス実再読込の2481477全項目差0。dump helper除去済み。適用直前の原本hash/他Igorなしを確認して同名QSへ配置。通常Igor PID29924起動、QSタイトル/応答確認、開いたまま。通常UI capture壁紙/activate失敗、再取得1回再試行同じで入力中止、通常COM ActiveObjectも非公開。最終クリック/追加Ctrl+S未確認。詳細private、公開集計はDEPLOYMENT_v1.2.9_build2、STATUS1.11.3。branchへ記録をpush、main未統合。
+
+## 2026-11-06 v1.3.0 実装と初期native確認
+
+管理版: 1.12.0。実装済み・検証中。利用中Experimentへは未適用、main未統合。
+
+- Branch: codex/xrd-v1.3.0。開始SHA fe8236e295c3d5455486257f45838b03553f2222。実装先 xrd_workbench_v1.3.0。
+- 対象: 外部Windowsアプリを覆う補助パネル、登録UI/ファイル先頭番号、検出ピーク位置と選択拡大、格子画面の参照棒/比較図、共通相設定の同一窓化、使用相の凡例順、作図一覧のスクロール、未完了作図の警告。配布ZIPと利用中QSへの適用、削除候補の集約まで依頼済み。
+- 原因: 全補助パネルが/FLT=1で/FLTH未指定。拡大・グラフ選択とSideCompareの条件がstep3限定。検出は平滑化後の山位置を最近傍点へ登録。StylePanelが対象変更のたびにKill/NewPanel。凡例候補がStyleTargetsの全参照fallbackを利用。PlotSelectionTableとSaveDraftが未完了を排除。ツリー再構築時にスクロール行を復元していない。
+- 変更: Igor9の/FLTH=1、raw近傍最大点と描画専用強度、step1拡大幅、step4比較と参照棒抑制、相設定の既存窓再利用、assignment由来の凡例候補、途中作図の確認と保存、参照TXTの明記格子定数を比較/履歴へ。原計測・既存ピーク/同定の自動変更なし。
+- 基準: 旧版298ファイルSHAをdocs/BASELINE_FOR_v1.3.0.jsonへ。実QS/旧依存はDesktop Igor2_XRD内の非公開バックアップへ複製。実データはGitHub非公開。
+- 確認: Igor9.05で新版compile成功。新規27項目合格。旧試験結果は今回の合格数へ算入しない。
+- 次: 検出/作図/保存の関連回帰、実QSの全値比較、別プロセス保存再読込、画面確認、配布/適用、旧版のGitHub保存/利用参照検査と削除候補集約。
+- 未確認: 実QS互換性と新起動、外部アプリ切替の実操作、全DPI/長時間。通常Igor PID31264は終了しない。
+- 検証系: COMの既存接続は専用インスタンスを特定できず、研究データの読込を中止。/IのCLI専用プロセスとITX後続コマンドへ移行。検証系のC::パス誤変換を修正してcompile成功。利用中Igorは終了していない。
+

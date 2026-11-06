@@ -1,0 +1,7 @@
+# card_number: T110-7
+# name: phase 7
+# formula: Cu4O3
+# phase_class: 
+h k l I 2theta d
+1 0 0 100 37 2.0
+1 1 0 30 61 1.0
