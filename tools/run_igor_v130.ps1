@@ -1,4 +1,4 @@
-param([string]$Command='Print "COMPILED v1.3.0"',[string]$Log='scratch/v130/compile.txt',[string]$TestProc='', [string]$Experiment='', [int]$Timeout=55)
+param([string]$Command='Print "COMPILED v1.3.0"',[string]$Log='scratch/v130/compile.txt',[string]$TestProc='', [string]$Experiment='', [int]$Timeout=55,[switch]$Deferred)
 $ErrorActionPreference='Stop'
 function IgorQuote([string]$text){return [string][char]34+$text.Replace([string][char]92,([string][char]92+[char]92)).Replace([string][char]34,([string][char]92+[char]34))+[char]34}
 $taskRoot=(Get-Location).Path
@@ -10,7 +10,8 @@ $taskWrite='String/G root:testLog=CaptureHistory(root:testCapture,1);Variable re
 $taskStartup='Variable/G root:XRDCLIIsolated130=1;Variable/G root:testCapture=CaptureHistoryStart();'
 if(!$Experiment){$taskStartup+='OpenProc '+(IgorQuote ($taskBase+'xrd_workbench_v1.3.0:xrd_main.ipf'))+';'}
 if($TestProc){$taskStartup+='OpenProc '+(IgorQuote ([IO.Path]::GetFullPath($TestProc).Replace([char]92,[char]58).Replace('C::','C:')))+';'}
-$taskStartup+='Execute/P/Z "COMPILEPROCEDURES ";Execute/P/Z '+(IgorQuote $Command)+';Execute/P/Z '+(IgorQuote $taskWrite)+';Execute/P "Quit/N"'
+$taskStartup+='String/G root:XRD130NativeLog='+[char]34+$taskLog+[char]34+';Execute/P/Z "COMPILEPROCEDURES ";Execute/P/Z '+(IgorQuote $Command)+';'
+if(!$Deferred){$taskStartup+='Execute/P/Z '+(IgorQuote $taskWrite)+';Execute/P "Quit/N"'}
 $taskInfo=[Diagnostics.ProcessStartInfo]::new('C:\Program Files\WaveMetrics\Igor Pro 9 Folder\IgorBinaries_x64\Igor64.exe')
 $taskInfo.UseShellExecute=$false;$taskInfo.CreateNoWindow=$true;$taskInfo.WindowStyle=[Diagnostics.ProcessWindowStyle]::Hidden
 if($Experiment){
@@ -21,9 +22,19 @@ if($Experiment){
 $taskStarted=Get-Date
 $taskProcess=[Diagnostics.Process]::Start($taskInfo)
 try{
- if(!$taskProcess.WaitForExit($Timeout*1000)){throw 'Only the created isolated Igor timed out; user Igor was not targeted.'}
+ if($Deferred){
+  $taskDeadline=(Get-Date).AddSeconds($Timeout)
+  while(!$taskProcess.HasExited -and (Get-Date) -lt $taskDeadline){
+   if((Test-Path -LiteralPath $taskLogPath) -and (Get-Item -LiteralPath $taskLogPath).LastWriteTime -ge $taskStarted){
+    $completion=Get-Content -LiteralPath $taskLogPath -Raw -Encoding utf8
+    if($completion -match 'UPDATE_SAVED_RTE 0'){$taskProcess.Kill();$taskProcess.WaitForExit();break}
+   }
+   Start-Sleep -Milliseconds 1000
+  }
+  if(!$taskProcess.HasExited){throw 'Deferred native verification timed out'}
+ }elseif(!$taskProcess.WaitForExit($Timeout*1000)){throw 'Only the created isolated Igor timed out; user Igor was not targeted.'}
  if(!(Test-Path -LiteralPath $taskLogPath) -or (Get-Item -LiteralPath $taskLogPath).LastWriteTime -lt $taskStarted){throw 'No fresh native verification log'}
- $result=Get-Content -LiteralPath $taskLogPath -Raw
+ $result=Get-Content -LiteralPath $taskLogPath -Raw -Encoding utf8
  Write-Output $result
- if($result -match ': error:|RUNTIME ERROR|FAIL:'){throw 'Native compile/runtime/test failure; see log'}
+ if($result -match '(?im)^.*:[0-9]+:[0-9]+: error:|^\s*(?:RUNTIME ERROR|FAIL:)'){throw 'Native compile/runtime/test failure; see log'}
 }finally{if(!$taskProcess.HasExited){$taskProcess.Kill()}}

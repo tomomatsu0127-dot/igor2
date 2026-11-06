@@ -1,4 +1,4 @@
-﻿#pragma rtGlobals=3
+#pragma rtGlobals=3
 Function XRD_V70Adopt(path,peak,index)
     String path
     Variable peak,index
@@ -226,7 +226,7 @@ Function XRD_RunV70Detector(fixtures,output)
     XRD_TestCheck(result>=0 && numpnts(angles)==0 && NumVarOrDefault(project+":Undo:sequence",0)==history,"native Peak AutoFind preview leaves peaks and Undo unchanged")
     Variable/G $(path+":detectorMode")=2
     result=XRD_Detect(path)
-    XRD_TestCheck(result>0 && cmpstr(StrVarOrDefault(path+":algorithm",""),"igor-peak-autofind-v1")==0,"detector dispatcher registers native AutoFind results and algorithm")
+    XRD_TestCheck(result>0 && cmpstr(StrVarOrDefault(path+":algorithm",""),"igor-peak-autofind-raw-apex-v2")==0,"detector dispatcher registers native AutoFind results and algorithm")
     Make/FREE/D truth={30,33,40,40.22,50}
     for(i=0;i<5;i+=1)
         hits+=XRD_TestNearestError(path,truth[i])<0.06

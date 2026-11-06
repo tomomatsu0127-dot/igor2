@@ -96,6 +96,30 @@ Function XRD_RunV130Tests(fixtures,output)
     ControlInfo/W=XRDPlotWorkspace sourceTree
     hook.mouseLoc.h=V_left+60;hook.mouseLoc.v=V_top+40
     XRD_TestCheck(XRD110_WheelHook(hook)==1,"v130 source-project list consumes wheel scrolling inside its bounds")
+    for(i=0;i<32;i+=1)
+        XRD_NewProject()
+    endfor
+    String/G root:Packages:XRDWorkbench:activeProject=project
+    XRD110_PlotTrees()
+    ControlInfo/W=XRDPlotWorkspace sourceTree
+    hook.mouseLoc.h=V_left+60;hook.mouseLoc.v=V_top+40
+    XRD110_WheelHook(hook)
+    ControlInfo/W=XRDPlotWorkspace sourceTree
+    Variable first130=V_startRow
+    XRD_TestCheck(first130>0,"v130 mouse wheel actually advances a long project list")
+    XRD110_PlotTrees()
+    ControlInfo/W=XRDPlotWorkspace sourceTree
+    XRD_TestCheck(V_startRow==first130,"v130 tree rebuild preserves the visible scroll row")
+    String cellFixtures=ReplaceString("fixtures_v110",fixtures,"fixtures_v130")
+    NewPath/O/Q XRDReferencePath,cellFixtures
+    Variable beforeCell=NumVarOrDefault(XRD80_Library()+":referenceCount",0)
+    XRD_LoadReferenceFile("reference_cell.txt",beforeCell+1)
+    String cellRef=XRD_ReferencePath(beforeCell+1)
+    XRD_TestCheck(abs(NumVarOrDefault(cellRef+":latticeA130",NaN)-5.89)<1e-10 && abs(NumVarOrDefault(cellRef+":latticeC130",NaN)-23.2)<1e-10,"v130 reference loader retains explicit lattice metadata")
+    XRD_LoadReferenceFile("reference_cell.txt",beforeCell+2)
+    XRD_TestCheck(NumVarOrDefault(XRD80_Library()+":referenceCount",0)==beforeCell+1,"v130 identical reference cell metadata does not duplicate a reference")
+    hook.winName="XRDWorkbench#Pattern";hook.eventCode=26;hook.eventMod=8;hook.keycode=97
+    XRD_TestCheck(XRD100_PointHook(hook)==0,"v130 Ctrl+A is not intercepted as a cursor shortcut")
     Print "V130 FAILURES",NumVarOrDefault("root:XRDTestFailures",-1)
     return NumVarOrDefault("root:XRDTestFailures",-1)
 End
