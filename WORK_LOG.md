@@ -22,3 +22,9 @@
 - Fixed a final source-edit regression where a graph snapshot base variable lost its initializer; reran the native manager, edges, restart and existing-figure tests. Preserved development failure logs privately; did not count them as passes.
 - Exported synthetic manager/graph previews. Published test logs have test-directory paths generalized; detailed real measurements and logs remain outside the public repository and release.
 - Added exact-byte Git attributes for the baseline dependency set, and checksums for the release. No main merge, deployment or modification to synced source releases.
+
+## Distribution verification
+
+- Delivered 32 files, ZIP 149804 bytes. Every ZIP entry matches the release source bytes.
+- ZIP SHA256: 0ed38f06d21f71a2b84b4b7a6675efbbc4cf7bf867034564db62870dfc15d1ef
+- Original baseline bytes and staged Git blobs match the baseline hash manifest. Release Git blobs match the delivered checksum manifest.
