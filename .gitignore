@@ -1,0 +1,5 @@
+scratch/
+*.pxp
+*.uxp
+__pycache__/
+*.zip

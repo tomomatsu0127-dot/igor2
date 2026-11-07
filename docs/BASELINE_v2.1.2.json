@@ -1,0 +1,11 @@
+{
+  "MH_VSM_Analyzer_v2_1_2.ipf": "02498ffbab25b5ebb5816f2e14f130ba6be530dc3c6e3fcbda3c68baef5c1efb",
+  "README_\u65e5\u672c\u8a9e.md": "f041693497944e4b42dd9f658a7c8c98535672aabfd2ec7e8b6df13d351fbc21",
+  "TEST_RESULTS.md": "e8f78549c77ed07ff3b789285a2c976998f17f8db6e4fc4af1bc54b1b75a7055",
+  "src\\mh_axis.ipf": "74bbe491335196d969c9047e3f8d9e6813b78f728918513e65aa477aec0150c7",
+  "src\\mh_figure.ipf": "a1ab082f08488820590130b8b63bbcfc2db847c21c538e4c161e513d31bbce85",
+  "src\\MH_VSM_Analyzer.ipf": "3dd9ba14e19b06dc44e6c165512baf15ad77ca2641ef4afdad6151d5af15e7d5",
+  "tests\\fixture.VSM": "8e36c532eea65142c711688005d285c954547fa3357cea56bf3b28374970945e",
+  "tests\\mh_tests.ipf": "3d899cfded21ee74a90e7fb752c937b9e8dd03ec6986483bb7c96d2b36cd052b",
+  "tools\\build.py": "63fa49db460d9c21b72c83a4cacfbe885e8ddc06b6653d8ba48662587bc01eb8"
+}
