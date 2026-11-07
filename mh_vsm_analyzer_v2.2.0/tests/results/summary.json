@@ -1,0 +1,47 @@
+{
+  "manager": {
+    "passed": 53,
+    "failed": 0
+  },
+  "edge_cases": {
+    "passed": 20,
+    "failed": 0
+  },
+  "duplication": {
+    "passed": 5,
+    "failed": 0
+  },
+  "existing_figure": {
+    "passed": 82,
+    "failed": 0
+  },
+  "axes": {
+    "passed": 21,
+    "failed": 0
+  },
+  "reference_defaults": {
+    "passed": 25,
+    "failed": 0
+  },
+  "process_restart": {
+    "passed": 14,
+    "failed": 0
+  },
+  "legacy_migration": {
+    "passed": 3,
+    "failed": 0
+  },
+  "legacy_restart": {
+    "passed": 3,
+    "failed": 0
+  },
+  "real_input": {
+    "files": 4,
+    "passed": 20,
+    "failed": 0,
+    "original_files_unchanged": true,
+    "detailed_evidence": "private validation directory; original measurements excluded"
+  },
+  "total_passed": 246,
+  "total_failed": 0
+}

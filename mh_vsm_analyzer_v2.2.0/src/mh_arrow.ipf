@@ -21,7 +21,7 @@ Function HMG_ArrowPanel()
             win=HMG_GraphWindow(selected)
         endif
     endif
-    if(WinType(win)!=1 || strlen(GetUserData(win,"","HMHFigure"))==0)
+    if(WinType(win)!=1 || WhichListItem(win,HMH_FigureList())<0)
         DoAlert 0,"先にMHグラフを選んでください。"
         return -1
     endif

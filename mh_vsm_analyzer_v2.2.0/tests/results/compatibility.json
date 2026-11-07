@@ -1,0 +1,44 @@
+{
+  "loaded_before_init.pxp": {
+    "records": 31,
+    "field_groups_compared": 115,
+    "differences": [],
+    "additional_existing_scope_records": [],
+    "graph_commands_unchanged_except_identity_hook": true
+  },
+  "upgraded.pxp": {
+    "records": 31,
+    "field_groups_compared": 115,
+    "differences": [],
+    "additional_existing_scope_records": [],
+    "graph_commands_unchanged_except_identity_hook": true
+  },
+  "upgraded_reopened.pxp": {
+    "records": 31,
+    "field_groups_compared": 115,
+    "differences": [],
+    "additional_existing_scope_records": [],
+    "graph_commands_unchanged_except_identity_hook": true
+  },
+  "after_init_graph.png": {
+    "pixel_identical": false,
+    "solid_black_mask_identical": true,
+    "white_mask_identical": true,
+    "max_antialias_channel_difference": 17,
+    "size": [
+      622,
+      528
+    ]
+  },
+  "reopened_legacy_graph.png": {
+    "pixel_identical": false,
+    "solid_black_mask_identical": true,
+    "white_mask_identical": true,
+    "max_antialias_channel_difference": 17,
+    "size": [
+      622,
+      528
+    ]
+  },
+  "initialized_vs_restarted_image_pixel_identical": true
+}

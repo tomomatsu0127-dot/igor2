@@ -1,0 +1,1 @@
+¶MHC_Upgrade("<TEST_DIR>:")  PASS: legacy Experiment initializes without moving waves  PASS: existing legacy graph adopted with stable identity  PASS: legacy migration ends without runtime errors  COMPAT_UPGRADE_FAILURES  0

@@ -1,0 +1,26 @@
+PASS: comparison uses new default format without opening settings
+PASS: default X limits exactly -15 to 15
+PASS: default Y limits exactly -40 to 40
+PASS: default X ticks every 5 with integer labels
+PASS: default Y ticks every 20 with integer labels
+PASS: default has no minor ticks
+PASS: new figure defaults use 2.5 pt curves
+PASS: Japanese legend uses an installed Mincho font
+PASS: Latin, degree symbol and subscript escapes preserved
+PASS: explicit user font commands respected
+PASS: legend 1 within canvas width
+PASS: legend 1 above plot with gap
+PASS: legend columns do not overlap
+PASS: legend 2 within canvas width
+PASS: legend 2 above plot with gap
+PASS: legend columns do not overlap
+PASS: new default style does not alter data
+PASS: existing user line width preference preserved
+PASS: one action restores reference appearance on an existing graph
+PASS: reference action targets the selected MH graph
+PASS: explicit reference action becomes next graph defaults
+PASS: large magnetic field ranges remain visible
+PASS: large magnetization ranges remain visible
+PASS: zero signal still receives a usable range
+PASS: new default style leaves no runtime error
+HMH_TestReferenceDefaults("<TEST_DIR>:previews:")

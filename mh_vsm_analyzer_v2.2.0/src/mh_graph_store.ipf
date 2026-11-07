@@ -17,6 +17,15 @@ End
 
 Function/S HMG_GraphWindow(uid)
     String uid
+    Wave/T/Z graphs=root:MHApp:Manager:graphs
+    Variable row=HMG_Find("graph",uid)
+    String owner=""
+    if(row>=0 && WaveExists(graphs))
+        owner=graphs[row][3]
+        if(WinType(owner)==1 && cmpstr(GetUserData(owner,"","HMHGraphUID"),uid)==0)
+            return owner
+        endif
+    endif
     String wins=WinList("*",";","WIN:1"),win
     Variable i
     for(i=0;i<ItemsInList(wins);i+=1)
@@ -53,11 +62,14 @@ Function/S HMG_AdoptGraph(win,[parent])
         return ""
     endif
     Wave/T graphs=root:MHApp:Manager:graphs
-    String uid=GetUserData(win,"","HMHGraphUID"),base
+    String uid=GetUserData(win,"","HMHGraphUID"),base,owner
     Variable row=HMG_Find("graph",uid),n=DimSize(graphs,0)
-    if(row>=0 && strlen(HMG_GraphWindow(uid)) && cmpstr(HMG_GraphWindow(uid),win)!=0)
-        // A native Duplicate Graph must become a separate managed graph.
-        row=-1
+    if(row>=0)
+        owner=graphs[row][3]
+        if(WinType(owner)==1 && cmpstr(owner,win)!=0 && cmpstr(GetUserData(owner,"","HMHGraphUID"),uid)==0)
+            // Preserve the original owner's identity when a native graph is duplicated.
+            row=-1
+        endif
     endif
     if(row<0)
         uid=HMG_NewUID("g")
@@ -199,6 +211,7 @@ Function HMG_OpenGraph(uid)
     NVAR busy=root:MHApp:Manager:busy
     busy=1
     SetDataFolder root:MHApp:Manager:Scratch
+    V_flag=0
     Execute/Z rec
     error=V_flag
     after=WinList("*",";","WIN:1");created=""

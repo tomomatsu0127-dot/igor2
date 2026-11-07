@@ -1,0 +1,7 @@
+*.ipf text eol=crlf
+*.ps1 text eol=crlf
+*.py text eol=lf
+*.md text eol=lf
+*.VSM -text
+baseline_v2.1.2/** -text
+mh_vsm_analyzer_v2.2.0/** -text

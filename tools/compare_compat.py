@@ -4,7 +4,7 @@ import json
 import sys
 import numpy as np
 from igor2 import packed
-from PIL import Image, ImageChops
+from PIL import Image
 
 WAVE_FIELDS = ['wData','formula','note','data_units','dimension_units','labels','sIndices']
 HEADER_FIELDS = ['npnts','type','bname','nDim','sfA','sfB','dataUnits','dimUnits','fsValid','topFullScale','botFullScale']
@@ -45,6 +45,16 @@ def selected(file):
     records=flatten(fs['root'])
     return {p:v for p,v in records.items() if (p=='root:MHApp' or p.startswith('root:MHApp:') or p=='root:UnrelatedResearch' or p.startswith('root:UnrelatedResearch:')) and not p.startswith('root:MHApp:Manager')}
 
+def graph_commands(file):
+    records,_=packed.load(str(file))
+    record=next(r for r in records if type(r).__name__=='RecreationRecord')
+    raw=getattr(record,'text',record.data)
+    text=raw.decode('utf-8') if isinstance(raw,bytes) else raw
+    start=text.index('Window MH_Single')
+    text=text[start:text.index('EndMacro',start)+len('EndMacro')]
+    # Only these two intentional identity/persistence additions are permitted.
+    return [line for line in text.splitlines() if 'hook(HMGStore)=HMG_WindowHook' not in line and 'userdata(HMHGraphUID)=' not in line]
+
 def main(directory):
     root=Path(directory)
     baseline=selected(root/'legacy.pxp')
@@ -66,12 +76,27 @@ def main(directory):
         if differences or extra:
             raise AssertionError(json.dumps(result,indent=2))
     reference=Image.open(root/'legacy_graph.png').convert('RGB')
+    reference_commands=graph_commands(root/'legacy.pxp')
+    for name in ['loaded_before_init.pxp','upgraded.pxp','upgraded_reopened.pxp']:
+        equal=reference_commands==graph_commands(root/name)
+        result[name]['graph_commands_unchanged_except_identity_hook']=equal
+        if not equal:
+            raise AssertionError(name+' changes graph commands')
+    arrays=[]
     for name in ['after_init_graph.png','reopened_legacy_graph.png']:
         current=Image.open(root/name).convert('RGB')
-        equal=reference.size==current.size and ImageChops.difference(reference,current).getbbox() is None
-        result[name]={'pixel_identical':equal,'size':reference.size}
-        if not equal:
-            raise AssertionError(name+' differs from the legacy graph')
+        a=np.array(reference);b=np.array(current)
+        equal=reference.size==current.size and np.array_equal(a,b)
+        black_equal=np.array_equal(np.all(a==0,axis=2),np.all(b==0,axis=2))
+        white_equal=np.array_equal(np.all(a==255,axis=2),np.all(b==255,axis=2))
+        delta=int(np.abs(a.astype(int)-b.astype(int)).max())
+        result[name]={'pixel_identical':equal,'solid_black_mask_identical':black_equal,'white_mask_identical':white_equal,'max_antialias_channel_difference':delta,'size':reference.size}
+        if not black_equal or not white_equal:
+            raise AssertionError(name+' changes rendered geometry')
+        arrays.append(b)
+    result['initialized_vs_restarted_image_pixel_identical']=np.array_equal(*arrays)
+    if not result['initialized_vs_restarted_image_pixel_identical']:
+        raise AssertionError('Restart changes the rendered graph')
     (root/'scratch/compat_comparison.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(result,indent=2))
 

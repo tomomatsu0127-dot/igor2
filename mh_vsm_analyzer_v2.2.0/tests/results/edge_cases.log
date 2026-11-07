@@ -1,0 +1,27 @@
+MH:   fixture   /   11   点 /   0.02   g
+PASS: first import succeeds
+MH:   fixture   /   11   点 /   0.02   g
+PASS: continued import succeeds
+PASS: separately imported measurements have distinct identities
+PASS: nonexistent destination rejected
+PASS: empty dataset name rejected
+PASS: duplicate-name move leaves original membership
+MH: ファイルを開けません:   <TEST_DIR>:missing.VSM
+PASS: missing source file rejected
+PASS: failed import leaves no partial dataset or folder
+MH: 列見出し・点数・試料質量を確認してください:   <TEST_DIR>:invalid.VSM
+PASS: invalid VSM rejected
+PASS: invalid VSM leaves no partial dataset or folder
+PASS: tree checkbox selects the intended measurement
+PASS: scroll event does not change selection or import target
+PASS: check state follows dataset identity after rename and move
+PASS: checked measurements from different tree positions form comparison
+PASS: comparison retains ordered source identities
+MH: 図で使うWaveが見つかりません:   root:MHApp:Run0:M_emu_g
+PASS: missing graph dependency is reported
+PASS: failed graph restore leaves no partial window
+PASS: graph restores after dependency is available again
+PASS: manager save hook coexists with another registered hook
+PASS: edge tests end without runtime errors
+EDGE_FAILURES  0
+MHT_Edges("<TEST_DIR>:")

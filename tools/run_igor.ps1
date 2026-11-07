@@ -2,7 +2,6 @@ param(
     [string]$Procedure='mh_vsm_analyzer_v2.2.0/MH_VSM_Analyzer_v2_2_0.ipf',
     [string]$Tests='',
     [string]$Commands='Print "COMPILED"; HMH_Init(); Print HMG_Init()',
-    [string]$Experiment='',
     [string]$Log='scratch/compile.txt'
 )
 $ErrorActionPreference='Stop'
@@ -10,9 +9,11 @@ function Quote-Igor([string]$value) { '"'+$value.Replace('\','\\').Replace('"','
 $taskRoot=(Get-Location).Path
 $taskBase=$taskRoot.Replace('\',':').Replace('C::','C:')+':'
 $taskLog=Join-Path $taskRoot $Log
+$taskFullLog=[IO.Path]::GetFullPath($taskLog)
+if(!$taskFullLog.StartsWith($taskRoot+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)) {throw 'The test log must be inside the test directory.'}
 [IO.Directory]::CreateDirectory((Split-Path $taskLog)) | Out-Null
+if(Test-Path -LiteralPath $taskFullLog) {Remove-Item -LiteralPath $taskFullLog}
 $taskStartup='Variable/G root:MHIsolatedTest=1; Variable/G root:MHTestCapture=CaptureHistoryStart(); '
-if($Experiment) {$taskStartup+='Execute/P/Z '+(Quote-Igor ('LoadExperiment '+(Quote-Igor ($taskBase+$Experiment.Replace('/',':')))))+'; '}
 $taskStartup+='OpenProc '+(Quote-Igor ($taskBase+$Procedure.Replace('/',':')))+'; '
 if($Tests) {$taskStartup+='OpenProc '+(Quote-Igor ($taskBase+$Tests.Replace('/',':')))+'; '}
 $taskStartup+='Execute/P/Z "COMPILEPROCEDURES "; Execute/P/Z '+(Quote-Igor $Commands)+'; '
@@ -31,4 +32,6 @@ try {
     if(!$taskProcess.HasExited) {$taskProcess.Kill()}
 }
 if(!(Test-Path -LiteralPath $taskLog)) {throw 'Igor did not write the requested log.'}
-Get-Content -LiteralPath $taskLog -Raw -Encoding UTF8
+$taskOutput=Get-Content -LiteralPath $taskLog -Raw -Encoding UTF8
+$taskOutput
+if($taskOutput -match '(?m)^\s*FAIL:' -or $taskOutput -match ': error:') {throw 'The native Igor log contains a failed assertion or compilation error.'}

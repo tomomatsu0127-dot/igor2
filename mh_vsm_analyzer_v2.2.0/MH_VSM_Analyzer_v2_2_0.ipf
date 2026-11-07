@@ -725,7 +725,7 @@ Function HMH_FigurePanel()
     HMH_ReadLayout(target)
     NVAR mode=$(base+"targetMode"),columns=$(base+"columns")
     DoWindow/K HMH_FigureSettings
-    NewPanel/N=HMH_FigureSettings/W=(70,70,750,605) as "MH：図のサイズ・凡例・フォント v2.1.2"
+    NewPanel/N=HMH_FigureSettings/W=(70,70,750,605) as "MH：図のサイズ・凡例・フォント v2.2.0"
     DefaultGUIFont/W=HMH_FigureSettings all={"Segoe UI",12,0}
     PopupMenu target,pos={18,15},size={630,24},title="対象の図",value=HMH_FigureList(),mode=(WhichListItem(target,wins)+1),proc=HMH_LayoutTarget
     GroupBox geometry,pos={14,53},size={650,165},title="1  縦横比を指定する範囲"
@@ -925,7 +925,7 @@ Function HMH_AxisPanel()
         return -1
     endif
     DoWindow/K HMH_AxisSettings
-    NewPanel/N=HMH_AxisSettings/W=(60,60,800,577) as "MH：軸・目盛り・小数桁数 v2.1.2"
+    NewPanel/N=HMH_AxisSettings/W=(60,60,800,577) as "MH：軸・目盛り・小数桁数 v2.2.0"
     DefaultGUIFont/W=HMH_AxisSettings all={"Segoe UI",12,0}
     PopupMenu axisTarget,pos={18,15},title="対象の図",value=HMH_FigureList(),mode=(WhichListItem(win,wins)+1),proc=HMH_AxisTarget
     String base="root:MHApp:Axes:",pre,head
@@ -1447,6 +1447,15 @@ End
 
 Function/S HMG_GraphWindow(uid)
     String uid
+    Wave/T/Z graphs=root:MHApp:Manager:graphs
+    Variable row=HMG_Find("graph",uid)
+    String owner=""
+    if(row>=0 && WaveExists(graphs))
+        owner=graphs[row][3]
+        if(WinType(owner)==1 && cmpstr(GetUserData(owner,"","HMHGraphUID"),uid)==0)
+            return owner
+        endif
+    endif
     String wins=WinList("*",";","WIN:1"),win
     Variable i
     for(i=0;i<ItemsInList(wins);i+=1)
@@ -1483,11 +1492,14 @@ Function/S HMG_AdoptGraph(win,[parent])
         return ""
     endif
     Wave/T graphs=root:MHApp:Manager:graphs
-    String uid=GetUserData(win,"","HMHGraphUID"),base
+    String uid=GetUserData(win,"","HMHGraphUID"),base,owner
     Variable row=HMG_Find("graph",uid),n=DimSize(graphs,0)
-    if(row>=0 && strlen(HMG_GraphWindow(uid)) && cmpstr(HMG_GraphWindow(uid),win)!=0)
-        // A native Duplicate Graph must become a separate managed graph.
-        row=-1
+    if(row>=0)
+        owner=graphs[row][3]
+        if(WinType(owner)==1 && cmpstr(owner,win)!=0 && cmpstr(GetUserData(owner,"","HMHGraphUID"),uid)==0)
+            // Preserve the original owner's identity when a native graph is duplicated.
+            row=-1
+        endif
     endif
     if(row<0)
         uid=HMG_NewUID("g")
@@ -1629,6 +1641,7 @@ Function HMG_OpenGraph(uid)
     NVAR busy=root:MHApp:Manager:busy
     busy=1
     SetDataFolder root:MHApp:Manager:Scratch
+    V_flag=0
     Execute/Z rec
     error=V_flag
     after=WinList("*",";","WIN:1");created=""
@@ -2086,7 +2099,7 @@ Function HMG_ArrowPanel()
             win=HMG_GraphWindow(selected)
         endif
     endif
-    if(WinType(win)!=1 || strlen(GetUserData(win,"","HMHFigure"))==0)
+    if(WinType(win)!=1 || WhichListItem(win,HMH_FigureList())<0)
         DoAlert 0,"先にMHグラフを選んでください。"
         return -1
     endif

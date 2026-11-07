@@ -226,3 +226,28 @@ Function MHT_Edges(output)
     MHT_Check(GetRTError(1)==0,"edge tests end without runtime errors")
     Print "EDGE_FAILURES",NumVarOrDefault("root:MHTFailures",-1)
 End
+
+Function MHT_Duplicate(output)
+    String output
+    Variable/G root:MHTFailures=0
+    HMH_Import(output+"tests:fixture.VSM")
+    HMH_DrawGraph(0)
+    SVAR last=root:MHApp:lastGraph
+    String original=last,uid=GetUserData(original,"","HMHGraphUID"),rec=WinRecreation(original,0)
+    String wins=WinList("*",";","WIN:1"),after,copy="",copyUID
+    Variable i
+    Execute/Z rec
+    after=WinList("*",";","WIN:1")
+    for(i=0;i<ItemsInList(after);i+=1)
+        if(WhichListItem(StringFromList(i,after),wins)<0)
+            copy=StringFromList(i,after)
+        endif
+    endfor
+    MHT_Check(WinType(copy)==1,"native duplicate graph created")
+    copyUID=HMG_AdoptGraph(copy)
+    MHT_Check(strlen(copyUID)>0 && cmpstr(copyUID,uid)!=0,"duplicate receives its own graph identity")
+    MHT_Check(cmpstr(GetUserData(original,"","HMHGraphUID"),uid)==0 && cmpstr(HMG_GraphWindow(uid),original)==0,"original graph keeps its identity and owner")
+    MHT_Check(HMG_SaveAll()==0,"both graph snapshots save independently")
+    MHT_Check(GetRTError(1)==0,"duplication test ends without runtime errors")
+    Print "DUPLICATE_FAILURES",NumVarOrDefault("root:MHTFailures",-1)
+End

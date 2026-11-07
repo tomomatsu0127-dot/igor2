@@ -365,7 +365,7 @@ Function HMH_FigurePanel()
     HMH_ReadLayout(target)
     NVAR mode=$(base+"targetMode"),columns=$(base+"columns")
     DoWindow/K HMH_FigureSettings
-    NewPanel/N=HMH_FigureSettings/W=(70,70,750,605) as "MH：図のサイズ・凡例・フォント v2.1.2"
+    NewPanel/N=HMH_FigureSettings/W=(70,70,750,605) as "MH：図のサイズ・凡例・フォント v2.2.0"
     DefaultGUIFont/W=HMH_FigureSettings all={"Segoe UI",12,0}
     PopupMenu target,pos={18,15},size={630,24},title="対象の図",value=HMH_FigureList(),mode=(WhichListItem(target,wins)+1),proc=HMH_LayoutTarget
     GroupBox geometry,pos={14,53},size={650,165},title="1  縦横比を指定する範囲"

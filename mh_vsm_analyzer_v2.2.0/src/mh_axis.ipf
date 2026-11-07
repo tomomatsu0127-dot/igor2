@@ -96,7 +96,7 @@ Function HMH_AxisPanel()
         return -1
     endif
     DoWindow/K HMH_AxisSettings
-    NewPanel/N=HMH_AxisSettings/W=(60,60,800,577) as "MH：軸・目盛り・小数桁数 v2.1.2"
+    NewPanel/N=HMH_AxisSettings/W=(60,60,800,577) as "MH：軸・目盛り・小数桁数 v2.2.0"
     DefaultGUIFont/W=HMH_AxisSettings all={"Segoe UI",12,0}
     PopupMenu axisTarget,pos={18,15},title="対象の図",value=HMH_FigureList(),mode=(WhichListItem(win,wins)+1),proc=HMH_AxisTarget
     String base="root:MHApp:Axes:",pre,head

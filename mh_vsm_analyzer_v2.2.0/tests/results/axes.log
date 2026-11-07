@@ -1,0 +1,22 @@
+PASS: axis editor reads legacy decimal digits and intervals
+PASS: integer shortcut sets both decimal controls
+PASS: UI apply renders integer X labels
+PASS: UI apply renders integer Y labels with chosen interval
+PASS: axis editor remains open after applying
+PASS: axis edits preserve manually edited legend
+PASS: axis edits preserve measurement data
+PASS: automatic digits support fractional intervals
+PASS: 0.5 interval uses one decimal automatically
+PASS: 0.1 interval uses one decimal automatically
+PASS: reopening retains minor tick counts and automatic decimal selection
+PASS: reject zero tick interval
+PASS: reject insufficient decimals causing repeated tick labels
+PASS: invalid axis settings leave graph unchanged
+PASS: spacing suggestion accounts for two-decimal label width
+PASS: two-decimal display supported with wider interval
+PASS: axis margin adjustment preserves plot aspect
+PASS: decimal labels supported in whole canvas mode
+PASS: axis margin adjustment preserves whole canvas aspect
+PASS: automatic precision covers common fractional intervals
+PASS: axis UI and formatting leave no runtime error
+HMH_TestAxes("<TEST_DIR>:previews:")
