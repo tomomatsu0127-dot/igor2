@@ -1,0 +1,29 @@
+{
+  "igor_version": "9.05 build 56551",
+  "assertions": {
+    "new_features": 40,
+    "manager": 53,
+    "edges": 20,
+    "duplicate_graph": 5,
+    "figure_and_import": 82,
+    "axis": 21,
+    "reference_format": 25,
+    "reopen": 6,
+    "recovery_reopen": 6,
+    "legacy_upgrade": 4,
+    "legacy_reopen": 4
+  },
+  "total": 266,
+  "failures": 0,
+  "performance_median_ms": {
+    "2.2.0": {
+      "TREE_MS": 16.3739,
+      "CHECK_MS": 59.5848
+    },
+    "2.3.0": {
+      "TREE_MS": 3.5649,
+      "CHECK_MS": 0.5426
+    }
+  },
+  "previous_release_files_sha256_verified": 32
+}

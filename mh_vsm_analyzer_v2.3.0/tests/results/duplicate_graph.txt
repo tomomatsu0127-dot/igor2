@@ -1,0 +1,8 @@
+MH:   fixture   /   11   点 /   0.02   g
+PASS: native duplicate graph created
+PASS: duplicate receives its own graph identity
+PASS: original graph keeps its identity and owner
+PASS: both graph snapshots save independently
+PASS: duplication test ends without runtime errors
+DUPLICATE_FAILURES  0
+MHT_Duplicate("<TEST_DIR>:")

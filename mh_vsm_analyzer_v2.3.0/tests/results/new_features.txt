@@ -1,0 +1,46 @@
+PASS: 044 and x = 0 detected independently
+PASS: 017 and x = 0.2 detected with leading zero
+PASS: multiple composition variables and lowercase extension supported
+PASS: negative and scientific values are not truncated
+PASS: unknown filename leaves number unset
+PASS: equals spacing normalized without changing numeric value
+PASS: repeated spaces normalized
+PASS: Japanese label preserved
+MH:   fixture   /   11   点 /   0.02   g
+PASS: existing measurement imported first
+MH:   x = 0   /   11   点 /   0.02   g
+MH:   x = 0.2   /   11   点 /   0.02   g
+PASS: two selected VSM files imported as one batch
+PASS: review includes only the two newly added identities
+PASS: review displays sample number separately
+PASS: composition becomes the default display name
+PASS: sample numbers stored as text retaining zeros
+PASS: review edits number and label independently
+PASS: review does not rename an earlier measurement
+PASS: batch move moves only newly added measurements
+PASS: manual name edits normalize equals spacing
+PASS: repeated composition labels are allowed across sample numbers
+PASS: measurement can move under selected parent
+PASS: legacy panel selection is ignored when only the manager is open
+PASS: global clear removes every check
+PASS: folder check includes descendants and excludes siblings
+PASS: child folder clear leaves parent measurements checked
+PASS: folder checked and total counts are accurate
+PASS: one checkbox updates ancestor counts without rebuilding the tree
+PASS: collapsed folder hides child measurements
+PASS: folder clear includes collapsed descendants
+MH: .VSM ファイルを選んでください。
+PASS: non-VSM extension rejected before reading
+PASS: new metadata and batch checks retain comparison plotting
+PASS: unchanged graph capture avoids another snapshot generation
+PASS: graph source list includes independent sample numbers
+PASS: autosave defaults enabled at five minutes
+PASS: native autosave timer uses five-minute tick period
+PASS: autosave does not run before five-minute deadline
+PASS: autosave writes a recovery copy when due
+PASS: second autosave uses another generation
+PASS: third autosave rotates to first generation
+PASS: explicitly disabled autosave does not write
+PASS: v2.3.0 operations finish without runtime error
+V230_FAILURES  0
+MH3_Run("<TEST_DIR>:")

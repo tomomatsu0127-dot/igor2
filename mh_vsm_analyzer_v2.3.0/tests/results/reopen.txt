@@ -1,0 +1,8 @@
+¶MH3_Reopen("<TEST_DIR>:")
+  PASS: sample number and display name survive process restart
+  PASS: folder hierarchy survives process restart
+  PASS: graph links survive metadata restart
+  PASS: autosave busy flag resets on reopen
+  PASS: five-minute autosave resumes after process restart
+  PASS: reopened metadata and autosave finish without runtime error
+  REOPEN230_FAILURES  0

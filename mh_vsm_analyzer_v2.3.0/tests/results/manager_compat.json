@@ -1,0 +1,35 @@
+{
+  "loaded_before_init.pxp": {
+    "folders": true,
+    "datasetUID": true,
+    "datasetFolder": true,
+    "graphs": true,
+    "selectedUID": true,
+    "selectedKind": true,
+    "importFolder": true,
+    "arrowOption": true,
+    "schemaVersion": true
+  },
+  "upgraded.pxp": {
+    "folders": true,
+    "datasetUID": true,
+    "datasetFolder": true,
+    "graphs": true,
+    "selectedUID": true,
+    "selectedKind": true,
+    "importFolder": true,
+    "arrowOption": true,
+    "schemaVersion": true
+  },
+  "upgraded_reopened.pxp": {
+    "folders": true,
+    "datasetUID": true,
+    "datasetFolder": true,
+    "graphs": true,
+    "selectedUID": true,
+    "selectedKind": true,
+    "importFolder": true,
+    "arrowOption": true,
+    "schemaVersion": true
+  }
+}

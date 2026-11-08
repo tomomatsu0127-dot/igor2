@@ -1,0 +1,6 @@
+¶MHC_Upgrade("<TEST_DIR>:")
+  PASS: legacy Experiment initializes without moving waves
+  PASS: legacy filename number backfilled without replacing custom display name
+  PASS: existing legacy graph adopted with stable identity
+  PASS: legacy migration ends without runtime errors
+  COMPAT_UPGRADE_FAILURES  0

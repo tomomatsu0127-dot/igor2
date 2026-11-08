@@ -1,0 +1,85 @@
+PASS: six checked samples displayed
+PASS: plot ratio 4:3 within one screen point of rounding
+PASS: legend 1 within canvas width
+PASS: legend 1 above plot with gap
+PASS: legend columns do not overlap
+PASS: legend 2 within canvas width
+PASS: legend 2 above plot with gap
+PASS: legend columns do not overlap
+PASS: 24 pt Times New Roman in native graph
+PASS: physical plot dimensions 12 x 9 cm
+PASS: native zero lines and mirrored axes
+PASS: legend row order matches sample list
+PASS: whole canvas mode applies
+PASS: whole canvas ratio within screen pixel rounding
+PASS: physical canvas dimensions retain ratio 1.1
+PASS: legend 1 within canvas width
+PASS: legend 1 above plot with gap
+PASS: legend columns do not overlap
+PASS: legend 2 within canvas width
+PASS: legend 2 above plot with gap
+PASS: legend columns do not overlap
+PASS: switching to plot mode reads actual plot width
+PASS: switching to canvas mode reads actual canvas width
+PASS: independent plot ratio, fonts and three columns
+PASS: layout preserves horizontal zoom
+PASS: layout preserves vertical zoom
+PASS: legend 1 within canvas width
+PASS: legend 1 above plot with gap
+PASS: legend columns do not overlap
+PASS: legend 2 within canvas width
+PASS: legend 2 above plot with gap
+PASS: legend columns do not overlap
+PASS: legend 3 within canvas width
+PASS: legend 3 above plot with gap
+PASS: legend columns do not overlap
+PASS: formatting preserves measurement waves
+PASS: reject impossible whole-canvas geometry
+PASS: rejected layout does not change target graph
+PASS: reject nonfinite size
+PASS: reject fractional legend columns
+PASS: read per-figure saved settings
+PASS: ratio metadata retains numeric precision
+PASS: screen fitting preserves physical plot size
+PASS: screen fitting preserves physical font size
+PASS: user annotations preserved
+PASS: long rich-text labels add canvas space
+PASS: legend 1 within canvas width
+PASS: legend 1 above plot with gap
+PASS: legend columns do not overlap
+PASS: legend 2 within canvas width
+PASS: legend 2 above plot with gap
+PASS: legend columns do not overlap
+PASS: long legend retains requested plot aspect
+PASS: measurement staging graphs cleaned up
+PASS: single sample graph supported
+PASS: legend 1 within canvas width
+PASS: legend 1 above plot with gap
+PASS: legend columns do not overlap
+PASS: single sample creates only one legend column
+PASS: v2.01 graph names recovered from dataset folder
+PASS: ten sample comparison supported
+PASS: legend 1 within canvas width
+PASS: legend 1 above plot with gap
+PASS: legend columns do not overlap
+PASS: legend 2 within canvas width
+PASS: legend 2 above plot with gap
+PASS: legend columns do not overlap
+PASS: legend 3 within canvas width
+PASS: legend 3 above plot with gap
+PASS: legend columns do not overlap
+MH:   fixture   /   11   点 /   0.02   g
+PASS: original VSM import succeeds
+PASS: import adds one measurement
+PASS: raw magnetic field retained
+PASS: raw magnetic moment retained
+PASS: Oe to kOe conversion unchanged
+PASS: mass normalization emu per gram unchanged
+PASS: sample mass metadata retained
+PASS: normalization provenance retained
+PASS: old panel upgrades when reopened
+PASS: upgraded panel exposes figure settings button
+PASS: saved defaults apply to ten-sample graph
+PASS: no runtime errors after all figure operations
+SAVED  <TEST_DIR>:core_run:mh_test_roundtrip.pxp
+HMH_TestRun("<TEST_DIR>:core_run:")

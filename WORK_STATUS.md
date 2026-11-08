@@ -1,12 +1,10 @@
 # WORK_STATUS
 
-2026-11-08 JST / MH VSM Analyzer v2.2.0
+2026-11-09 JST / MH VSM Analyzer v2.3.0
 
-- Branch: codex/mh-v2.2.0. Original main: 2c30ceffde11c4013bf496fced92f7da6d68ee49. MH baseline checkpoint: 8454c94.
-- Implemented logical folder tree, rename/move, destination import, stable dataset/graph identity, graph provenance and native edited-state restore. Optional arrow endpoint editor defaults off.
-- Retained v2.1.2 baseline and original measurement files. Plot layout/axis implementation bodies unchanged (27 functions).
-- Native Igor 9.05 build 56551, 96 dpi: 246 assertions passed, zero final failures. Independent process restart and old-IPF/source-VSM-unavailable copies tested.
-- Compatibility: 31 pre-existing records, 115 semantic field groups at each of three boundaries, zero differences. Native graph commands differ only by managed UID and hook additions.
-- Image comparison: exact white/black geometry masks; old/new text edge antialias intensities differ up to 17/255. Initialized/restarted output is pixel-identical. Do not claim exact old/new pixel equality.
-- Original user's Experiment not tested or overwritten. All mouse interactions, all DPI, long-running/large datasets, physical external moves, PDF/EPS and clean-PC behavior remain unverified.
-- New release folder: mh_vsm_analyzer_v2.2.0. README and TEST_RESULTS describe usage, optional arrows and scope. Main not merged; no automatic installation into Igor.
+- Branch: codex/mh-v2.3.0, baseline 9809855a9d1863f070231712a7e3a04a2817f264. Baseline release's 32 file checksums verified unchanged.
+- Implemented recursive folder check/clear, global clear, .VSM-only file picker, independent sample number and composition, new-import-only edit/move review, and five-minute rotating recovery copies. Arrow editing stays opt-in.
+- Igor 9.05 build 56551: 266 native assertions passed. The idle timer saved at 300.007 seconds. Recovery reopening was isolated and did not overwrite the opened recovery file.
+- v2.2.0 compatibility: 31 records and 115 field groups plus 9 manager fields unchanged at each boundary; persisted graph commands unchanged except identity hook. Existing plot settings and old measurement data were retained.
+- Synthetic 1,000-measurement benchmark: tree refresh median 16.37 to 3.56 ms; individual checkbox median 59.58 to 0.54 ms. No persistent manager Wave growth across repeated refresh.
+- Release: mh_vsm_analyzer_v2.3.0. README and TEST_RESULTS include switching procedure and tested scope. Real user Experiment not modified. No installation, no main merge.

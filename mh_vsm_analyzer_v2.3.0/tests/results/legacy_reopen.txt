@@ -1,0 +1,6 @@
+¶MHC_Reopen("<TEST_DIR>:")
+  PASS: upgraded legacy graph survives another process restart
+  PASS: migrated graph source retains sample number after restart
+  PASS: legacy hand-edited legend survives restart
+  PASS: upgraded legacy restart ends without runtime errors
+  COMPAT_REOPEN_FAILURES  0

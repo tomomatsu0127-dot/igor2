@@ -1,0 +1,11 @@
+¶MH3_Reopen("<TEST_DIR>:"); Print "recovery_save_result", HMA_SaveRecovery(); Print IgorInfo(1); Print root:MHApp:Manager:Autosave:lastPath
+  PASS: sample number and display name survive process restart
+  PASS: folder hierarchy survives process restart
+  PASS: graph links survive metadata restart
+  PASS: autosave busy flag resets on reopen
+  PASS: five-minute autosave resumes after process restart
+  PASS: reopened metadata and autosave finish without runtime error
+  REOPEN230_FAILURES  0
+  recovery_save_result  1
+  recovery_<ID>
+  <TEST_DIR>:autosave:recovery_<ID>.pxp

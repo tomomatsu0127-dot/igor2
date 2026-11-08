@@ -1,0 +1,56 @@
+PASS: manager initializes on empty Experiment
+PASS: arrow editor is off by default
+PASS: nested Japanese folders created
+PASS: duplicate sibling folder rejected
+PASS: same folder name under different parent allowed
+PASS: moving folder into descendant rejected
+PASS: root move rejected
+PASS: folder renamed
+MH:   fixture   /   11   点 /   0.02   g
+PASS: VSM imported into selected folder
+PASS: import destination persisted by folder UID
+PASS: raw field values retained
+PASS: original magnetic conversion retained
+PASS: single graph created with current format
+PASS: new graph receives stable UID
+PASS: graph trace linked to dataset UID
+PASS: dataset display name changed
+PASS: dataset moved logically
+PASS: nested folder moved
+PASS: graph moved independently
+PASS: graph display name changed
+PASS: management operations leave native graph state unchanged
+PASS: logical move keeps physical wave path
+PASS: all raw and converted wave values unchanged
+PASS: wave Note unchanged by management
+PASS: graph association survives rename and move
+PASS: native graph snapshot captured
+PASS: graph closes while catalog entry remains
+PASS: closed graph stays in catalog
+PASS: closed graph reopens from snapshot
+PASS: reopened graph exists
+PASS: custom horizontal range restored
+PASS: custom font size restored
+PASS: manually edited legend restored
+PASS: independent TextBox restored
+PASS: user-drawn arrow restored
+PASS: opening an already-open graph preserves latest state
+PASS: renamed native window remains discoverable
+PASS: renamed window found by UID
+PASS: all open graph edits synchronized
+PASS: native close path can reopen managed graph
+PASS: native close captures final edits
+PASS: optional named arrow created
+PASS: optional arrow endpoints readable
+PASS: optional arrow endpoints edited
+PASS: edited arrow coordinates retained
+PASS: arrow editor retains unrelated annotation
+PASS: management panel opens
+PASS: tree contains folders, measurement, and graph
+PASS: reinitialization does not replace measurement identity
+PASS: refresh does not duplicate graph records
+PASS: another graph using same measurement created
+PASS: custom graph closed before saving Experiment
+PASS: manager run ends without runtime errors
+MANAGER_FAILURES  0
+MHT_Run("<TEST_DIR>:")
