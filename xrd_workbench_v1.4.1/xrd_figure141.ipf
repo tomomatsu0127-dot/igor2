@@ -58,6 +58,39 @@ Function/S XRD141_TrendAxisText(base)
     return text
 End
 
+Function XRD141_ReadCardCell(file,cell)
+    String file
+    Wave cell
+    Variable ref
+    Open/R/Z=2 ref as file
+    if(V_flag)
+        return -1
+    endif
+    FStatus ref
+    String json=PadString("",min(V_logEOF,65536),0),lattice,value,pattern
+    FBinRead ref,json
+    Close ref
+    SplitString/E="\"lattice\"\\s*:\\s*\\{([^{}]*)\\}" json,lattice
+    if(V_flag!=1)
+        return -1
+    endif
+    Variable i,length
+    for(i=0;i<3;i+=1)
+        if(numtype(cell[i])==0)
+            continue
+        endif
+        pattern="\""+StringFromList(i,"a;b;c")+"\"\\s*:\\s*([0-9]+(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?)\\s*(?:,|$)"
+        SplitString/E=(pattern) lattice,value
+        if(V_flag==1)
+            length=str2num(value)
+            if(numtype(length)==0 && length>0)
+                cell[i]=length
+            endif
+        endif
+    endfor
+    return 0
+End
+
 Function XRD141_FillReferenceCell(ref,cell)
     Variable ref
     Wave cell
@@ -89,6 +122,13 @@ Function XRD141_FillReferenceCell(ref,cell)
                     cell[i]=parsed[i]
                 endif
             endfor
+        endif
+    endif
+    if(numtype(cell[0])!=0 || numtype(cell[2])!=0)
+        // The reference library pairs txt/<card>.txt with cards/<card>.json.
+        String txtFolder=RemoveEnding(hint,":"),library=RemoveEnding(txtFolder,":txt")
+        if(cmpstr(txtFolder,library)!=0 && cmpstr(filename,RemoveEnding(filename,".txt"))!=0)
+            XRD141_ReadCardCell(library+":cards:"+RemoveEnding(filename,".txt")+".json",cell)
         endif
     endif
     return 0
@@ -232,21 +272,44 @@ Function XRD141_TrendXAxis(win,recipe,xx)
     return 0
 End
 
-Function XRD141_Arrow(win,xx,values,rightSide)
-    String win
+Function XRD141_ArrowSpan(win,axis,xx,values,x0,x1,top,bottom)
+    String win,axis
     Wave xx,values
-    Variable rightSide
-    String axis=SelectString(rightSide,"left","right")
+    Variable x0,x1,&top,&bottom
     GetAxis/W=$win/Q $axis
-    Variable tail=SelectNumber(rightSide,0.15,0.85),tip=SelectNumber(rightSide,0.05,0.95)
-    Variable x=xx[0]+(xx[numpnts(xx)-1]-xx[0])*tail
-    Variable y=interp(x,xx,values)
-    if(numtype(y)!=0)
-        y=values[SelectNumber(rightSide,0,numpnts(values)-1)]
+    Variable low=interp(x0,xx,values),high=interp(x1,xx,values),i
+    Variable yMin=min(low,high),yMax=max(low,high)
+    for(i=0;i<numpnts(xx);i+=1)
+        if(xx[i]>=x0 && xx[i]<=x1)
+            yMin=min(yMin,values[i])
+            yMax=max(yMax,values[i])
+        endif
+    endfor
+    if(numtype(yMin)==0 && numtype(yMax)==0)
+        top=min(top,(V_max-yMax)/(V_max-V_min))
+        bottom=max(bottom,(V_max-yMin)/(V_max-V_min))
     endif
-    y=max(0.06,min(0.94,(V_max-y)/(V_max-V_min)))
-    Variable direction=SelectNumber(y>=0.20,1,-1)
-    Variable endY=y+direction*0.11
+End
+
+Function XRD141_Arrow(win,xx,aa,cc,rightSide,hasC)
+    String win
+    Wave xx,aa,cc
+    Variable rightSide,hasC
+    Variable tail=SelectNumber(rightSide,0.15,0.85),tip=SelectNumber(rightSide,0.05,0.95)
+    Variable start=xx[0],span=xx[numpnts(xx)-1]-start
+    Variable x0=start+span*min(tail,tip),x1=start+span*max(tail,tip)
+    Variable top=1,bottom=0
+    XRD141_ArrowSpan(win,"left",xx,aa,x0,x1,top,bottom)
+    if(hasC)
+        XRD141_ArrowSpan(win,"right",xx,cc,x0,x1,top,bottom)
+    endif
+    if(top>bottom)
+        top=0.5
+        bottom=0.5
+    endif
+    Variable above=top>=0.17 || (bottom>0.83 && top>=1-bottom)
+    Variable direction=SelectNumber(above,1,-1)
+    Variable endY=SelectNumber(above,min(0.94,bottom+0.14),max(0.06,top-0.14))
     Variable red=SelectNumber(rightSide,55000,0),blue=SelectNumber(rightSide,0,54000)
     SetDrawLayer/W=$win UserFront
     SetDrawEnv/W=$win xcoord=prel,ycoord=prel,linefgc=(red,0,blue),linethick=3

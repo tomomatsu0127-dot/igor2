@@ -1,0 +1,27 @@
+{
+  "igor": "9.05 x64",
+  "native_assertions_passed": 69,
+  "native_failures": 0,
+  "suites": {
+    "figure": 17,
+    "trend": 25,
+    "trend_reopen": 5,
+    "layout": 22
+  },
+  "experiment_records": {
+    "latest": 6679180,
+    "preinit": 6679180,
+    "postinit": 6679180,
+    "reopen": 6679180
+  },
+  "experiment_differences": {
+    "latest,preinit": {},
+    "latest,postinit": {
+      "display": 10,
+      "recovery": 1
+    },
+    "postinit,reopen": {
+      "display": 2
+    }
+  }
+}

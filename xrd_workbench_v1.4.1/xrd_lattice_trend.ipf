@@ -724,9 +724,9 @@ Function XRD133_DrawTrend(recipe)
     if(hasC)
         XRD133_PlotYRange(win,"right",cc,cRef)
         ModifyGraph/W=$win lblRot(right)=180
-        XRD141_Arrow(win,xx,cc,1)
+        XRD141_Arrow(win,xx,aa,cc,1,hasC)
     endif
-    XRD141_Arrow(win,xx,aa,0)
+    XRD141_Arrow(win,xx,aa,cc,0,hasC)
     Label/W=$win left "\\f02a\\f00 (Å)"
     String axisLabel=StrVarOrDefault(recipe+":axisLabel","横軸")
     Variable axis=NumVarOrDefault(recipe+":axisKind",3)

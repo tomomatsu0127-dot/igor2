@@ -26,6 +26,9 @@ Function XRD141_RunFigureTests(fixture,output)
     Variable/G $(XRD_ReferencePath(1)+":latticeA130")=NaN
     String/G $(XRD80_Library()+":referenceFolderHint")=fixture
     XRD_TestCheck(XRD141_TrendStyle(base,recipe,1,msg)==0 && abs(NumVarOrDefault(recipe+":referenceA",NaN)-5.9)<1e-8,"v141 automatic reference reads original TXT when metadata is missing")
+    Variable/G $(XRD_ReferencePath(1)+":latticeC130")=NaN
+    String/G $(XRD80_Library()+":referenceFolderHint")=RemoveEnding(fixture,"fixtures_v140:")+"fixtures_v141:txt:"
+    XRD_TestCheck(XRD141_TrendStyle(base,recipe,1,msg)==0 && NumVarOrDefault(recipe+":referenceA",NaN)==5.901 && NumVarOrDefault(recipe+":referenceC",NaN)==23.15,"v141 automatic reference reads the paired card JSON")
     String refs=XRD141_RefDraft(base,1)
     String/G $(refs+":aOverride")="5.889"
     String/G $(refs+":cOverride")="23.123"
