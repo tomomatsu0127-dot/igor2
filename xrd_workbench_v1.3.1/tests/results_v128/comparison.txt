@@ -1,0 +1,46 @@
+Printf "%.0f",root:XRD128Isolation
+  1313534957
+Error=0 
+Variable/G root:taskHistory=CaptureHistoryStart()
+¶Variable/G root:taskHistory=CaptureHistoryStart()
+Error=0 
+OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:xrd_main.ipf";OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:tests:xrd_v126_tests.ipf"
+¶OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:xrd_main.ipf";OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:tests:xrd_v126_tests.ipf"
+Error=0 
+MoveWindow/F 0,0,1920,1080
+¶MoveWindow/F 0,0,1920,1080
+Error=0 
+XRD_RunV126Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:tests:fixtures_v110:")
+¶XRD_RunV126Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:tests:fixtures_v110:")
+  PASS: v126 register existing readable aliases
+  PASS: v126 measured trace has registered readable name
+  PASS: v126 measured trace uses original named alias directly
+  PASS: v126 display offset never changes measured intensities
+  PASS: v126 stack uses native display offset
+  PASS: v126 readable phase markers retain assigned measured peaks
+  PASS: v126 review no opaque legacy trace names
+  PASS: v126 initial ordered list retains all projects
+  PASS: v126 chooser buttons do not overlap display settings at minimum size
+  PASS: v126 selected list stays above removal buttons after resize
+  PASS: v126 rebuilt checkbox tree clears stale cell text
+  PASS: v126 draft reorder does not apply early
+  PASS: v126 removal remains draft until Apply
+  PASS: v126 Cancel retains comparison and closes panel
+  PASS: v126 Apply persists exclusion and selected order
+  PASS: v126 show toggles hide reference and marker traces
+  PASS: v126 spacing updates Y bounds
+  PASS: v126 hidden references clear arrow selection
+  PASS: v126 explicit empty selection stays empty
+  PASS: v126 detached comparison cleared with message
+  PASS: v126 embedded comparison cleared
+  PASS: v126 reopen empty chooser does not restore excluded samples
+  PASS: v126 samples can be re-added after clearing
+  PASS: v126 references restore selection guide
+  PASS: v126 all comparison edits preserve measurement values
+  PASS: v126 overlong trace names safely clipped
+  PASS: v126 duplicate trace name receives discriminator
+  PASS: v126 formula subscripts remain readable in native trace names
+  PASS: v126 chooser applies to its original project after background project switch
+  PASS: v126 runtime clean
+  V126_FAILURES  0
+Error=0 
