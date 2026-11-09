@@ -1,10 +1,9 @@
 # WORK_STATUS
 
-2026-11-09 JST / MH VSM Analyzer v2.4.0
+2026-11-09 JST / MH VSM Analyzer v2.5.0
 
-- Branch codex/mh-v2.4.0, base 15662fcdcea850311a8f72b05a20961d66c5bc35.
-- Added context menus, sibling order, folder promotion on delete, distinct measurement and disk-file deletion, and VSM replacement in place. Open plots using a removed measurement close while unrelated references block deletion.
-- New plots use silent native close, PNG export with source stem, and no manager archive. A maximized manager keeps its rectangle when a native graph opens in a floating host. Older archives remain readable and deletable.
-- Igor Pro 9.05: 160 assertions passed across management, figure, axis, default and reopen suites. Desktop migration comparison found 0 differences across 401 records and 1,766 field groups. Verified the installed IPF from a new process using a copy of the upgraded Experiment.
-- 1,000 datasets and 10 folders: median folder bulk checks 37.2 to 11.3 ms and global clear 27.5 to 7.2 ms.
-- Applied to desktop QS-MH.pxp with an exact v2.3.0 PXP backup. Research data and deployment files are excluded from the repository. No merge to main.
+- Branch codex/mh-v2.5.0, base c6d31c1756c42e10a56fbf91c177b59852d64026.
+- Experiment-wide figure settings for geometry, legend style, typography and R.T. Visibility and offsets persist with the Experiment. Open and later figures adopt the same settings.
+- One compact legend textbox supports top samples, top arrows and right arrows. Numeric unary minus renders as U+2212; source names and measurement records stay intact.
+- Igor Pro 9.05: 44 native assertions passed. Verified synthetic exports, axes, existing annotation preservation, fresh-process settings reopen, maximized overlay and a legacy archived graph using shared style.
+- Compared 276 existing records and 1,284 field groups with zero differences on the desktop Experiment copy. Applied to QS-MH.pxp with a separate exact v2.4.0 backup. No real measurement files or Experiments in the repository.

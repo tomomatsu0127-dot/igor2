@@ -57,3 +57,13 @@
 - Used native floating hosts to keep the Windows MDI manager maximized. Verified standard plot dimensions, normal and floating PNG export, live archive overlay, silent close, and dependency-aware deletion. Igor 9 uses /K=1 and may serialize open preview windows through native PXP saving. Igor 10 uses /K=4.
 - Removed per-plot archive writes for new plots. Bulk check finds descendants per folder once and all-clear writes the check column in one operation. Same-workload median 37.2→11.3 ms and 27.5→7.2 ms respectively.
 - Compared 401 persisted MH records and 1,766 field groups on a private desktop copy with no changes. Validated in fresh processes before and after atomic desktop replacement. Exact original PXP kept as a separate backup. No real measurement files altered or committed.
+
+## 2026-11-09 / v2.5.0
+- Start from c6d31c1. Shared Experiment figure settings, typographic minus, R.T. and single-box legends based on the three reference images.
+- Captured a private copy of the current desktop Experiment. Previous release remains versioned.
+
+## 2026-11-09 / v2.5.0 validation and deployment
+
+- Switched figure settings to a draft/commit workflow independent of the selected figure. Native text measurement sets compact tab stops in one annotation. Right-arrow legend rows are ordered by curve endpoint height.
+- Passed 20 figure, 21 axis and 3 reopen checks in Igor 9.05. The right and top arrow samples were visually checked after PNG export. A private copy of a legacy archived graph reopened using the shared settings.
+- Validated the current desktop Experiment before replacement, with 276 existing records and 1,284 field groups unchanged. Reopened in a separate process and confirmed maximized graph overlay. Kept the original bytes as the v2.4.0 backup.
