@@ -1,0 +1,5 @@
+PASS: v131 purge persists across restart and keeps other measurement
+PASS: v131 purged snapshots stay absent after restart
+PASS: v131 shared reference still available after restart
+V131 REOPEN FAILURES  0
+XRD131_ReopenTest()

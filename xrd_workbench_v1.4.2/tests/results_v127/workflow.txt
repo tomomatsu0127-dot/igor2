@@ -1,0 +1,61 @@
+Printf "%.0f",root:XRD127Isolation
+¶Printf "%.0f",root:XRD127Isolation
+  354176895
+Error=0 
+Variable/G root:taskHistory=CaptureHistoryStart()
+¶Variable/G root:taskHistory=CaptureHistoryStart()
+Error=0 
+OpenProc "<REPO>:xrd_workbench_v1.2.7:xrd_main.ipf";OpenProc "<REPO>:xrd_workbench_v1.2.7:tests:xrd_v127_tests.ipf"
+¶OpenProc "<REPO>:xrd_workbench_v1.2.7:xrd_main.ipf";OpenProc "<REPO>:xrd_workbench_v1.2.7:tests:xrd_v127_tests.ipf"
+Error=0 
+MoveWindow/F 0,0,1920,1080
+¶MoveWindow/F 0,0,1920,1080
+Error=0 
+XRD_RunV127Tests("<REPO>:xrd_workbench_v1.2.7:tests:fixtures_v110:","<REPO>:scratch:v127:workflow:");SaveExperiment/C/F={1,"",0} as "<REPO>:scratch:v127:workflow127_final.pxp"
+¶XRD_RunV127Tests("<REPO>:xrd_workbench_v1.2.7:tests:fixtures_v110:","<REPO>:scratch:v127:workflow:");SaveExperiment/C/F={1,"",0} as "<REPO>:scratch:v127:workflow127_final.pxp"
+  PASS: v127 fresh default prominence is five percent
+  PASS: v127 chooser sorts entered serials numerically regardless of import order
+  PASS: v127 unequal widths and leading zeros use numeric order
+  PASS: v127 huge serials sort without floating point conversion
+  PASS: v127 chooser sort preserves existing stack order
+  PASS: v127 configurable initial prominence accepts valid percent
+  PASS: v127 changing defaults never rewrites an existing measurement
+  PASS: v127 new measurement receives saved default
+  PASS: v127 invalid defaults leave saved value unchanged
+  PASS: v127 cancelling default edits retains five percent
+  PASS: v127 detection settings expose future-measurement defaults
+  PASS: v127 standard preset uses configured initial prominence
+  PASS: v127 registration fields are serial composition display name
+  PASS: v127 composition blur fills display name
+  PASS: v127 manual display name does not alter composition
+  PASS: v127 merely focusing unchanged composition keeps custom display name
+  PASS: v127 successful metadata registration closes floating entry panel
+  PASS: v127 registration retains stable measurement identity and custom label
+  XRD imported 1001 points; header lines skipped: 0
+  PASS: v127 successful file addition closes registration panel
+  PASS: v127 successful import keeps comparison and measured X ranges aligned
+  PASS: v127 zero-padded serial composition name and five percent survive import
+  PASS: v127 newly imported smaller serial appears first
+  PASS: v127 projects move upward independently of folder creation order
+  PASS: v127 project list uses saved stable UID order
+  PASS: v127 first project cannot move above list boundary
+  PASS: v127 manager reorder retains selected project
+  PASS: v127 project can be renamed after reordering
+  PASS: v127 project order survives physical rename by stable UID
+  PASS: v127 deleted projects remain hidden in ordered list
+  PASS: v127 restored visibility retains saved order
+  PASS: v127 duplicate or quoted new project names never overwrite data
+  PASS: v127 project addition uses blank plain text control
+  PASS: v127 cancelling plain project form creates nothing
+  PASS: v127 plain text project creation succeeds and closes its form
+  PASS: v127 empty project header explains the next import step
+  PASS: v127 empty project disables unavailable peak actions with explicit labels
+  PASS: v127 next unexplained peak skips assigned peaks
+  PASS: v127 unexplained navigation selects stable measured peak ID
+  PASS: v127 previous unexplained peak wraps across assigned peak
+  PASS: v127 other actions menu navigates both directions
+  PASS: v127 an assigned overlap with an Unknown row is still identified
+  PASS: v127 navigation never changes measured data or peak IDs
+  PASS: v127 runtime clean
+  V127_FAILURES  0
+Error=0 

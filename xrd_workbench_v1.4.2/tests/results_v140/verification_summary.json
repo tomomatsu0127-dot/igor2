@@ -1,0 +1,29 @@
+{
+  "igor": "9.05 x64",
+  "native_assertions_passed": 123,
+  "native_failures": 0,
+  "suites": {
+    "trend": 25,
+    "trend_reopen": 5,
+    "legacy_lattice": 8,
+    "workflow": 32,
+    "remeasurement": 31,
+    "layout": 22
+  },
+  "experiment_records": {
+    "disk": 6674302,
+    "preinit": 6674302,
+    "postinit": 6674302,
+    "reopen": 6674302
+  },
+  "experiment_differences": {
+    "disk,preinit": {},
+    "disk,postinit": {
+      "display": 5,
+      "recovery": 1
+    },
+    "postinit,reopen": {
+      "display": 2
+    }
+  }
+}
