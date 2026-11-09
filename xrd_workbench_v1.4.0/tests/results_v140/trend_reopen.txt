@@ -1,0 +1,7 @@
+PASS: v140 saved result and figure persist across restart
+PASS: v140 cross-project selection and x value persist
+PASS: v140 saved figure can be reopened after restart
+PASS: v140 permanent measurement removal also removes dependent trend figure
+PASS: v140 removal cleans cross-project draft selections
+V140 REOPEN FAILURES  0
+XRD140_ReopenAndPurge("<WORKSPACE>:scratch:v140:")

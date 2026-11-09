@@ -1,5 +1,6 @@
 #pragma rtGlobals=3
 #include ":xrd_tests"
+#include ":xrd_v80_integration_tests"
 
 Function/S XRD140_TestSample(name,ref,cellA,cellC,hasAssignments)
     String name
@@ -96,8 +97,12 @@ Function XRD140_RunTrendTests(fixture,output)
     XRD_TestCheck(!strlen(XRD133_SaveTrend(project,message)),"v140 no silent partial plotting")
     XRD140_DraftInput(base,unassigned,"1050",0)
     XRD133_TrendTable(project)
+    Variable/G $(project+":activeStep")=4
+    XRD_Panel()
+    XRD_TestCheck(WhichListItem("latticeTrend",ControlNameList("XRDWorkbench",";"))>=0,"v140 lattice screen has the integrated entry point")
     XRD_TestCheck(XRD133_TrendPanel()==0,"v140 integrated window opens")
     XRD_TestCheck(cmpstr(XRD133_TrendOwner(),project)==0,"v140 graph window is owned by the starting project")
+    XRD140_CheckTableActions(project)
     String recipe=XRD133_SaveTrend(project,message)
     XRD_TestCheck(strlen(recipe)>0 && XRD133_DrawTrend(recipe)==0,"v140 makes a native lattice graph")
     String win="XRDP_"+StrVarOrDefault(recipe+":plotUID","")
@@ -124,6 +129,33 @@ Function XRD140_RunTrendTests(fixture,output)
     String/G root:XRD140TestMeasurement=second
     Print "V140 FAILURES",NumVarOrDefault("root:XRDTestFailures",-1)
     return 0
+End
+
+Function XRD140_CheckTableActions(project)
+    String project
+    String base=project+":LatticeTrend",ui=base+":UI"
+    STRUCT WMListboxAction action
+    Wave/T action.listWave=$(ui+":table")
+    Wave action.selWave=$(ui+":flags")
+    action.eventCode=7
+    action.row=0
+    action.col=3
+    action.listWave[0][3]="1201"
+    XRD133_TrendList(action)
+    XRD133_RefreshTrend(project)
+    XRD_TestCheck(cmpstr(action.listWave[0][3],"1201")==0,"v140 editing the x cell updates the project draft")
+    action.listWave[0][3]="1200"
+    XRD133_TrendList(action)
+    action.eventCode=13
+    action.row=1
+    action.col=0
+    action.selWave[1][0]=48
+    XRD133_TrendList(action)
+    XRD133_RefreshTrend(project)
+    XRD_TestCheck((action.selWave[1][0] & 16)!=0,"v140 checkbox callback preserves a selected measurement")
+    action.selWave[1][0]=32
+    XRD133_TrendList(action)
+    XRD133_RefreshTrend(project)
 End
 
 Function XRD140_ReopenAndPurge(output)

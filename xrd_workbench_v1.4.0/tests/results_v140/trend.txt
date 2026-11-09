@@ -1,0 +1,28 @@
+PASS: v140 default scope is the current project
+PASS: v140 external project contributes additional rows
+PASS: v140 phase menu derives from adopted reflections
+PASS: v140 registered composition prefilled as a number
+PASS: v140 composition edits do not become temperatures
+PASS: v140 strict numeric input and mathematical minus
+BATCH  新規計算 2 件  ／  既存結果 0 件  ／  計算不可 1 件
+PASS: v140 batch computes both projects from their adopted peaks
+PASS: v140 hexagonal fit recovers known a and c
+PASS: v140 cross-project fit recovers known a and c
+PASS: v140 batch preserves the single-measurement workspace
+PASS: v140 reuses valid fit and skips unassigned phase
+PASS: v140 no silent partial plotting
+PASS: v140 lattice screen has the integrated entry point
+PASS: v140 integrated window opens
+PASS: v140 graph window is owned by the starting project
+PASS: v140 editing the x cell updates the project draft
+PASS: v140 checkbox callback preserves a selected measurement
+PASS: v140 makes a native lattice graph
+PASS: v140 sorting retains measurement and value alignment
+PASS: v140 figure records fit provenance and units
+PASS: v140 dual axes and declared reference values drawn
+PASS: v140 graph appears in front of the normal window
+PASS: v140 stale fit rejected while the saved figure stays fixed
+PASS: v140 recalculation appends a new run
+PASS: v140 saved native graph reopens
+V140 FAILURES  0
+XRD140_RunTrendTests("<WORKSPACE>:xrd_workbench_v1.4.0:tests:fixtures_v140:","<WORKSPACE>:scratch:v140:");SaveExperiment/C/F={1,"",0} as "<WORKSPACE>:scratch:v140:synthetic140_callbacks.pxp"
