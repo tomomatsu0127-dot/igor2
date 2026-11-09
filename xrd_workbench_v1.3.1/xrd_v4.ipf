@@ -89,7 +89,7 @@ Function/S XRD_PhaseLabel(refIndex)
 End
 
 Function XRD_CaptureView()
-    if(!WinType("XRDWorkbench"))
+    if(!WinType("XRDWorkbench#Pattern"))
         return 0
     endif
     String path=GetUserData("XRDWorkbench","","XRDData")

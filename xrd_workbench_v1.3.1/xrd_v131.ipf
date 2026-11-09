@@ -119,7 +119,7 @@ Function XRD131_PurgeUI()
     endif
     path=StringFromList(choice-1,paths)
     String uid=StrVarOrDefault(path+":measurementUID","")
-    String plots=XRD131_SamplePlots(uid)
+    String plots=XRD131_SamplePlots(uid+";"+StrVarOrDefault(path+":replacedUIDs131",""))
     String message="試料 "+XRD110_SampleLabel(path)+" をこのExperimentから完全に削除しますか？\r測定、ピーク、同定、格子計算とこの測定の操作履歴が消えます。"
     if(strlen(plots))
         message+="\rこの測定を含む保存図 "+num2istr(ItemsInList(plots))+" 件も図全体を削除します。"
@@ -152,9 +152,9 @@ Function XRD131_ChangeError(result)
     endif
 End
 
-Function/S XRD131_SamplePlots(uid)
-    String uid
-    if(!strlen(uid))
+Function/S XRD131_SamplePlots(sampleUIDs)
+    String sampleUIDs
+    if(!ItemsInList(sampleUIDs))
         return ""
     endif
     String plots=XRD_PlotRoot()+":Plots",name,recipe,result=""
@@ -168,7 +168,7 @@ Function/S XRD131_SamplePlots(uid)
         Wave/T/Z uids=$(recipe+":sourceUIDs")
         if(WaveExists(uids))
             for(j=0;j<numpnts(uids);j+=1)
-                if(cmpstr(uids[j],uid)==0)
+                if(WhichListItem(uids[j],sampleUIDs)>=0)
                     result+=recipe+";"
                     break
                 endif
@@ -287,7 +287,8 @@ Function XRD131_ChangeMeasurement(path,xx,yy,source,number,composition,label,hea
         return -1
     endif
     Variable replacing=WaveExists(xx),error=0
-    String plots=XRD131_SamplePlots(uid),oldActive=StrVarOrDefault(project+":activeData","")
+    String priorUIDs=uid+";"+StrVarOrDefault(path+":replacedUIDs131","")
+    String plots=XRD131_SamplePlots(priorUIDs),oldActive=StrVarOrDefault(project+":activeData","")
     String oldProject=XRD_Project(),target=XRD110_MeasurementPath(project,number),recipe,win,newUID=""
     Variable stackOrder=NumVarOrDefault(path+":stackOrder",0),visible=NumVarOrDefault(path+":visibleInStack",1),i
     String tx=XRD100_TxStart(SelectString(replacing,"測定を完全削除","測定を差し替え"),project)
@@ -317,6 +318,7 @@ Function XRD131_ChangeMeasurement(path,xx,yy,source,number,composition,label,hea
             String/G $(target+":sampleNumber")=number
             String/G $(target+":composition")=composition
             String/G $(target+":displayName")=label
+            String/G $(target+":replacedUIDs131")=priorUIDs
             Variable/G $(target+":skippedHeaderLines")=headers
             Variable/G $(target+":stackOrder")=stackOrder
             Variable/G $(target+":visibleInStack")=visible
@@ -344,6 +346,7 @@ Function XRD131_ChangeMeasurement(path,xx,yy,source,number,composition,label,hea
     catch
         error=max(1,GetRTError(1))
         String/G $(tx+":errorDetail")=GetErrMessage(error)
+        Print "XRD measurement change stopped",error,GetErrMessage(error)
     endtry
     if(error)
         Variable rollback=XRD100_Rollback(tx)
@@ -361,7 +364,7 @@ Function XRD131_ChangeMeasurement(path,xx,yy,source,number,composition,label,hea
     String/G $(XRD100_Admin()+":activeTransaction")=""
     if(replacing)
         Variable/G $(project+":activeStep")=1
-        XRD131_MarkReplacedPlots(plots)
+        XRD131_MarkReplacedPlots(XRD131_SamplePlots(uid))
     elseif(cmpstr(oldActive,path)==0)
         String list=XRD_MeasurementOrderList(project)
         String/G $(project+":activeData")=""

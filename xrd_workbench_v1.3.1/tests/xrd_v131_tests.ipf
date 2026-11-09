@@ -26,7 +26,15 @@ Function XRD131_RunTests(fixtures,output)
     CtrlNamedBackground XRDAutoSave,stop
     XRD_TestCheck(WhichListItem("purgeData",ControlNameList("XRDWorkbench",";"))>=0,"v131 permanent-delete control available")
     XRD_TestCheck(XRD131_Replace(sample,"007","A","Invalid",fixtures+"one_column.txt")==-2 && cmpstr(XRD80_ResolveMeasurement(oldUID),sample)==0,"v131 malformed file leaves old measurement untouched")
-    XRD_Manual(sample,22)
+    XRD_Manual(sample,25)
+    NewPath/O/Q XRDReferencePath,ReplaceString("fixtures_v070:",fixtures,"fixtures_v110:")
+    XRD_LoadReferenceFile("phase1.txt",1)
+    XRD_TestCheck(XRD80_TestAdopt(sample,0,1,0)==0,"v131 old measurement has an adopted reference")
+    Wave referenceAngles=$(XRD_ReferencePath(1)+":twoTheta")
+    Variable referenceCRC=WaveCRC(0,referenceAngles)
+    NewDataFolder $(sample+":LatticeRuns")
+    NewDataFolder $(sample+":LatticeRuns:Run1")
+    Variable/G $(sample+":LatticeRuns:Run1:a")=5.9
     XRD_RecordUndo(other,"keep")
     XRD_RecordUndo(sample,"remove")
     XRD_TestCheck(XRD110_RegisterPanel("")==0,"v131 register panel opens")
@@ -61,16 +69,21 @@ Function XRD131_RunTests(fixtures,output)
     Variable result=XRD131_Replace(sample,"007","A","Rejected while in use",ReplaceString("fixtures_v070:",fixtures,"fixtures:")+"measurement.xy")
     Print "BLOCKED_RESULT",result
     XRD_TestCheck(result==-5 && cmpstr(XRD80_ResolveMeasurement(oldUID),sample)==0 && WaveExists($oldAlias),"v131 open user graph rolls replacement back")
+    XRD_TestCheck(GetRTError(0)==0,"v131 rollback returns without a pending Igor error")
     KillWindow UserHoldingSample
     XRD_TestCheck(XRD_DeleteMeasurement(sample)==0,"v131 old reversible deletion still available")
     result=XRD131_Replace(sample,"007","A","Remeasured",ReplaceString("fixtures_v070:",fixtures,"fixtures:")+"measurement.xy")
     Print "REPLACEMENT_RESULT",result
     XRD_TestCheck(result==0,"v131 remeasurement replaces soft-deleted number")
+    if(result!=0)
+        return -1
+    endif
     String uid=StrVarOrDefault(sample+":measurementUID","")
     XRD_TestCheck(strlen(uid)>0 && cmpstr(uid,oldUID)!=0 && !strlen(XRD80_ResolveMeasurement(oldUID)),"v131 old registry UID retired")
     Wave/Z fresh=$(sample+":Raw:intensity"),peaks=$(sample+":Peaks:peakID"),assignments=$(sample+":Assignments:peakID")
     XRD_TestCheck(WaveExists(fresh) && numpnts(fresh)>6 && numpnts(peaks)==0 && numpnts(assignments)==0 && !NumVarOrDefault(sample+":deleted",0),"v131 new raw values with empty analysis")
     WaveClear fresh,peaks,assignments
+    XRD_TestCheck(!DataFolderExists(sample+":LatticeRuns"),"v131 new measurement starts without previous lattice results")
     XRD_TestCheck(NumVarOrDefault(savedOld+":stale",0)==1 && DataFolderExists(savedOld+":Snapshot:Sample1"),"v131 earlier plot kept as a stale snapshot")
     XRD_TestCheck(WaveExists($oldAlias) && cmpstr(XRD80_ResolveMeasurement(otherUID),other)==0,"v131 generated alias reused and other measurement retained")
     XRD_TestCheck(XRD_Undo()==1 && cmpstr(XRD_Data(),other)==0,"v131 unrelated undo works after deleted history entries")
@@ -91,9 +104,21 @@ Function XRD131_RunTests(fixtures,output)
     XRD_TestCheck(!DataFolderExists(sample) && !strlen(XRD80_ResolveMeasurement(uid)),"v131 physical delete removes current measurement and registry")
     Wave/Z deletedAlias=$oldAlias
     XRD_TestCheck(!WaveExists(deletedAlias),"v131 physical delete removes alias")
-    XRD_TestCheck(!DataFolderExists(savedNew) && DataFolderExists(savedOld),"v131 physical delete removes matching plot")
+    XRD_TestCheck(!DataFolderExists(savedNew) && !DataFolderExists(savedOld),"v131 physical delete removes the current and previous plots")
     XRD_TestCheck(!strlen(XRD131_RegisteredSample(project,"007")) && XRD110_SerialAvailable(project,"","007"),"v131 permanently deleted number reusable")
     XRD_TestCheck(cmpstr(XRD80_ResolveMeasurement(otherUID),other)==0,"v131 permanent delete preserves unrelated sample")
+    XRD_TestCheck(WaveCRC(0,referenceAngles)==referenceCRC,"v131 remeasurement and purge preserve shared reference values")
+    XRD_TestCheck(GetRTError(0)==0,"v131 deletion leaves no pending Igor error")
     Print "V131 FAILURES",NumVarOrDefault("root:XRDTestFailures",-1)
     CtrlNamedBackground XRDAutoSave,stop
+End
+
+
+Function XRD131_ReopenTest()
+    String project=XRD_Project(),other=XRD110_MeasurementPath(project,"008")
+    Variable/G root:XRDTestFailures=0
+    XRD_TestCheck(DataFolderExists(other) && XRD110_SerialAvailable(project,"","007"),"v131 purge persists across restart and keeps other measurement")
+    XRD_TestCheck(strlen(XRD_PlotChoices())==strlen("新しい図;"),"v131 purged snapshots stay absent after restart")
+    XRD_TestCheck(NumVarOrDefault(XRD80_Library()+":referenceCount",0)==1,"v131 shared reference still available after restart")
+    Print "V131 REOPEN FAILURES",NumVarOrDefault("root:XRDTestFailures",-1)
 End

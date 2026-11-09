@@ -150,6 +150,7 @@ Function/S XRD120_CopyMeasurement(source,project,number,composition,label)
         XRD100_Op(tx,"createdFolder","",path)
         uid=XRD80_NewUID("M")
         String/G $(path+":measurementUID")=uid
+        KillStrings/Z $(path+":replacedUIDs131")
         String/G $(path+":projectUID")=XRD80_ProjectUID(project)
         String/G $(path+":waveStem")=uid
         String/G $(path+":sampleNumber")=number

@@ -17,8 +17,10 @@ Function XRD110_Controls(project,path)
     if(step==1)
         Button pointAdd,win=XRDWorkbench,pos={16,242},size={175,25},title="カーソルAの位置を追加",proc=XRD110_Button
         TitleBox cursorHelp110,win=XRDWorkbench,pos={16,280},size={175,42},frame=0,title="Ctrl+IでIgor標準カーソルを表示。\r曲線上にAを置いて追加します。"
-        XRD_EnsureNumeric(path+":zoomHalf130",5)
-        SetVariable peakZoom130,win=XRDWorkbench,pos={16,380},size={175,22},title="選択時の拡大 ±(deg)",limits={0.01,30,0.5},value=$(path+":zoomHalf130")
+        if(strlen(path))
+            XRD_EnsureNumeric(path+":zoomHalf130",5)
+            SetVariable peakZoom130,win=XRDWorkbench,pos={16,380},size={175,22},title="選択時の拡大 ±(deg)",limits={0.01,30,0.5},value=$(path+":zoomHalf130")
+        endif
         Button detectorSettings,win=XRDWorkbench,pos={16,340},size={175,26},title="ピーク検出の設定…",proc=XRD_DetectionButton,disable=SelectNumber(strlen(path)>0,2,0)
         if(!strlen(path))
             Button pointAdd,win=XRDWorkbench,disable=2
