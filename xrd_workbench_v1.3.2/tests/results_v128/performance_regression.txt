@@ -1,0 +1,28 @@
+Printf "%.0f",root:XRD128Isolation
+  1251575887
+Error=0 
+Variable/G root:taskHistory=CaptureHistoryStart()
+¶Variable/G root:taskHistory=CaptureHistoryStart()
+Error=0 
+OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:xrd_main.ipf";OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:tests:xrd_v128_tests.ipf"
+¶OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:xrd_main.ipf";OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:tests:xrd_v128_tests.ipf"
+Error=0 
+MoveWindow/F 0,0,1920,1080
+¶MoveWindow/F 0,0,1920,1080
+Error=0 
+XRD_RunV128Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:tests:fixtures_v110:")
+¶XRD_RunV128Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.8:tests:fixtures_v110:")
+  PASS: v128 selected UIDs retain cross-project order and remove duplicate/missing UID
+  PASS: v128 deleted measurement is excluded immediately
+  PASS: v128 deleted project is excluded immediately
+  PASS: v128 restored project is visible without a stale cache
+  PASS: v128 empty comparison remains explicitly empty
+  PASS: v128 repeated list/chooser/comparison queries never write unselected raw or normalized waves
+  PASS: v128 list queries never rewrite unselected peak heights or table
+  PASS: v128 same-project step changes avoid upgrading all measurements
+  PASS: v128 candidate scoring remains available after step changes
+  PASS: v128 single evidence build retains the identical candidate evidence
+  PASS: v128 legacy missing stack order still initializes
+  PASS: v128 selection updates candidates and live comparison without errors
+  V128_FAILURES  0
+Error=0 

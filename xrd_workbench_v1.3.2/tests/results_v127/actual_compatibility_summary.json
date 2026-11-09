@@ -1,0 +1,40 @@
+{
+  "baseline_to_preinit": {
+    "before": "baseline",
+    "after": "preinit",
+    "before_records": 2189758,
+    "after_records": 2189758,
+    "changed": 4,
+    "categories": {
+      "UI geometry/selection/tree/draft": 3,
+      "active UI child/autosave notice": 1
+    },
+    "unexpected": 0
+  },
+  "baseline_to_postinit": {
+    "before": "baseline",
+    "after": "postinit",
+    "before_records": 2189758,
+    "after_records": 2189760,
+    "changed": 15,
+    "categories": {
+      "new preference folder": 1,
+      "new five percent initial preference": 1,
+      "UI geometry/selection/tree/draft": 11,
+      "active UI child/autosave notice": 2
+    },
+    "unexpected": 0
+  },
+  "postinit_to_reopened": {
+    "before": "postinit",
+    "after": "reopened",
+    "before_records": 2189760,
+    "after_records": 2189760,
+    "changed": 9,
+    "categories": {
+      "UI geometry/selection/tree/draft": 8,
+      "active UI child/autosave notice": 1
+    },
+    "unexpected": 0
+  }
+}

@@ -1,0 +1,20 @@
+XRD imported 5001 points; header lines skipped: 1
+PASS: native Peak AutoFind preview leaves peaks and Undo unchanged
+PASS: detector dispatcher registers native AutoFind results and algorithm
+AUTOFIND FIXTURE: 5/5 true; registered=6
+PASS: native alternative finds at least four synthetic reference peaks
+PASS: native AutoFind leaves original measurements bit-identical
+元に戻しました：Igor標準方式でピーク検出
+PASS: native detector registration is undoable
+やり直しました：Igor標準方式でピーク検出
+PASS: native detector registration is redoable
+PASS: native redetection retains stable manual peak identity
+PASS: invalid native threshold rejects without mutation
+PASS: native mode active minimum-height threshold remains editable
+XRD imported 4997 points; header lines skipped: 1
+PASS: native alternative also handles nonuniform angular sampling
+PASS: native detector returns zero peaks for a flat measurement
+PASS: native alternative rejects undersampled input without modifying peaks
+PASS: native detection integration leaves no runtime error
+v0.7.0 native detector failures=0
+XRD_RunV70Detector("<WORKSPACE>:xrd_workbench_v1.3.0:tests:fixtures_v060:","<WORKSPACE>:scratch:v130:detector:")

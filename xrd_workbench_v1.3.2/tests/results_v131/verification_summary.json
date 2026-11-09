@@ -1,0 +1,58 @@
+{
+  "igor": "9.05 x64",
+  "native_assertions_passed": 114,
+  "native_failures": 0,
+  "suites": {
+    "remeasurement": 31,
+    "remeasurement_reopen": 3,
+    "workflow": 32,
+    "comparison": 30,
+    "legend": 18
+  },
+  "experiment_records": {
+    "autosave": 5010426,
+    "preinit": 5010426,
+    "postinit": 5010208,
+    "reopen": 5010208
+  },
+  "experiment_differences": {
+    "autosave,preinit": {
+      "derived_display": 1,
+      "display": 5
+    },
+    "autosave,postinit": {
+      "derived_display": 709,
+      "display": 54,
+      "recovery": 1
+    },
+    "postinit,reopen": {
+      "display": 2
+    }
+  },
+  "performance_120_measurements": {
+    "old": {
+      "REOPEN_MS": {
+        "median_ms": 81.3663,
+        "min_ms": 67.3653,
+        "max_ms": 113.026
+      },
+      "CREATE_MS": {
+        "median_ms": 125.703,
+        "min_ms": 122.187,
+        "max_ms": 146.038
+      }
+    },
+    "new": {
+      "REOPEN_MS": {
+        "median_ms": 0.0825,
+        "min_ms": 0.0271,
+        "max_ms": 0.3882
+      },
+      "CREATE_MS": {
+        "median_ms": 40.9151,
+        "min_ms": 38.6058,
+        "max_ms": 71.5423
+      }
+    }
+  }
+}
