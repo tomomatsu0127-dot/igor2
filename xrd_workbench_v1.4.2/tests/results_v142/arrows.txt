@@ -1,0 +1,15 @@
+PASS: v142 reads original ungrouped a arrow
+PASS: v142 reads original ungrouped c arrow
+PASS: v142 panel opens with original positions
+PASS: v142 independently positions both arrows
+PASS: v142 saved left arrow is a movable group
+PASS: v142 saved right arrow is a movable group
+PASS: v142 original arrows replaced while unrelated drawings survive
+PASS: v142 edited axis limits ticks and label survive arrow placement
+PASS: v142 current-axis automatic placement
+PASS: v142 automatic placement responds to edited vertical ranges
+PASS: v142 edited saved figure reopens
+PASS: v142 left arrow retained after reopening
+PASS: v142 right arrow retained after reopening
+PASS: v142 user axis range retained after reopening
+V142 ARROW FAILURES  0
