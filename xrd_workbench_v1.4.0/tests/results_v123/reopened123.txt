@@ -1,0 +1,26 @@
+Printf "%.0f",root:XRD123Isolation
+¶Printf "%.0f",root:XRD123Isolation
+  1389282384
+Error=0 
+Variable/G root:taskHistory=CaptureHistoryStart()
+¶Variable/G root:taskHistory=CaptureHistoryStart()
+Error=0 
+OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.3:xrd_main.ipf";OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.3:tests:xrd_v120_tests.ipf"
+¶OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.3:xrd_main.ipf";OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.3:tests:xrd_v120_tests.ipf"
+Error=0 
+XRD_VerifyV120Restored()
+¶XRD_VerifyV120Restored()
+  PASS: v120 actual reopen preserves serial folder and leading zero
+  PASS: v120 actual reopen evaluates named raw dependency
+  PASS: v120 actual reopen retains assignments including Unknown
+  PASS: v120 actual reopen retains cross-project comparison
+  PASS: v120 actual reopen retains legend columns and separate output
+  PASS: v120 actual reopen restores native plot
+  PASS: v120 actual reopen restores separate native legend
+  PASS: v120 actual reopen preserves independent copied and source samples
+  PASS: v120 actual reopen preserves exactly three selected comparison samples
+  PASS: v120 actual reopen retains copied identification and lattice values
+  PASS: v120 table-focused mode keeps both lists large without overlap
+  PASS: v120 actual reopen keeps fixed identification Y bounds
+  v120 reopened failures=0
+Error=0 

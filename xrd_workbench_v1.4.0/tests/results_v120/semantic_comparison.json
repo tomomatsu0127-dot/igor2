@@ -1,0 +1,24 @@
+{
+  "new_preinit": {
+    "old_records": 86796,
+    "new_records": 86796,
+    "all_changes": 0,
+    "unexpected_changes": []
+  },
+  "new_postinit": {
+    "old_records": 86796,
+    "new_records": 86828,
+    "all_changes": 97,
+    "unexpected_changes": []
+  },
+  "reopened": {
+    "old_records": 86796,
+    "new_records": 86828,
+    "all_changes": 97,
+    "unexpected_changes": []
+  },
+  "save_restart_reopen": {
+    "records": 86828,
+    "changes": []
+  }
+}

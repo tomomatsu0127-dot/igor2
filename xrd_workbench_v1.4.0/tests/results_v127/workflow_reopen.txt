@@ -1,0 +1,23 @@
+Printf "%.0f",root:XRD127Isolation
+¶Printf "%.0f",root:XRD127Isolation
+  1560180024
+Error=0 
+Variable/G root:taskHistory=CaptureHistoryStart()
+¶Variable/G root:taskHistory=CaptureHistoryStart()
+Error=0 
+OpenProc "<REPO>:xrd_workbench_v1.2.7:xrd_main.ipf";OpenProc "<REPO>:xrd_workbench_v1.2.7:tests:xrd_v127_tests.ipf"
+¶OpenProc "<REPO>:xrd_workbench_v1.2.7:xrd_main.ipf";OpenProc "<REPO>:xrd_workbench_v1.2.7:tests:xrd_v127_tests.ipf"
+Error=0 
+MoveWindow/F 0,0,1920,1080
+¶MoveWindow/F 0,0,1920,1080
+Error=0 
+XRD127_ReopenCheck()
+¶XRD127_ReopenCheck()
+  PASS: v127 fresh process retains reordered renamed projects
+  PASS: v127 five percent initial value persists
+  PASS: v127 saved registration and measurement UIDs resolve
+  PASS: v127 composition and custom display name persist separately
+  PASS: v127 serial order persists after native save and restart
+  PASS: v127 reopened runtime clean
+  V127_REOPEN_FAILURES  0
+Error=0 
