@@ -329,3 +329,7 @@ Desktopの最新QS_v1.2.4.pxpと更新前backupのhash一致、他Igorなしを�
 - 未確認: Windows実クリックによる外部アプリ切替（Computer Use捕捉が壁紙、activate_window timeout）、全DPI/全モニター、長時間、旧絶対パスを遮断した別PC、全独自Procedure。APIで新版の利用中参照先と保存/応答は確認。
 - 再開: 本branchをfetchし、本記録・WORK_LOG・TEST_RESULTS_v1.3.0を読む。現行runtimeとPXPを原本として保護し、次版を新ディレクトリで作る。
 
+
+## 2026-11-09 v1.3.1 調査
+
+GitHub上のXRD最新版 bf0c637 とDesktop v1.3.0を確認。重複番号、復元可能な削除、浮動パネル、作図呼出し時の全件初期化を調査。対象と未確認はWORK_STATUS 1.13.0。
