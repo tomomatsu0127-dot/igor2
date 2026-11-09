@@ -1,0 +1,15 @@
+﻿Printf "%.0f",root:XRD129Isolation
+¶Printf "%.0f",root:XRD129Isolation  1243295752
+Error=0 
+Variable/G root:taskHistory=CaptureHistoryStart()
+¶Variable/G root:taskHistory=CaptureHistoryStart()
+Error=0 
+OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.9:xrd_main.ipf";OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.9:tests:xrd_v129_tests.ipf"
+¶OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.9:xrd_main.ipf";OpenProc "C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.9:tests:xrd_v129_tests.ipf"
+Error=0 
+MoveWindow/F 0,0,1920,1080
+¶MoveWindow/F 0,0,1920,1080
+Error=0 
+XRD_RunV129Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.9:tests:fixtures_v110:","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:scratch:v129:")
+¶XRD_RunV129Tests("C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:xrd_workbench_v1.2.9:tests:fixtures_v110:","C:Users:su200:.codex:.chatgpt-projects:g-p-6a5870af62f08191b290a75911038b0d:tmp:xrd-v1.2.1:scratch:v129:")  PASS: v129 fresh defaults are 16x12 cm  PASS: v129 user draft dimensions survive repeated default initialization  PASS: v129 plot rectangle remains 16x12 cm  PASS: v129 width and height stay Absolute  PASS: v129 aliases follow manual identification example  PASS: v129 seven phases remain in one legend  PASS: v129 two columns have four rows  PASS: v129 only one common font prefix and editable Unicode labels  PASS: v129 simple trace symbols and chemical labels retained  PASS: v129 Unicode width no longer uses byte-count floor  PASS: v129 explicit drag action still enables flexible mode  PASS: v129 flexible mode remains Auto after legend layout  PASS: v129 existing plot update succeeds with readable aliases  PASS: v129 update removes old phase aliases without duplicate traces  PASS: v129 plot rectangle remains 16x12 cm  PASS: v129 width and height stay Absolute  PASS: v129 palette refresh preserves manual legend edits  PASS: v129 native redisplay preserves manual legend edits  V129 FAILURES  0
+Error=0 

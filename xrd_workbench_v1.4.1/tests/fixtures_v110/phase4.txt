@@ -1,0 +1,7 @@
+# card_number: T110-4
+# name: phase 4
+# formula: CuO
+# phase_class: 
+h k l I 2theta d
+1 0 0 100 31 2.0
+1 1 0 30 58 1.0

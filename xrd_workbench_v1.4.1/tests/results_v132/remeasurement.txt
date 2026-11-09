@@ -1,0 +1,42 @@
+PASS: v131 permanent-delete control available
+XRD import rejected: Invalid two-column data at line 2
+PASS: v131 malformed file leaves old measurement untouched
+PASS: v131 old measurement has an adopted reference
+PASS: v131 register panel opens
+PASS: v131 registration window is ordinary
+PASS: v131 maximized workbench becomes a stable large window
+PASS: v131 plot window is ordinary
+PASS: v131 graph created
+PASS: v131 new graph takes foreground
+PASS: v131 creating figure preserves both window rectangles
+PASS: v131 user can bring plot panel above graph
+PASS: v131 reopening saved graph brings it forward
+BUG: CopyDimLabelToCString
+XRD measurement change stopped  39  can't kill a wave that is part of a graph, table or user function or is in use by an XOP
+BLOCKED_RESULT  -5
+PASS: v131 open user graph rolls replacement back
+PASS: v131 rollback returns without a pending Igor error
+PASS: v131 old reversible deletion still available
+REPLACEMENT_RESULT  0
+PASS: v131 remeasurement replaces soft-deleted number
+PASS: v131 old registry UID retired
+PASS: v131 new raw values with empty analysis
+PASS: v131 new measurement starts without previous lattice results
+PASS: v131 earlier plot kept as a stale snapshot
+PASS: v131 generated alias reused and other measurement retained
+元に戻しました：keep
+PASS: v131 unrelated undo works after deleted history entries
+やり直しました：keep
+PASS: v131 unrelated redo works
+BUG: CopyDimLabelToCString
+PURGE_RESULT  0
+PASS: v131 physical delete returns success
+PASS: v131 physical delete removes current measurement and registry
+PASS: v131 physical delete removes alias
+PASS: v131 physical delete removes the current and previous plots
+PASS: v131 permanently deleted number reusable
+PASS: v131 permanent delete preserves unrelated sample
+PASS: v131 remeasurement and purge preserve shared reference values
+PASS: v131 deletion leaves no pending Igor error
+V131 FAILURES  0
+XRD131_RunTests("<WORKSPACE>:xrd_workbench_v1.3.2:tests:fixtures_v070:","<WORKSPACE>:scratch:v132:")

@@ -1,0 +1,24 @@
+PASS: v132 purge button inside normal work group
+PASS: v132 purge button inside compact work group at text size 0
+PASS: v132 purge button inside compact work group at text size 1
+PASS: v132 purge button inside compact work group at text size 2
+PASS: v132 reference panel scrolls when viewport is smaller
+PASS: v132 reference viewport fits workspace
+PASS: v132 reopening library retains viewport and design canvas
+PASS: v132 library leaves workbench rectangle unchanged
+PASS: v132 registration viewport fits workspace
+PASS: v132 plot viewport fits workspace
+PASS: v132 create button within plot canvas
+PASS: v132 standalone composition typography
+PASS: v132 normalizes spacing and minus without changing other hyphens
+PASS: v132 normalizes spacing for positive composition
+PASS: v132 leaves unrelated words unchanged
+PASS: v132 retains manually styled labels
+PASS: v132 creates graph with formatted composition
+PASS: v132 keeps raw saved and editable labels
+PASS: v132 native annotation uses italic x, spaces and mathematical minus
+PASS: v132 graph foreground preserves panel rectangles
+PASS: v132 live update uses the same formatting
+PASS: v132 reopening a graph retains manual edits
+V132 FAILURES  0
+XRD132_RunTests("<WORKSPACE>:scratch:v132:")

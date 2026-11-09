@@ -1,0 +1,295 @@
+#pragma rtGlobals=3
+
+Function/S XRD141_FigureName(kind,project)
+    String kind,project
+    String name=""
+    if(strlen(project) && DataFolderExists(project))
+        name=XRD_ProjectDisplayName(project)
+    endif
+    return SelectString(strlen(name)>0,kind,kind+" "+name)
+End
+
+Function/S XRD141_ExportName(win)
+    String win
+    String recipe=GetUserData(win,"","XRDPlotRecipe"),kind="XRD",name="",project=""
+    if(strlen(recipe) && DataFolderExists(recipe))
+        if(strsearch(recipe,XRD133_TrendFigures()+":",0)==0)
+            kind="格子定数"
+        endif
+        project=XRD100_ProjectByUID(StrVarOrDefault(recipe+":ownerUID",""))
+        name=StrVarOrDefault(recipe+":ownerName141","")
+        if(!strlen(name))
+            Wave/T/Z names=$(recipe+":sourceProjects")
+            if(WaveExists(names) && numpnts(names)>0)
+                name=names[0]
+            endif
+        endif
+    endif
+    if(strlen(project))
+        name=XRD_ProjectDisplayName(project)
+    elseif(!strlen(name) && strlen(XRD_Project()))
+        name=XRD_ProjectDisplayName(XRD_Project())
+    endif
+    name=TrimString(name)
+    String invalid="<>:/|?*"+num2char(34)+num2char(92)
+    Variable i
+    for(i=0;i<strlen(invalid);i+=1)
+        name=ReplaceString(invalid[i],name,"_")
+    endfor
+    return kind+SelectString(strlen(name)>0,""," "+name)+".png"
+End
+
+Function/S XRD141_AxisLabelPath(base)
+    String base
+    return base+":"+StringFromList(NumVarOrDefault(base+":axis",1)-1,"temperatureLabel141;compositionLabel141;customLabel")
+End
+
+Function/S XRD141_TrendAxisText(base)
+    String base
+    Variable axis=NumVarOrDefault(base+":axis",1)
+    String text=TrimString(StrVarOrDefault(XRD141_AxisLabelPath(base),""))
+    if(!strlen(text) && axis==1)
+        return "\\f02T\\f00 (°C)"
+    elseif(!strlen(text) && axis==2)
+        return "\\f02x\\f00"
+    elseif(axis==3)
+        return XRD133_AxisLabel(base)
+    endif
+    return text
+End
+
+Function XRD141_FillReferenceCell(ref,cell)
+    Variable ref
+    Wave cell
+    cell=NaN
+    if(ref<=0)
+        return -1
+    endif
+    String rp=XRD_ReferencePath(ref)
+    if(!DataFolderExists(rp))
+        return -1
+    endif
+    Variable i
+    for(i=0;i<3;i+=1)
+        cell[i]=NumVarOrDefault(rp+":lattice"+StringFromList(i,"A;B;C")+"130",NaN)
+    endfor
+    if(numtype(cell[0])==0 && numtype(cell[2])==0)
+        return 0
+    endif
+    String hint=StrVarOrDefault(XRD80_Library()+":referenceFolderHint","")
+    String filename=StrVarOrDefault(rp+":fileName",""),full
+    if(strlen(hint) && strlen(filename) && cmpstr(hint,"未選択")!=0)
+        full=RemoveEnding(hint,":")+":"+filename
+        GetFileFolderInfo/Q/Z full
+        if(V_flag==0 && V_isFile)
+            Make/FREE/D/N=3 parsed=NaN
+            XRD130_ReadCell(full,parsed)
+            for(i=0;i<3;i+=1)
+                if(numtype(cell[i])!=0 && numtype(parsed[i])==0 && parsed[i]>0)
+                    cell[i]=parsed[i]
+                endif
+            endfor
+        endif
+    endif
+    return 0
+End
+
+Function/S XRD141_RefDraft(base,ref)
+    String base
+    Variable ref
+    String parent=base+":PlotReferences141"
+    String key=StrVarOrDefault(XRD_ReferencePath(ref)+":revisionUID","")
+    String folder=parent+":"+PossiblyQuoteName(SelectString(strlen(key)>0,"Ref"+num2istr(max(0,ref)),key))
+    NewDataFolder/O $parent
+    if(!DataFolderExists(folder))
+        NewDataFolder $folder
+        String/G $(folder+":aOverride")=""
+        String/G $(folder+":cOverride")=""
+    endif
+    return folder
+End
+
+Function/S XRD141_ReferenceHint(ref,canEdit)
+    Variable ref,canEdit
+    if(ref<=0)
+        return SelectString(canEdit,"参照値は相を選ぶと確認できます。","参照カードを特定できません。参照 a・c を入力すると点線に使います。")
+    endif
+    Make/FREE/D/N=3 cell
+    XRD141_FillReferenceCell(ref,cell)
+    String a=SelectString(numtype(cell[0])==0,"未収録",num2str(cell[0])+" Å")
+    String c=SelectString(numtype(cell[2])==0,"未収録",num2str(cell[2])+" Å")
+    return "参照カードの値   a: "+a+"     c: "+c+"   ／   空欄は自動。入力した数値を点線に使います。"
+End
+
+Function XRD141_TrendStyle(base,recipe,ref,message)
+    String base,recipe,&message
+    Variable ref
+    String folder=XRD141_RefDraft(base,ref)
+    String aText=TrimString(StrVarOrDefault(folder+":aOverride","")),cText=TrimString(StrVarOrDefault(folder+":cOverride",""))
+    Variable a=XRD133_ParseX(aText),c=XRD133_ParseX(cText)
+    Variable hasC=cmpstr(StrVarOrDefault(recipe+":crystal",XRD133_Crystal(base)),"六方晶")==0
+    if(strlen(aText) && (numtype(a)!=0 || a<=0))
+        message="参照 a には Å 単位で正の数値を入力してください。"
+        return -1
+    endif
+    if(hasC && strlen(cText) && (numtype(c)!=0 || c<=0))
+        message="参照 c には Å 単位で正の数値を入力してください。"
+        return -1
+    endif
+    Make/FREE/D/N=3 cell
+    XRD141_FillReferenceCell(ref,cell)
+    if(!strlen(aText))
+        a=SelectNumber(numtype(cell[0])==0,NumVarOrDefault(recipe+":referenceA",NaN),cell[0])
+    endif
+    if(hasC && !strlen(cText))
+        c=SelectNumber(numtype(cell[2])==0,NumVarOrDefault(recipe+":referenceC",NaN),cell[2])
+    endif
+    Variable lines=NumVarOrDefault(base+":referenceLines",1)
+    Variable/G $(recipe+":referenceA")=SelectNumber(lines,NaN,a)
+    Variable/G $(recipe+":referenceC")=SelectNumber(lines && hasC,NaN,c)
+    String/G $(recipe+":axisLabel")=XRD133_AxisLabel(base)
+    String/G $(recipe+":axisText141")=XRD141_TrendAxisText(base)
+    return 0
+End
+
+Function XRD141_TickStep(xx)
+    Wave xx
+    Variable n=numpnts(xx),span=xx[n-1]-xx[0],gap=Inf,i,delta
+    for(i=1;i<n;i+=1)
+        delta=xx[i]-xx[i-1]
+        if(delta>span*1e-9)
+            gap=min(gap,delta)
+        endif
+    endfor
+    Variable raw=max(span/8,min(gap,span/4)),factor=10^floor(log(raw))
+    Variable ratio=raw/factor,step=10
+    if(ratio<=1.000000001)
+        step=1
+    elseif(ratio<=2.000000001)
+        step=2
+    elseif(ratio<=2.500000001)
+        step=2.5
+    elseif(ratio<=5.000000001)
+        step=5
+    endif
+    return step*factor
+End
+
+Function/S XRD141_TickLabel(value,step,endpoint)
+    Variable value,step,endpoint
+    Variable digits=0,scaled
+    do
+        scaled=step*10^digits
+        if(digits>=12 || abs(scaled-round(scaled))<1e-7)
+            break
+        endif
+        digits+=1
+    while(1)
+    if(endpoint)
+        do
+            scaled=value*10^digits
+            if(digits>=12 || abs(scaled-round(scaled))<1e-7)
+                break
+            endif
+            digits+=1
+        while(1)
+    endif
+    String label
+    sprintf label,"%.*f",digits,value
+    return ReplaceString("-",label,"−")
+End
+
+Function XRD141_TrendXAxis(win,recipe,xx)
+    String win,recipe
+    Wave xx
+    Variable low=xx[0],high=xx[numpnts(xx)-1],i,value,count=1
+    if(high==low)
+        Variable pad=XRD133_PlotPadding(low,high)
+        SetAxis/W=$win bottom low-pad,high+pad
+        return 0
+    endif
+    Variable step=XRD141_TickStep(xx)
+    Make/O/D/N=11 $(recipe+":tickPositions141")
+    Make/O/T/N=11 $(recipe+":tickLabels141")
+    Wave positions=$(recipe+":tickPositions141")
+    Wave/T labels=$(recipe+":tickLabels141")
+    positions[0]=low
+    labels[0]=XRD141_TickLabel(low,step,1)
+    for(i=ceil(low/step);i*step<high && count<10;i+=1)
+        value=i*step
+        if(value-low<0.55*step || high-value<0.55*step)
+            continue
+        endif
+        positions[count]=value
+        labels[count]=XRD141_TickLabel(value,step,0)
+        count+=1
+    endfor
+    positions[count]=high
+    labels[count]=XRD141_TickLabel(high,step,1)
+    Redimension/N=(count+1) positions,labels
+    SetAxis/W=$win bottom low,high
+    ModifyGraph/W=$win userticks(bottom)={positions,labels}
+    return 0
+End
+
+Function XRD141_Arrow(win,xx,values,rightSide)
+    String win
+    Wave xx,values
+    Variable rightSide
+    String axis=SelectString(rightSide,"left","right")
+    GetAxis/W=$win/Q $axis
+    Variable tail=SelectNumber(rightSide,0.15,0.85),tip=SelectNumber(rightSide,0.05,0.95)
+    Variable x=xx[0]+(xx[numpnts(xx)-1]-xx[0])*tail
+    Variable y=interp(x,xx,values)
+    if(numtype(y)!=0)
+        y=values[SelectNumber(rightSide,0,numpnts(values)-1)]
+    endif
+    y=max(0.06,min(0.94,(V_max-y)/(V_max-V_min)))
+    Variable direction=SelectNumber(y>=0.20,1,-1)
+    Variable endY=y+direction*0.11
+    Variable red=SelectNumber(rightSide,55000,0),blue=SelectNumber(rightSide,0,54000)
+    SetDrawLayer/W=$win UserFront
+    SetDrawEnv/W=$win xcoord=prel,ycoord=prel,linefgc=(red,0,blue),linethick=3
+    DrawLine/W=$win tail,endY-direction*0.07,tail,endY
+    SetDrawEnv/W=$win xcoord=prel,ycoord=prel,linefgc=(red,0,blue),linethick=3,arrow=1,arrowlen=7,arrowfat=0.9,arrowsharp=0
+    DrawLine/W=$win tail,endY,tip,endY
+End
+
+Function XRD141_RefForFigure(recipe)
+    String recipe
+    String revision=StrVarOrDefault(recipe+":referenceRevisionUID","")
+    if(!strlen(revision))
+        return 0
+    endif
+    Variable i,n=NumVarOrDefault(XRD80_Library()+":referenceCount",0)
+    for(i=1;i<=n;i+=1)
+        if(cmpstr(StrVarOrDefault(XRD_ReferencePath(i)+":revisionUID",""),revision)==0)
+            return i
+        endif
+    endfor
+    return 0
+End
+
+Function/S XRD141_CopyTrend(source,project,message)
+    String source,project,&message
+    if(!strlen(source) || !DataFolderExists(source) || cmpstr(StrVarOrDefault(source+":ownerUID",""),StrVarOrDefault(project+":projectUID",""))!=0)
+        message="複製する保存図を選んでください。"
+        return ""
+    endif
+    String base=XRD133_TrendSettings(project)
+    Variable ref=XRD141_RefForFigure(source)
+    Variable/G $(base+":axis")=NumVarOrDefault(source+":axisKind",1)
+    String id="LTrend_"+XRD80_NewUID("F"),copy=XRD133_TrendFigures()+":"+id
+    DuplicateDataFolder $source,$copy
+    if(XRD141_TrendStyle(base,copy,ref,message)<0)
+        KillDataFolder/Z $copy
+        return ""
+    endif
+    String/G $(copy+":nativeMacro")=""
+    String/G $(copy+":plotUID")=id
+    String/G $(copy+":displayName")=XRD141_FigureName("格子定数",project)
+    String/G $(copy+":ownerName141")=XRD_ProjectDisplayName(project)
+    String/G $(copy+":created")=Secs2Date(DateTime,-2)+" "+Secs2Time(DateTime,3)
+    message="保存図を新しい書式で複製しました。"
+    return copy
+End

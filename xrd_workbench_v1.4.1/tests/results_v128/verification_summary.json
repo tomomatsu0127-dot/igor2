@@ -1,0 +1,14 @@
+{
+  "version": "1.2.8",
+  "native_assertions": {
+    "performance_regression": 12,
+    "workflow": 43,
+    "selection_manager": 26,
+    "comparison": 30,
+    "regression": 102,
+    "detector": 13
+  },
+  "total_pass": 226,
+  "fail": 0,
+  "environment": "Igor Pro 9.05 64-bit / Windows"
+}

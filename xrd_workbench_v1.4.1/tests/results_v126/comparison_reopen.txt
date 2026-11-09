@@ -1,0 +1,21 @@
+Printf "%.0f",root:XRD126Isolation
+¶Printf "%.0f",root:XRD126Isolation
+  1170526351
+Error=0 
+Variable/G root:taskHistory=CaptureHistoryStart()
+¶Variable/G root:taskHistory=CaptureHistoryStart()
+Error=0 
+OpenProc "<REPO>:xrd_workbench_v1.2.6:xrd_main.ipf";OpenProc "<REPO>:xrd_workbench_v1.2.6:tests:xrd_v126_tests.ipf"
+¶OpenProc "<REPO>:xrd_workbench_v1.2.6:xrd_main.ipf";OpenProc "<REPO>:xrd_workbench_v1.2.6:tests:xrd_v126_tests.ipf"
+Error=0 
+MoveWindow/F 0,0,1920,1080
+¶MoveWindow/F 0,0,1920,1080
+Error=0 
+XRD126_ReopenCheck()
+¶XRD126_ReopenCheck()
+  PASS: v126 fresh process retains exclusion and comparison order
+  PASS: v126 fresh process retains all display settings
+  PASS: v126 reopened readable traces resolve to existing aliases
+  PASS: v126 reopened runtime clean
+  V126_REOPEN_FAILURES  0
+Error=0 
