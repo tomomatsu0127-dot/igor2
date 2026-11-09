@@ -44,3 +44,16 @@
 - Added a five-minute idle native timer and two separate recovery generations. A real timer fired after 300.007 s; opened recovery copies resume saving into a new series. Verified original recovery bytes remain unchanged.
 - Final evidence: 266 native assertions; packed experiment and separate process reopen; legacy manager tables, 115 data field groups, native graph command and render comparison. One initial figure-suite run lacked a fixture at its expected sibling path; reran with the fixture in the correct test layout. Only passing final runs are distributed.
 - Updated versioned release docs, checksums and synthetic previews. Published no actual measurements, private Experiments or local test paths. No merge to main.
+
+## 2026-11-09 / v2.4.0 investigation
+
+- User requested contextual management, deletion and VSM replacement, disposable graphs with PNG export and preserved manager size, performance verification, and deployment to the desktop Experiment.
+- Branch baseline 15662fc. Private desktop copy contains 32 measurements, eight folders and nine archived graphs. Saved MH data and archive contents will be compared before and after migration.
+- Reproduced native Igor Windows MDI restoring a maximized manager when a standard graph is opened. Testing floating graph hosting and native close behavior.
+
+## 2026-11-09 / v2.4.0 implementation, validation and deployment
+
+- Kept Wave paths and identifiers through VSM replacement and row ordering. Logical folder deletion promotes children with a collision check. Separate source-file deletion requests confirmation in the app.
+- Used native floating hosts to keep the Windows MDI manager maximized. Verified standard plot dimensions, normal and floating PNG export, live archive overlay, silent close, and dependency-aware deletion. Igor 9 uses /K=1 and may serialize open preview windows through native PXP saving. Igor 10 uses /K=4.
+- Removed per-plot archive writes for new plots. Bulk check finds descendants per folder once and all-clear writes the check column in one operation. Same-workload median 37.2→11.3 ms and 27.5→7.2 ms respectively.
+- Compared 401 persisted MH records and 1,766 field groups on a private desktop copy with no changes. Validated in fresh processes before and after atomic desktop replacement. Exact original PXP kept as a separate backup. No real measurement files altered or committed.
