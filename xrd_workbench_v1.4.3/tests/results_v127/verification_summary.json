@@ -1,0 +1,17 @@
+{
+  "native_assertions": {
+    "workflow.txt": 43,
+    "workflow_reopen.txt": 6,
+    "regression.txt": 102,
+    "comparison.txt": 30,
+    "selection_manager.txt": 26,
+    "detector.txt": 13
+  },
+  "passed": 220,
+  "failed": 0,
+  "old_files_preserved": 251,
+  "all_old_hashes_equal": true,
+  "optimized_export_matches_original_bytes": true,
+  "actual_baseline_records": 2189758,
+  "actual_complex_waves": 0
+}

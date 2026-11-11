@@ -1,0 +1,45 @@
+{
+  "igor": "9.05 x64",
+  "native_assertions_passed": 97,
+  "native_failures": 0,
+  "suites": {
+    "windows": 8,
+    "arrows": 14,
+    "arrows_reopen": 4,
+    "layout": 22,
+    "figure": 17,
+    "workflow": 32
+  },
+  "experiment_records": {
+    "baseline": 6818104,
+    "preinit": 6818104,
+    "postinit": 6818104,
+    "reopen": 6818104
+  },
+  "experiment_differences": {
+    "baseline,preinit": {
+      "display": 1
+    },
+    "baseline,postinit": {
+      "display": 3,
+      "recovery": 1
+    },
+    "postinit,reopen": {
+      "display": 2
+    }
+  },
+  "ten_panel_switches_ms": {
+    "old": [
+      347.564,
+      362.303,
+      377.051,
+      362.764
+    ],
+    "new": [
+      334.348,
+      345.896,
+      275.428,
+      311.596
+    ]
+  }
+}

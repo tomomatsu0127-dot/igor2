@@ -1,0 +1,11 @@
+{
+  "card_number": "trend_hex",
+  "lattice": {
+    "a": 5.901,
+    "b": 5.901,
+    "c": 2.315e1,
+    "alpha": 90,
+    "beta": 90,
+    "gamma": 120
+  }
+}

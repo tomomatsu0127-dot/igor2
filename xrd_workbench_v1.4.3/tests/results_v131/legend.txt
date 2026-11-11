@@ -1,0 +1,20 @@
+PASS: v129 fresh defaults are 16x12 cm
+PASS: v129 user draft dimensions survive repeated default initialization
+PASS: v129 plot rectangle remains 16x12 cm
+PASS: v129 width and height stay Absolute
+PASS: v129 aliases follow manual identification example
+PASS: v129 seven phases remain in one legend
+PASS: v129 two columns have four rows
+PASS: v129 only one common font prefix and editable Unicode labels
+PASS: v129 simple trace symbols and chemical labels retained
+PASS: v129 Unicode width no longer uses byte-count floor
+PASS: v129 explicit drag action still enables flexible mode
+PASS: v129 flexible mode remains Auto after legend layout
+PASS: v129 existing plot update succeeds with readable aliases
+PASS: v129 update removes old phase aliases without duplicate traces
+PASS: v129 plot rectangle remains 16x12 cm
+PASS: v129 width and height stay Absolute
+PASS: v129 palette refresh preserves manual legend edits
+PASS: v129 native redisplay preserves manual legend edits
+V129 FAILURES  0
+XRD_RunV129Tests("<WORKSPACE>:xrd_workbench_v1.3.1:tests:fixtures_v110:","<WORKSPACE>:scratch:v131:")
