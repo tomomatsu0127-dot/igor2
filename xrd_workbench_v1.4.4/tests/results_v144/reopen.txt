@@ -1,0 +1,3 @@
+PASS: v144 the saved experiment retains inward ticks after restart
+PASS: v144 the saved figure can be reopened after restart
+V144 REOPEN FAILURES  0

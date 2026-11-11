@@ -1,0 +1,43 @@
+Printf "%.0f",root:XRD127Isolation
+¶Printf "%.0f",root:XRD127Isolation
+  148349537
+Error=0 
+Variable/G root:taskHistory=CaptureHistoryStart()
+¶Variable/G root:taskHistory=CaptureHistoryStart()
+Error=0 
+OpenProc "<REPO>:xrd_workbench_v1.2.7:xrd_main.ipf";OpenProc "<REPO>:xrd_workbench_v1.2.7:tests:xrd_v125_tests.ipf"
+¶OpenProc "<REPO>:xrd_workbench_v1.2.7:xrd_main.ipf";OpenProc "<REPO>:xrd_workbench_v1.2.7:tests:xrd_v125_tests.ipf"
+Error=0 
+MoveWindow/F 0,0,1920,1080
+¶MoveWindow/F 0,0,1920,1080
+Error=0 
+XRD_RunV125Tests()
+¶XRD_RunV125Tests()
+  PASS: v125 native list selection returns normal control result
+  PASS: v125 list click retains selected row and viewport 20
+  PASS: v125 selected stable peak ID matches clicked row
+  PASS: v125 native list selection returns normal control result
+  PASS: v125 list click retains selected row and viewport 18
+  PASS: v125 selected stable peak ID matches clicked row
+  PASS: v125 native list selection returns normal control result
+  PASS: v125 list click retains selected row and viewport 22
+  PASS: v125 selected stable peak ID matches clicked row
+  PASS: v125 native list selection returns normal control result
+  PASS: v125 list click retains selected row and viewport 33
+  PASS: v125 selected stable peak ID matches clicked row
+  PASS: v125 native list selection returns normal control result
+  PASS: v125 list click retains selected row and viewport 47
+  PASS: v125 selected stable peak ID matches clicked row
+  PASS: v125 native list selection returns normal control result
+  PASS: v125 list click retains selected row and viewport 59
+  PASS: v125 selected stable peak ID matches clicked row
+  PASS: v125 graph selection still brings selected peak into view
+  PASS: v125 title and empty-space clicks never change selected peak
+  PASS: v125 scroll notifications are not selections
+  PASS: v125 navigation preserves all angles IDs and raw values
+  PASS: v125 unsupported manager action has no data mutation
+  PASS: v125 manager restored with original geometry
+  PASS: v125 other floating panel restored with original geometry
+  PASS: v125 runtime clean
+  V125_FAILURES  0
+Error=0 

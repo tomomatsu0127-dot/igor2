@@ -1,0 +1,9 @@
+PASS: v142 cursor info works with project manager in front
+PASS: v142 Cursor A belongs to measured graph
+PASS: v142 rebuild restores cursor info with another panel in front
+PASS: v142 project manager keeps only its own controls
+PASS: v142 background rebuild preserves workbench rectangle
+PASS: v142 identification button and both graph children exist
+PASS: v142 candidate list is present without placeholder controls
+PASS: v142 background rebuild leaves project manager in front
+V142 WINDOW FAILURES  0

@@ -1,0 +1,38 @@
+PASS: v143 registers sample A
+PASS: v143 registers sample B
+PASS: v143 alerts on another phase in the same project and angular tolerance
+PASS: v143 same reference reflection does not warn
+PASS: v143 different reflections on the same card warn
+PASS: v143 outside the tolerance does not warn
+PASS: v143 excluded samples do not warn
+PASS: v143 Unknown does not warn
+PASS: v143 identification defaults leave vertical clearance
+PASS: v143 angle ticks point outward
+PASS: v143 workbench intensity range can be set
+PASS: v143 range survives refresh, modified callback and angular zoom
+PASS: v143 angular zoom remains available
+PASS: v143 full range restores intensity defaults
+PASS: v143 switching between measurement and identification keeps both views
+PASS: v143 live comparison uses sample number and composition
+PASS: v143 default overlay opacity is 40 percent
+PASS: v143 Experiment-wide opacity also applies to existing projects
+PASS: v143 expanded controls and legend export are separated
+PASS: v143 new figure uses Experiment-wide aspect
+PASS: v143 new figure uses Experiment-wide range and opacity
+PASS: v143 creates an overlay
+PASS: v143 PNG name uses data owner rather than active project
+PASS: v143 PNG export resolves the source of an Igor graph
+PASS: v143 overlay traces use the Experiment alpha
+PASS: v143 phase legend is top-centered
+PASS: v143 saved graph accepts new axis limits
+PASS: v143 manual mode retains the stored data
+PASS: v143 manual synchronization copies the changed data
+PASS: v143 sync retains axis limits
+PASS: v143 sync retains custom annotation
+PASS: v143 sync retains trace style
+PASS: v143 queued automatic synchronization refreshes data and phase
+PASS: v143 successful sync clears stale annotation
+PASS: v143 resets display name and original reference metadata in the draft
+PASS: v143 style control restores the name and type while retaining reference angles
+BUG: CopyDimLabelToCString
+V143 FAILURES  0

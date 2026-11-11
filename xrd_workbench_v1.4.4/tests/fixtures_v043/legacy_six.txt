@@ -1,0 +1,6 @@
+# card_number: TEST-LEGACY
+# formula: CuFeO2
+# name: Legacy reference
+l k h I 2theta d
+3 2 1 80 35.4 2.532
+-1 0 2 20 15.479 5.72

@@ -1,0 +1,6 @@
+PASS: v142 edited saved figure reopens
+PASS: v142 left arrow retained after reopening
+PASS: v142 right arrow retained after reopening
+PASS: v142 user axis range retained after reopening
+RESTART_FAILURES  0
+XRD142_CheckArrowReopen();Print "RESTART_FAILURES",NumVarOrDefault("root:XRDTestFailures",-1)

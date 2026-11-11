@@ -1,0 +1,34 @@
+PASS: v130 leading serial preserves zeroes
+PASS: v130 leading serial without underscore
+PASS: v130 non-leading digits never become a serial
+PASS: v130 smoothing candidate snaps to measured apex
+PASS: v130 robust detector finds both measured mountains
+PASS: v130 registered marker is an original measured apex 0
+PASS: v130 registered marker is an original measured apex 1
+PASS: v130 redundant project button is absent
+PASS: v130 step-one zoom span can be changed
+PASS: v130 measured-peak selection zooms to plus-minus five degrees
+PASS: v130 selecting a marker preserves peak coordinates and IDs
+PASS: v130 display markers remain on the measured curve
+PASS: v130 identified-sample-copy item removed from registration
+PASS: registration window is ordinary in v1.3.1
+PASS: v130 legend order has no unassigned-reference fallback
+PASS: v130 style target changes reuse the same native window
+PASS: v130 existing style editor is rebound to the chosen phase
+PASS: v130 lattice screen retains its comparison graph
+PASS: v130 lattice main graph has no reference sticks
+PASS: v130 lattice comparison has no reference sticks
+PASS: v130 explicit reference lattice constants appear beside fitted constants
+PASS: v130 reference metadata keys and nm units are normalized explicitly
+PASS: v130 unfinished data are available in the plot selector
+PASS: v130 pre-plot warning identifies unfinished source UIDs
+PASS: v130 acknowledged unfinished data can be saved as a figure recipe
+PASS: v130 an unfinished measurement produces a graph
+PASS: v130 source-project list consumes wheel scrolling inside its bounds
+PASS: v130 mouse wheel actually advances a long project list
+PASS: v130 tree rebuild preserves the visible scroll row
+PASS: v130 reference loader retains explicit lattice metadata
+同一内容の参照を保持: SYNTHETIC-CELL-130 (表示名・使用設定は変更しません)
+PASS: v130 identical reference cell metadata does not duplicate a reference
+PASS: v130 Ctrl+A is not intercepted as a cursor shortcut
+V130 FAILURES  0

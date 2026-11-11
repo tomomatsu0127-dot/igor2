@@ -1,0 +1,18 @@
+PASS: v141 automatically uses declared reference
+PASS: v141 automatic reference reads original TXT when metadata is missing
+PASS: v141 automatic reference reads the paired card JSON
+PASS: v141 manual a and c override the automatic reference
+PASS: v141 composition label can be edited
+PASS: v141 invalid reference override rejected
+PASS: v141 reformat produces a separate native graph
+PASS: v141 axis endpoints exactly match composition measurements
+PASS: v141 composition ticks every 0.1 with mathematical minus
+PASS: v141 temperature ticks preserve 50-degree spacing
+PASS: v141 colored native arrows replace legend
+PASS: v141 right label rotates and label gap is explicit
+PASS: v141 both reference lines plotted
+PASS: v141 lattice PNG default contains project
+PASS: v141 XRD PNG default contains project
+PASS: v141 native layout and ticks reopen
+PASS: v141 source figure retained
+V141 FAILURES  0

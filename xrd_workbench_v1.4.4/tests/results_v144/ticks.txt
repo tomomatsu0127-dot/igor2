@@ -1,0 +1,13 @@
+PASS: v144 Workbench pattern has inward ticks
+PASS: v144 embedded comparison has inward ticks
+PASS: v144 changing Workbench limits preserves inward ticks
+PASS: v144 Workbench accepts both intensity limits
+PASS: v144 reopening an old live comparison restores inward ticks
+PASS: v144 new plot mirrors the inward ticks at the top
+PASS: v144 existing open plot is corrected
+PASS: v144 an old saved native plot reopens with inward ticks
+PASS: v144 correcting an old plot preserves intensity limits
+PASS: v144 correcting an old plot preserves angular limits
+PASS: v144 correcting an old plot preserves custom labels and line width
+BUG: CopyDimLabelToCString
+V144 FAILURES  0
