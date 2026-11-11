@@ -29,6 +29,20 @@ Function XRD143_ResetReferenceName(index,draft)
     return 0
 End
 
+Function XRD143_StyleResetButton(ba) : ButtonControl
+    STRUCT WMButtonAction &ba
+    if(ba.eventCode!=2 || cmpstr(GetUserData(ba.win,"","XRDProject"),XRD_Project())!=0)
+        return 0
+    endif
+    Variable index=str2num(GetUserData(ba.win,"","XRDRef"))
+    String rp=XRD_ReferencePath(index)
+    if(XRD143_ResetReferenceName(index,rp)<0)
+        return -1
+    endif
+    String/G $(rp+":typeOverride")="自動"
+    return XRD143_RefreshReferenceStyle(index)
+End
+
 Function XRD143_SameReflection(ref,reflection,otherRef,otherReflection)
     Variable ref,reflection,otherRef,otherReflection
     if(ref==otherRef)

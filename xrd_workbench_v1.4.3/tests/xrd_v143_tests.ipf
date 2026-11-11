@@ -82,6 +82,12 @@ Function XRD143_RunTests(fixtures,output)
     XRD_TestCheck(XRD143_SetDefaults(18,10,-25,145,55)==0 && NumVarOrDefault(project+":previewOpacity",0)==55 && NumVarOrDefault(active+":previewOpacity",0)==55,"v143 Experiment-wide opacity also applies to existing projects")
     XRD_PlotWorkspace()
     String ui=XRD_PlotRoot()+":UI"
+    Variable/G $(ui+":showDetails")=1
+    XRD_PlotDetailControls()
+    ControlInfo/W=XRDPlotWorkspace figureSettings
+    Variable settingsBottom=V_top+V_height
+    ControlInfo/W=XRDPlotWorkspace exportLegend
+    XRD_TestCheck(settingsBottom<V_top,"v143 expanded controls and legend export are separated")
     XRD_TestCheck(abs(NumVarOrDefault(ui+":width",0)-18*72/2.54)<1e-6 && abs(NumVarOrDefault(ui+":height",0)-10*72/2.54)<1e-6,"v143 new figure uses Experiment-wide aspect")
     XRD_TestCheck(NumVarOrDefault(ui+":yMax143",0)==145 && NumVarOrDefault(ui+":opacity143",0)==55,"v143 new figure uses Experiment-wide range and opacity")
     Wave flags=$(ui+":flags")
@@ -90,6 +96,10 @@ Function XRD143_RunTests(fixtures,output)
     String recipe=XRD_PlotSaveDraft("",warnIncomplete=0),win="XRDP_"+StrVarOrDefault(recipe+":plotUID","")
     XRD_TestCheck(strlen(recipe)>0 && XRD_PlotDrawRecipe(recipe,0)==0,"v143 creates an overlay")
     XRD_TestCheck(cmpstr(XRD141_ExportName(win),"XRD DataOwner.png")==0,"v143 PNG name uses data owner rather than active project")
+    Wave rawX=$(a+":Raw:twoTheta"),rawY=$(a+":Processed:intensity")
+    Display/K=1/N=SourceGraph143 rawY vs rawX
+    XRD_TestCheck(cmpstr(XRD141_ExportName("SourceGraph143"),"XRD DataOwner.png")==0,"v143 PNG export resolves the source of an Igor graph")
+    KillWindow SourceGraph143
     XRD_TestCheck(strsearch(WinRecreation(win,0),"36044",0)>=0,"v143 overlay traces use the Experiment alpha")
     XRD_TestCheck(strsearch(AnnotationInfo(win,"Phases",0),"A=MT",0)>=0,"v143 phase legend is top-centered")
     XRD_TestCheck(XRD143_SetRange(win,-10,167)==0,"v143 saved graph accepts new axis limits")
@@ -120,6 +130,21 @@ Function XRD143_RunTests(fixtures,output)
     String/G $(draft+":phaseClass")="Custom-type"
     XRD_TestCheck(XRD143_ResetReferenceName(1,draft)==0 && !strlen(StrVarOrDefault(draft+":displayOverride","missing")) && cmpstr(StrVarOrDefault(draft+":phaseClass",""),StrVarOrDefault(rp+":origin_phaseClass",""))==0,"v143 resets display name and original reference metadata in the draft")
     KillWindow/Z XRDLibrary
+    String/G root:Packages:XRDWorkbench:activeProject=project
+    XRD_Panel()
+    XRD_StylePanel()
+    Variable activeRef=str2num(GetUserData("XRDStyles","","XRDRef"))
+    String styled=XRD_ReferencePath(activeRef)
+    Wave cardAngles=$(styled+":twoTheta")
+    Variable angleCRC=WaveCRC(0,cardAngles)
+    String/G $(styled+":phaseName")="spinel"
+    String/G $(styled+":displayOverride")="spinel"
+    String/G $(styled+":typeOverride")="QS-type"
+    STRUCT WMButtonAction restore
+    restore.eventCode=2
+    restore.win="XRDStyles"
+    XRD_TestCheck(XRD143_StyleResetButton(restore)==0 && !strlen(StrVarOrDefault(styled+":displayOverride","missing")) && cmpstr(StrVarOrDefault(styled+":typeOverride",""),"自動")==0 && WaveCRC(0,cardAngles)==angleCRC,"v143 style control restores the name and type while retaining reference angles")
+    KillWindow/Z XRDStyles
     SavePICT/O/E=-5/WIN=$win as output+"overlay143c.png"
     XRD_PlotCaptureNative(recipe)
     String/G root:testRecipe143=recipe

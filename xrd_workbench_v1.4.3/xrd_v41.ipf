@@ -123,6 +123,12 @@ Function XRD_StyleTypeAction(pa) : PopupMenuControl
     Variable index=str2num(GetUserData("XRDStyles","","XRDRef"))
     String rp=XRD_ReferencePath(index)
     String/G $(rp+":typeOverride")=pa.popStr
+    return XRD143_RefreshReferenceStyle(index)
+End
+
+Function XRD143_RefreshReferenceStyle(index)
+    Variable index
+    String rp=XRD_ReferencePath(index)
     // Replace only this reference's group; other existing groups are retained.
     String/G $(rp+":styleGroup")=""
     String/G $(rp+":styleGroup")=XRD_PhaseLabel(index)

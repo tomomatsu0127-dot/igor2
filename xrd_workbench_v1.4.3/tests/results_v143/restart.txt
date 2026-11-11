@@ -1,0 +1,5 @@
+PASS: v143 synchronization setting persists across restart
+PASS: v143 Experiment defaults persist across restart
+PASS: v143 native graph reopens after process restart
+PASS: v143 manual range and annotation persist after restart
+V143 REOPEN FAILURES  0

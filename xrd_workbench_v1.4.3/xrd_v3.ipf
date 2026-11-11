@@ -347,7 +347,8 @@ Function XRD_StylePanel()
     CheckBox usedOnly,pos={15,228},title="同定に使った相だけを表示",variable=root:Packages:XRDWorkbench:UI:styleUsedOnly81,proc=XRD81_StyleFilter
     SetVariable markerSize,pos={270,228},size={200,22},title="記号サイズ",limits={1,20,0.5},value=root:Packages:XRDWorkbench:UI:markerSize81,proc=XRD81_StyleSize
     Button apply,pos={15,263},size={455,28},title="Experiment内のグラフへ反映",proc=XRD_ApplyStyleButton
-    Button legendOrder,pos={15,308},size={455,25},title="使用中の相の凡例順を並べ替える",proc=XRD_V70Button
+    Button legendOrder,pos={15,308},size={250,25},title="使用中の相の凡例順を並べ替える",proc=XRD_V70Button
+    Button originalName143,pos={275,308},size={195,25},title="参照名・分類を元に戻す",proc=XRD143_StyleResetButton
     XRD123_FinishPanel("XRDStyles",panelState123)
     return 0
 End

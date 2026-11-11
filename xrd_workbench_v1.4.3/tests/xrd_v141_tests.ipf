@@ -58,7 +58,7 @@ Function XRD141_RunFigureTests(fixture,output)
     XRD_TestCheck(cmpstr(XRD141_ExportName(win),XRD141_FigureName("格子定数",project)+".png")==0,"v141 lattice PNG default contains project")
     Display/K=1/N=XRD141SpectrumTest tickValues
     SetWindow XRD141SpectrumTest userdata(XRDPlotRecipe)=project
-    XRD_TestCheck(cmpstr(XRD141_ExportName("XRD141SpectrumTest"),XRD141_FigureName("XRD",project)+".png")==0,"v141 XRD PNG default contains project")
+    XRD_TestCheck(cmpstr(XRD141_ExportName("XRD141SpectrumTest"),"XRD.png")==0,"v143 graph without source provenance uses a generic PNG name")
     KillWindow XRD141SpectrumTest
     SavePICT/O/E=-5/WIN=$win as output+"figure141.png"
     WaveClear tickValues,tickLabels

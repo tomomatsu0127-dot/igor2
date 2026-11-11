@@ -232,7 +232,7 @@ Function XRD_VerifyV120Restored()
     XRD_ResizePanel()
     XRD100_Select(path,0,1)
     GetAxis/W=XRDWorkbench#Pattern/Q left
-    XRD_TestCheck(V_min==-30 && V_max==110,"v120 actual reopen keeps fixed identification Y bounds")
+    XRD_TestCheck(V_min==XRD143_Default("yMin") && V_max==XRD143_Default("yMax143"),"v143 actual reopen retains the default identification range")
     NVAR failures=root:XRDTestFailures
     Print "v120 reopened failures="+num2istr(failures)
     return failures
@@ -261,14 +261,14 @@ Function XRD_RunV120Changes(path,other,p1,p2,recipe,output)
     XRD_TestCheck(V_flag==1 && V_width>=300 && V_height>=25,"v120 operation menu has a readable native button")
     XRD100_Select(path,0,1)
     GetAxis/W=XRDWorkbench#Pattern/Q left
-    XRD_TestCheck(V_min==-30 && V_max==110,"v120 first peak zoom leaves Y fixed")
+    XRD_TestCheck(V_min==XRD143_Default("yMin") && V_max==XRD143_Default("yMax143"),"v143 first peak zoom preserves intensity bounds")
     XRD100_Select(path,8,1)
     GetAxis/W=XRDWorkbench#Pattern/Q left
-    XRD_TestCheck(V_min==-30 && V_max==110,"v120 moving to another peak leaves Y fixed")
+    XRD_TestCheck(V_min==XRD143_Default("yMin") && V_max==XRD143_Default("yMax143"),"v143 selecting another peak preserves intensity bounds")
     SetAxis/W=XRDWorkbench#Pattern left 1,20
-    XRD120_LockY()
+    XRD_ViewDeferred()
     GetAxis/W=XRDWorkbench#Pattern/Q left
-    XRD_TestCheck(V_min==-30 && V_max==110,"v120 native zoom Y changes are restored to fixed bounds")
+    XRD_TestCheck(V_min==1 && V_max==20,"v143 native intensity zoom remains adjustable")
     XRD_ResetView()
     XRD_TestCheck(strsearch(XRD120_StrongMissing(path,1,0),"第2ピーク",0)>=0,"v120 secondary reference below 70 percent still warns")
     XRD_TestCheck(strsearch(XRD120_StrongMissing(path,1,0),"主ピーク",0)<0,"v120 primary assigned to a different phase still counts as present")

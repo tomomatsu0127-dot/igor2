@@ -423,6 +423,9 @@ Function XRD_PlotDetailControls()
     Button open,win=XRDPlotWorkspace,pos={640,actionsY}
     Button saveNative,win=XRDPlotWorkspace,pos={15,actionsY+50}
     Button figureSettings,win=XRDPlotWorkspace,pos={485,actionsY+50}
+    SetVariable legendColumns,win=XRDPlotWorkspace,pos={15,actionsY+100}
+    CheckBox legendSeparate,win=XRDPlotWorkspace,pos={245,actionsY+100}
+    Button exportLegend,win=XRDPlotWorkspace,pos={655,actionsY+95}
     return 0
 End
 
