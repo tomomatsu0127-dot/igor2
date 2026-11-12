@@ -1,3 +1,10 @@
+# WORK_STATUS — 手作業 XRD 移行ツール v0.1.1 / 2026-11-12 JST
+
+- 開始 7dc0de2577031c023f5c2afd6ec85a799d5e8dee。配布ソース tools/legacy_xrd_migration_v0.1.1。
+- 初版は Workbench 本体が読み込まれていない Experiment で追加 IPF を開くと、`XRD82_ValidIndex` を解決できずコンパイルが停止した。
+- 起動用 `start_xrd_migration.ipf` と配布 ZIP を追加。空の Experiment で同梱の Workbench v1.4.4 を起動し、既存の v1.4.4 では本体を再利用する。保存済みの一般 Experiment では空の移行先を案内する。
+- Igor Pro 9.05 で空の Experiment、先に Workbench を開いた環境、保存済み一般 Experiment の3経路を確認。前2経路は実ファイルの複製から測定10組を検出し、移行画面を表示した。ZIP は61項目、再作成した ZIP と全項目一致。移行・解析コードは初版と同一。
+
 # WORK_STATUS — 手作業 XRD 移行ツール v0.1.0 / 2026-11-12 JST
 
 - 開始 226e84fd3fdef31d56d30fffffb3f4a97fae8ba0（codex/xrd-v1.4.4）。作業ブランチ codex/legacy-xrd-migration-v0.1.0。配布先 tools/legacy_xrd_migration_v0.1.0。
