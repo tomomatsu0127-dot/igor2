@@ -1,3 +1,10 @@
+# WORK_STATUS — 手作業 XRD 移行ツール v0.1.0 / 2026-11-12 JST
+
+- 開始 226e84fd3fdef31d56d30fffffb3f4a97fae8ba0（codex/xrd-v1.4.4）。作業ブランチ codex/legacy-xrd-migration-v0.1.0。配布先 tools/legacy_xrd_migration_v0.1.0。
+- Workbench v1.4.4 用の任意追加 IPF。旧 .pxp を読み取り専用で読み込み、Wave 組の自動候補または手動選択、登録前の照合、曲線のみ登録、選択中試料の移行記録を提供。元 Experiment の研究データを Git に含めていない。
+- Windows Igor Pro 9.05。実データコピーの全測定で元角度・強度と登録値が一致。ピークと同定の参照先を別インスタンス再読込で確認。合成 Wave の手動選択、実ファイルの自動プレビュー、曲線のみ登録、番号重複・再登録の拒否も確認。
+- 初版の対象は別 Wave の1次元 2θ・強度。相同定の自動照合は文書記載の命名規則と hkl のある場合。図の自由描画、X スケール付き単独 Wave、他の Igor／Workbench 版は対象外または未検証。本体の統合・配布済み環境への自動適用なし。
+
 # WORK_STATUS — v1.4.4 / 2026-11-11 JST
 
 管理版 1.19.2。実装・検証・Desktop適用完了。main未統合。ブランチ codex/xrd-v1.4.4。開始 86175433b63b6f607fe79cf4c7417b4c2209e602。実装先 xrd_workbench_v1.4.4。
